@@ -1,0 +1,18 @@
+.es-action-heading {
+  align-items: center;
+  display: flex;
+
+  &__title {
+    margin-right: 16px !important;
+  }
+
+  &__action {
+    &.mat-mini-fab {
+      box-shadow: none !important;
+
+      &:active {
+        box-shadow: none !important;
+      }
+    }
+  }
+}

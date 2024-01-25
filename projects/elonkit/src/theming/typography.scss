@@ -1,0 +1,149 @@
+@use '@angular/material' as mat;
+@use 'sass:math';
+
+@function es-rem($px, $px-base: 16) {
+  @return #{math.div($px, $px-base)}rem;
+}
+
+$es-font-family: 'Roboto, "Helvetica Neue", sans-serif';
+
+$es-typography: (
+  0: (
+    h1:
+      mat.define-typography-level(
+        es-rem(40),
+        es-rem(48),
+        600,
+        $es-font-family,
+        $letter-spacing: es-rem(0.2)
+      ),
+    h2:
+      mat.define-typography-level(
+        es-rem(34),
+        es-rem(40),
+        600,
+        $es-font-family,
+        $letter-spacing: es-rem(0.1)
+      ),
+    h3:
+      mat.define-typography-level(es-rem(28), es-rem(36), 600, $es-font-family, $letter-spacing: 0),
+    h4:
+      mat.define-typography-level(
+        es-rem(24),
+        es-rem(28),
+        500,
+        $es-font-family,
+        $letter-spacing: es-rem(0.15)
+      ),
+    h5:
+      mat.define-typography-level(
+        es-rem(20),
+        es-rem(24),
+        500,
+        $es-font-family,
+        $letter-spacing: es-rem(0.2)
+      ),
+    h6:
+      mat.define-typography-level(
+        es-rem(18),
+        es-rem(24),
+        500,
+        $es-font-family,
+        $letter-spacing: es-rem(0.15)
+      ),
+    subtitle-1:
+      mat.define-typography-level(
+        es-rem(16),
+        es-rem(20),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(0.15)
+      ),
+    subtitle-2:
+      mat.define-typography-level(
+        es-rem(14),
+        es-rem(16),
+        500,
+        $es-font-family,
+        $letter-spacing: es-rem(0.1)
+      ),
+    body-400:
+      mat.define-typography-level(
+        es-rem(20),
+        es-rem(32),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(0.5)
+      ),
+    body-300:
+      mat.define-typography-level(
+        es-rem(18),
+        es-rem(28),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(0.5)
+      ),
+    body-200:
+      mat.define-typography-level(
+        es-rem(16),
+        es-rem(24),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(0.5)
+      ),
+    body-100:
+      mat.define-typography-level(
+        es-rem(14),
+        es-rem(20),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(0.25)
+      ),
+    button:
+      mat.define-typography-level(
+        es-rem(14),
+        es-rem(16),
+        500,
+        $es-font-family,
+        $letter-spacing: es-rem(0.5)
+      ),
+    caption:
+      mat.define-typography-level(
+        es-rem(12),
+        es-rem(16),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(0.4)
+      ),
+    overline:
+      mat.define-typography-level(
+        es-rem(10),
+        es-rem(16),
+        400,
+        $es-font-family,
+        $letter-spacing: es-rem(1.2)
+      ),
+    mini-m:
+      mat.define-typography-level(es-rem(11), es-rem(16), 600, $es-font-family, $letter-spacing: 0),
+    mini-s:
+      mat.define-typography-level(es-rem(9), es-rem(14), 400, $es-font-family, $letter-spacing: 0)
+  )
+);
+
+@mixin es-typography($es-theme) {
+  @each $name, $level in map-get(map-get($es-theme, typography), 0) {
+    .es-#{$name} {
+      margin: 0;
+
+      @each $breakpoint, $levels in map-get($es-theme, typography) {
+        @if $breakpoint == 0 {
+          @include mat.typography-level($levels, $name);
+        } @else {
+          @media (min-width: #{$breakpoint}px) {
+            @include mat.typography-level($levels, $name);
+          }
+        }
+      }
+    }
+  }
+}

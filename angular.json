@@ -1,0 +1,65 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "elonkit": {
+      "projectType": "library",
+      "root": "projects/elonkit",
+      "sourceRoot": "projects/elonkit/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/elonkit/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/elonkit/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/elonkit/tsconfig.lib.json"
+            },
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {}
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/elonkit/.storybook",
+            "browserTarget": "elonkit:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/elonkit"
+            ],
+            "styles": ["node_modules/material-icons/iconfont/material-icons.scss"],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/elonkit/.storybook",
+            "browserTarget": "elonkit:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/elonkit"
+            ],
+            "outputDir": "storybook-static"
+          }
+        }
+      }
+    }
+  }
+}
