@@ -1,0 +1,112 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Canvas } from '~storybook/components';
+
+import { action } from '@storybook/addon-actions';
+
+import { ESPaginatorComponent } from '..';
+
+import {
+  PaginatorStoryBasicModule,
+  PaginatorStoryBasicComponent,
+  PAGINATOR_STORY_BASIC_SOURCE
+} from './paginator-story-basic';
+
+import {
+  PaginatorStoryPageSizeOptionsModule,
+  PaginatorStoryPageSizeOptionsComponent,
+  PAGINATOR_STORY_PAGE_SIZE_OPTIONS_SOURCE
+} from './paginator-story-page-size-options';
+
+<Meta
+  title='UI/Paginator'
+  args={{
+    count: 100,
+    siblingCount: 2,
+    boundaryCount: 1
+  }}
+  argTypes={{
+    count: {
+      control: 'number'
+    },
+    siblingCount: {
+      control: 'number'
+    },
+    boundaryCount: {
+      control: 'number'
+    }
+  }}
+/>
+
+# Paginator
+
+The paginator allows the user to select a specific page from a range of pages.
+
+## Demos
+
+<Canvas source={PAGINATOR_STORY_BASIC_SOURCE}>
+  <Story name='Basic' height='270px'>
+    {((args) => ({
+      component: PaginatorStoryBasicComponent,
+      moduleMetadata: {
+        imports: [PaginatorStoryBasicModule]
+      },
+      props: {
+        ...args
+      }
+    })).bind({})}
+  </Story>
+</Canvas>
+
+We can override default page size options.
+
+<Canvas source={PAGINATOR_STORY_PAGE_SIZE_OPTIONS_SOURCE}>
+  <Story name='Page size options' height='250px'>
+    {((args) => ({
+      component: PaginatorStoryPageSizeOptionsComponent,
+      moduleMetadata: {
+        imports: [PaginatorStoryPageSizeOptionsModule]
+      },
+      props: {
+        ...args,
+        pageSizeOptions: [5, 6, 7, 8, 9, 10]
+      }
+    })).bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ESPaginatorComponent} />
+
+## Interfaces
+
+```ts
+interface ESPaginatorDefaultOptions {
+  pageSizeOptions?: number[];
+  siblingCount?: number;
+  boundaryCount?: number;
+  typography?: string;
+}
+```
+
+## Constants
+
+Injection token that can be used to configure the default options for all components within an app.
+
+```ts
+import { ES_PAGINATOR_DEFAULT_OPTIONS } from '@elonkit/angular/ui/paginator';
+
+@NgModule({
+  providers: [
+    {
+      provide: ES_PAGINATOR_DEFAULT_OPTIONS,
+      useValue: {
+        pageSizeOptions: [5, 10, 25, 50, 100, 250, 500],
+        siblingCount: 2,
+        boundaryCount: 1,
+        typography: 'es-caption'
+      }
+    }
+  ]
+})
+```

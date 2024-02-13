@@ -1,0 +1,168 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Canvas } from '~storybook/components';
+
+import { action } from '@storybook/addon-actions';
+
+import { ESAlertModule, ESAlertComponent } from '..';
+
+import { ALERT_STORY_BASIC_SOURCE } from './alert-story-basic';
+import { ALERT_STORY_ACTIONS_SOURCE } from './alert-story-actions';
+import {
+  AlertStoryIconMappingModule,
+  AlertStoryIconMappingComponent,
+  ALERT_STORY_ICON_MAPPING_SOURCE
+} from './alert-story-icon-mapping';
+
+<Meta
+  title='UI/Alert'
+  args={{
+    content: '',
+    variant: 'info',
+    closable: false,
+    title: ''
+  }}
+  argTypes={{
+    variant: {
+      control: { type: 'select', options: ['default', 'info', 'success', 'warning', 'error'] }
+    },
+    closable: {
+      control: 'boolean'
+    }
+  }}
+/>
+
+# Alert
+
+An alert displays a short, important message in a way that attracts the user's attention without
+interrupting the user's task.
+
+## Demos
+
+export const getContent = (args, context) => {
+  return args.content || (context.globals.locale === 'en' ? 'Message' : 'Сообщение');
+};
+
+export const getTitle = (args, context) => {
+  return args.title || (context.globals.locale === 'en' ? 'Title' : 'Заголовок');
+};
+
+export const TemplateBasic = (args, context) => ({
+  template: `
+        <es-alert
+          [variant]="variant"
+          [closable]="closable"
+          (closed)="onClose()"
+        >
+          <ng-container role="title">{{title}}</ng-container>
+          {{content}}
+        </es-alert>
+      `,
+  moduleMetadata: {
+    imports: [ESAlertModule]
+  },
+  props: {
+    ...args,
+    title: getTitle(args, context),
+    content: getContent(args, context),
+    onClose: action('onClose')
+  }
+});
+
+<Canvas source={ALERT_STORY_BASIC_SOURCE}>
+  <Story name='Basic' height='100px'>
+    {TemplateBasic.bind({})}
+  </Story>
+  <Story name='DOCS_ONLY_Closable' height='100px' args={{ closable: true }}>
+    {TemplateBasic.bind({})}
+  </Story>
+</Canvas>
+
+We can add actions.
+
+<Canvas source={ALERT_STORY_ACTIONS_SOURCE}>
+  <Story name='Actions' height='200px'>
+    {((args, context) => ({
+      template: `
+        <es-alert
+          [variant]="variant"
+          [closable]="closable"
+          (closed)="onClose()"
+        >
+          <ng-container role="title">{{title}}</ng-container>
+          {{content}}
+          <es-alert-actions>
+            <button mat-flat-button (click)="onAction()">Action</button>
+            <button mat-button (click)="onCancel()">Cancel</button>
+          </es-alert-actions>
+        </es-alert>
+      `,
+      moduleMetadata: {
+        imports: [ESAlertModule]
+      },
+      props: {
+        ...args,
+        title: getTitle(args, context),
+        content: getContent(args, context),
+        onClose: action('onClose'),
+        onAction: action('onAction'),
+        onCancel: action('onCancel')
+      }
+    })).bind({})}
+  </Story>
+</Canvas>
+
+We can override default icon mapping and individual icons.
+
+<Canvas source={ALERT_STORY_ICON_MAPPING_SOURCE}>
+  <Story
+    name='Icon mapping'
+    height='400px'
+    argTypes={{
+      variant: { table: { disable: true } }
+    }}
+  >
+    {((args, context) => ({
+      component: AlertStoryIconMappingComponent,
+      moduleMetadata: {
+        imports: [AlertStoryIconMappingModule]
+      },
+      props: {
+        ...args,
+        title: getTitle(args, context),
+        content: getContent(args, context),
+        onClose: action('onClose')
+      }
+    })).bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ESAlertComponent} />
+
+## Constants
+
+Injection token that can be used to configure the default options for all components within an app.
+
+```ts
+import { ES_ALERT_DEFAULT_OPTIONS } from '@elonkit/angular/ui/alert';
+
+@NgModule({
+  providers: [
+    {
+      provide: ES_ALERT_DEFAULT_OPTIONS,
+      useValue: {
+        typography: 'mat-body-2',
+        titleTypography: 'mat-body-2',
+        iconMapping: {
+          default: { icon: 'info' },
+          info: { icon: 'info' },
+          success: { icon: 'check_circle' },
+          warning: { icon: 'warning' },
+          error: { icon: 'error' }
+        }
+      }
+    }
+  ]
+})
+```

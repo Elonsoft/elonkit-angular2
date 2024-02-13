@@ -1,0 +1,63 @@
+.es-breadcrumbs-breadcrumb {
+  $root: '.es-breadcrumbs-breadcrumb';
+
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &__link {
+    align-items: center;
+    border-radius: 4px;
+    display: flex;
+    height: 24px;
+    min-width: 0;
+    overflow: hidden;
+    text-decoration: none;
+    transition: 200ms;
+
+    &:not(&_last) {
+      &:hover,
+      &:focus {
+        outline: 0;
+      }
+    }
+  }
+
+  &__icon {
+    + #{$root}__label {
+      margin-left: 4px;
+    }
+  }
+
+  &__label {
+    overflow: hidden;
+    padding: 4px;
+    text-overflow: ellipsis;
+  }
+
+  &__menu {
+    &.mat-icon-button {
+      border-radius: 4px;
+      height: 24px;
+      line-height: 20px;
+      width: 20px;
+
+      &:hover,
+      &:focus {
+        outline: 0;
+      }
+    }
+
+    .mat-icon {
+      align-items: center;
+      display: flex;
+      height: 24px;
+      justify-content: center;
+      line-height: 20px;
+      width: 20px;
+    }
+  }
+}

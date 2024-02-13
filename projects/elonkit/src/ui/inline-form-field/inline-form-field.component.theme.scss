@@ -1,0 +1,16 @@
+@mixin es-inline-form-field-theme($theme, $elonkit-theme) {
+  .es-inline-form-field {
+    &__button {
+      .mat-icon {
+        color: mat.get-color-from-palette(map-get($elonkit-theme, mono-a), A500);
+      }
+
+      // stylelint-disable-next-line
+      &.es-inline-form-field__button_save {
+        .mat-icon {
+          color: mat.get-color-from-palette(map-get($elonkit-theme, positive));
+        }
+      }
+    }
+  }
+}

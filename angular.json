@@ -14,13 +14,14 @@
           "options": {
             "project": "projects/elonkit/ng-package.json"
           },
+          "styles": ["node_modules/material-icons/iconfont/material-icons.css"],
           "configurations": {
             "production": {
               "tsConfig": "projects/elonkit/tsconfig.lib.prod.json"
             },
             "development": {
               "tsConfig": "projects/elonkit/tsconfig.lib.json"
-            },
+            }
           },
           "defaultConfiguration": "production"
         },
@@ -40,7 +41,7 @@
               "-d",
               "projects/elonkit"
             ],
-            "styles": ["node_modules/material-icons/iconfont/material-icons.scss"],
+            "styles": ["node_modules/material-icons/iconfont/material-icons.css"],
             "port": 6006
           }
         },
@@ -56,6 +57,7 @@
               "-d",
               "projects/elonkit"
             ],
+            "styles": ["node_modules/material-icons/iconfont/material-icons.css"],
             "outputDir": "storybook-static"
           }
         }

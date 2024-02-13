@@ -1,0 +1,147 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Canvas } from '~storybook/components';
+import { CoreModule } from '~storybook/core.module';
+
+import { action } from '@storybook/addon-actions';
+
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+
+import { ESIconsService } from '../../icons';
+import { ESEmptyStateModule, ESEmptyStateComponent } from '..';
+
+import { EMPTY_STATE_STORY_BASIC_SOURCE } from './empty-state-story-basic';
+import { EMPTY_STATE_STORY_BUTTON_SOURCE } from './empty-state-story-button';
+
+<Meta
+  title='UI/Empty State'
+  args={{ icon: 'box', heading: '', subheading: '' }}
+  argTypes={{
+    icon: {
+      control: {
+        type: 'select',
+        options: [
+          'bell',
+          'box',
+          'cart',
+          'chat',
+          'face',
+          'file',
+          'filter',
+          'lock',
+          'search',
+          'smile',
+          'wi-fi',
+          'wi-fi-off'
+        ]
+      }
+    }
+  }}
+/>
+
+# Empty State
+
+A placeholder to use on pages without content.
+
+## Demos
+
+export const getHeading = (args, context) => {
+  return (
+    args.heading ||
+    (context.globals.locale === 'en' ? 'There are no entities yet' : 'Здесь пока нет сущностей')
+  );
+};
+
+export const getSubheading = (args, context) => {
+  return (
+    args.subheading ||
+    (context.globals.locale === 'en'
+      ? 'There are no entities yet. Do you want to create the first entity?'
+      : 'Здесь пока нет сущностей. Хотите создать первую сущность?')
+  );
+};
+
+<Canvas source={EMPTY_STATE_STORY_BASIC_SOURCE}>
+  <Story name='Basic' height='200px'>
+    {((args, context) => ({
+      template: `<es-empty-state [icon]="icon" [heading]="heading" [subheading]="subheading"></es-empty-state>`,
+      moduleMetadata: {
+        imports: [HttpClientModule, CoreModule, ESEmptyStateModule]
+      },
+      props: {
+        ...args,
+        heading: getHeading(args, context),
+        subheading: getSubheading(args, context)
+      }
+    })).bind({})}
+  </Story>
+</Canvas>
+
+We can include action button.
+
+<Canvas source={EMPTY_STATE_STORY_BUTTON_SOURCE}>
+  <Story name='Button' height='230px'>
+    {((args, context) => ({
+      template: `
+       <es-empty-state [icon]="icon" [heading]="heading" [subheading]="subheading">
+          <button mat-stroked-button color="primary">NEW ENTITY</button>
+        </es-empty-state>
+      `,
+      moduleMetadata: {
+        imports: [HttpClientModule, MatButtonModule, CoreModule, ESEmptyStateModule]
+      },
+      props: {
+        ...args,
+        heading: getHeading(args, context),
+        subheading: getSubheading(args, context)
+      }
+    })).bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ESEmptyStateComponent} />
+
+## Interfaces
+
+```ts
+interface ESEmptyStateDefaultOptions {
+  icon?:
+    | 'bell'
+    | 'box'
+    | 'cart'
+    | 'chat'
+    | 'face'
+    | 'file'
+    | 'filter'
+    | 'lock'
+    | 'search'
+    | 'smile'
+    | 'wi-fi'
+    | 'wi-fi-off';
+  headingTypography?: string;
+  subheadingTypography?: string;
+}
+```
+
+## Constants
+
+Injection token that can be used to configure the default options for all components within an app.
+
+```ts
+import { ES_EMPTY_STATE_DEFAULT_OPTIONS } from '@elonkit/angular/ui/empty-state';
+
+@NgModule({
+  providers: [
+    {
+      provide: ES_EMPTY_STATE_DEFAULT_OPTIONS,
+      useValue: {
+        icon: 'box',
+        headingTypography: 'es-body-200',
+        subheadingTypography: 'es-caption'
+      }
+    }
+  ]
+})
+```

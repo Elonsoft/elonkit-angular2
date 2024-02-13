@@ -1,0 +1,12 @@
+<input
+  #input
+  matInput
+  [value]="value"
+  [placeholder]="placeholder"
+  [required]="required"
+  [disabled]="disabled"
+  (input)="onInput($event)"
+  (focus)="onFocus()"
+  (blur)="onBlur()"
+  autocomplete="off"
+/>
