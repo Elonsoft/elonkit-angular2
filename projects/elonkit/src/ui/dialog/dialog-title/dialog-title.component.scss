@@ -1,0 +1,15 @@
+.dialog-title {
+  padding: 24px 24px 6px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  &.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}

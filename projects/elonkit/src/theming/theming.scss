@@ -4,6 +4,7 @@
 @import '../ui/autocomplete-multiple/autocomplete-multiple.theme';
 @import '../ui/avatar/avatar.component.theme';
 @import '../ui/breadcrumbs/breadcrumbs.component.theme';
+@import '../ui/dialog/dialog.theme';
 @import '../ui/dropzone/dropzone.component.theme';
 @import '../ui/empty-state/empty-state.component.theme';
 @import '../ui/inline-form-field/inline-form-field.component.theme';
@@ -41,6 +42,7 @@
   @include es-autocomplete-multiple-theme($theme, $es-theme);
   @include es-avatar-theme($theme, $es-theme);
   @include es-breadcrumbs-theme($theme, $es-theme);
+  @include es-dialog-theme($theme, $es-theme);
   @include es-dropzone-theme($theme, $es-theme);
   @include es-empty-state-theme($theme, $es-theme);
   @include es-inline-form-field-theme($theme, $es-theme);
