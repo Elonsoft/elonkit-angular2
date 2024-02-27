@@ -2,12 +2,12 @@
   $mono-a: map-get($elonkit-theme, mono-a);
 
   .es-alert-actions {
-    .mat-button-base {
-      color: mat.get-color-from-palette($mono-a, A700);
+    .mdc-button {
+      color: mat.get-color-from-palette($mono-a, A700) !important;
     }
 
-    .mat-flat-button {
-      background-color: mat.get-color-from-palette($mono-a, A100);
+    [mat-flat-button] {
+      background-color: mat.get-color-from-palette($mono-a, A100) !important;
     }
   }
 }

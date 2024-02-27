@@ -1,14 +1,14 @@
 .es-alert-actions {
+  padding: 4px 0;
   display: grid;
+  justify-content: flex-start;
   gap: 8px;
   grid-auto-flow: column;
-  justify-content: flex-start;
-  margin-bottom: 8px;
-  margin-left: 32px;
-  margin-top: 12px;
+  margin-top: 6px;
 
-  .mat-button-base {
+  .mdc-button {
     line-height: 32px;
+    height: 32px;
     padding: 0 8px;
     text-transform: uppercase;
   }
