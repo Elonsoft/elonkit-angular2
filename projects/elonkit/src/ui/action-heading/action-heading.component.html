@@ -1,3 +1,56 @@
 <div class="es-action-heading">
-  <ng-content></ng-content>
+  <!-- <ng-container [ngSwitch]="type">
+    <h1 *ngSwitchCase="'h1'" class="es-action-heading__title" [ngClass]="typography">{{ text }}</h1>
+    <h2 *ngSwitchCase="'h2'" class="es-action-heading__title" [ngClass]="typography">{{ text }}</h2>
+    <h3 *ngSwitchCase="'h3'" class="es-action-heading__title" [ngClass]="typography">{{ text }}</h3>
+    <h4 *ngSwitchCase="'h4'" class="es-action-heading__title" [ngClass]="typography">{{ text }}</h4>
+    <h5 *ngSwitchCase="'h5'" class="es-action-heading__title" [ngClass]="typography">{{ text }}</h5>
+    <h6 *ngSwitchCase="'h6'" class="es-action-heading__title" [ngClass]="typography">{{ text }}</h6>
+  </ng-container>
+
+  <button
+    class="es-action-heading__action"
+    type="button"
+    mat-mini-fab
+    [color]="color"
+    [attr.aria-label]="actionLabel"
+    (click)="action.emit(true)"
+  >
+    <mat-icon>{{ actionIcon || '' }}</mat-icon>
+  </button> -->
+  
+  <!-- TODO: это надо будет разобрать. Копопненты прокидываются по месту. -->
+
+  <!-- TODO: Здесь будет breadcrumbs component -->
+  <es-heading-main>
+    <es-heading-header [maxLines]="3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde architecto itaque id mollitia debitis culpa? Perferendis neque ipsum aliquam laborum quia quibusdam itaque nostrum animi ad totam suscipit, aut autem tempora, labore vitae rem corporis, natus modi. Iure ipsam quidem labore rem non vel reiciendis voluptate harum, repellendus, quasi sapiente.</es-heading-header>
+    <es-heading-actions>
+      <button>a</button>
+      <button>b</button>
+      <button>c</button>
+    </es-heading-actions>
+  </es-heading-main>
+  <es-heading-status>Status</es-heading-status>
 </div>
+
+
+<!--
+<PageHGroup>
+  <PageHGroupBreadcrumbs>{BreadcrumbsDemo({}, context)}</PageHGroupBreadcrumbs>
+  <PageHGroupMain>
+    <PageHGroupHeading maxLines={args.maxLines}>
+      {args.children || (locale === 'en' ? 'Schedule' : 'Расписание')}
+    </PageHGroupHeading>
+    <PageHGroupActions>
+      <Button color="primary" startIcon={<IconPlusW400 />} variant="contained">
+        {locale === 'en' ? 'Create' : 'Создать'}
+      </Button>
+      <Button color="tertiary" variant="outlined">
+        <IconDotsHorizontalW500 />
+      </Button>
+    </PageHGroupActions>
+  </PageHGroupMain>
+  <PageHGroupStatus>{locale === 'en' ? 'Link access enabled' : 'Доступ по ссылке включен'}</PageHGroupStatus>
+</PageHGroup>
+-->
+
