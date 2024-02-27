@@ -2,8 +2,17 @@ import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { Canvas } from '~storybook/components';
 
 import { action } from '@storybook/addon-actions';
+import { MatButtonModule, MatButton } from '@angular/material/button';
 
-import { ESActionHeadingModule, ESActionHeadingComponent } from '..';
+import {
+  ESActionHeadingModule,
+  ESActionHeadingComponent,
+  ESHeadingBreadcrumbsComponent,
+  ESHeadingMainComponent,
+  ESHeadingHeaderComponent,
+  ESHeadingActionsComponent,
+  ESHeadingStatusComponent
+  } from '..';
 
 import { ACTION_HEADING_STORY_BASIC_SOURCE } from './action-heading-story-basic';
 
@@ -12,25 +21,16 @@ import { ACTION_HEADING_STORY_BASIC_SOURCE } from './action-heading-story-basic'
   title='UI/Action Heading'
   args={{
     text: '',
-    actionLabel: 'add',
-    actionIcon: 'add',
-    type: 'h1',
-    typography: 'es-h1',
+    maxLines: 1,
     color: 'primary',
-    actionSvgIcon: 'add'
+    typography: 'es-h2'
   }}
   argTypes={{
-    type: {
-      control: { type: 'select', options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }
+    color: {
+      control: 'select', options: ['null', 'primary', 'warn', 'accent']
     },
     typography: {
-      control: {
-        type: 'select',
-        options: ['es-h1', 'es-h2', 'es-h3', 'es-h4', 'es-h5', 'es-h6']
-      }
-    },
-    color: {
-      control: { type: 'select', options: ['primary', 'warn', 'accent'] }
+      control: 'select', options: ['es-h1', 'es-h2', 'es-h3', 'es-h4', 'es-h5']
     }
   }}
 />
@@ -45,33 +45,30 @@ export const getText = (args, context) => {
   return args.text || (context.globals.locale === 'en' ? 'Title' : 'Заголовок');
 };
 
-export const getActionLabel = (args, context) => {
-  return args.text || (context.globals.locale === 'en' ? 'Text' : 'Текст');
-};
 
 <Canvas source={ACTION_HEADING_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='110px'>
+  <Story name='Basic'>
     {((args, context) => ({
       template: `
-        <es-action-heading
-          [text]="text"
-          [type]="type"
-          [typography]="typography"
-          [actionLabel]="actionLabel"
-          [actionIcon]="actionIcon"
-          [actionSvgIcon]="actionSvgIcon"
-          [color]="color"
-          (action)="onAction()">
+        <es-action-heading>
+          <es-heading-breadcrumbs>You / Can / Put / Here / Breadcrumbs</es-heading-breadcrumbs>
+          <es-heading-main>
+            <es-heading-header [typography]="typography" [maxLines]="maxLines">{{ text }}</es-heading-header>
+            <es-heading-actions>
+              <button mat-raised-button [color]="color">Remove</button>
+              <button mat-raised-button [color]="color">Save</button>
+              <button mat-raised-button [color]="color">Else</button>
+            </es-heading-actions>
+          </es-heading-main>
+          <es-heading-status>Status: online</es-heading-status>
         </es-action-heading>
       `,
       moduleMetadata: {
-        imports: [ESActionHeadingModule]
+        imports: [ESActionHeadingModule, MatButtonModule]
       },
       props: {
         ...args,
-        text: getText(args, context),
-        actionLabel: getActionLabel(args, context),
-        onAction: action('onAction')
+        text: getText(args, context)
       }
     })).bind({})}
   </Story>
@@ -81,34 +78,20 @@ export const getActionLabel = (args, context) => {
 
 <ArgsTable of={ESActionHeadingComponent} />
 
-## Interfaces
-
-```ts
-export interface ESActonHeadingDefaultOptions {
-  type?: ActionHeadingType;
-  typography?: ActionHeadingTypography;
-  actionLabel?: string;
-  actionIcon?: string;
-  actionSvgIcon?: string;
-}
-
-export type ActionHeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-export type ActionHeadingTypography = 'es-h1' | 'es-h2' | 'es-h3' | 'es-h4' | 'es-h5' | 'es-h6';
-```
 
 ## Constants
 
 Injection token that can be used to configure the default options for all components within an app.
 
 ```ts
-import { ES_ACTION_HEADING_DEFAULT_OPTIONS } from '@elonkit/angular/ui/action-heading';
+import { ES_HEADER_DEFAULT_OPTIONS } from '@elonkit/angular/ui/action-heading';
 @NgModule({
   providers: [
     {
-      provide: ES_ACTION_HEADING_DEFAULT_OPTIONS,
+      provide: ES_HEADER_DEFAULT_OPTIONS,
       useValue: {
-        type: 'h2',
-        typography: 'mat-h2'
+        typography: 'es-h4';
+        maxLines: 1;
       }
     }
   ]

@@ -4,10 +4,17 @@
     class="es-empty-state__image"
     svgIcon="es-empty-state:{{ icon }}"
     data-testid="svg"
-  ></mat-icon>
+    [ngStyle]="{ 'margin-bottom': size === 'medium' ? '12px' : '0', 'transform': size === 'medium' ? '' : 'scale(0.72)' }">
+  </mat-icon>
   <img *ngIf="src" class="es-empty-state__image" [src]="src" data-testid="img"  alt=""/>
 
-  <div class="es-empty-state__heading" [ngClass]="headingTypography">{{ heading }}</div>
-  <div class="es-empty-state__subheading" [ngClass]="subheadingTypography">{{ subheading }}</div>
-  <ng-content></ng-content>
+  <div class="es-empty-state__text" [ngStyle]="{ 'margin-bottom': size === 'medium' ? '12px' : '8px' }">
+      <div class="es-empty-state__text__heading es-body-200" [ngClass]="headingTypography || size === 'medium' ? 'es-body-200' : 'es-body-100'">{{ heading }}</div>
+      <div class="es-empty-state__text__subheading es-caption">{{ subheading }}</div>
+  </div>
+
+  <div class="es-empty-state__children">
+    <ng-content></ng-content>
+  </div>
+
 </div>

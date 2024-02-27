@@ -13,8 +13,7 @@ import { ESEmptyStateIcon } from './empty-state.types';
 
 export interface ESEmptyStateDefaultOptions {
   icon?: ESEmptyStateIcon;
-  headingTypography?: string;
-  subheadingTypography?: string;
+  size?: string;
 }
 
 export const ES_EMPTY_STATE_DEFAULT_OPTIONS = new InjectionToken<ESEmptyStateDefaultOptions>(
@@ -52,35 +51,23 @@ export class ESEmptyStateComponent {
    */
   @Input() public heading: string;
 
-  private _headingTypography: string;
-
-  /**
-   * Class applied to heading text.
-   */
-  @Input()
-  public get headingTypography(): string {
-    return this._headingTypography;
-  }
-  public set headingTypography(value: string | undefined) {
-    this._headingTypography = value || this.defaultOptions?.headingTypography || 'es-body-200';
-  }
-
   /**
    * Subheading text.
    */
   @Input() public subheading: string;
 
-  private _subheadingTypography: string;
+
+  private _size: string;
 
   /**
-   * Class applied to subheading text.
+   * Size of epty-state.
    */
   @Input()
-  public get subheadingTypography(): string {
-    return this._subheadingTypography;
+  public get size(): string {
+    return this._size;
   }
-  public set subheadingTypography(value: string | undefined) {
-    this._subheadingTypography = value || this.defaultOptions?.subheadingTypography || 'es-caption';
+  public set size(value: string | undefined) {
+    this._size = value || this.defaultOptions?.size || 'mediumn';
   }
 
   /**
@@ -100,7 +87,6 @@ export class ESEmptyStateComponent {
     private defaultOptions: ESEmptyStateDefaultOptions
   ) {
     this.icon = this.defaultOptions?.icon;
-    this.headingTypography = this.defaultOptions?.headingTypography;
-    this.subheadingTypography = this.defaultOptions?.subheadingTypography;
+    this.size = this.defaultOptions?.size;
   }
 }

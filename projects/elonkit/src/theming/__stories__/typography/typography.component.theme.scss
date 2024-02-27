@@ -1,4 +1,4 @@
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 @mixin es-typography-story-theme($theme, $elonkit-theme) {
   .es-typography-story {

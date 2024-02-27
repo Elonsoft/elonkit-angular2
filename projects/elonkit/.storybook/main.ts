@@ -9,7 +9,8 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-
+    '@storybook/addon-actions',
+    'storybook-dark-mode'
   ],
   framework: {
     name: "@storybook/angular",
@@ -18,5 +19,9 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  staticDirs: [
+    { from: '../src/', to: '/' }
+  ]
+
 };
 export default config;

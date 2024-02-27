@@ -41,7 +41,10 @@
               "-d",
               "projects/elonkit"
             ],
-            "styles": ["node_modules/material-icons/iconfont/material-icons.css"],
+            "styles": [
+              "node_modules/material-icons/iconfont/material-icons.css",
+              "./projects/elonkit/.storybook/preview-theme.scss"
+            ],
             "port": 6006
           }
         },
@@ -57,7 +60,10 @@
               "-d",
               "projects/elonkit"
             ],
-            "styles": ["node_modules/material-icons/iconfont/material-icons.css"],
+            "styles": [
+              "node_modules/material-icons/iconfont/material-icons.css",
+              "./projects/elonkit/.storybook/preview-theme.scss"
+            ],
             "outputDir": "storybook-static"
           }
         }

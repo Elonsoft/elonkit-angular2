@@ -8,7 +8,7 @@
     "paths": {
       "elonkit": ["dist/elonkit"],
       "elonkit/*": ["dist/elonkit/*"],
-      "~storybook/*": ["projects/elonkit/storybook/*"]
+      "~storybook/*": ["projects/elonkit/.storybook/*"]
     },
     "strict": true,
     "noImplicitOverride": true,
