@@ -16,6 +16,7 @@ export * from './ui/paginator';
 export * from './ui/timepicker';
 export * from './ui/tooltip';
 export * from './ui/spinner';
+export * from './ui/empty-state-compact';
 
 export * from './ui/icons';
 export * from './ui/locale';
