@@ -26,6 +26,9 @@ export const ES_EMPTY_STATE_DEFAULT_OPTIONS = new InjectionToken<ESEmptyStateDef
   encapsulation: ViewEncapsulation.None,
 })
 export class ESEmptyStateComponent {
+  /**
+   * @ignore
+   */
   private _icon: ESEmptyStateIcon;
 
   /**
@@ -54,6 +57,9 @@ export class ESEmptyStateComponent {
    */
   @Input() public subheading: string;
 
+  /**
+   * @ignore
+   */
   private _size: string;
 
   /**
