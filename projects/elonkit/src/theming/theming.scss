@@ -23,6 +23,7 @@
 @import '../ui/sidebar/sidebar.component.theme';
 @import '../ui/sidenav/sidenav.component.theme';
 @import '../ui/kbd/kbd.component.theme';
+@import '../ui/made-by/made-by.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -73,4 +74,5 @@
   @include es-sidebar-theme($theme, $es-theme);
   @include es-sidenav-theme($theme, $es-theme);
   @include es-kbd-theme($theme, $es-theme);
+  @include es-made-by-theme($theme, $es-theme);
 }
