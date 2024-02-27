@@ -1,0 +1,92 @@
+<div class="es-range-measure-select">
+  <div class="es-range-measure-select__value-wrapper">
+    <ng-container *ngIf="value?.start || value?.end">
+      <div class="es-autocomplete-multiple__value es-body-100">
+        <ng-container *ngIf="value?.start && value?.end; else singleTemplate">
+          {{ value.start }} –
+          {{ value.end }}
+        </ng-container>
+
+        <ng-template #singleTemplate>
+          <ng-container *ngIf="value.start; else endTemplate"> От {{ value.start }} </ng-container>
+          <ng-template #endTemplate> До {{ value.end }} </ng-template>
+        </ng-template>
+
+        {{ measuringUnit }}
+      </div>
+
+      <mat-icon class="es-range-measure-select__clear-icon" svgIcon="close-w350" (click)="onResetValue($event)"></mat-icon>
+    </ng-container>
+  </div>
+  <mat-icon class="es-range-measure-select__arrow">arrow_drop_down</mat-icon>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOffsetY]="0"
+  [cdkConnectedOverlayOpen]="isOpen"
+  (backdropClick)="onClose()"
+  (detach)="onClose(true)">
+  <div class="es-range-measure-select__panel" [ngStyle]="{ 'width.px': width }">
+    <div class="es-range-measure-select__inputs-container">
+      <input
+        #startInput
+        class="es-range-measure-select__input es-body-100"
+        placeholder="От"
+        type="number"
+        [value]="value.start"
+        (input)="onChangeStartInput($event)"
+        (blur)="onBlur(RangeOption.start)" />
+
+      <div class="es-range-measure-select__divider_mini"></div>
+
+      <input
+        #endInput
+        class="es-range-measure-select__input es-body-100"
+        placeholder="До"
+        type="number"
+        [value]="value.end"
+        (input)="onChangeEndInput($event)"
+        (blur)="onBlur(RangeOption.end)" />
+    </div>
+
+    <div class="es-range-measure-select__divider"></div>
+
+    <div class="es-range-measure-select__lists-wrapper">
+      <mat-selection-list
+        class="es-range-measure-select__selection-list es-body-200"
+        color="primary"
+        [multiple]="false"
+        [hideSingleSelectionIndicator]="true">
+        <mat-list-option [disabled]="true">От</mat-list-option>
+        <mat-list-option
+          *ngFor="let option of startOptionVariantsTransformed"
+          checkboxPosition="before"
+          [value]="option"
+          [selected]="isSelected(option)"
+          (click)="onMatOptionSelectionChange(option)">
+          {{ option.value }}
+        </mat-list-option>
+      </mat-selection-list>
+
+      <mat-selection-list
+        class="es-range-measure-select__selection-list es-body-200"
+        color="primary"
+        [multiple]="false"
+        [hideSingleSelectionIndicator]="true">
+        <mat-list-option [disabled]="true">До</mat-list-option>
+        <mat-list-option
+          *ngFor="let option of endOptionVariantsTransformed"
+          checkboxPosition="before"
+          [value]="option"
+          [selected]="isSelected(option)"
+          (click)="onMatOptionSelectionChange(option)">
+          {{ option.value }}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+  </div>
+</ng-template>
