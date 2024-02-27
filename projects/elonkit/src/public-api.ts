@@ -19,6 +19,7 @@ export * from './ui/spinner';
 export * from './ui/empty-state-compact';
 export * from './ui/range-measure-select';
 export * from './ui/kbd';
+export * from './ui/made-by';
 
 export * from './ui/icons';
 export * from './ui/locale';
