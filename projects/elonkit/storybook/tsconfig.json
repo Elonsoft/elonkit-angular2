@@ -1,8 +1,0 @@
-{
-  "extends": "../tsconfig.lib.json",
-  "compilerOptions": {
-    "emitDecoratorMetadata": true
-  },
-  "exclude": ["../src/**/*.spec.ts", "../projects/**/*.spec.ts"],
-  "include": ["../src/**/*"]
-}

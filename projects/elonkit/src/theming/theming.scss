@@ -1,15 +1,15 @@
 @import '../ui/action-heading/action-heading.component.theme';
-//@import '../ui/alert/alert.component.theme';
-//@import '../ui/audio-player/audio-player.component.theme';
-//@import '../ui/autocomplete-multiple/autocomplete-multiple.theme';
-//@import '../ui/avatar/avatar.component.theme';
-//@import '../ui/breadcrumbs/breadcrumbs.component.theme';
-//@import '../ui/dropzone/dropzone.component.theme';
-//@import '../ui/empty-state/empty-state.component.theme';
-//@import '../ui/inline-form-field/inline-form-field.component.theme';
-//@import '../ui/paginator/paginator.component.theme';
-//@import '../ui/surface/surface.component.theme';
-//@import '../ui/tooltip/tooltip.component.theme';
+@import '../ui/alert/alert.component.theme';
+@import '../ui/audio-player/audio-player.component.theme';
+@import '../ui/autocomplete-multiple/autocomplete-multiple.theme';
+@import '../ui/avatar/avatar.component.theme';
+@import '../ui/breadcrumbs/breadcrumbs.component.theme';
+@import '../ui/dropzone/dropzone.component.theme';
+@import '../ui/empty-state/empty-state.component.theme';
+@import '../ui/inline-form-field/inline-form-field.component.theme';
+@import '../ui/paginator/paginator.component.theme';
+@import '../ui/surface/surface.component.theme';
+@import '../ui/tooltip/tooltip.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -36,15 +36,15 @@
 
 @mixin es-theme($theme, $es-theme) {
   @include es-action-heading-theme($theme, $es-theme);
-  //@include es-alert-theme($theme, $es-theme);
-  //@include es-audio-player-theme($theme, $es-theme);
-  //@include es-autocomplete-multiple-theme($theme, $es-theme);
-  //@include es-avatar-theme($theme, $es-theme);
-  //@include es-breadcrumbs-theme($theme, $es-theme);
-  //@include es-dropzone-theme($theme, $es-theme);
-  //@include es-empty-state-theme($theme, $es-theme);
-  //@include es-inline-form-field-theme($theme, $es-theme);
-  //@include es-paginator-theme($theme, $es-theme);
-  //@include es-surface-theme($theme, $es-theme);
-  //@include es-tooltip-theme($theme, $es-theme);
+  @include es-alert-theme($theme, $es-theme);
+  @include es-audio-player-theme($theme, $es-theme);
+  @include es-autocomplete-multiple-theme($theme, $es-theme);
+  @include es-avatar-theme($theme, $es-theme);
+  @include es-breadcrumbs-theme($theme, $es-theme);
+  @include es-dropzone-theme($theme, $es-theme);
+  @include es-empty-state-theme($theme, $es-theme);
+  @include es-inline-form-field-theme($theme, $es-theme);
+  @include es-paginator-theme($theme, $es-theme);
+  @include es-surface-theme($theme, $es-theme);
+  @include es-tooltip-theme($theme, $es-theme);
 }

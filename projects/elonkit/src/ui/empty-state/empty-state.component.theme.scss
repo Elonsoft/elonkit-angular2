@@ -9,12 +9,14 @@
       }
     }
 
-    &__heading {
-      color: mat.get-color-from-palette($mono-a, A900);
-    }
-
-    &__subheading {
-      color: mat.get-color-from-palette($mono-a, A600);
+    &__text {
+      &__heading {
+        color: mat.get-color-from-palette($mono-a, A900);
+      }
+  
+      &__subheading {
+        color: mat.get-color-from-palette($mono-a, A600);
+      }
     }
   }
 }

@@ -16,17 +16,27 @@
     }
   }
 
-  &__heading {
-    margin-bottom: 2px;
-    text-align: center;
-  }
+  &__text {
+    &__heading {
+      margin-bottom: 2px;
+      text-align: center;
 
-  &__subheading {
-    text-align: center;
+      &:not(:last-child) {
+        margin-bottom: 2px;
+      }
+    }
+
+    &__subheading {
+      text-align: center;
+    }
 
     &:not(:last-child) {
       margin-bottom: 20px;
     }
+  }
+
+  &__children {
+    padding: 8px 0;
   }
 
   .mat-stroked-button {

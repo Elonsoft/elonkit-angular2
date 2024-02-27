@@ -5,7 +5,7 @@ import { CoreModule } from '~storybook/core.module';
 import { action } from '@storybook/addon-actions';
 
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 
 import { ESIconsService } from '../../icons';
 import { ESEmptyStateModule, ESEmptyStateComponent } from '..';
@@ -15,26 +15,41 @@ import { EMPTY_STATE_STORY_BUTTON_SOURCE } from './empty-state-story-button';
 
 <Meta
   title='UI/Empty State'
-  args={{ icon: 'box', heading: '', subheading: '' }}
+  args={{
+    icon: 'box',
+    src: '',
+    heading: '',
+    subheading: '',
+    size: 'medium'
+    }}
   argTypes={{
     icon: {
-      control: {
-        type: 'select',
-        options: [
-          'bell',
-          'box',
-          'cart',
-          'chat',
-          'face',
-          'file',
-          'filter',
-          'lock',
-          'search',
-          'smile',
-          'wi-fi',
-          'wi-fi-off'
-        ]
-      }
+      control: 'select',
+      options: [
+        'bar-chart',
+        'bell',
+        'box',
+        'camera',
+        'cart',
+        'chat',
+        'face',
+        'file',
+        'filter',
+        'image',
+        'lock',
+        'pie-chart',
+        'search',
+        'smile',
+        'wi-fi',
+        'wi-fi-off'
+      ]
+    },
+    size: {
+      control: 'select',
+      options: [
+        'medium',
+        'small'
+      ]
     }
   }}
 />
@@ -64,9 +79,15 @@ export const getSubheading = (args, context) => {
 <Canvas source={EMPTY_STATE_STORY_BASIC_SOURCE}>
   <Story name='Basic' height='200px'>
     {((args, context) => ({
-      template: `<es-empty-state [icon]="icon" [heading]="heading" [subheading]="subheading"></es-empty-state>`,
+      template: `
+      <es-empty-state
+        [icon]="icon"
+        [heading]="heading"
+        [subheading]="subheading"
+        [size]="size">
+      </es-empty-state>`,
       moduleMetadata: {
-        imports: [HttpClientModule, CoreModule, ESEmptyStateModule]
+        imports: [HttpClientModule, CoreModule, ESEmptyStateModule, MatButtonModule]
       },
       props: {
         ...args,
@@ -83,7 +104,11 @@ We can include action button.
   <Story name='Button' height='230px'>
     {((args, context) => ({
       template: `
-       <es-empty-state [icon]="icon" [heading]="heading" [subheading]="subheading">
+       <es-empty-state
+        [icon]="icon"
+        [heading]="heading"
+        [subheading]="subheading"
+        [size]="size">
           <button mat-stroked-button color="primary">NEW ENTITY</button>
         </es-empty-state>
       `,
@@ -108,14 +133,18 @@ We can include action button.
 ```ts
 interface ESEmptyStateDefaultOptions {
   icon?:
+    | 'bar-chart'
     | 'bell'
     | 'box'
+    | 'camera'
     | 'cart'
     | 'chat'
     | 'face'
     | 'file'
     | 'filter'
+    | 'image'
     | 'lock'
+    | 'pie-chart'
     | 'search'
     | 'smile'
     | 'wi-fi'
@@ -138,8 +167,7 @@ import { ES_EMPTY_STATE_DEFAULT_OPTIONS } from '@elonkit/angular/ui/empty-state'
       provide: ES_EMPTY_STATE_DEFAULT_OPTIONS,
       useValue: {
         icon: 'box',
-        headingTypography: 'es-body-200',
-        subheadingTypography: 'es-caption'
+        size: 'medium'
       }
     }
   ]

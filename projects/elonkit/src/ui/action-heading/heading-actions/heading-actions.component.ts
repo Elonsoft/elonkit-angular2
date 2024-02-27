@@ -4,12 +4,13 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
+
 @Component({
-  selector: 'es-action-heading',
-  templateUrl: './action-heading.component.html',
-  styleUrls: ['./action-heading.component.scss'],
+  selector: 'es-heading-actions',
+  templateUrl: './heading-actions.component.html',
+  styleUrls: ['./heading-actions.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None
 })
-export class ESActionHeadingComponent {
+export class ESHeadingActionsComponent {
 }

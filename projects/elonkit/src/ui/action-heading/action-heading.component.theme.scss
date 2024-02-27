@@ -1,4 +1,6 @@
+@import './heading-header/heading-header.component.theme.scss';
 @mixin es-action-heading-theme($theme, $elonkit-theme) {
+  @include es-heading-header-theme($theme, $elonkit-theme);
   $mono-a: map-get($elonkit-theme, mono-a);
   $mono-b: map-get($elonkit-theme, mono-b);
   $primary: map-get($theme, primary);

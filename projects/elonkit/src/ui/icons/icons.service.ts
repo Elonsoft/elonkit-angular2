@@ -5,14 +5,18 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export const ES_SVG_ICONS: any = {
   'es-empty-state': [
+    'bar-chart',
     'bell',
     'box',
+    'camera',
     'cart',
     'chat',
     'face',
     'file',
     'filter',
+    'image',
     'lock',
+    'pie-chart',
     'search',
     'smile',
     'wi-fi',
