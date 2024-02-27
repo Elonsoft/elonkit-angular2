@@ -9,11 +9,14 @@ import {
   InjectionToken,
   Optional,
   Inject,
+  ElementRef,
+  AfterContentChecked,
+  ViewChild,
 } from '@angular/core';
 
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ESAlertVariant } from './alert.types';
 import { ESLocaleService, ESLocale } from '../locale';
@@ -44,14 +47,52 @@ export const ES_ALERT_DEFAULT_OPTIONS = new InjectionToken<ESAlertDefaultOptions
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESAlertComponent {
+export class ESAlertComponent implements AfterContentChecked {
+  @ViewChild('actions') actions!: ElementRef;
   private iconMapping: { [key in ESAlertVariant]: { icon?: string; svgIcon?: string } };
 
   /**
-   * The variant of the alert. This defines the color and icon used.
+   * The severity of the alert. This defines the color and icon used.
    */
-  @Input() public variant: ESAlertVariant = 'default';
+  @Input() public severity: ESAlertVariant = 'default';
 
+  /**
+   * The color of the component. Unless provided, the value is taken from the severity prop.
+   */
+  @Input() public color: string;
+
+  /**
+   * @ignore
+   */
+  protected isWithActions = new BehaviorSubject<boolean>(false);
+
+  /**
+   * @ignore
+   */
+  protected mainPadding = {
+    withActions: '11px 15px',
+    withoutActions: '7px 15px',
+  };
+
+  /**
+   * @ignore
+   */
+  protected closeMargin = {
+    withActions: '2px',
+    withoutActions: '8px',
+  };
+
+  /**
+   * @internal
+   * @ignore
+   */
+  ngAfterContentChecked(): void {
+    this.isWithActions.next(this.actions?.nativeElement?.children?.length ? true : false);
+  }
+
+  /**
+   * @ignore
+   */
   private _typography: string;
 
   /**
@@ -65,6 +106,9 @@ export class ESAlertComponent {
     this._typography = value || (this.defaultOptions && this.defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
   }
 
+  /**
+   * @ignore
+   */
   private _titleTypography: string;
 
   /**
@@ -78,6 +122,9 @@ export class ESAlertComponent {
     this._titleTypography = value || (this.defaultOptions && this.defaultOptions.titleTypography) || DEFAULT_TITLE_TYPOGRAPHY;
   }
 
+  /**
+   * @ignore
+   */
   private _closable = false;
 
   /**
@@ -90,6 +137,11 @@ export class ESAlertComponent {
   public set closable(closable: any) {
     this._closable = coerceBooleanProperty(closable);
   }
+
+  /**
+   * Disables icon.
+   */
+  @Input() public hasIcon?: boolean = true;
 
   /**
    * Override the icon displayed before the text.
@@ -155,6 +207,6 @@ export class ESAlertComponent {
     if (this.svgIcon) {
       return { svgIcon: this.svgIcon };
     }
-    return this.iconMapping[this.variant];
+    return this.iconMapping[this.severity];
   }
 }
