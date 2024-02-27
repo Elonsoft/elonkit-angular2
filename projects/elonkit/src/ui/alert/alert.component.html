@@ -1,13 +1,15 @@
 <div
   *ngIf="locale$ | async as locale"
   class="es-alert"
-  [ngClass]="'es-alert_variant_' + variant"
+  [ngClass]="'es-alert_variant_' + (color || severity)"
+  [ngStyle]="{ 'padding': (isWithActions | async) ? mainPadding.withActions : mainPadding.withoutActions }"
   data-testid="root"
 >
   <div class="es-alert__content">
     <mat-icon
+      *ngIf="hasIcon"
       class="es-alert__icon"
-      [ngClass]="'es-alert__icon_variant_' + variant"
+      [ngClass]="'es-alert__icon_variant_' + (color || severity)"
       [svgIcon]="currentIcon.svgIcon"
     >
       {{ currentIcon.icon || '' }}
@@ -16,14 +18,15 @@
       <div class="es-alert__title" [ngClass]="titleTypography">
         <ng-content select="[role=title]"></ng-content>
       </div>
-      <div class="es-alert__text" [ngClass]="typography">
+      <div class="es-alert__text" [ngClass]="typography" #actions>
         <ng-content></ng-content>
       </div>
     </div>
     <button
       *ngIf="closable"
       class="es-alert__icon es-alert__icon_close"
-      [ngClass]="'es-alert__icon_variant_' + variant"
+      [ngClass]="'es-alert__icon_variant_' + (color || severity)"
+      [ngStyle]="{ 'margin-top': (isWithActions | async) ? closeMargin.withActions : closeMargin.withoutActions }"
       mat-icon-button
       type="button"
       [attr.aria-label]="locale.alert.labelClose"
@@ -32,5 +35,7 @@
       <mat-icon>close</mat-icon>
     </button>
   </div>
-  <ng-content select="es-alert-actions"></ng-content>
+    <span>
+      <ng-content select="es-alert-actions"></ng-content>
+    </span>
 </div>
