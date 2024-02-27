@@ -1,0 +1,28 @@
+<div
+  class="es-dialog-root"
+  (click)="clickOut($event)"
+  [ngStyle]="{ 'animation-duration': transitionDuration + 'ms' }"
+  [class.hide-back-drop]="hideBackdrop"
+  [ngClass]="!showModal ? 'fade-out' : 'fade-in'">
+  <div
+    class="es-dialog-container"
+    (scroll)="onScroll($event)"
+    [ngClass]="{ scroll: isScroll, 'full-screen': fullScreen || fullWidth }">
+    <div class="es-dialog-wrapper" [ngStyle]="{ 'align-items': !fullScreen ? align : '' }">
+      <div
+        #content
+        class="es-dialog-content"
+        [ngStyle]="{ 'max-width': fullScreen ? '100%' : maxWidth, 'min-height': fullScreen ? '100%' : 'auto' }">
+        <div class="es-dialog-close">
+          <button (click)="hide()" mat-icon-button class="es-dialog-close__btn" [ngClass]="{ top: !isTopScroll }">
+            <mat-icon>close</mat-icon>
+            <span *ngIf="!disableEscapeKeyDown" class="es-dialog-close__btn-text">Esc</span>
+          </button>
+        </div>
+        <div class="es-dialog-paper" [ngClass]="{ top: !isTopScroll, bottom: !isBottomScroll }">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

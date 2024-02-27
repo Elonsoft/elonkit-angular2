@@ -1,0 +1,26 @@
+.dialog-actions {
+  padding: 16px 24px;
+  display: flex;
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  &.sticky {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+
+.dialog-actions[align='end'] {
+  justify-content: flex-end;
+}
+
+.dialog-actions[align='center'] {
+  justify-content: center;
+}
+/* stylelint-disable */
+.dialog-actions::ng-deep button:last-child {
+  margin-left: 10px;
+}
+/* stylelint-enable */

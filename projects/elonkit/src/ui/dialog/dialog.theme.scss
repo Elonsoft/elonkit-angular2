@@ -1,0 +1,25 @@
+@mixin es-dialog-theme($theme, $elonkit-theme) {
+  $surface: map-get($elonkit-theme, surface);
+
+  .es-dialog-content {
+    .dialog-title,
+    .dialog-content,
+    .dialog-actions {
+      background-color: mat.get-color-from-palette($surface, background2);
+    }
+
+    .es-dialog-paper {
+      &.bottom {
+        .dialog-actions {
+          border-top: none;
+        }
+      }
+
+      &.top {
+        .dialog-title {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
