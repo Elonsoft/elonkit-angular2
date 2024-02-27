@@ -1,0 +1,13 @@
+.es-heading-header {
+  align-self: center;
+  padding: 0;
+  margin: 0;
+  word-break: break-word;
+  min-width: 0;
+  &__wrapper {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+  }
+}
