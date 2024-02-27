@@ -1,0 +1,8 @@
+@mixin es-empty-state-compact-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+
+  .es-empty-state-compact {
+    border: 1px dashed mat.get-color-from-palette($mono-a, A300);
+    color: mat.get-color-from-palette($mono-a, A550);
+  }
+}

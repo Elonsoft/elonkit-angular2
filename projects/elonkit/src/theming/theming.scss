@@ -7,6 +7,7 @@
 @import '../ui/dialog/dialog.theme';
 @import '../ui/dropzone/dropzone.component.theme';
 @import '../ui/empty-state/empty-state.component.theme';
+@import '../ui/empty-state-compact/empty-state-compact.component.theme';
 @import '../ui/inline-form-field/inline-form-field.component.theme';
 @import '../ui/paginator/paginator.component.theme';
 @import '../ui/surface/surface.component.theme';
@@ -54,6 +55,7 @@
   @include es-dialog-theme($theme, $es-theme);
   @include es-dropzone-theme($theme, $es-theme);
   @include es-empty-state-theme($theme, $es-theme);
+  @include es-empty-state-compact-theme($theme, $es-theme);
   @include es-inline-form-field-theme($theme, $es-theme);
   @include es-paginator-theme($theme, $es-theme);
   @include es-surface-theme($theme, $es-theme);
