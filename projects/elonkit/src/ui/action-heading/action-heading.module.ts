@@ -7,10 +7,18 @@ import { ESHeadingActionsComponent } from './heading-actions/heading-actions.com
 import { ESHeadingMainComponent } from './heading-main/heading-main.component';
 import { ESHeadingHeaderComponent } from './heading-header/heading-header.component';
 import { ESHeadingStatusComponent } from './heading-status/heading-status.component';
+import { ESHeadingBreadcrumbsComponent } from './heading-breadcrumbs/heading-breadcrumbs.component';
 
 @NgModule({
   imports: [CommonModule, MatIconModule, MatButtonModule],
-  declarations: [ESActionHeadingComponent, ESHeadingMainComponent, ESHeadingHeaderComponent, ESHeadingActionsComponent, ESHeadingStatusComponent],
+  declarations: [
+    ESActionHeadingComponent,
+    ESHeadingBreadcrumbsComponent,
+    ESHeadingMainComponent,
+    ESHeadingHeaderComponent,
+    ESHeadingActionsComponent,
+    ESHeadingStatusComponent
+  ],
   exports: [ESActionHeadingComponent]
 })
 export class ESActionHeadingModule {}

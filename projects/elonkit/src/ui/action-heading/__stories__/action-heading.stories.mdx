@@ -3,7 +3,15 @@ import { Canvas } from '~storybook/components';
 
 import { action } from '@storybook/addon-actions';
 
-import { ESActionHeadingModule, ESActionHeadingComponent } from '..';
+import {
+  ESActionHeadingModule,
+  ESActionHeadingComponent,
+  ESHeadingBreadcrumbsComponent,
+  ESHeadingMainComponent,
+  ESHeadingHeaderComponent,
+  ESHeadingActionsComponent,
+  ESHeadingStatusComponent
+  } from '..';
 
 import { ACTION_HEADING_STORY_BASIC_SOURCE } from './action-heading-story-basic';
 
@@ -49,11 +57,7 @@ export const getActionLabel = (args, context) => {
   return args.text || (context.globals.locale === 'en' ? 'Text' : 'Текст');
 };
 
-<Canvas source={ACTION_HEADING_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='110px'>
-    {((args, context) => ({
-      template: `
-        <es-action-heading
+       {/* <es-action-heading
           [text]="text"
           [type]="type"
           [typography]="typography"
@@ -62,6 +66,23 @@ export const getActionLabel = (args, context) => {
           [actionSvgIcon]="actionSvgIcon"
           [color]="color"
           (action)="onAction()">
+        </es-action-heading> */}
+
+<Canvas source={ACTION_HEADING_STORY_BASIC_SOURCE}>
+  <Story name='Basic' height='110px'>
+    {((args, context) => ({
+      template: `
+        <es-action-heading>
+          <es-heading-breadcrumbs>You / Can / Put / Here / Breadcrumbs</es-heading-breadcrumbs>
+          <es-heading-main>
+            <es-heading-header [maxLines]="3">{{ text }}</es-heading-header>
+            <es-heading-actions>
+              <button mat-raised-button color="primary">Remove</button>
+              <button mat-raised-button>Save</button>
+              <button mat-raised-button color="accent">Else</button>
+            </es-heading-actions>
+          </es-heading-main>
+          <es-heading-status>Status: online</es-heading-status>
         </es-action-heading>
       `,
       moduleMetadata: {
