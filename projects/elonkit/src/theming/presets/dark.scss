@@ -1,4 +1,4 @@
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 $es-dark-primary: mat.define-palette(
   (
@@ -88,7 +88,9 @@ $es-dark-accent: mat.define-palette(
 
 $es-dark-warn: mat.define-palette(
   (
+    // 100: #ff594d,
     500: #ff594d,
+    // 700: #ff594d,
     A50: rgba(255, 89, 77, 0.04),
     A75: rgba(255, 89, 77, 0.06),
     A100: rgba(255, 89, 77, 0.08),
@@ -102,7 +104,9 @@ $es-dark-warn: mat.define-palette(
     A800: rgba(255, 89, 77, 0.7),
     A900: rgba(255, 89, 77, 0.86),
     contrast: (
+      // 100: #000,
       500: #000,
+      // 700: #000,
       A50: #fff,
       A75: #fff,
       A100: #fff,
@@ -126,7 +130,9 @@ $es-dark-theme: (
   info:
     mat.define-palette(
       (
+        // 100: #5eaeff,
         500: #5eaeff,
+        // 700: #5eaeff,
         A50: rgba(94, 174, 255, 0.04),
         A75: rgba(94, 174, 255, 0.06),
         A100: rgba(94, 174, 255, 0.08),
@@ -140,7 +146,9 @@ $es-dark-theme: (
         A800: rgba(94, 174, 255, 0.7),
         A900: rgba(94, 174, 255, 0.86),
         contrast: (
+          // 100: #000,
           500: #000,
+          // 700: #000,
           A50: #fff,
           A75: #fff,
           A100: #fff,
@@ -162,7 +170,9 @@ $es-dark-theme: (
   positive:
     mat.define-palette(
       (
+        // 100: #47d6a3,
         500: #47d6a3,
+        // 700: #47d6a3,
         A50: rgba(71, 214, 163, 0.04),
         A75: rgba(71, 214, 163, 0.06),
         A100: rgba(71, 214, 163, 0.08),
@@ -176,7 +186,9 @@ $es-dark-theme: (
         A800: rgba(71, 214, 163, 0.7),
         A900: rgba(71, 214, 163, 0.86),
         contrast: (
+          // 100: #000,
           500: #000,
+          // 700: #000,
           A50: #fff,
           A75: #fff,
           A100: #fff,
@@ -198,7 +210,9 @@ $es-dark-theme: (
   attention:
     mat.define-palette(
       (
+        // 100: #fca032,
         500: #fca032,
+        // 700: #fca032,
         A50: rgba(252, 160, 50, 0.04),
         A75: rgba(252, 160, 50, 0.06),
         A100: rgba(252, 160, 50, 0.08),
@@ -212,7 +226,9 @@ $es-dark-theme: (
         A800: rgba(252, 160, 50, 0.7),
         A900: rgba(252, 160, 50, 0.86),
         contrast: (
+          // 100: #000,
           500: #000,
+          // 700: #000,
           A50: #fff,
           A75: #fff,
           A100: #fff,
@@ -234,7 +250,9 @@ $es-dark-theme: (
   mono-a:
     mat.define-palette(
       (
+        // 100: #fff,
         500: #fff,
+        // 700: #fff,
         A50: rgba(255, 255, 255, 0.04),
         A75: rgba(255, 255, 255, 0.06),
         A100: rgba(255, 255, 255, 0.08),
@@ -248,7 +266,9 @@ $es-dark-theme: (
         A800: rgba(255, 255, 255, 0.7),
         A900: rgba(255, 255, 255, 0.86),
         contrast: (
+          // 100: #000,
           500: #000,
+          // 700: #000,
           A50: #fff,
           A75: #fff,
           A100: #fff,
@@ -270,7 +290,9 @@ $es-dark-theme: (
   mono-b:
     mat.define-palette(
       (
+        // 100: #000,
         500: #000,
+        // 700: #000,
         A50: rgba(0, 0, 0, 0.04),
         A75: rgba(0, 0, 0, 0.06),
         A100: rgba(0, 0, 0, 0.08),
@@ -284,7 +306,9 @@ $es-dark-theme: (
         A800: rgba(0, 0, 0, 0.72),
         A900: rgba(0, 0, 0, 0.88),
         contrast: (
+          // 100: #fff,
           500: #fff,
+          // 700: #fff,
           A50: #fff,
           A75: #fff,
           A100: #fff,
@@ -333,6 +357,9 @@ $es-dark-theme: (
   surface:
     mat.define-palette(
       (
+        100: #000,
+        500: #000,
+        700: #000,
         0: #18181a,
         1: rgba(255, 255, 255, 0.05),
         2: rgba(255, 255, 255, 0.07),
@@ -345,6 +372,9 @@ $es-dark-theme: (
         24: rgba(255, 255, 255, 0.16),
         on: rgba(255, 255, 255, 0.03),
         contrast: (
+          // 100: #fff,
+          // 500: #fff,
+          // 700: #fff,
           0: #fff,
           1: #fff,
           2: #fff,
@@ -362,7 +392,9 @@ $es-dark-theme: (
   white:
     mat.define-palette(
       (
+        // 100: #fff,
         500: #fff,
+        // 700: #fff,
         A50: rgba(255, 255, 255, 0.04),
         A100: rgba(255, 255, 255, 0.08),
         A150: rgba(255, 255, 255, 0.1),
@@ -375,7 +407,9 @@ $es-dark-theme: (
         A800: rgba(255, 255, 255, 0.7),
         A900: rgba(255, 255, 255, 0.86),
         contrast: (
+          // 100: #000,
           500: #000,
+          // 700: #000,
           A50: #000,
           A100: #000,
           A150: #000,
@@ -396,7 +430,9 @@ $es-dark-theme: (
   black:
     mat.define-palette(
       (
+        // 100: #000,
         500: #000,
+        // 700: #000,
         A50: rgba(0, 0, 0, 0.04),
         A100: rgba(0, 0, 0, 0.08),
         A150: rgba(0, 0, 0, 0.1),
@@ -409,7 +445,9 @@ $es-dark-theme: (
         A800: rgba(0, 0, 0, 0.72),
         A900: rgba(0, 0, 0, 0.88),
         contrast: (
+          // 100: #fff,
           500: #fff,
+          // 700: #fff,
           A50: #000,
           A100: #000,
           A150: #000,
@@ -430,6 +468,9 @@ $es-dark-theme: (
   other:
     mat.define-palette(
       (
+        100: #000,
+        500: #000,
+        700: #000,
         background: #18181a,
         background-2: #09090a,
         overlay-gallery: rgba(26, 26, 26, 0.94),
@@ -439,6 +480,9 @@ $es-dark-theme: (
         link-visited: #be95ff,
         switch: #d0d0d0,
         contrast: (
+          // 100: #fff,
+          // 500: #fff,
+          // 700: #fff,
           background: #fff,
           background-2: #fff,
           overlay-gallery: #fff,

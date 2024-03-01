@@ -10,7 +10,7 @@ import { ESHeadingStatusComponent } from './heading-status/heading-status.compon
 import { ESHeadingBreadcrumbsComponent } from './heading-breadcrumbs/heading-breadcrumbs.component';
 
 @NgModule({
-  imports: [CommonModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule],
   declarations: [
     ESActionHeadingComponent,
     ESHeadingBreadcrumbsComponent,
@@ -19,6 +19,13 @@ import { ESHeadingBreadcrumbsComponent } from './heading-breadcrumbs/heading-bre
     ESHeadingActionsComponent,
     ESHeadingStatusComponent
   ],
-  exports: [ESActionHeadingComponent]
+  exports: [
+    ESActionHeadingComponent,
+    ESHeadingBreadcrumbsComponent,
+    ESHeadingMainComponent,
+    ESHeadingHeaderComponent,
+    ESHeadingActionsComponent,
+    ESHeadingStatusComponent,
+  ]
 })
 export class ESActionHeadingModule {}

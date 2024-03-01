@@ -36,15 +36,15 @@
 
 @mixin es-theme($theme, $es-theme) {
   @include es-action-heading-theme($theme, $es-theme);
-  //@include es-alert-theme($theme, $es-theme);
-  //@include es-audio-player-theme($theme, $es-theme);
-  //@include es-autocomplete-multiple-theme($theme, $es-theme);
-  //@include es-avatar-theme($theme, $es-theme);
-  //@include es-breadcrumbs-theme($theme, $es-theme);
-  //@include es-dropzone-theme($theme, $es-theme);
-  //@include es-empty-state-theme($theme, $es-theme);
-  //@include es-inline-form-field-theme($theme, $es-theme);
-  //@include es-paginator-theme($theme, $es-theme);
-  //@include es-surface-theme($theme, $es-theme);
-  //@include es-tooltip-theme($theme, $es-theme);
+  @include es-alert-theme($theme, $es-theme);
+  @include es-audio-player-theme($theme, $es-theme);
+  @include es-autocomplete-multiple-theme($theme, $es-theme);
+  @include es-avatar-theme($theme, $es-theme);
+  @include es-breadcrumbs-theme($theme, $es-theme);
+  @include es-dropzone-theme($theme, $es-theme);
+  @include es-empty-state-theme($theme, $es-theme);
+  @include es-inline-form-field-theme($theme, $es-theme);
+  @include es-paginator-theme($theme, $es-theme);
+  @include es-surface-theme($theme, $es-theme);
+  @include es-tooltip-theme($theme, $es-theme);
 }
