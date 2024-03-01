@@ -34,7 +34,6 @@ export const ES_SVG_ICONS: { [key: string]: any } = {
     'speed',
     'un-mute',
   ] as const,
-  'es-autocomplete-multiple': ['clear-small', 'clear', 'magnify', 'menu-down', 'menu-up'] as const,
   'es-24': [
     'account-line-w500',
     'add-circle-line-w500',
@@ -329,6 +328,7 @@ export const ES_SVG_ICONS: { [key: string]: any } = {
     'star-line-w600-lc',
   ] as const,
   'es-other': ['video-300', 'video-500'] as const,
+  'es-autocomplete-field': ['clear-small', 'clear', 'magnify', 'menu-down', 'menu-up'] as const,
 };
 
 @Injectable()
