@@ -64,11 +64,11 @@ export const getText = (args, context) => {
         <es-action-heading>
           <es-heading-breadcrumbs>You / Can / Put / Here / Breadcrumbs</es-heading-breadcrumbs>
           <es-heading-main>
-            <es-heading-header [maxLines]="3">{{ text }}</es-heading-header>
+            <es-heading-header [typography]="'es-h4'" [maxLines]="3">{{ text }}</es-heading-header>
             <es-heading-actions>
-              <button mat-raised-button color="primary">Remove</button>
+              <button mat-raised-button [color]="color">Remove</button>
               <button mat-raised-button>Save</button>
-              <button mat-raised-button color="accent">Else</button>
+              <button mat-raised-button [color]="color">Else</button>
             </es-heading-actions>
           </es-heading-main>
           <es-heading-status>Status: online</es-heading-status>
@@ -107,4 +107,4 @@ import { ES_HEADER_DEFAULT_OPTIONS } from '@elonkit/angular/ui/action-heading';
     }
   ]
 })
-```
+``` */}
