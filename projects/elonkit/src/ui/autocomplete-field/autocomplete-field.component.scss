@@ -1,0 +1,79 @@
+@use '@angular/material' as mat;
+@use 'sass:map';
+
+.es-autocomplete {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  &__panel {
+    border-radius: 8px;
+    min-width: 295px;
+    overflow: hidden;
+  }
+
+  &__value {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__name {
+    flex: 1;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .disabled {
+  }
+
+  &__search-wrapper {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__search-icon {
+  }
+
+  &__clear-icon.mat-icon {
+    cursor: pointer;
+    height: 16px;
+  }
+
+  &__search-input {
+    height: 24px;
+    padding: 0;
+    margin: 0 8px;
+    display: block;
+    background: none;
+    border: 0;
+    flex-grow: 1;
+    outline: none;
+  }
+
+  &__arrow.mat-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__options.mat-mdc-selection-list.mat-mdc-list-base {
+    max-height: 320px;
+    overflow: auto;
+
+    .mat-mdc-list-item.mat-mdc-list-option {
+      height: 40px;
+    }
+
+    .mat-mdc-list-item.mat-mdc-list-option[ng-reflect-selected='true'] {
+    }
+  }
+}
