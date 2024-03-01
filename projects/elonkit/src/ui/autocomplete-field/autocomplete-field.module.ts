@@ -4,16 +4,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 
 import { A11yModule } from '@angular/cdk/a11y';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-import { ESAutocompleteMultipleComponent } from './autocomplete-multiple.component';
+import { ESAutocompleteFieldComponent } from './autocomplete-field.component';
 import { ESTooltipModule } from '../tooltip';
+import { MatFormFieldControl } from '@angular/material/form-field';
+import { ESAutocompleteFooterComponent } from './autocomplete-footer/autocomplete-footer.component';
+import { ESAutocompleteHeaderComponent } from './autocomplete-header/autocomplete-header.component';
 
 @NgModule({
   imports: [
@@ -21,7 +23,6 @@ import { ESTooltipModule } from '../tooltip';
     ReactiveFormsModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatChipsModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
@@ -29,7 +30,8 @@ import { ESTooltipModule } from '../tooltip';
     OverlayModule,
     ESTooltipModule,
   ],
-  exports: [ESAutocompleteMultipleComponent],
-  declarations: [ESAutocompleteMultipleComponent],
+  exports: [ESAutocompleteFieldComponent, ESAutocompleteFooterComponent, ESAutocompleteHeaderComponent],
+  declarations: [ESAutocompleteFieldComponent, ESAutocompleteFooterComponent, ESAutocompleteHeaderComponent],
+  providers: [MatIconRegistry],
 })
-export class ESAutocompleteMultipleModule {}
+export class ESAutocompleteFieldModule {}

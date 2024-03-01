@@ -1,0 +1,8 @@
+@mixin es-autocomplete-header-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+
+  .autocomplete-header {
+    color: mat.get-color-from-palette($mono-a, A600);
+    border-bottom: 1px solid mat.get-color-from-palette($mono-a, A100);
+  }
+}

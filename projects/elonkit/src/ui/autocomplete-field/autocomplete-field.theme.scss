@@ -1,0 +1,61 @@
+@import './autocomplete-header/autocomplete-header.theme';
+@import './autocomplete-footer/autocomplete-footer.theme';
+@mixin es-autocomplete-field-theme($theme, $elonkit-theme) {
+  $accent: map-get($theme, accent);
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $surface: map-get($elonkit-theme, surface);
+
+  @include es-autocomplete-header-theme($theme, $elonkit-theme);
+  @include es-autocomplete-footer-theme($theme, $elonkit-theme);
+
+  .es-autocomplete {
+    &__panel {
+      box-shadow:
+        0 8px 16px 0 rgba(0, 0, 0, 0.07),
+        0 3px 6px 0 rgba(0, 0, 0, 0.03),
+        0 -0.5px 2px 1px rgba(0, 0, 0, 0.02);
+      background-color: mat.get-color-from-palette($surface, 500);
+    }
+
+    &__value {
+      color: mat.get-color-from-palette($mono-a, A900);
+    }
+
+    &__name {
+    }
+
+    .disabled {
+      color: mat.get-color-from-palette($mono-a, A550);
+    }
+
+    &__search-wrapper {
+      border-bottom: 1px solid mat.get-color-from-palette($mono-a, A100);
+      color: mat.get-color-from-palette($mono-a, A400);
+    }
+
+    &__search-icon {
+      color: mat.get-color-from-palette($mono-a, A500);
+    }
+
+    &__clear-icon.mat-icon {
+      color: mat.get-color-from-palette($mono-a, A500);
+    }
+
+    &__search-input {
+      color: mat.get-color-from-palette($mono-a, A900);
+    }
+
+    &__arrow.mat-icon {
+      color: mat.get-color-from-palette($mono-a, A500);
+    }
+
+    &__options.mat-mdc-selection-list.mat-mdc-list-base {
+      .mat-mdc-list-item.mat-mdc-list-option {
+      }
+
+      .mat-mdc-list-item.mat-mdc-list-option[ng-reflect-selected='true'] {
+        background-color: mat.get-color-from-palette($accent, A100);
+      }
+    }
+  }
+}
