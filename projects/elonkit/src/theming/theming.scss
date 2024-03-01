@@ -1,7 +1,7 @@
 @import '../ui/action-heading/action-heading.component.theme';
 @import '../ui/alert/alert.component.theme';
 @import '../ui/audio-player/audio-player.component.theme';
-@import '../ui/autocomplete-multiple/autocomplete-multiple.theme';
+@import '../ui/autocomplete-field/autocomplete-field.theme';
 @import '../ui/avatar/avatar.component.theme';
 @import '../ui/breadcrumbs/breadcrumbs.component.theme';
 @import '../ui/dropzone/dropzone.component.theme';
@@ -10,6 +10,7 @@
 @import '../ui/paginator/paginator.component.theme';
 @import '../ui/surface/surface.component.theme';
 @import '../ui/tooltip/tooltip.component.theme';
+@import '../ui/snackbar/snackbar.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -38,7 +39,7 @@
   @include es-action-heading-theme($theme, $es-theme);
   @include es-alert-theme($theme, $es-theme);
   @include es-audio-player-theme($theme, $es-theme);
-  @include es-autocomplete-multiple-theme($theme, $es-theme);
+  @include es-autocomplete-field-theme($theme, $es-theme);
   @include es-avatar-theme($theme, $es-theme);
   @include es-breadcrumbs-theme($theme, $es-theme);
   @include es-dropzone-theme($theme, $es-theme);
@@ -47,4 +48,5 @@
   @include es-paginator-theme($theme, $es-theme);
   @include es-surface-theme($theme, $es-theme);
   @include es-tooltip-theme($theme, $es-theme);
+  @include es-snackbar-theme($theme, $es-theme);
 }

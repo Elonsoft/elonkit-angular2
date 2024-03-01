@@ -1,0 +1,85 @@
+:host {
+  width: 100%;
+  display: block;
+}
+
+.mdc-snackbar {
+  &__label {
+    padding: 0;
+  }
+
+  &__surface {
+    padding: 0 !important;
+  }
+}
+
+.small {
+  padding: 0 4px 0 12px !important;
+}
+
+.medium {
+  padding: 4px 8px 4px 12px !important;
+}
+
+.large {
+  padding: 8px 12px 8px 16px !important;
+}
+
+.snackbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__indications {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &__icon {
+      margin-right: 8px;
+    }
+  }
+
+  &__actions {
+    padding: 4px 0 4px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+
+    &__action {
+      height: 32px !important;
+    }
+
+    &--wrapper {
+      &__progress {
+        width: 0px;
+        height: 32px;
+        position: absolute;
+        border-radius: 4px;
+      }
+
+      &__close {
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        border-radius: 4px !important;
+
+        .mat-mdc-button-persistent-ripple::before {
+          border-radius: 4px !important;
+        }
+
+        .mat-mdc-button-touch-target {
+          width: 32px !important;
+          height: 32px !important;
+        }
+      }
+    }
+  }
+}

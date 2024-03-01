@@ -1,0 +1,47 @@
+@mixin es-snackbar-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $mono-b: map-get($elonkit-theme, mono-b);
+  $positive: map-get($elonkit-theme, positive);
+
+  .snackbar {
+    &__indications {
+      &__icon {
+        color: mat.get-color-from-palette($mono-b, 500);
+
+        &_success {
+          color: mat.get-color-from-palette($positive, 300) !important;
+        }
+
+        &_error {
+          color: mat.get-color-from-palette($es-light-warn, 300) !important;
+        }
+      }
+
+      &__text {
+        color: mat.get-color-from-palette($mono-b, 500);
+      }
+    }
+
+    &__actions {
+      &__action {
+        background-color: mat.get-color-from-palette($mono-b, A100) !important;
+        color: mat.get-color-from-palette($mono-b, 500) !important;
+      }
+
+      &--wrapper {
+        &__progress {
+          background-color: mat.get-color-from-palette($mono-b, A100);
+        }
+
+        &__close {
+          background-color: mat.get-color-from-palette($mono-b, A100) !important;
+          color: mat.get-color-from-palette($mono-b, 500) !important;
+
+          .mat-icon {
+            transform: scale(0.85);
+          }
+        }
+      }
+    }
+  }
+}
