@@ -13,10 +13,11 @@ export interface ESHeaderDefaultOptions {
   maxLines?: number;
 }
 
+const DEFAULT_MAX_LINES = 1;
 const DEFAULT_TYPOGRAPHY = 'es-h2';
 
 export const ES_HEADER_DEFAULT_OPTIONS = new InjectionToken<ESHeaderDefaultOptions>(
-  'ES_ALERT_DEFAULT_OPTIONS'
+  'ES_HEADER_DEFAULT_OPTIONS'
 );
 @Component({
   selector: 'es-heading-header',
@@ -27,10 +28,19 @@ export const ES_HEADER_DEFAULT_OPTIONS = new InjectionToken<ESHeaderDefaultOptio
 })
 
 export class ESHeadingHeaderComponent {
-  @Input()
-  public maxLines = 1;
+  private _maxLines: number
 
-  // TODO: Оформить maxLines с геттером и сетторм. Стилизовать остальные компоеннты хедера. Переделать стори.
+  /**
+   * Set max lines in header.
+   */
+  @Input()
+  public get maxLines(): number {
+    return this._maxLines;
+  }
+  public set maxLines(value: number) {
+    this._maxLines = value || (this.defaultOptions && this.defaultOptions.maxLines) || DEFAULT_MAX_LINES;
+  }
+
 
   private _typography: string;
 
@@ -55,6 +65,8 @@ export class ESHeadingHeaderComponent {
         private defaultOptions: ESHeaderDefaultOptions
   ) {
     this.typography =
-    (defaultOptions && defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
+      (defaultOptions && defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
+
+    this.maxLines = (defaultOptions && defaultOptions.maxLines) || DEFAULT_MAX_LINES;
   }
 }

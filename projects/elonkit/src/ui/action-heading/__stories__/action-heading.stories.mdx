@@ -58,16 +58,16 @@ export const getText = (args, context) => {
         </es-action-heading> */}
 
 <Canvas source={ACTION_HEADING_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='110px'>
+  <Story name='Basic'>
     {((args, context) => ({
       template: `
         <es-action-heading>
           <es-heading-breadcrumbs>You / Can / Put / Here / Breadcrumbs</es-heading-breadcrumbs>
           <es-heading-main>
-            <es-heading-header [typography]="'es-h4'" [maxLines]="3">{{ text }}</es-heading-header>
+            <es-heading-header [typography]="typography" [maxLines]="maxLines">{{ text }}</es-heading-header>
             <es-heading-actions>
               <button mat-raised-button [color]="color">Remove</button>
-              <button mat-raised-button>Save</button>
+              <button mat-raised-button [color]="color">Save</button>
               <button mat-raised-button [color]="color">Else</button>
             </es-heading-actions>
           </es-heading-main>
@@ -107,4 +107,4 @@ import { ES_HEADER_DEFAULT_OPTIONS } from '@elonkit/angular/ui/action-heading';
     }
   ]
 })
-``` */}
+```
