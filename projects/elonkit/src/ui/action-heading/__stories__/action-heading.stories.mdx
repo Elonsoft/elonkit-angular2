@@ -21,11 +21,16 @@ import { ACTION_HEADING_STORY_BASIC_SOURCE } from './action-heading-story-basic'
   title='UI/Action Heading'
   args={{
     text: '',
+    maxLines: 1,
     color: 'primary',
+    typography: 'es-h2'
   }}
   argTypes={{
     color: {
-      control: { type: 'select', options: ['primary', 'warn', 'accent'] }
+      control: 'select', options: ['null', 'primary', 'warn', 'accent']
+    },
+    typography: {
+      control: 'select', options: ['es-h1', 'es-h2', 'es-h3', 'es-h4', 'es-h5']
     }
   }}
 />
@@ -42,16 +47,16 @@ export const getText = (args, context) => {
 
 
 <Canvas source={ACTION_HEADING_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='110px'>
+  <Story name='Basic'>
     {((args, context) => ({
       template: `
         <es-action-heading>
           <es-heading-breadcrumbs>You / Can / Put / Here / Breadcrumbs</es-heading-breadcrumbs>
           <es-heading-main>
-            <es-heading-header [typography]="'es-h4'" [maxLines]="3">{{ text }}</es-heading-header>
+            <es-heading-header [typography]="typography" [maxLines]="maxLines">{{ text }}</es-heading-header>
             <es-heading-actions>
               <button mat-raised-button [color]="color">Remove</button>
-              <button mat-raised-button>Save</button>
+              <button mat-raised-button [color]="color">Save</button>
               <button mat-raised-button [color]="color">Else</button>
             </es-heading-actions>
           </es-heading-main>
@@ -74,21 +79,21 @@ export const getText = (args, context) => {
 <ArgsTable of={ESActionHeadingComponent} />
 
 
-{/* ## Constants
+## Constants
 
 Injection token that can be used to configure the default options for all components within an app.
 
 ```ts
-import { ES_ACTION_HEADING_DEFAULT_OPTIONS } from '@elonkit/angular/ui/action-heading';
+import { ES_HEADER_DEFAULT_OPTIONS } from '@elonkit/angular/ui/action-heading';
 @NgModule({
   providers: [
     {
-      provide: ES_ACTION_HEADING_DEFAULT_OPTIONS,
+      provide: ES_HEADER_DEFAULT_OPTIONS,
       useValue: {
-        type: 'h2',
-        typography: 'mat-h2'
+        typography: 'es-h4';
+        maxLines: 1;
       }
     }
   ]
 })
-``` */}
+```
