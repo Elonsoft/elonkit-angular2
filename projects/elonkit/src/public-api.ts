@@ -1,7 +1,7 @@
 /*
  * Public API Surface of elonkit
  */
-export * from './ui/action-heading';
+export * from './ui/page-h-group';
 export * from './ui/alert';
 export * from './ui/audio-player';
 export * from './ui/autocomplete-multiple';
