@@ -1,0 +1,7 @@
+@mixin es-page-h-group-status-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+
+  .es-page-h-group-status {
+    color: mat.get-color-from-palette($mono-a, A600);
+  }
+}
