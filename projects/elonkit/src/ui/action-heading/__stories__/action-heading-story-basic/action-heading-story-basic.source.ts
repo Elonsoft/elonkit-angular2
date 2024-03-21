@@ -17,4 +17,3 @@ export const ACTION_HEADING_STORY_BASIC_SOURCE = {
     </es-action-heading>
   `
 };
-
