@@ -330,6 +330,8 @@ export const ES_SVG_ICONS: { [key: string]: any } = {
   ] as const,
   'es-other': ['video-300', 'video-500'] as const,
   'es-autocomplete-field': ['clear-small', 'clear', 'magnify', 'menu-down', 'menu-up'] as const,
+  'es-sorting': ['arrow-sort-asc-fill', 'sort-asc', 'sort-desc', 'sort-off'] as const,
+  'es-sfs': ['close-w350', 'clear', 'close-w400', 'close', 'filter', 'magnify-w400'] as const,
 };
 
 @Injectable()

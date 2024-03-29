@@ -1,0 +1,108 @@
+@mixin es-sfs-theme($theme, $elonkit-theme) {
+  $surface: map-get($elonkit-theme, surface);
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $mono-b: map-get($elonkit-theme, mono-b);
+  $accent: map-get($theme, accent);
+  $black: map-get($elonkit-theme, black);
+
+  .filters {
+    box-shadow:
+      0 1px 2px 0 rgba(0, 0, 0, 0.07),
+      0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // elevation-100;
+    background-color: mat.get-color-from-palette($surface, 100);
+    color: mat.get-color-from-palette($mono-a, A550);
+
+    &__actions-wrapper {
+    }
+
+    &__search {
+      &-input {
+        color: mat.get-color-from-palette($mono-a, A900);
+      }
+
+      &-icon {
+        color: mat.get-color-from-palette($mono-a, A600);
+        opacity: 0.6;
+      }
+
+      &-clear-icon.mat-icon {
+        color: mat.get-color-from-palette($mono-a, A500);
+      }
+    }
+
+    @media (hover: hover) {
+      &__search:hover &__search-icon {
+        opacity: 1;
+      }
+    }
+
+    &__divider {
+    }
+
+    &__sidebar-action {
+      label {
+      }
+    }
+
+    &__drawer {
+      background-color: mat.get-color-from-palette($black, A200);
+    }
+
+    &__content {
+      box-shadow:
+        -16px 0 32px 0 rgba(0, 0, 0, 0.09),
+        -5px 0 10px 0 rgba(0, 0, 0, 0.03),
+        0 0 2px 0 rgba(0, 0, 0, 0.02),
+        0.5px 0 2px 1px rgba(0, 0, 0, 0.02); // elevation-800;
+
+      background-color: mat.get-color-from-palette($surface, 200);
+    }
+
+    &__header {
+      border-bottom: 1px solid mat.get-color-from-palette($mono-a, A100);
+      color: mat.get-color-from-palette($mono-a, A900);
+    }
+
+    &__footer {
+      border-top: 1px solid mat.get-color-from-palette($mono-a, A100);
+
+      button {
+      }
+    }
+
+    &__header-button {
+      color: mat.get-color-from-palette($mono-a, A500);
+    }
+
+    &__fields-wrapper {
+    }
+
+    &__badge {
+      background-color: mat.get-color-from-palette($accent, 300);
+      color: mat.get-color-from-palette($mono-b, 500);
+    }
+
+    &__list-box {
+    }
+
+    &__chips-wrapper {
+      .mat-mdc-chip-listbox {
+        .chip {
+          border: 1px solid mat.get-color-from-palette($mono-a, A50);
+          background-color: mat.get-color-from-palette($mono-a, A75);
+
+          &__text {
+            color: mat.get-color-from-palette($mono-a, A900);
+          }
+        }
+      }
+
+      .mat-mdc-chip-listbox .mdc-evolution-chip-set__chips {
+      }
+    }
+
+    &__clear-icon {
+      color: mat.get-color-from-palette($mono-a, A400);
+    }
+  }
+}
