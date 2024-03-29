@@ -1,0 +1,158 @@
+.filters {
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 8px;
+
+  &__actions-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__search {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    &-icon {
+    }
+
+    &-input {
+      height: 24px;
+      padding: 0;
+      margin: 0 8px;
+      display: block;
+      background: none;
+      border: 0;
+      flex-grow: 1;
+      outline: none;
+    }
+
+    &-clear-icon.mat-icon {
+      cursor: pointer;
+      height: 16px;
+    }
+  }
+
+  &__divider {
+    height: 16px;
+    margin: 0 2px;
+  }
+
+  &__sidebar-action {
+    padding: 4px 4px 4px 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    min-width: 78px;
+
+    label {
+      cursor: inherit;
+    }
+  }
+
+  &__drawer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+  }
+
+  &__content {
+    width: 336px;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &__header {
+    padding: 12px 12px 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__footer {
+    padding: 20px 16px;
+    display: flex;
+    justify-content: center;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  &__header-button {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 8px 0 !important;
+    border-radius: 6px !important;
+
+    .mat-mdc-button-persistent-ripple {
+      border-radius: 6px !important;
+    }
+
+    .mat-mdc-button-touch-target {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+
+  &__fields-wrapper {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 0;
+  }
+
+  &__badge {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 6px !important;
+  }
+
+  &__list-box {
+    width: 100%;
+  }
+
+  &__chips-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: start;
+
+    .mat-mdc-chip-listbox {
+      width: 100%;
+
+      .chip {
+        height: 22px !important;
+      }
+    }
+
+    .mat-mdc-chip-listbox .mdc-evolution-chip-set__chips {
+      position: relative;
+    }
+  }
+
+  &__clear-icon {
+    cursor: pointer;
+    height: 20px;
+    margin-right: 2px;
+    margin-top: 6px;
+  }
+}

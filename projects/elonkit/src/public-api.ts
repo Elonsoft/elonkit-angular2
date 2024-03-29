@@ -16,3 +16,6 @@ export * from './ui/tooltip';
 
 export * from './ui/icons';
 export * from './ui/locale';
+
+export * from './ui/sorting';
+export * from './ui/sfs';
