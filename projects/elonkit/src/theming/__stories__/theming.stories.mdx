@@ -4,7 +4,7 @@ import { Canvas } from '~storybook/components';
 import { Colors } from './colors/colors.component.tsx';
 import { Typography } from './typography/typography.component.tsx';
 
-<Meta title='Guides/Theming' />
+<Meta title="Guides/Theming" />
 
 # Colors
 
@@ -33,7 +33,7 @@ $theme: mat.define-light-theme($es-light-primary, $es-light-accent, $es-light-wa
 
 $es-theme: es-light-theme(
   (
-    colors: $es-light-theme
+    colors: $es-light-theme,
   )
 );
 ```
@@ -48,8 +48,8 @@ $es-theme: es-light-theme(
       mono-a: mat.define-palette(...),
       mono-b: mat.define-palette(...),
       surface: mat.define-palette(...),
-      common: mat.define-palette(...)
-    )
+      common: mat.define-palette(...),
+    ),
   )
 );
 ```
@@ -88,7 +88,7 @@ Use a built-in typography or define your own.
 $es-theme: es-light-theme(
   (
     colors: $es-light-theme,
-    typography: $es-typography
+    typography: $es-typography,
   )
 );
 ```
@@ -107,8 +107,8 @@ $es-theme: es-light-theme(
         body-200: mat.define-typography-level(es-rem(18), es-rem(26)),
         body-100: mat.define-typography-level(es-rem(16), es-rem(22)),
         // ...
-      )
-    )
+      ),
+    ),
   )
 );
 ```

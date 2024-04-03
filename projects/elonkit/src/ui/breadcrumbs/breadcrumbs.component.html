@@ -8,13 +8,11 @@
       [attr.aria-label]="(locale$ | async)?.breadcrumbs?.labelBack"
       class="es-breadcrumbs__link-back"
       [ngClass]="typography"
-      mat-ripple
-    >
+      mat-ripple>
       <ng-container *ngTemplateOutlet="back"></ng-container>
-      <span>{{(locale$ | async)?.breadcrumbs?.labelBack}}</span>
+      <span>{{ (locale$ | async)?.breadcrumbs?.labelBack }}</span>
     </button>
-    <div *ngIf="withBackButton" class="es-breadcrumbs__separator es-breadcrumbs__separator_single">
-    </div>
+    <div *ngIf="withBackButton" class="es-breadcrumbs__separator es-breadcrumbs__separator_single"></div>
   </div>
   <ng-container *ngFor="let breadcrumb of breadcrumbs; let i = index">
     <ng-container *ngIf="!collapseIndexes.includes(i)">
@@ -22,18 +20,14 @@
         [breadcrumb]="breadcrumb"
         [last]="i === breadcrumbs.length - 1"
         [typography]="typography"
-        class="es-breadcrumbs__breadcrumb"
-      ></es-breadcrumbs-breadcrumb>
+        class="es-breadcrumbs__breadcrumb"></es-breadcrumbs-breadcrumb>
       <ng-container *ngIf="i < breadcrumbs.length - 1">
         <ng-container *ngTemplateOutlet="separator"></ng-container>
       </ng-container>
     </ng-container>
 
     <ng-container *ngIf="i === 1 && collapseIndexes.length">
-      <es-breadcrumbs-collapse
-        [breadcrumbs]="collapseBreadcrumbs"
-        [moreTemplate]="moreTemplate"
-      ></es-breadcrumbs-collapse>
+      <es-breadcrumbs-collapse [breadcrumbs]="collapseBreadcrumbs" [moreTemplate]="moreTemplate"></es-breadcrumbs-collapse>
       <ng-container *ngTemplateOutlet="separator"></ng-container>
     </ng-container>
   </ng-container>
@@ -42,19 +36,8 @@
 <ng-template #separator>
   <ng-container *ngIf="!separatorTemplate">
     <div class="es-breadcrumbs__separator">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10 8L14 12L10 16"
-          stroke="currentColor"
-          stroke-opacity="0.38"
-          stroke-width="1.5"
-        />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 8L14 12L10 16" stroke="currentColor" stroke-opacity="0.38" stroke-width="1.5" />
       </svg>
     </div>
   </ng-container>
@@ -68,7 +51,7 @@
 <ng-template #back>
   <div *ngIf="!backTemplate" class="es-breadcrumbs__back-icon">
     <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M6 1L2 5M2 5L6 9M2 5H11" stroke="black" stroke-opacity="0.38" stroke-width="1.5"/>
+      <path d="M6 1L2 5M2 5L6 9M2 5H11" stroke="black" stroke-opacity="0.38" stroke-width="1.5" />
     </svg>
   </div>
   <ng-container *ngIf="backTemplate">

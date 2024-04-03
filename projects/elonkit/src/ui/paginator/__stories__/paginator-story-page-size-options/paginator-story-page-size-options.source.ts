@@ -8,5 +8,5 @@ export const PAGINATOR_STORY_PAGE_SIZE_OPTIONS_SOURCE = {
     (pageChange)="onPageChange($event)"
     (pageSizeChange)="onPageSizeChange($event)"
   ></es-paginator>
-  `
+  `,
 };

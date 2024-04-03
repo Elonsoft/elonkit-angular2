@@ -8,6 +8,6 @@ import { ESPaginatorModule } from '../..';
 @NgModule({
   declarations: [PaginatorStoryBasicComponent],
   imports: [CommonModule, ESPaginatorModule],
-  exports: [PaginatorStoryBasicComponent]
+  exports: [PaginatorStoryBasicComponent],
 })
 export class PaginatorStoryBasicModule {}

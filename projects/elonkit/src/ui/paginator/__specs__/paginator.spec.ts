@@ -14,10 +14,10 @@ describe('Paginator', () => {
         page: 1,
         pageSize: 5,
         siblingCount: 2,
-        boundaryCount: 1
+        boundaryCount: 1,
       },
       imports: [ESPaginatorModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(screen.queryByText('1')).toBeInTheDocument();
@@ -107,14 +107,14 @@ describe('Paginator', () => {
         page: 5,
         pageSize: 10,
         pageChange: {
-          emit: onPageChange
+          emit: onPageChange,
         } as any,
         pageSizeChange: {
-          emit: onPageSizeChange
-        } as any
+          emit: onPageSizeChange,
+        } as any,
       },
       imports: [ESPaginatorModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     fireEvent.click(screen.getByLabelText(en.paginator.labelPrev));
@@ -130,9 +130,7 @@ describe('Paginator', () => {
     fireEvent.submit(screen.getByLabelText(en.paginator.labelGoTo));
     expect(onPageChange).toBeCalledWith(10);
 
-    fireEvent.click(
-      screen.getByLabelText(en.paginator.labelItemsPerPage).querySelector('.mat-select-trigger')
-    );
+    fireEvent.click(screen.getByLabelText(en.paginator.labelItemsPerPage).querySelector('.mat-select-trigger'));
     fireEvent.click(getByText(document.body, /250/));
 
     expect(onPageSizeChange).toBeCalledWith(250);
@@ -147,10 +145,10 @@ describe('Paginator', () => {
         count: 100,
         page: 5,
         pageSize: 10,
-        pageSizeOptions: [10, 20, 30]
+        pageSizeOptions: [10, 20, 30],
       },
       imports: [ESPaginatorModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     inject([OverlayContainer], (oc: OverlayContainer) => {
@@ -158,9 +156,7 @@ describe('Paginator', () => {
       overlayElement = oc.getContainerElement();
     })();
 
-    fireEvent.click(
-      screen.getByLabelText(en.paginator.labelItemsPerPage).querySelector('.mat-select-trigger')
-    );
+    fireEvent.click(screen.getByLabelText(en.paginator.labelItemsPerPage).querySelector('.mat-select-trigger'));
 
     const options = overlayElement.querySelectorAll('.mat-option');
 
@@ -186,11 +182,11 @@ describe('Paginator', () => {
         page: 1,
         pageSize: 10,
         siblingCount: 2,
-        boundaryCount: 1
+        boundaryCount: 1,
       },
       imports: [ESPaginatorModule],
       providers: [{ provide: ESLocaleService, useValue: localeService }],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(screen.getByLabelText(ru.paginator.labelItemsPerPage)).toBeInTheDocument();

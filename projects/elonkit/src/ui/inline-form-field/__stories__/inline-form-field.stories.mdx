@@ -8,28 +8,28 @@ import { ESInlineFormFieldComponent } from '..';
 import {
   InlineFormFieldStoryBasicModule,
   InlineFormFieldStoryBasicComponent,
-  INLINE_FORM_FIELD_STORY_BASIC_SOURCE
+  INLINE_FORM_FIELD_STORY_BASIC_SOURCE,
 } from './inline-form-field-story-basic';
 
 import {
   InlineFormFieldStoryTypographyModule,
   InlineFormFieldStoryTypographyComponent,
-  INLINE_FORM_FIELD_STORY_TYPOGRAPHY_SOURCE
+  INLINE_FORM_FIELD_STORY_TYPOGRAPHY_SOURCE,
 } from './inline-form-field-story-typography';
 
 import {
   InlineFormFieldStoryCompositionModule,
   InlineFormFieldStoryCompositionComponent,
-  INLINE_FORM_FIELD_STORY_COMPOSITION_SOURCE
+  INLINE_FORM_FIELD_STORY_COMPOSITION_SOURCE,
 } from './inline-form-field-story-composition';
 
 import {
   InlineFormFieldStoryValidationModule,
   InlineFormFieldStoryValidationComponent,
-  INLINE_FORM_FIELD_STORY_VALIDATION_SOURCE
+  INLINE_FORM_FIELD_STORY_VALIDATION_SOURCE,
 } from './inline-form-field-story-validation';
 
-<Meta title='UI/Inline Form Field' />
+<Meta title="UI/Inline Form Field" />
 
 # Inline Form Field
 
@@ -38,12 +38,12 @@ This component allows inline switching between display value and input.
 ## Demos
 
 <Canvas source={INLINE_FORM_FIELD_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='50px'>
+  <Story name="Basic" height="50px">
     {{
       component: InlineFormFieldStoryBasicComponent,
       moduleMetadata: {
-        imports: [InlineFormFieldStoryBasicModule]
-      }
+        imports: [InlineFormFieldStoryBasicModule],
+      },
     }}
   </Story>
 </Canvas>
@@ -51,15 +51,15 @@ This component allows inline switching between display value and input.
 We can use `typography` input in order to change text presentation.
 
 <Canvas source={INLINE_FORM_FIELD_STORY_TYPOGRAPHY_SOURCE}>
-  <Story name='Typography' height='170px' args={{ typography: 'mat-h2' }}>
+  <Story name="Typography" height="170px" args={{ typography: 'mat-h2' }}>
     {((args) => ({
       component: InlineFormFieldStoryTypographyComponent,
       moduleMetadata: {
-        imports: [InlineFormFieldStoryTypographyModule]
+        imports: [InlineFormFieldStoryTypographyModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -67,12 +67,12 @@ We can use `typography` input in order to change text presentation.
 This component is compatible with any\* Angular Material form field feature.
 
 <Canvas source={INLINE_FORM_FIELD_STORY_COMPOSITION_SOURCE}>
-  <Story name='Composition' height='380px'>
+  <Story name="Composition" height="380px">
     {{
       component: InlineFormFieldStoryCompositionComponent,
       moduleMetadata: {
-        imports: [InlineFormFieldStoryCompositionModule]
-      }
+        imports: [InlineFormFieldStoryCompositionModule],
+      },
     }}
   </Story>
 </Canvas>
@@ -81,12 +81,12 @@ Synchronous validations for template-driven and reactive forms are supported out
 If there are any server-side validations you should take advantage of `manualSave` input.
 
 <Canvas source={INLINE_FORM_FIELD_STORY_VALIDATION_SOURCE}>
-  <Story name='Validation' height='100px'>
+  <Story name="Validation" height="100px">
     {{
       component: InlineFormFieldStoryValidationComponent,
       moduleMetadata: {
-        imports: [InlineFormFieldStoryValidationModule]
-      }
+        imports: [InlineFormFieldStoryValidationModule],
+      },
     }}
   </Story>
 </Canvas>

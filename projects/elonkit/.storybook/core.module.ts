@@ -4,7 +4,7 @@ import { ESIconsService } from '../src/ui/icons';
 
 @NgModule({
   imports: [MatIconModule],
-  providers: [ESIconsService]
+  providers: [ESIconsService],
 })
 export class CoreModule {
   constructor(private iconsService: ESIconsService) {

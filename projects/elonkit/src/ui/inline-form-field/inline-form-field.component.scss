@@ -1,11 +1,11 @@
 .es-inline-form-field {
-  margin: 0;
   width: 100%;
+  margin: 0;
 
   &__preview,
   &__input {
-    align-items: flex-start;
     display: flex;
+    align-items: flex-start;
   }
 
   &__preview {
@@ -57,9 +57,9 @@
     }
 
     textarea.mat-input-element {
+      padding: 0;
       margin: 0;
       overflow: hidden;
-      padding: 0;
     }
 
     .mat-form-field-subscript-wrapper {
@@ -75,8 +75,8 @@
       .mat-form-field-prefix,
       .mat-form-field-suffix {
         .mat-icon-button {
-          height: 24px;
           width: 24px;
+          height: 24px;
         }
 
         .mat-datepicker-toggle-default-icon {
@@ -89,9 +89,7 @@
       }
     }
 
-    .mat-form-field-appearance-standard.mat-form-field-has-label
-      .mat-select:not(.mat-select-empty)
-      .mat-select-arrow-wrapper {
+    .mat-form-field-appearance-standard.mat-form-field-has-label .mat-select:not(.mat-select-empty) .mat-select-arrow-wrapper {
       transform: none;
     }
   }
@@ -108,26 +106,26 @@
 
     &::after {
       content: '\a0';
+      width: 24px;
+      padding: 5px 0;
       display: block;
       font-size: inherit;
       line-height: normal;
-      padding: 5px 0;
-      width: 24px;
     }
 
     .mat-icon-button {
       font-size: inherit;
+      width: 24px;
       height: 24px;
       line-height: 24px;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 24px;
 
       .mat-button-wrapper {
-        align-items: center;
-        display: flex;
         height: 24px;
+        display: flex;
+        align-items: center;
       }
     }
 

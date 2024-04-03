@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title='Guides/Icons' />
+<Meta title="Guides/Icons" />
 
 # Icons
 
@@ -28,7 +28,7 @@ import { ESIconsService } from '@elonkit/angular';
 
 NgModule({
   imports: [MatIconModule],
-  providers: [ESIconsService]
+  providers: [ESIconsService],
 });
 export class AppModule {
   constructor(private iconsService: ESIconsService) {
@@ -42,7 +42,7 @@ We can override built-in icons:
 ```ts
 this.iconsService.register({
   'es-empty-state': {
-    box: './assets/icons/new-box.svg'
-  }
+    box: './assets/icons/new-box.svg',
+  },
 });
 ```

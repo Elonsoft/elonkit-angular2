@@ -36,5 +36,5 @@ export const ALERT_STORY_ICON_MAPPING_SOURCE = {
   <es-alert variant="error">
     Message
   </es-alert>
-  `
+  `,
 };

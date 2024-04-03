@@ -2,14 +2,7 @@ import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { fakeAsync, tick, flush, inject } from '@angular/core/testing';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
-import {
-  render,
-  getByText,
-  queryByText,
-  RenderResult,
-  fireEvent,
-  screen
-} from '@testing-library/angular';
+import { render, getByText, queryByText, RenderResult, fireEvent, screen } from '@testing-library/angular';
 
 import { ESTooltipModule } from '..';
 
@@ -28,8 +21,7 @@ const TOOLTIP_TEXT = 'Message';
       [esTooltipDisableHoverListener]="esTooltipDisableHoverListener"
       [esTooltipDisableCloseFocusListener]="esTooltipDisableCloseFocusListener"
       [esTooltipDisableCloseHoverListener]="esTooltipDisableCloseHoverListener"
-      [esTooltipDisableCloseClickListener]="esTooltipDisableCloseClickListener"
-    >
+      [esTooltipDisableCloseClickListener]="esTooltipDisableCloseClickListener">
       ${BUTTON_TEXT}
     </button>
     <ng-template #content let-hide="hide">
@@ -37,7 +29,7 @@ const TOOLTIP_TEXT = 'Message';
       <button>${BUTTON_ACTION_TEXT}</button>
       <button (click)="hide()">${BUTTON_CLOSE_TEXT}</button>
     </ng-template>
-  `
+  `,
 })
 class TooltipWrapperComponent {
   @Input() public esTooltipArrow: boolean;
@@ -59,8 +51,8 @@ describe('Tooltip', () => {
     component = await render(TooltipWrapperComponent, {
       imports: [ESTooltipModule],
       componentProperties: {
-        esTooltipArrow: true
-      }
+        esTooltipArrow: true,
+      },
     });
 
     inject([OverlayContainer], (oc: OverlayContainer) => {

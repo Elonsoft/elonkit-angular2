@@ -9,7 +9,7 @@ import {
   QueryList,
   AfterContentInit,
   Renderer2,
-  OnDestroy
+  OnDestroy,
 } from '@angular/core';
 
 import { ESAvatarComponent } from './avatar.component';
@@ -21,7 +21,7 @@ import { Subject } from 'rxjs';
   templateUrl: './avatar-group.component.html',
   styleUrls: ['./avatar-group.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESAvatarGroupComponent implements OnInit, AfterContentInit, OnDestroy {
   @ContentChildren(ESAvatarComponent, { read: ElementRef }) private avatars: QueryList<ElementRef>;
@@ -36,7 +36,10 @@ export class ESAvatarGroupComponent implements OnInit, AfterContentInit, OnDestr
   /**
    * @ignore
    */
-  constructor(private _elementRef: ElementRef, private renderer: Renderer2) {}
+  constructor(
+    private _elementRef: ElementRef,
+    private renderer: Renderer2
+  ) {}
 
   /**
    * @ignore

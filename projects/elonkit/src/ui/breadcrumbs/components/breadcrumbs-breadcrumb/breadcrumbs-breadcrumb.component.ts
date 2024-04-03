@@ -10,7 +10,7 @@ import { ESLocaleService, ESLocale } from '../../../locale';
   templateUrl: './breadcrumbs-breadcrumb.component.html',
   styleUrls: ['./breadcrumbs-breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESBreadcrumbsBreadcrumbComponent {
   /**

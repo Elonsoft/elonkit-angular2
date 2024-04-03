@@ -8,8 +8,7 @@
     esTooltipClass="es-audio-player-options__tooltip"
     esTooltipArrow
     esTooltipInteractive
-    [attr.aria-label]="locale.audioPlayer.labelOptions"
-  >
+    [attr.aria-label]="locale.audioPlayer.labelOptions">
     <mat-icon svgIcon="es-audio-player:more-vert"></mat-icon>
   </button>
 
@@ -20,13 +19,9 @@
         mat-button
         disableRipple
         [attr.aria-label]="locale.audioPlayer.labelRate"
-        (click)="isRatePage = !isRatePage"
-      >
+        (click)="isRatePage = !isRatePage">
         <div class="es-audio-player-options__item-content es-body-100">
-          <mat-icon
-            class="es-audio-player-options__icon"
-            svgIcon="es-audio-player:speed"
-          ></mat-icon>
+          <mat-icon class="es-audio-player-options__icon" svgIcon="es-audio-player:speed"></mat-icon>
 
           <div class="es-audio-player-options__label-container">
             <label>{{ locale.audioPlayer.labelRate }}</label>
@@ -37,8 +32,7 @@
 
           <mat-icon
             class="es-audio-player-options__icon_dark es-audio-player-options__icon_ml-auto"
-            svgIcon="es-audio-player:chevron-right"
-          ></mat-icon>
+            svgIcon="es-audio-player:chevron-right"></mat-icon>
         </div>
       </button>
       <button
@@ -47,17 +41,11 @@
         disableRipple
         [disabled]="!src"
         [attr.aria-label]="locale.audioPlayer.labelDownload"
-        (click)="downloadClicked.emit()"
-      >
+        (click)="downloadClicked.emit()">
         <div class="es-audio-player-options__item-content es-body-100">
-          <mat-icon
-            class="es-audio-player-options__icon"
-            svgIcon="es-audio-player:download"
-          ></mat-icon>
+          <mat-icon class="es-audio-player-options__icon" svgIcon="es-audio-player:download"></mat-icon>
 
-          <label class="es-audio-player-options__label_ml-18">{{
-            locale.audioPlayer.labelDownload
-          }}</label>
+          <label class="es-audio-player-options__label_ml-18">{{ locale.audioPlayer.labelDownload }}</label>
         </div>
       </button>
     </div>
@@ -68,17 +56,11 @@
         class="es-audio-player-options__menu-item"
         disableRipple
         [attr.aria-label]="locale.audioPlayer.labelBack"
-        (click)="isRatePage = !isRatePage"
-      >
+        (click)="isRatePage = !isRatePage">
         <div class="es-audio-player-options__item-content es-body-100">
-          <mat-icon
-            class="es-audio-player-options__icon"
-            svgIcon="es-audio-player:chevron-left"
-          ></mat-icon>
+          <mat-icon class="es-audio-player-options__icon" svgIcon="es-audio-player:chevron-left"></mat-icon>
 
-          <label class="es-audio-player-options__label_ml-18">{{
-            locale.audioPlayer.labelBack
-          }}</label>
+          <label class="es-audio-player-options__label_ml-18">{{ locale.audioPlayer.labelBack }}</label>
         </div>
       </button>
       <mat-divider class="es-audio-player-options__divider"></mat-divider>
@@ -88,16 +70,14 @@
         class="es-audio-player-options__menu-item"
         disableRipple
         [attr.aria-label]="locale.audioPlayer.labelRate + ' ' + rate"
-        (click)="onChangePlaybackRate(rate)"
-      >
+        (click)="onChangePlaybackRate(rate)">
         <div class="es-audio-player-options__item-content es-body-100">
           <label>{{ rate === 1 ? locale.audioPlayer.labelNormal : rate }}</label>
 
           <mat-icon
             *ngIf="rate === currentRate"
             class="es-audio-player-options__icon es-audio-player-options__icon_ml-auto"
-            svgIcon="es-audio-player:check"
-          ></mat-icon>
+            svgIcon="es-audio-player:check"></mat-icon>
         </div>
       </button>
     </div>

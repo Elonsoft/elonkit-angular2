@@ -12,6 +12,6 @@ import { ESTimepickerModule } from '../..';
 @NgModule({
   declarations: [TimepickerStorySecondsComponent],
   imports: [CommonModule, MatNativeDateModule, FormsModule, MatFormFieldModule, ESTimepickerModule],
-  exports: [TimepickerStorySecondsComponent]
+  exports: [TimepickerStorySecondsComponent],
 })
 export class TimepickerStorySecondsModule {}

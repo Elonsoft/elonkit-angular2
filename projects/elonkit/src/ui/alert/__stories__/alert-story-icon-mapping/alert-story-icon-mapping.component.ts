@@ -31,7 +31,7 @@ import { MatIconRegistry } from '@angular/material/icon';
       {{ content }}</es-alert
     >
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlertStoryIconMappingComponent {
   @Input() public content: string;
@@ -40,16 +40,13 @@ export class AlertStoryIconMappingComponent {
 
   @Output() public closed = new EventEmitter();
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
-    this.matIconRegistry.addSvgIcon(
-      'warning',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('/icons/alert/warning.svg')
-    );
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {
+    this.matIconRegistry.addSvgIcon('warning', this.domSanitizer.bypassSecurityTrustResourceUrl('/icons/alert/warning.svg'));
 
-    this.matIconRegistry.addSvgIcon(
-      'error',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('/icons/alert/error.svg')
-    );
+    this.matIconRegistry.addSvgIcon('error', this.domSanitizer.bypassSecurityTrustResourceUrl('/icons/alert/error.svg'));
   }
 
   public onClose() {

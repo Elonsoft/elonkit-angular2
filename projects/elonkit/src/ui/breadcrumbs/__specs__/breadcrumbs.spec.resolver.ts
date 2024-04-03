@@ -24,16 +24,16 @@ export class CategoriesShowResolver implements Resolve<any> {
 @Injectable()
 export class CategoriesShowBreadcrumbsResolver implements Resolve<any> {
   public resolve(route: ActivatedRouteSnapshot) {
-    const category = route.parent?.data['data'].find((e: { id: number; }) => e.id === +route.params['category']);
+    const category = route.parent?.data['data'].find((e: { id: number }) => e.id === +route.params['category']);
 
     return {
       label: category.title,
       breadcrumbs: route.parent?.data['data']
         // @ts-ignore
         .map(({ id, title }) => ({
-        path: id,
-        label: title
-      }))
+          path: id,
+          label: title,
+        })),
     };
   }
 }

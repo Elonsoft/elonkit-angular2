@@ -1,9 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { of, throwError } from 'rxjs';
@@ -27,15 +22,18 @@ const save = (value: string) =>
   templateUrl: './inline-form-field-story-validation.component.html',
   styleUrls: ['./inline-form-field-story-validation.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class InlineFormFieldStoryValidationComponent {
   public form: FormGroup;
 
-  constructor(private changeDetector: ChangeDetectorRef, private formBuilder: FormBuilder) {
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private formBuilder: FormBuilder
+  ) {
     this.form = this.formBuilder.group({
       text: ['Hello World', [Validators.required]],
-      server: 'Hello Server Side Validation'
+      server: 'Hello Server Side Validation',
     });
   }
 

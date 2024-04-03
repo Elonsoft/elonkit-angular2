@@ -12,7 +12,7 @@ import { en, ESLocaleService, ru } from '../../locale';
       <ng-container role="title">Title</ng-container>
       Message
     </es-alert>
-  `
+  `,
 })
 class AlertTypographyWrapperComponent {}
 
@@ -20,7 +20,7 @@ describe('Alert', () => {
   it('Should change styles based on variant', async () => {
     const component = await render(ESAlertComponent, {
       imports: [ESAlertModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     for (const variant of ['default', 'info', 'success', 'warning', 'error'] as ESAlertVariant[]) {
@@ -34,7 +34,7 @@ describe('Alert', () => {
   it('Should display correct icon', async () => {
     const component = await render(ESAlertComponent, {
       imports: [ESAlertModule, MatIconTestingModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     component.fixture.componentInstance.variant = 'default';
@@ -74,9 +74,9 @@ describe('Alert', () => {
       imports: [ESAlertModule],
       componentProperties: {
         closable: true,
-        closed: { emit: onClose } as any
+        closed: { emit: onClose } as any,
       },
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     fireEvent.click(screen.getByLabelText(en.alert.labelClose));
@@ -91,10 +91,10 @@ describe('Alert', () => {
     await render(ESAlertComponent, {
       imports: [ESAlertModule],
       componentProperties: {
-        closable: true
+        closable: true,
       },
       providers: [{ provide: ESLocaleService, useValue: localeService }],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(screen.queryByLabelText(ru.alert.labelClose)).not.toBeNull();
@@ -104,8 +104,8 @@ describe('Alert', () => {
     await render(AlertTypographyWrapperComponent, {
       imports: [ESAlertModule],
       componentProperties: {
-        typography: 'app-body-1'
-      }
+        typography: 'app-body-1',
+      },
     });
 
     expect(screen.getByText('Message')).toHaveClass('app-body-1');
@@ -113,7 +113,7 @@ describe('Alert', () => {
 
   it('Should accept title typography class', async () => {
     await render(AlertTypographyWrapperComponent, {
-      imports: [ESAlertModule]
+      imports: [ESAlertModule],
     });
 
     expect(screen.getByText('Title')).toHaveClass('app-body-2');

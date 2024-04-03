@@ -8,6 +8,6 @@ import { ESAvatarGroupComponent } from './avatar-group.component';
 @NgModule({
   declarations: [ESAvatarComponent, ESAvatarGroupComponent],
   imports: [CommonModule, MatIconModule],
-  exports: [ESAvatarComponent, ESAvatarGroupComponent]
+  exports: [ESAvatarComponent, ESAvatarGroupComponent],
 })
 export class ESAvatarModule {}

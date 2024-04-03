@@ -7,7 +7,7 @@ import { MatIconRegistry } from '@angular/material/icon';
   selector: 'es-dropzone-custom-icon',
   templateUrl: './dropzone-story-custom-icon.component.html',
   styleUrls: ['./dropzone-story-custom-icon.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropzoneStoryCustomIconComponent {
   @Input() public heading: string;
@@ -16,13 +16,13 @@ export class DropzoneStoryCustomIconComponent {
   @Input() public locale: 'en' | 'ru';
 
   public form = new FormGroup({
-    docs: new FormControl([])
+    docs: new FormControl([]),
   });
 
-  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'upload',
-      sanitizer.bypassSecurityTrustResourceUrl('/icons/upload.svg')
-    );
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon('upload', sanitizer.bypassSecurityTrustResourceUrl('/icons/upload.svg'));
   }
 }

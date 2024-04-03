@@ -10,7 +10,7 @@ import { ESLocaleService, ESLocale } from '../../../locale';
   templateUrl: './breadcrumbs-collapse.component.html',
   styleUrls: ['./breadcrumbs-collapse.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESBreadcrumbsCollapseComponent {
   /**

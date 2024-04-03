@@ -19,5 +19,5 @@ export const AVATAR_STORY_GROUP_SOURCE = {
       [src]="src"
     ></es-avatar>
   </es-avatar-group>
-  `
+  `,
 };

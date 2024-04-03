@@ -30,5 +30,5 @@ export const DROPZONE_STORY_REQUIRED_SOURCE = {
       text-transform: uppercase;
     }
   }
-  `
+  `,
 };

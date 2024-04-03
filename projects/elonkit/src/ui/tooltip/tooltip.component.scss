@@ -11,14 +11,14 @@ $es-tooltip-margin: 12px;
 }
 
 .es-tooltip {
+  max-width: $es-tooltip-max-width;
+  padding: 8px;
+  margin: $es-tooltip-margin;
   border-radius: 4px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-size: 12px;
   letter-spacing: 0.4px;
   line-height: 16px;
-  margin: $es-tooltip-margin;
-  max-width: $es-tooltip-max-width;
-  padding: 8px;
   position: relative;
 
   &__content {
@@ -35,9 +35,9 @@ $es-tooltip-margin: 12px;
     $offset: -#{math.div($size, 2)}px;
 
     border-bottom-right-radius: 2px;
+    width: #{$size}px;
     height: #{$size}px;
     position: absolute;
-    width: #{$size}px;
 
     &_bottom {
       bottom: $offset;

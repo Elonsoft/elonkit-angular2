@@ -27,9 +27,9 @@ import { ESTooltipModule } from '../tooltip';
     MatListModule,
     A11yModule,
     OverlayModule,
-    ESTooltipModule
+    ESTooltipModule,
   ],
   exports: [ESAutocompleteMultipleComponent],
-  declarations: [ESAutocompleteMultipleComponent]
+  declarations: [ESAutocompleteMultipleComponent],
 })
 export class ESAutocompleteMultipleModule {}

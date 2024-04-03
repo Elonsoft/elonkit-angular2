@@ -6,7 +6,7 @@ import {
   Input,
   InjectionToken,
   Optional,
-  Inject
+  Inject,
 } from '@angular/core';
 
 import { ESEmptyStateIcon } from './empty-state.types';
@@ -16,16 +16,14 @@ export interface ESEmptyStateDefaultOptions {
   size?: string;
 }
 
-export const ES_EMPTY_STATE_DEFAULT_OPTIONS = new InjectionToken<ESEmptyStateDefaultOptions>(
-  'ES_EMPTY_STATE_DEFAULT_OPTIONS'
-);
+export const ES_EMPTY_STATE_DEFAULT_OPTIONS = new InjectionToken<ESEmptyStateDefaultOptions>('ES_EMPTY_STATE_DEFAULT_OPTIONS');
 
 @Component({
   selector: 'es-empty-state',
   templateUrl: './empty-state.component.html',
   styleUrls: ['./empty-state.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESEmptyStateComponent {
   private _icon: ESEmptyStateIcon;
@@ -55,7 +53,6 @@ export class ESEmptyStateComponent {
    * Subheading text.
    */
   @Input() public subheading: string;
-
 
   private _size: string;
 

@@ -19,7 +19,7 @@ import { ESAudioPlayerVolumeComponent } from './components/audio-player-volume';
     ESAudioPlayerComponent,
     ESAudioPlayerOptionsComponent,
     ESAudioPlayerTimeSliderComponent,
-    ESAudioPlayerVolumeComponent
+    ESAudioPlayerVolumeComponent,
   ],
   imports: [
     CommonModule,
@@ -30,8 +30,8 @@ import { ESAudioPlayerVolumeComponent } from './components/audio-player-volume';
     FormsModule,
     MatMenuModule,
     MatListModule,
-    ESTooltipModule
+    ESTooltipModule,
   ],
-  exports: [ESAudioPlayerComponent]
+  exports: [ESAudioPlayerComponent],
 })
 export class ESAudioPlayerModule {}

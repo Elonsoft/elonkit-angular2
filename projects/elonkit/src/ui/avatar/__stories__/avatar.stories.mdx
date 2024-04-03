@@ -15,18 +15,18 @@ import { AVATAR_STORY_NO_IMAGE_TYPOGRAPHY_SOURCE } from './avatar-story-no-image
 import { AVATAR_STORY_GROUP_SOURCE } from './avatar-story-group';
 
 <Meta
-  title='UI/Avatar'
+  title="UI/Avatar"
   args={{
     size: 40,
-    variant: 'round'
+    variant: 'round',
   }}
   argTypes={{
     variant: {
-      control: { type: 'select', options: ['round', 'square'] }
+      control: { type: 'select', options: ['round', 'square'] },
     },
     size: {
-      control: 'number'
-    }
+      control: 'number',
+    },
   }}
 />
 
@@ -44,12 +44,11 @@ We can create image avatars by passing `src` input to the component.
 
 <Canvas source={AVATAR_STORY_IMAGE_SOURCE}>
   <Story
-    name='Image'
+    name="Image"
     args={{
       src: '/img/es-logo.png',
-      alt: 'Elonsoft'
-    }}
-  >
+      alt: 'Elonsoft',
+    }}>
     {((args) => ({
       template: `
         <es-avatar
@@ -60,11 +59,11 @@ We can create image avatars by passing `src` input to the component.
         ></es-avatar>
       `,
       moduleMetadata: {
-        imports: [ESAvatarModule]
+        imports: [ESAvatarModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -72,7 +71,7 @@ We can create image avatars by passing `src` input to the component.
 When src input is missing or falsy, content is used instead. Icon or text can be used for a content.
 
 <Canvas source={AVATAR_STORY_NO_IMAGE_ICON_SOURCE}>
-  <Story name='Icon'>
+  <Story name="Icon">
     {((args) => ({
       template: `
         <es-avatar
@@ -83,22 +82,21 @@ When src input is missing or falsy, content is used instead. Icon or text can be
         </es-avatar>
       `,
       moduleMetadata: {
-        imports: [ESAvatarModule, MatIconModule]
+        imports: [ESAvatarModule, MatIconModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
 
 <Canvas source={AVATAR_STORY_NO_IMAGE_TYPOGRAPHY_SOURCE}>
   <Story
-    name='Text'
+    name="Text"
     args={{
-      typography: ''
-    }}
-  >
+      typography: '',
+    }}>
     {((args) => ({
       template: `
         <es-avatar
@@ -109,11 +107,11 @@ When src input is missing or falsy, content is used instead. Icon or text can be
         </es-avatar>
       `,
       moduleMetadata: {
-        imports: [ESAvatarModule]
+        imports: [ESAvatarModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -122,12 +120,11 @@ We can use avatar group to render avatars as a stack. Size input of avatar group
 
 <Canvas source={AVATAR_STORY_GROUP_SOURCE}>
   <Story
-    name='Group'
+    name="Group"
     args={{
       src: '/img/es-logo.png',
-      alt: 'Elonsoft'
-    }}
-  >
+      alt: 'Elonsoft',
+    }}>
     {((args) => ({
       template: `
         <es-avatar-group
@@ -151,11 +148,11 @@ We can use avatar group to render avatars as a stack. Size input of avatar group
         </es-avatar-group>
       `,
       moduleMetadata: {
-        imports: [ESAvatarModule]
+        imports: [ESAvatarModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -185,7 +182,7 @@ export interface ESAvatarDefaultOptions {
 ```ts
 export enum ESAvatarVariant {
   Round = 'round',
-  Square = 'square'
+  Square = 'square',
 }
 ```
 

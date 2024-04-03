@@ -10,6 +10,6 @@ import { ESAlertActionsComponent } from './components/alert-actions';
 @NgModule({
   declarations: [ESAlertComponent, ESAlertActionsComponent],
   imports: [CommonModule, MatButtonModule, MatIconModule],
-  exports: [ESAlertComponent, ESAlertActionsComponent, MatButtonModule]
+  exports: [ESAlertComponent, ESAlertActionsComponent, MatButtonModule],
 })
 export class ESAlertModule {}

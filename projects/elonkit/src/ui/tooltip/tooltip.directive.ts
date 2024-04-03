@@ -24,7 +24,8 @@ import {
   ViewContainerRef,
   AfterViewInit,
   HostBinding,
-  HostListener, TemplateRef
+  HostListener,
+  TemplateRef,
 } from '@angular/core';
 
 import { AriaDescriber, FocusMonitor } from '@angular/cdk/a11y';
@@ -42,7 +43,7 @@ import {
   OverlayRef,
   ScrollStrategy,
   VerticalConnectionPos,
-  ConnectedOverlayPositionChange
+  ConnectedOverlayPositionChange,
 } from '@angular/cdk/overlay';
 import { Platform, normalizePassiveListenerOptions } from '@angular/cdk/platform';
 import { ComponentPortal } from '@angular/cdk/portal';
@@ -54,7 +55,7 @@ import {
   getMatTooltipInvalidPositionError,
   MAT_TOOLTIP_SCROLL_STRATEGY,
   MAT_TOOLTIP_DEFAULT_OPTIONS,
-  MatTooltipDefaultOptions
+  MatTooltipDefaultOptions,
 } from '@angular/material/tooltip';
 
 import { Subject } from 'rxjs';
@@ -93,9 +94,7 @@ export interface ESTooltipDefaultOptions {
   mouseAimDelay?: number;
 }
 
-export const ES_TOOLTIP_DEFAULT_OPTIONS = new InjectionToken<ESTooltipDefaultOptions>(
-  'ES_TOOLTIP_DEFAULT_OPTIONS'
-);
+export const ES_TOOLTIP_DEFAULT_OPTIONS = new InjectionToken<ESTooltipDefaultOptions>('ES_TOOLTIP_DEFAULT_OPTIONS');
 
 interface ESTooltipMouseLocation {
   x: number;
@@ -108,7 +107,7 @@ function slope(a: ESTooltipMouseLocation, b: ESTooltipMouseLocation) {
 
 @Directive({
   selector: '[esTooltip]',
-  exportAs: 'esTooltip'
+  exportAs: 'esTooltip',
 })
 export class ESTooltipDirective implements OnDestroy, AfterViewInit {
   @HostBinding('class.es-tooltip-trigger') public class = true;
@@ -129,10 +128,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
     if (this.tooltipInstance) {
       if (this.interactive) {
         const isNext =
-          event.relatedTarget &&
-          (event.target as HTMLElement).compareDocumentPosition(
-            event.relatedTarget as HTMLElement
-          ) === 4;
+          event.relatedTarget && (event.target as HTMLElement).compareDocumentPosition(event.relatedTarget as HTMLElement) === 4;
 
         const element = getInnerFocusableElement(this.tooltipInstance.elementRef.nativeElement);
 
@@ -208,8 +204,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
    * Delay in ms before closing a tooltip when mouse stops moving towards the tooltip.
    */
   // tslint:disable-next-line:no-input-rename
-  @Input('esTooltipMouseAimDelay') public mouseAimDelay: number =
-    this.esDefaultOptions?.mouseAimDelay || MOUSE_AIM_DELAY;
+  @Input('esTooltipMouseAimDelay') public mouseAimDelay: number = this.esDefaultOptions?.mouseAimDelay || MOUSE_AIM_DELAY;
 
   /**
    * How touch gestures should be handled by the tooltip. On touch devices the tooltip directive
@@ -499,9 +494,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
     if (
       this.disabled ||
       !(this.message || this.content) ||
-      (this.isTooltipVisible() &&
-        !this.tooltipInstance?.showTimeoutId &&
-        !this.tooltipInstance?.hideTimeoutId)
+      (this.isTooltipVisible() && !this.tooltipInstance?.showTimeoutId && !this.tooltipInstance?.hideTimeoutId)
     ) {
       return;
     }
@@ -519,10 +512,8 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
     this.tooltipInstance.parentElementRef = this.elementRef;
     this.tooltipInstance.interactive = this.interactive;
 
-    this.tooltipInstance.disableCloseFocusListener =
-      this.disableCloseFocusListener ?? this.disableFocusListener;
-    this.tooltipInstance.disableCloseHoverListener =
-      this.disableCloseHoverListener ?? this.disableHoverListener;
+    this.tooltipInstance.disableCloseFocusListener = this.disableCloseFocusListener ?? this.disableFocusListener;
+    this.tooltipInstance.disableCloseHoverListener = this.disableCloseHoverListener ?? this.disableHoverListener;
     this.tooltipInstance.disableCloseClickListener = this.disableCloseClickListener;
 
     this.updateTooltipMessage();
@@ -601,7 +592,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
       direction: this.dir,
       positionStrategy: strategy,
       panelClass: TOOLTIP_PANEL_CLASS,
-      scrollStrategy: this.scrollStrategy()
+      scrollStrategy: this.scrollStrategy(),
     });
 
     this.updatePosition();
@@ -629,14 +620,13 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
    * Updates the position of the current tooltip.
    */
   private updatePosition() {
-    const position = this.overlayRef?.getConfig()
-      .positionStrategy as FlexibleConnectedPositionStrategy;
+    const position = this.overlayRef?.getConfig().positionStrategy as FlexibleConnectedPositionStrategy;
     const origin = this.getOrigin();
     const overlay = this.getOverlayPosition();
 
     position.withPositions([
       { ...origin.main, ...overlay.main },
-      { ...origin.fallback, ...overlay.fallback }
+      { ...origin.fallback, ...overlay.fallback },
     ]);
   }
 
@@ -653,17 +643,9 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
 
     if (position === 'above' || position === 'below') {
       originPosition = { originX: 'center', originY: position === 'above' ? 'top' : 'bottom' };
-    } else if (
-      position === 'before' ||
-      (position === 'left' && isLtr) ||
-      (position === 'right' && !isLtr)
-    ) {
+    } else if (position === 'before' || (position === 'left' && isLtr) || (position === 'right' && !isLtr)) {
       originPosition = { originX: 'start', originY: 'center' };
-    } else if (
-      position === 'after' ||
-      (position === 'right' && isLtr) ||
-      (position === 'left' && !isLtr)
-    ) {
+    } else if (position === 'after' || (position === 'right' && isLtr) || (position === 'left' && !isLtr)) {
       originPosition = { originX: 'end', originY: 'center' };
     } else {
       throw getMatTooltipInvalidPositionError(position);
@@ -673,7 +655,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
 
     return {
       main: originPosition,
-      fallback: { originX: x, originY: y }
+      fallback: { originX: x, originY: y },
     };
   }
 
@@ -694,17 +676,9 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
       overlayPosition = { overlayX: 'center', overlayY: 'bottom' };
     } else if (position === 'below') {
       overlayPosition = { overlayX: 'center', overlayY: 'top' };
-    } else if (
-      position === 'before' ||
-      (position === 'left' && isLtr) ||
-      (position === 'right' && !isLtr)
-    ) {
+    } else if (position === 'before' || (position === 'left' && isLtr) || (position === 'right' && !isLtr)) {
       overlayPosition = { overlayX: 'end', overlayY: 'center' };
-    } else if (
-      position === 'after' ||
-      (position === 'right' && isLtr) ||
-      (position === 'left' && !isLtr)
-    ) {
+    } else if (position === 'after' || (position === 'right' && isLtr) || (position === 'left' && !isLtr)) {
       overlayPosition = { overlayX: 'start', overlayY: 'center' };
     } else {
       throw getMatTooltipInvalidPositionError(position);
@@ -714,7 +688,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
 
     return {
       main: overlayPosition,
-      fallback: { overlayX: x, overlayY: y }
+      fallback: { overlayX: x, overlayY: y },
     };
   }
 
@@ -758,25 +732,25 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
         this.overlayPosition = 'right';
         this.tooltipInstance.arrow = {
           position: 'left',
-          offsetY
+          offsetY,
         };
       } else if (change.connectionPair.originX === 'start') {
         this.overlayPosition = 'left';
         this.tooltipInstance.arrow = {
           position: 'right',
-          offsetY
+          offsetY,
         };
       } else if (change.connectionPair.originY === 'top') {
         this.overlayPosition = 'top';
         this.tooltipInstance.arrow = {
           position: 'bottom',
-          offsetX
+          offsetX,
         };
       } else if (change.connectionPair.originY === 'bottom') {
         this.overlayPosition = 'bottom';
         this.tooltipInstance.arrow = {
           position: 'top',
-          offsetX
+          offsetX,
         };
       }
 
@@ -820,12 +794,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
    */
   private setupPointerEvents() {
     // Optimization: Defer hooking up events if there's no message or the tooltip is disabled.
-    if (
-      this._disabled ||
-      !(this.message || this.content) ||
-      !this.viewInitialized ||
-      this.passiveListeners.size
-    ) {
+    if (this._disabled || !(this.message || this.content) || !this.viewInitialized || this.passiveListeners.size) {
       return;
     }
 
@@ -903,8 +872,7 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
       // If gestures are set to `auto`, we don't disable text selection on inputs and
       // textareas, because it prevents the user from typing into them on iOS Safari.
       if (gestures === 'on' || (element.nodeName !== 'INPUT' && element.nodeName !== 'TEXTAREA')) {
-        style.userSelect = (style as any).msUserSelect = style.webkitUserSelect = (style as any).MozUserSelect =
-          'none';
+        style.userSelect = (style as any).msUserSelect = style.webkitUserSelect = (style as any).MozUserSelect = 'none';
       }
 
       // If we have `auto` gestures and the element uses native HTML dragging,
@@ -943,24 +911,24 @@ export class ESTooltipDirective implements OnDestroy, AfterViewInit {
 
       const offset = {
         top: tooltipRect.top + window.scrollY,
-        left: tooltipRect.left + window.scrollX
+        left: tooltipRect.left + window.scrollX,
       };
 
       const upperLeft = {
         x: offset.left,
-        y: offset.top
+        y: offset.top,
       };
       const upperRight = {
         x: offset.left + tooltip.offsetWidth,
-        y: upperLeft.y
+        y: upperLeft.y,
       };
       const lowerLeft = {
         x: offset.left,
-        y: offset.top + tooltip.offsetHeight
+        y: offset.top + tooltip.offsetHeight,
       };
       const lowerRight = {
         x: offset.left + tooltip.offsetWidth,
-        y: lowerLeft.y
+        y: lowerLeft.y,
       };
 
       const location = this.mouseLocations[this.mouseLocations.length - 1];

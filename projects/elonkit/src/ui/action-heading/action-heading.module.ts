@@ -17,7 +17,7 @@ import { ESHeadingBreadcrumbsComponent } from './heading-breadcrumbs/heading-bre
     ESHeadingMainComponent,
     ESHeadingHeaderComponent,
     ESHeadingActionsComponent,
-    ESHeadingStatusComponent
+    ESHeadingStatusComponent,
   ],
   exports: [
     ESActionHeadingComponent,
@@ -26,6 +26,6 @@ import { ESHeadingBreadcrumbsComponent } from './heading-breadcrumbs/heading-bre
     ESHeadingHeaderComponent,
     ESHeadingActionsComponent,
     ESHeadingStatusComponent,
-  ]
+  ],
 })
 export class ESActionHeadingModule {}

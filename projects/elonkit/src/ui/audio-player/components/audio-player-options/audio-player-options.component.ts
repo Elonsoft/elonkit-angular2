@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Output,
-  ViewEncapsulation,
-  ChangeDetectionStrategy,
-  Input
-} from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
@@ -16,7 +9,7 @@ import { ESLocale, ESLocaleService } from '../../../locale';
   templateUrl: './audio-player-options.component.html',
   styleUrls: ['./audio-player-options.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ESAudioPlayerOptionsComponent {
   /**

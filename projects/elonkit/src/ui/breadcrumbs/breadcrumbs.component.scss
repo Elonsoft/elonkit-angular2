@@ -1,11 +1,11 @@
 .es-breadcrumbs {
-  align-items: center;
   display: flex;
+  align-items: center;
   overflow: hidden;
 
   &__link-back-wrapper {
-    align-content: center;
     display: flex;
+    align-content: center;
   }
 
   &__breadcrumb {
@@ -16,51 +16,51 @@
   }
 
   &__separator {
-    display: inline-block;
-    fill: currentColor;
+    width: 24px;
     height: 24px;
     margin: 0 -4px;
-    width: 24px;
+    display: inline-block;
+    fill: currentColor;
 
     &_single {
-      align-items: center;
+      width: 1px;
       display: flex;
+      align-items: center;
       margin-left: 8px;
       margin-right: 8px;
-      width: 1px;
     }
   }
 
   &__width {
+    width: auto;
     height: auto;
     left: -1000px;
     position: absolute;
     visibility: hidden;
     white-space: nowrap;
-    width: auto;
     z-index: -1;
   }
 
   &__link-back {
+    height: 24px;
+    padding: 2px 4px;
+    display: flex;
     align-items: center;
     background-color: unset;
     border-radius: 4px;
     border-width: 0;
     cursor: pointer;
-    display: flex;
-    height: 24px;
     min-width: fit-content;
     outline: unset;
     overflow: hidden;
-    padding: 2px 4px;
     position: relative;
     text-decoration: none;
     transition: 200ms;
   }
 
   &__back-icon {
-    align-items: baseline;
     display: flex;
+    align-items: baseline;
     margin-right: 5px;
   }
 
@@ -73,9 +73,9 @@
     }
 
     .mat-menu-item {
-      align-items: center;
-      display: flex;
       height: 32px;
+      display: flex;
+      align-items: center;
       padding-left: 16px;
       padding-right: 16px;
     }

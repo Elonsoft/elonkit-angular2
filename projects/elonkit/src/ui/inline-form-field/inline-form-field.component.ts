@@ -9,7 +9,7 @@ import {
   ContentChild,
   InjectionToken,
   Optional,
-  Inject
+  Inject,
 } from '@angular/core';
 
 import { FormControl, FormControlName, NgModel } from '@angular/forms';
@@ -41,10 +41,10 @@ export const ES_INLINE_FORM_FIELD_DEFAULT_OPTIONS = new InjectionToken<ESInlineF
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: {
         appearance: 'standard',
-        floatLabel: 'never'
-      }
-    }
-  ]
+        floatLabel: 'never',
+      },
+    },
+  ],
 })
 export class ESInlineFormFieldComponent {
   private _typography: string;
@@ -57,8 +57,7 @@ export class ESInlineFormFieldComponent {
     return this._typography;
   }
   public set typography(value: string) {
-    this._typography =
-      value || (this.defaultOptions && this.defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
+    this._typography = value || (this.defaultOptions && this.defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
   }
 
   /**

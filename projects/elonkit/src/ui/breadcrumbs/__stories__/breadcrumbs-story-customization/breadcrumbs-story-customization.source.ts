@@ -26,5 +26,5 @@ export const BREADCRUMBS_STORY_CUSTOMIZATION_SOURCE = {
   .es-breadcrumbs__separator {
     margin: 0;
   }
-  `
+  `,
 };

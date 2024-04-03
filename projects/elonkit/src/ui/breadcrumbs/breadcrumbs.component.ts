@@ -14,7 +14,7 @@ import {
   Inject,
   Input,
   ContentChild,
-  TemplateRef
+  TemplateRef,
 } from '@angular/core';
 
 import { Subject, Observable } from 'rxjs';
@@ -50,19 +50,17 @@ export const ES_BREADCRUMBS_DEFAULT_SIZES = {
   iconMargin: 4,
   menu: 20,
   separator: 16,
-  more: 24
+  more: 24,
 };
 
-export const ES_BREADCRUMBS_DEFAULT_OPTIONS = new InjectionToken<ESBreadcrumbsDefaultOptions>(
-  'ES_BREADCRUMBS_DEFAULT_OPTIONS'
-);
+export const ES_BREADCRUMBS_DEFAULT_OPTIONS = new InjectionToken<ESBreadcrumbsDefaultOptions>('ES_BREADCRUMBS_DEFAULT_OPTIONS');
 
 @Component({
   selector: 'es-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESBreadcrumbsComponent implements OnInit, OnDestroy, AfterContentInit {
   private _typography: string;
@@ -86,8 +84,7 @@ export class ESBreadcrumbsComponent implements OnInit, OnDestroy, AfterContentIn
     return this._typography;
   }
   public set typography(value: string) {
-    this._typography =
-      value || this.defaultOptions?.typography || ES_BREADCRUMBS_DEFAULT_TYPOGRAPHY;
+    this._typography = value || this.defaultOptions?.typography || ES_BREADCRUMBS_DEFAULT_TYPOGRAPHY;
   }
 
   private _sizes: ESBreadcrumbsDefaultOptionsSizes;
@@ -168,8 +165,7 @@ export class ESBreadcrumbsComponent implements OnInit, OnDestroy, AfterContentIn
 
         return result;
       });
-      let scrollWidth =
-        widths.reduce((acc, w) => acc + w, 0) + sizes.separator * (widths.length - 1);
+      let scrollWidth = widths.reduce((acc, w) => acc + w, 0) + sizes.separator * (widths.length - 1);
       const clientWidth = element.clientWidth - goBackButton.clientWidth;
 
       const collapseIndexes = [];
@@ -231,13 +227,11 @@ export class ESBreadcrumbsComponent implements OnInit, OnDestroy, AfterContentIn
    * @ignore
    */
   public ngOnInit() {
-    this.breadcrumbsService.breadcrumbs$
-      .pipe(takeUntil(this.destroyed$), delay(1))
-      .subscribe((breadcrumbs) => {
-        this.breadcrumbs = breadcrumbs;
-        this.onResize();
-        this.changeDetector.detectChanges();
-      });
+    this.breadcrumbsService.breadcrumbs$.pipe(takeUntil(this.destroyed$), delay(1)).subscribe((breadcrumbs) => {
+      this.breadcrumbs = breadcrumbs;
+      this.onResize();
+      this.changeDetector.detectChanges();
+    });
 
     this.locale$.pipe(takeUntil(this.destroyed$)).subscribe((value) => {
       this.onResize();

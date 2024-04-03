@@ -13,8 +13,8 @@ describe('EmptyState', () => {
       excludeComponentDeclaration: true,
       componentProperties: {
         heading: TEXT_HEADING,
-        subheading: TEXT_SUBHEADING
-      }
+        subheading: TEXT_SUBHEADING,
+      },
     });
 
     expect(component.queryByText(TEXT_HEADING)).toBeInTheDocument();
@@ -29,8 +29,8 @@ describe('EmptyState', () => {
         heading: TEXT_HEADING,
         headingTypography: 'app-body-1',
         subheading: TEXT_SUBHEADING,
-        subheadingTypography: 'app-caption'
-      }
+        subheadingTypography: 'app-caption',
+      },
     });
 
     expect(component.getByText(TEXT_HEADING)).toHaveClass('app-body-1');
@@ -43,18 +43,15 @@ describe('EmptyState', () => {
       excludeComponentDeclaration: true,
       componentProperties: {
         heading: TEXT_HEADING,
-        subheading: TEXT_SUBHEADING
-      }
+        subheading: TEXT_SUBHEADING,
+      },
     });
 
     for (const icon of ['box', 'chat', 'face', 'file', 'lock', 'search']) {
       component.fixture.componentInstance.icon = icon as ESEmptyStateIcon;
       component.fixture.componentInstance.changeDetector.detectChanges();
 
-      expect(component.getByTestId('svg')).toHaveAttribute(
-        'ng-reflect-svg-icon',
-        `es-empty-state:${icon}`
-      );
+      expect(component.getByTestId('svg')).toHaveAttribute('ng-reflect-svg-icon', `es-empty-state:${icon}`);
     }
   });
 
@@ -65,8 +62,8 @@ describe('EmptyState', () => {
       componentProperties: {
         src: 'www.example.com/image.png',
         heading: TEXT_HEADING,
-        subheading: TEXT_SUBHEADING
-      }
+        subheading: TEXT_SUBHEADING,
+      },
     });
 
     expect(component.getByTestId('img')).toHaveAttribute('src', 'www.example.com/image.png');

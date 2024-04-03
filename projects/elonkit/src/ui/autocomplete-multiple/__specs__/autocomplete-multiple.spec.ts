@@ -25,12 +25,12 @@ const OPTIONS = [
   { id: 9, name: 'Portugal' },
   { id: 10, name: 'Russia' },
   { id: 11, name: 'India' },
-  { id: 12, name: 'Oman' }
+  { id: 12, name: 'Oman' },
 ];
 
 const FILTERED_OPTIONS = [
   { id: 2, name: 'Iceland' },
-  { id: 7, name: 'Switzerland' }
+  { id: 7, name: 'Switzerland' },
 ];
 
 const SEARCH_TEXT_LA = 'la';
@@ -47,19 +47,18 @@ const FIND_OPTION_ID = 10;
         <es-autocomplete-multiple
           formControlName="autocomplete"
           [service]="searchService"
-          [displayWith]="displayWith"
-        ></es-autocomplete-multiple>
+          [displayWith]="displayWith"></es-autocomplete-multiple>
       </mat-form-field>
     </form>
-  `
+  `,
 })
 class AutocompleteMultipleComponent {
   public form = new FormGroup({
     autocomplete: new FormControl([
       { id: 3, name: 'Norway' },
       { id: 9, name: 'Portugal' },
-      { id: 10, name: 'Russia' }
-    ])
+      { id: 10, name: 'Russia' },
+    ]),
   });
 
   public options = OPTIONS;
@@ -67,9 +66,7 @@ class AutocompleteMultipleComponent {
   public searchService = (text: string, options?: any[]) => {
     const lowerText = text ? text.toLowerCase() : '';
 
-    const filteredOptions = (options ? options : this.options).filter((option) =>
-      option.name.toLowerCase().includes(lowerText)
-    );
+    const filteredOptions = (options ? options : this.options).filter((option) => option.name.toLowerCase().includes(lowerText));
 
     return of(filteredOptions);
   };
@@ -92,8 +89,8 @@ describe('Autocomplete multiple', () => {
         MatFormFieldModule,
         CoreModule,
         ESAutocompleteMultipleModule,
-        MatIconTestingModule
-      ]
+        MatIconTestingModule,
+      ],
     });
 
     inject([OverlayContainer], (oc: OverlayContainer) => {
@@ -126,7 +123,7 @@ describe('Autocomplete multiple', () => {
     fireEvent.click(screen.getByLabelText(en.autocompliteMultiple.labelOpenMenu));
 
     fireEvent.input(getByLabelText(overlayElement, en.autocompliteMultiple.labelSearch), {
-      target: { value: SEARCH_TEXT_LA }
+      target: { value: SEARCH_TEXT_LA },
     });
 
     tick(1000);
@@ -144,9 +141,7 @@ describe('Autocomplete multiple', () => {
   it('Should display selected options after a series of actions', fakeAsync(() => {
     fireEvent.click(screen.getByLabelText(en.autocompliteMultiple.labelOpenMenu));
 
-    fireEvent.click(
-      getByLabelText(overlayElement, en.autocompliteMultiple.labelSearchScopeSelected)
-    );
+    fireEvent.click(getByLabelText(overlayElement, en.autocompliteMultiple.labelSearchScopeSelected));
 
     tick(500);
 
@@ -157,7 +152,7 @@ describe('Autocomplete multiple', () => {
     expect(options).toHaveLength(3);
 
     fireEvent.input(getByLabelText(overlayElement, en.autocompliteMultiple.labelSearch), {
-      target: { value: SEARCH_TEXT_O }
+      target: { value: SEARCH_TEXT_O },
     });
     tick(500);
 

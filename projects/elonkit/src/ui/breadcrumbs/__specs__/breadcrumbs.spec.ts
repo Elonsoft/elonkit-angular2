@@ -10,11 +10,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { ESBreadcrumbsModule } from '..';
 import { en, ESLocaleService, ru } from '../../locale';
 
-import {
-  BreadcrumbsLeafComponent,
-  BreadcrumbsRootComponent,
-  ROUTES
-} from './breadcrumbs.spec.routes';
+import { BreadcrumbsLeafComponent, BreadcrumbsRootComponent, ROUTES } from './breadcrumbs.spec.routes';
 import { CategoriesService, ItemsService } from './breadcrumbs.spec.service';
 
 import {
@@ -23,18 +19,14 @@ import {
   CategoriesShowResolver,
   ItemsListResolver,
   ItemsShowBreadcrumbsResolver,
-  ItemsShowResolver
+  ItemsShowResolver,
 } from './breadcrumbs.spec.resolver';
 
-const setWidth = (
-  component: RenderResult<BreadcrumbsRootComponent, BreadcrumbsRootComponent>,
-  width: number
-) => {
-  Object.defineProperty(
-    (component.fixture.nativeElement as HTMLElement).querySelector('.es-breadcrumbs'),
-    'clientWidth',
-    { configurable: true, value: width }
-  );
+const setWidth = (component: RenderResult<BreadcrumbsRootComponent, BreadcrumbsRootComponent>, width: number) => {
+  Object.defineProperty((component.fixture.nativeElement as HTMLElement).querySelector('.es-breadcrumbs'), 'clientWidth', {
+    configurable: true,
+    value: width,
+  });
 };
 
 describe('Breadcrumbs', () => {
@@ -55,11 +47,11 @@ describe('Breadcrumbs', () => {
           CategoriesShowBreadcrumbsResolver,
           ItemsListResolver,
           ItemsShowResolver,
-          ItemsShowBreadcrumbsResolver
+          ItemsShowBreadcrumbsResolver,
         ],
         componentProperties: {
-          withBackButton: true
-        }
+          withBackButton: true,
+        },
       });
 
       inject([OverlayContainer], (oc: OverlayContainer) => {
@@ -73,35 +65,32 @@ describe('Breadcrumbs', () => {
       overlay.ngOnDestroy();
     }));
 
-    it('Should render hierarchy', inject(
-      [NgZone, Location],
-      async (zone: NgZone, location: Location) => {
-        setWidth(component, 1000);
+    it('Should render hierarchy', inject([NgZone, Location], async (zone: NgZone, location: Location) => {
+      setWidth(component, 1000);
 
-        await component.navigate('/categories/1/1/edit');
-        await component.fixture.whenStable();
+      await component.navigate('/categories/1/1/edit');
+      await component.fixture.whenStable();
 
-        zone.run(() => fireEvent.click(screen.getByText('Item #1-1')));
-        await component.fixture.whenStable();
+      zone.run(() => fireEvent.click(screen.getByText('Item #1-1')));
+      await component.fixture.whenStable();
 
-        expect(location.path()).toBe('/categories/1/1');
+      expect(location.path()).toBe('/categories/1/1');
 
-        zone.run(() => fireEvent.click(screen.getByText('Category #1')));
-        await component.fixture.whenStable();
+      zone.run(() => fireEvent.click(screen.getByText('Category #1')));
+      await component.fixture.whenStable();
 
-        expect(location.path()).toBe('/categories/1');
+      expect(location.path()).toBe('/categories/1');
 
-        zone.run(() => fireEvent.click(screen.getByText('Categories')));
-        await component.fixture.whenStable();
+      zone.run(() => fireEvent.click(screen.getByText('Categories')));
+      await component.fixture.whenStable();
 
-        expect(location.path()).toBe('/categories');
+      expect(location.path()).toBe('/categories');
 
-        zone.run(() => fireEvent.click(component.getByLabelText('Home')));
-        await component.fixture.whenStable();
+      zone.run(() => fireEvent.click(component.getByLabelText('Home')));
+      await component.fixture.whenStable();
 
-        expect(location.path()).toBe('/');
-      }
-    ));
+      expect(location.path()).toBe('/');
+    }));
 
     it('Should have horizontal navigation', inject([Location], async (location: Location) => {
       setWidth(component, 1000);
@@ -176,8 +165,8 @@ describe('Breadcrumbs', () => {
           ItemsListResolver,
           ItemsShowResolver,
           ItemsShowBreadcrumbsResolver,
-          { provide: ESLocaleService, useValue: localeService }
-        ]
+          { provide: ESLocaleService, useValue: localeService },
+        ],
       });
     });
 

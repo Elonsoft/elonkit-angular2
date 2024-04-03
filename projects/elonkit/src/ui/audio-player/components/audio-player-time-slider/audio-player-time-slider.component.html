@@ -5,8 +5,7 @@
   step="1"
   [max]="duration"
   [(ngModel)]="audioCurrentTime"
-  (change)="onSeekTo($event)"
-></mat-slider>
+  (change)="onSeekTo($event)"></mat-slider>
 
 <div
   #timeTooltip
@@ -14,7 +13,6 @@
   [ngClass]="{
     'es-audio-player-time-slider__tooltip_top': tooltipPosition === 'top',
     'es-audio-player-time-slider__tooltip_bottom': tooltipPosition === 'bottom'
-  }"
->
+  }">
   {{ tooltipTime }}
 </div>

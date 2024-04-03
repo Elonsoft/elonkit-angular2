@@ -8,7 +8,7 @@ import {
   Output,
   Renderer2,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation,
 } from '@angular/core';
 import { MatSlider } from '@angular/material/slider';
 
@@ -20,7 +20,7 @@ const TOOLTIP_OFFSET = 21;
   templateUrl: './audio-player-time-slider.component.html',
   styleUrls: ['./audio-player-time-slider.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ESAudioPlayerTimeSliderComponent {
   /** The duration in seconds of the current media resource. */
@@ -74,7 +74,10 @@ export class ESAudioPlayerTimeSliderComponent {
   /**
    * @ignore
    */
-  constructor(private renderer2: Renderer2, private elementRef: ElementRef<HTMLElement>) {}
+  constructor(
+    private renderer2: Renderer2,
+    private elementRef: ElementRef<HTMLElement>
+  ) {}
 
   /**
    * @internal
@@ -104,7 +107,8 @@ export class ESAudioPlayerTimeSliderComponent {
     const scrollLeft = document.scrollingElement?.scrollLeft;
 
     if (
-      scrollLeft && scrollTop &&
+      scrollLeft &&
+      scrollTop &&
       event.pageX >= container.left + scrollLeft &&
       event.pageX <= container.right + scrollLeft &&
       event.pageY > minTop + scrollTop &&

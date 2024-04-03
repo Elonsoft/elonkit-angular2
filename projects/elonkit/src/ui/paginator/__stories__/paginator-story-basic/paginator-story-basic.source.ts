@@ -27,5 +27,5 @@ export const PAGINATOR_STORY_BASIC_SOURCE = {
     (pageChange)="onPageChange($event)"
     (pageSizeChange)="onPageSizeChange($event)"
   ></es-paginator>
-  `
+  `,
 };

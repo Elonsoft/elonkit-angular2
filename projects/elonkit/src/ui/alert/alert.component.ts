@@ -8,7 +8,7 @@ import {
   EventEmitter,
   InjectionToken,
   Optional,
-  Inject
+  Inject,
 } from '@angular/core';
 
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -32,19 +32,17 @@ const DEFAULT_ICON_MAPPING = {
   info: { icon: 'info' },
   success: { icon: 'check_circle' },
   warning: { icon: 'warning' },
-  error: { icon: 'error' }
+  error: { icon: 'error' },
 };
 
-export const ES_ALERT_DEFAULT_OPTIONS = new InjectionToken<ESAlertDefaultOptions>(
-  'ES_ALERT_DEFAULT_OPTIONS'
-);
+export const ES_ALERT_DEFAULT_OPTIONS = new InjectionToken<ESAlertDefaultOptions>('ES_ALERT_DEFAULT_OPTIONS');
 
 @Component({
   selector: 'es-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESAlertComponent {
   private iconMapping: { [key in ESAlertVariant]: { icon?: string; svgIcon?: string } };
@@ -64,8 +62,7 @@ export class ESAlertComponent {
     return this._typography;
   }
   public set typography(value: string) {
-    this._typography =
-      value || (this.defaultOptions && this.defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
+    this._typography = value || (this.defaultOptions && this.defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
   }
 
   private _titleTypography: string;
@@ -78,10 +75,7 @@ export class ESAlertComponent {
     return this._titleTypography;
   }
   public set titleTypography(value: string) {
-    this._titleTypography =
-      value ||
-      (this.defaultOptions && this.defaultOptions.titleTypography) ||
-      DEFAULT_TITLE_TYPOGRAPHY;
+    this._titleTypography = value || (this.defaultOptions && this.defaultOptions.titleTypography) || DEFAULT_TITLE_TYPOGRAPHY;
   }
 
   private _closable = false;
@@ -142,8 +136,7 @@ export class ESAlertComponent {
     this.locale$ = this.localeService.locale();
 
     this.typography = (defaultOptions && defaultOptions.typography) || DEFAULT_TYPOGRAPHY;
-    this.titleTypography =
-      (defaultOptions && defaultOptions.titleTypography) || DEFAULT_TITLE_TYPOGRAPHY;
+    this.titleTypography = (defaultOptions && defaultOptions.titleTypography) || DEFAULT_TITLE_TYPOGRAPHY;
     this.iconMapping = { ...DEFAULT_ICON_MAPPING, ...defaultOptions?.iconMapping };
   }
 

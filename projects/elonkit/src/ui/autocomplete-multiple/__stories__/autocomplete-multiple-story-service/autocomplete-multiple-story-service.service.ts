@@ -15,7 +15,7 @@ const OPTIONS = [
   { id: 9, name: 'Portugal' },
   { id: 10, name: 'Russia' },
   { id: 11, name: 'India' },
-  { id: 12, name: 'Oman' }
+  { id: 12, name: 'Oman' },
 ];
 
 @Injectable()
@@ -29,7 +29,7 @@ export class AutocompleteMultipleStoryService {
 
         return {
           options: o,
-          totalCount: count ? Math.min(count, o.length) : o.length
+          totalCount: count ? Math.min(count, o.length) : o.length,
         };
       })
     );

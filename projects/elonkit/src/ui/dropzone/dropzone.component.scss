@@ -1,13 +1,13 @@
 .es-dropzone {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   border-radius: 5px;
   box-sizing: border-box;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 24px;
-  width: 100%;
 
   &:active,
   &:focus {
@@ -25,8 +25,8 @@
   }
 
   &__heading {
-    align-items: center;
     display: flex;
+    align-items: center;
     letter-spacing: 0.5px;
 
     &:not(:last-child) {

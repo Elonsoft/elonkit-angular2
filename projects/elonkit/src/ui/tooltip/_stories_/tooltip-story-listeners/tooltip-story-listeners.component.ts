@@ -3,7 +3,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 @Component({
   selector: 'es-tooltip-story-listeners',
   templateUrl: './tooltip-story-listeners.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TooltipStoryListenersComponent {
   @Input() public esTooltipArrow: boolean;

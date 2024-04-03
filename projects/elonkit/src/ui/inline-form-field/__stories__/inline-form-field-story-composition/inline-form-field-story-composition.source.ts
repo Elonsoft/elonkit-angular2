@@ -42,5 +42,5 @@ export const INLINE_FORM_FIELD_STORY_COMPOSITION_SOURCE = {
       <mat-hint>This is a hint</mat-hint>
     </mat-form-field>
   </es-inline-form-field>
-  `
+  `,
 };

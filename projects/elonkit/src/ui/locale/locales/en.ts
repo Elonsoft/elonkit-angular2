@@ -1,15 +1,15 @@
 export const en = {
   alert: {
-    labelClose: 'Close'
+    labelClose: 'Close',
   },
   breadcrumbs: {
     labelMore: 'More',
-    labelBack: 'Back'
+    labelBack: 'Back',
   },
   inlineFormField: {
     labelEdit: 'Edit',
     labelSave: 'Save',
-    labelCancel: 'Cancel'
+    labelCancel: 'Cancel',
   },
   paginator: {
     labelItemsPerPage: 'Items per page',
@@ -17,12 +17,12 @@ export const en = {
     labelPrev: 'Previous page',
     labelNext: 'Next page',
     labelGoTo: 'Go to page',
-    labelPage: 'page'
+    labelPage: 'page',
   },
   timepicker: {
     labelHH: 'HH',
     labelMM: 'MM',
-    labelSS: 'SS'
+    labelSS: 'SS',
   },
   audioPlayer: {
     labelPlay: 'Play',
@@ -33,11 +33,11 @@ export const en = {
     labelRate: 'Rate',
     labelDownload: 'Download',
     labelBack: 'Back',
-    labelNormal: 'Normal'
+    labelNormal: 'Normal',
   },
   avatar: {
     labelAvatar: 'Avatar',
-    labelStatus: 'Status'
+    labelStatus: 'Status',
   },
   autocompliteMultiple: {
     labelTabAll: 'All',
@@ -59,6 +59,6 @@ export const en = {
     labelRemoveAll: 'Remove all',
     labelRemoveChoice: 'Remove choice',
     labelSearch: 'Search',
-    labelShowSelected: 'Show selected'
-  }
+    labelShowSelected: 'Show selected',
+  },
 };

@@ -14,5 +14,5 @@ export const TOOLTIP_STORY_INTERACTIVE_SOURCE = {
     This is a tooltip with an interactive content
     <button mat-flat-button>Action</button>
   </ng-template>
-  `
+  `,
 };

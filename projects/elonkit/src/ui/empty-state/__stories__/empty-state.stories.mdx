@@ -14,14 +14,14 @@ import { EMPTY_STATE_STORY_BASIC_SOURCE } from './empty-state-story-basic';
 import { EMPTY_STATE_STORY_BUTTON_SOURCE } from './empty-state-story-button';
 
 <Meta
-  title='UI/Empty State'
+  title="UI/Empty State"
   args={{
     icon: 'box',
     src: '',
     heading: '',
     subheading: '',
-    size: 'medium'
-    }}
+    size: 'medium',
+  }}
   argTypes={{
     icon: {
       control: 'select',
@@ -41,16 +41,13 @@ import { EMPTY_STATE_STORY_BUTTON_SOURCE } from './empty-state-story-button';
         'search',
         'smile',
         'wi-fi',
-        'wi-fi-off'
-      ]
+        'wi-fi-off',
+      ],
     },
     size: {
       control: 'select',
-      options: [
-        'medium',
-        'small'
-      ]
-    }
+      options: ['medium', 'small'],
+    },
   }}
 />
 
@@ -61,10 +58,7 @@ A placeholder to use on pages without content.
 ## Demos
 
 export const getHeading = (args, context) => {
-  return (
-    args.heading ||
-    (context.globals.locale === 'en' ? 'There are no entities yet' : 'Здесь пока нет сущностей')
-  );
+  return args.heading || (context.globals.locale === 'en' ? 'There are no entities yet' : 'Здесь пока нет сущностей');
 };
 
 export const getSubheading = (args, context) => {
@@ -77,7 +71,7 @@ export const getSubheading = (args, context) => {
 };
 
 <Canvas source={EMPTY_STATE_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='200px'>
+  <Story name="Basic" height="200px">
     {((args, context) => ({
       template: `
       <es-empty-state
@@ -87,13 +81,13 @@ export const getSubheading = (args, context) => {
         [size]="size">
       </es-empty-state>`,
       moduleMetadata: {
-        imports: [HttpClientModule, CoreModule, ESEmptyStateModule, MatButtonModule]
+        imports: [HttpClientModule, CoreModule, ESEmptyStateModule, MatButtonModule],
       },
       props: {
         ...args,
         heading: getHeading(args, context),
-        subheading: getSubheading(args, context)
-      }
+        subheading: getSubheading(args, context),
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -101,7 +95,7 @@ export const getSubheading = (args, context) => {
 We can include action button.
 
 <Canvas source={EMPTY_STATE_STORY_BUTTON_SOURCE}>
-  <Story name='Button' height='230px'>
+  <Story name="Button" height="230px">
     {((args, context) => ({
       template: `
        <es-empty-state
@@ -113,13 +107,13 @@ We can include action button.
         </es-empty-state>
       `,
       moduleMetadata: {
-        imports: [HttpClientModule, MatButtonModule, CoreModule, ESEmptyStateModule]
+        imports: [HttpClientModule, MatButtonModule, CoreModule, ESEmptyStateModule],
       },
       props: {
         ...args,
         heading: getHeading(args, context),
-        subheading: getSubheading(args, context)
-      }
+        subheading: getSubheading(args, context),
+      },
     })).bind({})}
   </Story>
 </Canvas>

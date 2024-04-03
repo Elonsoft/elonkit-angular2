@@ -6,5 +6,5 @@ export interface ESAvatarDefaultOptions {
 
 export enum ESAvatarVariant {
   Round = 'round',
-  Square = 'square'
+  Square = 'square',
 }

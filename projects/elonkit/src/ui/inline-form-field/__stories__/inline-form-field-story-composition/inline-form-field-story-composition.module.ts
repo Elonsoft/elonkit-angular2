@@ -30,8 +30,8 @@ import { ESInlineFormFieldModule } from '../..';
     MatInputModule,
     MatSelectModule,
 
-    ESInlineFormFieldModule
+    ESInlineFormFieldModule,
   ],
-  exports: [InlineFormFieldStoryCompositionComponent]
+  exports: [InlineFormFieldStoryCompositionComponent],
 })
 export class InlineFormFieldStoryCompositionModule {}

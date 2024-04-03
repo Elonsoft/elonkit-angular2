@@ -1,26 +1,16 @@
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-  InjectionToken,
-  Optional,
-  Inject,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, InjectionToken, Optional, Inject, ViewEncapsulation } from '@angular/core';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { ESAvatarDefaultOptions, ESAvatarVariant } from './avatar.types';
 
-export const ES_AVATAR_DEFAULT_OPTIONS = new InjectionToken<ESAvatarDefaultOptions>(
-  'ES_AVATAR_DEFAULT_OPTIONS'
-);
+export const ES_AVATAR_DEFAULT_OPTIONS = new InjectionToken<ESAvatarDefaultOptions>('ES_AVATAR_DEFAULT_OPTIONS');
 
 @Component({
   selector: 'es-avatar',
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESAvatarComponent {
   /**

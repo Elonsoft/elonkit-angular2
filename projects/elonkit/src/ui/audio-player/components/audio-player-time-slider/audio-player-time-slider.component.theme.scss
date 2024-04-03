@@ -32,11 +32,7 @@
       color: mat.get-color-from-palette($mono-b, 500);
 
       &::after {
-        background: linear-gradient(
-          -45deg,
-          mat.get-color-from-palette($mono-a, A600) 50%,
-          transparent 50%
-        );
+        background: linear-gradient(-45deg, mat.get-color-from-palette($mono-a, A600) 50%, transparent 50%);
       }
     }
   }

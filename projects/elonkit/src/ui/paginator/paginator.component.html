@@ -6,8 +6,7 @@
       size="sm"
       [aria-label]="locale.paginator.labelItemsPerPage"
       [ngModel]="pageSize"
-      (ngModelChange)="onPageSizeChange($event)"
-    >
+      (ngModelChange)="onPageSizeChange($event)">
       <mat-option *ngFor="let size of pageSizeOptions" [value]="size">
         {{ size }}
       </mat-option>
@@ -24,8 +23,7 @@
       mat-icon-button
       [disabled]="page === 1"
       (click)="onPrevPage()"
-      [attr.aria-label]="locale.paginator.labelPrev"
-    >
+      [attr.aria-label]="locale.paginator.labelPrev">
       <mat-icon> chevron_left </mat-icon>
     </button>
 
@@ -37,14 +35,23 @@
         mat-icon-button
         [disabled]="i === page"
         (click)="onPageClick(i)"
-        esTooltip='&#8592; shift &#8594;'
-        esTooltipArrow="true"
-      >
+        esTooltip="&#8592; shift &#8594;"
+        esTooltipArrow="true">
         {{ i }}
       </button>
       <div *ngIf="i === null" class="es-paginator__item es-paginator__item_gap">
-        <svg class="es-paginator__item-icon" width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M2 1C2 1.55228 1.55228 2 1 2C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0C1.55228 0 2 0.447715 2 1ZM7 1C7 1.55228 6.55228 2 6 2C5.44772 2 5 1.55228 5 1C5 0.447715 5.44772 0 6 0C6.55228 0 7 0.447715 7 1ZM11 2C11.5523 2 12 1.55228 12 1C12 0.447715 11.5523 0 11 0C10.4477 0 10 0.447715 10 1C10 1.55228 10.4477 2 11 2Z" fill="currentColor" />
+        <svg
+          class="es-paginator__item-icon"
+          width="12"
+          height="2"
+          viewBox="0 0 12 2"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M2 1C2 1.55228 1.55228 2 1 2C0.447715 2 0 1.55228 0 1C0 0.447715 0.447715 0 1 0C1.55228 0 2 0.447715 2 1ZM7 1C7 1.55228 6.55228 2 6 2C5.44772 2 5 1.55228 5 1C5 0.447715 5.44772 0 6 0C6.55228 0 7 0.447715 7 1ZM11 2C11.5523 2 12 1.55228 12 1C12 0.447715 11.5523 0 11 0C10.4477 0 10 0.447715 10 1C10 1.55228 10.4477 2 11 2Z"
+            fill="currentColor" />
         </svg>
       </div>
     </ng-container>
@@ -54,8 +61,7 @@
       mat-icon-button
       [disabled]="page === pagesCount"
       (click)="onNextPage()"
-      [attr.aria-label]="locale.paginator.labelNext"
-    >
+      [attr.aria-label]="locale.paginator.labelNext">
       <mat-icon> chevron_right </mat-icon>
     </button>
 
@@ -70,8 +76,7 @@
           min="1"
           [max]="pagesCount"
           placeholder="{{ page }} {{ locale.paginator.labelPage }}"
-          (keypress)="onKeyPress($event)"
-        />
+          (keypress)="onKeyPress($event)" />
       </mat-form-field>
     </form>
   </div>

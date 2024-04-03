@@ -10,6 +10,6 @@ import { ESDropzoneComponent } from './dropzone.component';
 @NgModule({
   declarations: [ESDropzoneComponent],
   imports: [CommonModule, MatButtonModule, MatIconModule, MatRippleModule, HttpClientModule],
-  exports: [ESDropzoneComponent]
+  exports: [ESDropzoneComponent],
 })
 export class ESDropzoneModule {}

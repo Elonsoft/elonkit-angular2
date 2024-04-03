@@ -5,35 +5,31 @@ import { action } from '@storybook/addon-actions';
 
 import { ESPaginatorComponent } from '..';
 
-import {
-  PaginatorStoryBasicModule,
-  PaginatorStoryBasicComponent,
-  PAGINATOR_STORY_BASIC_SOURCE
-} from './paginator-story-basic';
+import { PaginatorStoryBasicModule, PaginatorStoryBasicComponent, PAGINATOR_STORY_BASIC_SOURCE } from './paginator-story-basic';
 
 import {
   PaginatorStoryPageSizeOptionsModule,
   PaginatorStoryPageSizeOptionsComponent,
-  PAGINATOR_STORY_PAGE_SIZE_OPTIONS_SOURCE
+  PAGINATOR_STORY_PAGE_SIZE_OPTIONS_SOURCE,
 } from './paginator-story-page-size-options';
 
 <Meta
-  title='UI/Paginator'
+  title="UI/Paginator"
   args={{
     count: 100,
     siblingCount: 2,
-    boundaryCount: 1
+    boundaryCount: 1,
   }}
   argTypes={{
     count: {
-      control: 'number'
+      control: 'number',
     },
     siblingCount: {
-      control: 'number'
+      control: 'number',
     },
     boundaryCount: {
-      control: 'number'
-    }
+      control: 'number',
+    },
   }}
 />
 
@@ -44,15 +40,15 @@ The paginator allows the user to select a specific page from a range of pages.
 ## Demos
 
 <Canvas source={PAGINATOR_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='270px'>
+  <Story name="Basic" height="270px">
     {((args) => ({
       component: PaginatorStoryBasicComponent,
       moduleMetadata: {
-        imports: [PaginatorStoryBasicModule]
+        imports: [PaginatorStoryBasicModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -60,16 +56,16 @@ The paginator allows the user to select a specific page from a range of pages.
 We can override default page size options.
 
 <Canvas source={PAGINATOR_STORY_PAGE_SIZE_OPTIONS_SOURCE}>
-  <Story name='Page size options' height='250px'>
+  <Story name="Page size options" height="250px">
     {((args) => ({
       component: PaginatorStoryPageSizeOptionsComponent,
       moduleMetadata: {
-        imports: [PaginatorStoryPageSizeOptionsModule]
+        imports: [PaginatorStoryPageSizeOptionsModule],
       },
       props: {
         ...args,
-        pageSizeOptions: [5, 6, 7, 8, 9, 10]
-      }
+        pageSizeOptions: [5, 6, 7, 8, 9, 10],
+      },
     })).bind({})}
   </Story>
 </Canvas>

@@ -18,5 +18,5 @@ export const DROPZONE_STORY_BASIC_SOURCE = {
       <mat-hint>This is an example of a hint message</mat-hint>
     </es-dropzone>
   </div>
-  `
+  `,
 };

@@ -10,24 +10,24 @@ import { ALERT_STORY_ACTIONS_SOURCE } from './alert-story-actions';
 import {
   AlertStoryIconMappingModule,
   AlertStoryIconMappingComponent,
-  ALERT_STORY_ICON_MAPPING_SOURCE
+  ALERT_STORY_ICON_MAPPING_SOURCE,
 } from './alert-story-icon-mapping';
 
 <Meta
-  title='UI/Alert'
+  title="UI/Alert"
   args={{
     content: '',
     variant: 'info',
     closable: false,
-    title: ''
+    title: '',
   }}
   argTypes={{
     variant: {
-      control: { type: 'select', options: ['default', 'info', 'success', 'warning', 'error'] }
+      control: { type: 'select', options: ['default', 'info', 'success', 'warning', 'error'] },
     },
     closable: {
-      control: 'boolean'
-    }
+      control: 'boolean',
+    },
   }}
 />
 
@@ -58,21 +58,21 @@ export const TemplateBasic = (args, context) => ({
         </es-alert>
       `,
   moduleMetadata: {
-    imports: [ESAlertModule]
+    imports: [ESAlertModule],
   },
   props: {
     ...args,
     title: getTitle(args, context),
     content: getContent(args, context),
-    onClose: action('onClose')
-  }
+    onClose: action('onClose'),
+  },
 });
 
 <Canvas source={ALERT_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='100px'>
+  <Story name="Basic" height="100px">
     {TemplateBasic.bind({})}
   </Story>
-  <Story name='DOCS_ONLY_Closable' height='100px' args={{ closable: true }}>
+  <Story name="DOCS_ONLY_Closable" height="100px" args={{ closable: true }}>
     {TemplateBasic.bind({})}
   </Story>
 </Canvas>
@@ -80,7 +80,7 @@ export const TemplateBasic = (args, context) => ({
 We can add actions.
 
 <Canvas source={ALERT_STORY_ACTIONS_SOURCE}>
-  <Story name='Actions' height='200px'>
+  <Story name="Actions" height="200px">
     {((args, context) => ({
       template: `
         <es-alert
@@ -97,7 +97,7 @@ We can add actions.
         </es-alert>
       `,
       moduleMetadata: {
-        imports: [ESAlertModule]
+        imports: [ESAlertModule],
       },
       props: {
         ...args,
@@ -105,8 +105,8 @@ We can add actions.
         content: getContent(args, context),
         onClose: action('onClose'),
         onAction: action('onAction'),
-        onCancel: action('onCancel')
-      }
+        onCancel: action('onCancel'),
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -115,23 +115,22 @@ We can override default icon mapping and individual icons.
 
 <Canvas source={ALERT_STORY_ICON_MAPPING_SOURCE}>
   <Story
-    name='Icon mapping'
-    height='400px'
+    name="Icon mapping"
+    height="400px"
     argTypes={{
-      variant: { table: { disable: true } }
-    }}
-  >
+      variant: { table: { disable: true } },
+    }}>
     {((args, context) => ({
       component: AlertStoryIconMappingComponent,
       moduleMetadata: {
-        imports: [AlertStoryIconMappingModule]
+        imports: [AlertStoryIconMappingModule],
       },
       props: {
         ...args,
         title: getTitle(args, context),
         content: getContent(args, context),
-        onClose: action('onClose')
-      }
+        onClose: action('onClose'),
+      },
     })).bind({})}
   </Story>
 </Canvas>

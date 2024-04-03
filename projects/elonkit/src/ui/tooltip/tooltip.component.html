@@ -3,8 +3,7 @@
   [ngClass]="tooltipClass"
   [@state]="visibility"
   (@state.start)="animationStart()"
-  (@state.done)="animationDone($event)"
->
+  (@state.done)="animationDone($event)">
   <div class="es-tooltip__content">
     <ng-container *ngIf="content; else messageTemplate">
       <ng-container *ngTemplateOutlet="content; context: { hide: hide }"></ng-container>
@@ -21,6 +20,5 @@
     [ngStyle]="{
       'top.px': arrow.offsetY,
       'left.px': arrow.offsetX
-    }"
-  ></div>
+    }"></div>
 </div>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 
 import { ESEmptyStateComponent } from './empty-state.component';
 
@@ -9,6 +9,6 @@ import { ESEmptyStateComponent } from './empty-state.component';
   declarations: [ESEmptyStateComponent],
   imports: [CommonModule, MatIconModule],
   exports: [ESEmptyStateComponent],
-  providers:[MatIconRegistry]
+  providers: [MatIconRegistry],
 })
 export class ESEmptyStateModule {}

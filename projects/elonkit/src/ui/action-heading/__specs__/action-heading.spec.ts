@@ -6,13 +6,12 @@ describe('ActionHeading', () => {
   it('Should render component with title', async () => {
     const { getByText } = await render(ESActionHeadingComponent, {
       componentProperties: {
-        text: 'ActionHeading'
+        text: 'ActionHeading',
       },
       imports: [ESActionHeadingModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(getByText('ActionHeading')).toBeInTheDocument();
   });
-
 });
