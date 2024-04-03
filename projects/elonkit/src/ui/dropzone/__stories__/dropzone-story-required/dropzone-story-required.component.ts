@@ -7,7 +7,7 @@ import { MatIconRegistry } from '@angular/material/icon';
   selector: 'es-dropzone-required',
   templateUrl: './dropzone-story-required.component.html',
   styleUrls: ['./dropzone-story-required.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropzoneStoryRequiredComponent {
   @Input() public heading: string;
@@ -16,14 +16,14 @@ export class DropzoneStoryRequiredComponent {
   @Input() public locale: 'en' | 'ru';
 
   public form = new FormGroup({
-    docs: new FormControl([], Validators.required)
+    docs: new FormControl([], Validators.required),
   });
 
-  constructor(private iconRegistry: MatIconRegistry, private sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'upload',
-      sanitizer.bypassSecurityTrustResourceUrl('/icons/upload.svg')
-    );
+  constructor(
+    private iconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer
+  ) {
+    iconRegistry.addSvgIcon('upload', sanitizer.bypassSecurityTrustResourceUrl('/icons/upload.svg'));
   }
 
   public onSubmit(form: any) {}

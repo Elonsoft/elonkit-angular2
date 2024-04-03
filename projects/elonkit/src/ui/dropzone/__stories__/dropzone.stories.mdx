@@ -7,25 +7,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ESDropzoneComponent } from '..';
 
-import {
-  DropzoneStoryBasicModule,
-  DropzoneStoryBasicComponent,
-  DROPZONE_STORY_BASIC_SOURCE
-} from './dropzone-story-basic';
+import { DropzoneStoryBasicModule, DropzoneStoryBasicComponent, DROPZONE_STORY_BASIC_SOURCE } from './dropzone-story-basic';
 
 import {
   DropzoneStoryRequiredModule,
   DropzoneStoryRequiredComponent,
-  DROPZONE_STORY_REQUIRED_SOURCE
+  DROPZONE_STORY_REQUIRED_SOURCE,
 } from './dropzone-story-required';
 
 import {
   DropzoneStoryCustomIconModule,
   DropzoneStoryCustomIconComponent,
-  DROPZONE_STORY_CUSTOM_ICON_SOURCE
+  DROPZONE_STORY_CUSTOM_ICON_SOURCE,
 } from './dropzone-story-custom-icon';
 
-<Meta title='UI/Dropzone' args={{ heading: '', subheading: '' }} />
+<Meta title="UI/Dropzone" args={{ heading: '', subheading: '' }} />
 
 # Dropzone
 
@@ -50,22 +46,21 @@ Validation errors are emitted from `validate` output as array of `ESDropzoneVali
 
 <Canvas source={DROPZONE_STORY_BASIC_SOURCE}>
   <Story
-    name='Basic'
-    height='150px'
+    name="Basic"
+    height="150px"
     args={{ accept: 'image/png,image/jpg,image/jpeg', maxSise: 50, type: 'binary' }}
     argTypes={{
       maxSise: {
-        control: 'number'
+        control: 'number',
       },
       type: {
-        control: { type: 'select', options: ['base64', 'binary'] }
-      }
-    }}
-  >
+        control: { type: 'select', options: ['base64', 'binary'] },
+      },
+    }}>
     {((args, context) => ({
       component: DropzoneStoryBasicComponent,
       moduleMetadata: {
-        imports: [DropzoneStoryBasicModule]
+        imports: [DropzoneStoryBasicModule],
       },
       props: {
         ...args,
@@ -73,8 +68,8 @@ Validation errors are emitted from `validate` output as array of `ESDropzoneVali
         subheading: getSubheading(args, context),
         locale: context.globals.locale,
         changeFiles: action('onChangeFiles'),
-        validate: action('onValidate')
-      }
+        validate: action('onValidate'),
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -82,18 +77,18 @@ Validation errors are emitted from `validate` output as array of `ESDropzoneVali
 We can make Control required by adding a Validator.
 
 <Canvas source={DROPZONE_STORY_REQUIRED_SOURCE}>
-  <Story name='Required' height='200px'>
+  <Story name="Required" height="200px">
     {((args, context) => ({
       component: DropzoneStoryRequiredComponent,
       moduleMetadata: {
-        imports: [DropzoneStoryRequiredModule]
+        imports: [DropzoneStoryRequiredModule],
       },
       props: {
         ...args,
         heading: getHeading(args, context),
         subheading: getSubheading(args, context),
-        locale: context.globals.locale
-      }
+        locale: context.globals.locale,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -101,18 +96,18 @@ We can make Control required by adding a Validator.
 We can pass `svgIcon` to use custom upload icon.
 
 <Canvas source={DROPZONE_STORY_CUSTOM_ICON_SOURCE}>
-  <Story name='Custom Icon' height='200px'>
+  <Story name="Custom Icon" height="200px">
     {((args, context) => ({
       component: DropzoneStoryCustomIconComponent,
       moduleMetadata: {
-        imports: [DropzoneStoryCustomIconModule]
+        imports: [DropzoneStoryCustomIconModule],
       },
       props: {
         ...args,
         heading: getHeading(args, context),
         subheading: getSubheading(args, context),
-        locale: context.globals.locale
-      }
+        locale: context.globals.locale,
+      },
     })).bind({})}
   </Story>
 </Canvas>

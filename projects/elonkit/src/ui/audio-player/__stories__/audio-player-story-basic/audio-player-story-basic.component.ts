@@ -6,11 +6,9 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   template: `<div class="audio-player">
     <es-audio-player [source]="source" [volume]="volume"></es-audio-player>
   </div>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AudioPlayerStoryBasicComponent {
   @Input() public source: string;
   @Input() public volume: number;
-
-  constructor() {}
 }

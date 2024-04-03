@@ -21,9 +21,9 @@ import { ESTooltipModule } from '../tooltip';
     MatIconModule,
     MatInputModule,
     MatSelectModule,
-    ESTooltipModule
+    ESTooltipModule,
   ],
   exports: [ESPaginatorComponent],
-  declarations: [ESPaginatorComponent]
+  declarations: [ESPaginatorComponent],
 })
 export class ESPaginatorModule {}

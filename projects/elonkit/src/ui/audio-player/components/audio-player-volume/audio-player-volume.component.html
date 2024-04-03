@@ -9,25 +9,19 @@
     esTooltipInteractive
     [esTooltipDisableCloseClickListener]="true"
     [attr.aria-label]="this.isMute ? locale.audioPlayer.labelUnmute : locale.audioPlayer.labelMute"
-    (click)="onMute()"
-  >
+    (click)="onMute()">
     <mat-icon svgIcon="es-audio-player:{{ this.isMute ? 'mute' : 'un-mute' }}"></mat-icon>
   </button>
 
   <ng-template #content>
     <div class="es-audio-player-volume__container">
-      <mat-slider
-        class="es-audio-player-volume__slider"
-        color="primary"
-        min="0"
-        step="1"
-        max="100"
-      >
-        <input #sliderVolume
-               [value]="volume"
-               (valueChange)="onVolumeChanged($event)"
-               (input)="onVolumeSliderMove($event)"
-               matSliderThumb>
+      <mat-slider class="es-audio-player-volume__slider" color="primary" min="0" step="1" max="100">
+        <input
+          #sliderVolume
+          [value]="volume"
+          (valueChange)="onVolumeChanged($event)"
+          (input)="onVolumeSliderMove($event)"
+          matSliderThumb />
       </mat-slider>
       <label class="es-caption">{{ sliderVolume.value }}</label>
     </div>

@@ -10,10 +10,10 @@ import { ESAutocompleteMultipleComponent } from '..';
 import {
   AutocompleteMultipleStoryServiceModule,
   AutocompleteMultipleStoryServiceComponent,
-  AUTOCOMPLETE_MULTIPLE_STORY_SERVICE_SOURCE
+  AUTOCOMPLETE_MULTIPLE_STORY_SERVICE_SOURCE,
 } from './autocomplete-multiple-story-service';
 
-<Meta title='UI/Autocomplete Multiple' />
+<Meta title="UI/Autocomplete Multiple" />
 
 # Autocomplete multiple
 
@@ -23,37 +23,36 @@ Autocomplete multiple is component for multiple select options with support for 
 
 <Canvas source={AUTOCOMPLETE_MULTIPLE_STORY_SERVICE_SOURCE}>
   <Story
-    name='Service'
-    height='500px'
+    name="Service"
+    height="500px"
     args={{
       width: 300,
       showedOptionCount: 25,
       required: false,
-      disabled: false
+      disabled: false,
     }}
     argTypes={{
       width: {
-        control: 'number'
+        control: 'number',
       },
       showedOptionCount: {
-        control: 'number'
+        control: 'number',
       },
       required: {
-        control: 'boolean'
+        control: 'boolean',
       },
       disabled: {
-        control: 'boolean'
-      }
-    }}
-  >
+        control: 'boolean',
+      },
+    }}>
     {((args) => ({
       component: AutocompleteMultipleStoryServiceComponent,
       moduleMetadata: {
-        imports: [HttpClientModule, AutocompleteMultipleStoryServiceModule]
+        imports: [HttpClientModule, AutocompleteMultipleStoryServiceModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>

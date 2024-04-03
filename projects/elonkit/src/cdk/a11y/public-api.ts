@@ -1,6 +1,1 @@
-export {
-  FOCUSABLE,
-  getInnerFocusableElement,
-  getPrevFocusableElement,
-  getNextFocusableElement
-} from './focusable';
+export { FOCUSABLE, getInnerFocusableElement, getPrevFocusableElement, getNextFocusableElement } from './focusable';

@@ -1,27 +1,24 @@
-import type { StorybookConfig } from "@storybook/angular";
+import type { StorybookConfig } from '@storybook/angular';
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@storybook/addon-viewport',
     '@storybook/addon-controls',
     '@storybook/addon-outline',
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     '@storybook/addon-actions',
-    'storybook-dark-mode'
+    'storybook-dark-mode',
   ],
   framework: {
-    name: "@storybook/angular",
+    name: '@storybook/angular',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
-  staticDirs: [
-    { from: '../src/', to: '/' }
-  ]
-
+  staticDirs: [{ from: '../src/', to: '/' }],
 };
 export default config;

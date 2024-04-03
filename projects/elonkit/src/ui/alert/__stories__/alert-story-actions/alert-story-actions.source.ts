@@ -7,5 +7,5 @@ export const ALERT_STORY_ACTIONS_SOURCE = {
       <button mat-button (click)="onCancel()">Cancel</button>
     </es-alert-actions>
   </es-alert>
-  `
+  `,
 };

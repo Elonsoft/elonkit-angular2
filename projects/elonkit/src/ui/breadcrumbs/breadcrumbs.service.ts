@@ -11,7 +11,10 @@ export class ESBreadcrumbsService implements OnDestroy {
   public breadcrumbs$ = new BehaviorSubject<ESBreadcrumb[]>([]);
   public destroyed$ = new Subject<void>();
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
     this.getBreadcrumbs();
 
     this.router.events
@@ -40,7 +43,7 @@ export class ESBreadcrumbsService implements OnDestroy {
         breadcrumbs.push({
           path: this.getPath(route),
           parentPath: this.getPath(route.parent),
-          data: route.snapshot.data['breadcrumb']
+          data: route.snapshot.data['breadcrumb'],
         });
       }
       route = route.firstChild;

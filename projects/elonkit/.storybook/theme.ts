@@ -11,7 +11,7 @@ export const light = create({
 
   brandTitle: 'Elonsoft',
   // brandImage: logoLight,
-  brandUrl: 'https://elonsoft.ru/'
+  brandUrl: 'https://elonsoft.ru/',
 });
 
 export const dark = create({
@@ -24,5 +24,5 @@ export const dark = create({
 
   brandTitle: 'Elonsoft',
   // brandImage: logoDark,
-  brandUrl: 'https://elonsoft.ru/'
+  brandUrl: 'https://elonsoft.ru/',
 });

@@ -4,8 +4,7 @@
     [routerLink]="[breadcrumb.path]"
     [attr.aria-label]="breadcrumb.data.ariaLabel"
     class="es-breadcrumbs-breadcrumb__link"
-    mat-ripple
-  >
+    mat-ripple>
     <ng-container *ngTemplateOutlet="item"></ng-container>
   </a>
   <span *ngIf="last" class="es-breadcrumbs-breadcrumb__link es-breadcrumbs-breadcrumb__link_last">
@@ -18,8 +17,7 @@
       mat-icon-button
       [matMenuTriggerFor]="breadcrumbsMenu"
       [attr.aria-label]="(locale$ | async)?.breadcrumbs?.labelMore"
-      class="es-breadcrumbs-breadcrumb__menu"
-    >
+      class="es-breadcrumbs-breadcrumb__menu">
       <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <mat-menu #breadcrumbsMenu="matMenu" xPosition="before" yPosition="below" class="es-breadcrumbs__menu">
@@ -27,8 +25,7 @@
         *ngFor="let item of breadcrumb.data.breadcrumbs"
         mat-menu-item
         [routerLink]="[breadcrumb.parentPath, item.path]"
-        class="es-caption"
-      >
+        class="es-caption">
         <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
         <mat-icon *ngIf="item.svgIcon" [svgIcon]="item.svgIcon"></mat-icon>
         {{ item.label }}
@@ -41,11 +38,7 @@
   <mat-icon *ngIf="breadcrumb.data.icon" class="es-breadcrumbs-breadcrumb__icon">
     {{ breadcrumb.data.icon }}
   </mat-icon>
-  <mat-icon
-    *ngIf="breadcrumb.data.svgIcon"
-    [svgIcon]="breadcrumb.data.svgIcon"
-    class="es-breadcrumbs-breadcrumb__icon"
-  >
+  <mat-icon *ngIf="breadcrumb.data.svgIcon" [svgIcon]="breadcrumb.data.svgIcon" class="es-breadcrumbs-breadcrumb__icon">
     {{ breadcrumb.data.svgIcon }}
   </mat-icon>
   <span *ngIf="breadcrumb.data.label" class="es-breadcrumbs-breadcrumb__label">

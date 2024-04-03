@@ -13,16 +13,16 @@
       .cdk-mouse-focused .mat-slider-thumb,
       .mat-slider-thumb {
         border: 0;
+        width: 18px;
         height: 18px;
         transform: scale(0.7);
-        width: 18px;
       }
 
       .mat-slider-focus-ring {
+        width: 24px;
         height: 24px;
         right: -13px;
         top: -11px;
-        width: 24px;
       }
     }
 
@@ -52,23 +52,23 @@
     $size: math.round(math.div($base, math.sqrt(2))); // Square side size
     $scale: math.div($height, math.div($base, 2));
     $offset: -#{math.div($size, 2)}px;
+    padding: 4px 8px;
+    display: none;
 
     border-radius: 4px;
-    display: none;
     font-size: 12px;
     letter-spacing: 0.4px;
     line-height: 16px;
-    padding: 4px 8px;
     position: absolute;
     z-index: 1000;
 
     &::after {
       border-bottom-right-radius: 2px;
       content: '';
+      width: #{$size}px;
       height: #{$size}px;
       left: 50%;
       position: absolute;
-      width: #{$size}px;
     }
 
     &_top {

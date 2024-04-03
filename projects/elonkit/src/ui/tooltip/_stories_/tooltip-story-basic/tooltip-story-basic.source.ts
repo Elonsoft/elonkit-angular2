@@ -8,5 +8,5 @@ export const TOOLTIP_STORY_BASIC_SOURCE = {
   >
     Button
   </button>
-  `
+  `,
 };

@@ -8,7 +8,7 @@ import {
   ChangeDetectorRef,
   HostBinding,
   ViewChild,
-  ElementRef
+  ElementRef,
 } from '@angular/core';
 
 import { DatePipe } from '@angular/common';
@@ -29,17 +29,16 @@ import { ESLocaleService } from '../locale';
   selector: 'es-timepicker',
   templateUrl: './timepicker.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: MatFormFieldControl, useExisting: ESTimepickerComponent }]
+  providers: [{ provide: MatFormFieldControl, useExisting: ESTimepickerComponent }],
 })
-export class ESTimepickerComponent
-  implements ControlValueAccessor, MatFormFieldControl<ESTimepickerComponent>, OnDestroy {
+export class ESTimepickerComponent implements ControlValueAccessor, MatFormFieldControl<ESTimepickerComponent>, OnDestroy {
   /**
    * @internal
    * @ignore
    */
   public mask = {
     mask: [/\d/, /\d/, ':', /\d/, /\d/],
-    pipe: autoCorrectedTimePipe
+    pipe: autoCorrectedTimePipe,
   };
 
   private _withSeconds = false;
@@ -57,7 +56,7 @@ export class ESTimepickerComponent
     if (this.withSeconds) {
       this.mask = {
         mask: [/\d/, /\d/, ':', /\d/, /\d/, ':', /\d/, /\d/],
-        pipe: autoCorrectedTimeSecondsPipe
+        pipe: autoCorrectedTimeSecondsPipe,
       };
     } else {
       this.mask = { mask: [/\d/, /\d/, ':', /\d/, /\d/], pipe: autoCorrectedTimePipe };
@@ -136,7 +135,7 @@ export class ESTimepickerComponent
    */
   public get placeholder(): string {
     const {
-      timepicker: { labelHH, labelMM, labelSS }
+      timepicker: { labelHH, labelMM, labelSS },
     } = this.localeService.currentLocale();
     return this.withSeconds ? `${labelHH}:${labelMM}:${labelSS}` : `${labelHH}:${labelMM}`;
   }
@@ -149,7 +148,7 @@ export class ESTimepickerComponent
     const form = this.ngForm;
 
     if (control) {
-      return control.invalid as boolean && (control.touched as boolean || (form && form.submitted));
+      return (control.invalid as boolean) && ((control.touched as boolean) || (form && form.submitted));
     }
 
     return false;

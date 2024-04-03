@@ -5,7 +5,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation, Input } from '@a
   templateUrl: './tooltip-story-theming.component.html',
   styleUrls: ['./tooltip-story-theming.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class TooltipStoryThemingComponent {
   @Input() public esTooltipArrow: boolean;

@@ -9,7 +9,7 @@ import { Source } from '@storybook/blocks';
 // import Tabs from '@material-ui/core/Tabs';
 
 import dedent from 'ts-dedent';
-import {Tab, Tabs} from '@mui/material';
+import { Tab, Tabs } from '@mui/material';
 
 export function Canvas({ children, source }: ICanvasProps) {
   const [value, setValue] = React.useState(source.ts ? 'ts' : source.html ? 'html' : 'scss');
@@ -28,34 +28,25 @@ export function Canvas({ children, source }: ICanvasProps) {
   }, [source]);
 
   return (
-    <div className='storybook-canvas'>
+    <div className="storybook-canvas">
       {children}
       {isSourceAvailable && (
         <div>
-          <button className='storybook-canvas__toggle' onClick={onSourceVisibleToggle}>
+          <button className="storybook-canvas__toggle" onClick={onSourceVisibleToggle}>
             {isSourceVisible ? 'Hide code' : 'Show code'}
           </button>
         </div>
       )}
       {isSourceVisible && (
-        <div className='storybook-canvas__source'>
-          <Tabs
-            className='storybook-canvas__tabs'
-            value={value}
-            onChange={onChange}
-            textColor='inherit'
-          >
-            {!!source.ts && <Tab value='ts' label='TS' />}
-            {!!source.html && <Tab value='html' label='HTML' />}
-            {!!source.scss && <Tab value='scss' label='SCSS' />}
+        <div className="storybook-canvas__source">
+          <Tabs className="storybook-canvas__tabs" value={value} onChange={onChange} textColor="inherit">
+            {!!source.ts && <Tab value="ts" label="TS" />}
+            {!!source.html && <Tab value="html" label="HTML" />}
+            {!!source.scss && <Tab value="scss" label="SCSS" />}
           </Tabs>
-          {!!source.ts && value === 'ts' && <Source dark language='ts' code={dedent(source.ts)} />}
-          {!!source.html && value === 'html' && (
-            <Source dark language='html' code={dedent(source.html)} />
-          )}
-          {!!source.scss && value === 'scss' && (
-            <Source dark language='scss' code={dedent(source.scss)} />
-          )}
+          {!!source.ts && value === 'ts' && <Source dark language="ts" code={dedent(source.ts)} />}
+          {!!source.html && value === 'html' && <Source dark language="html" code={dedent(source.html)} />}
+          {!!source.scss && value === 'scss' && <Source dark language="scss" code={dedent(source.scss)} />}
         </div>
       )}
     </div>
@@ -63,5 +54,5 @@ export function Canvas({ children, source }: ICanvasProps) {
 }
 
 Canvas.defaultProps = {
-  source: {}
+  source: {},
 };

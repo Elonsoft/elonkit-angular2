@@ -10,7 +10,7 @@ import {
   InjectionToken,
   Optional,
   Inject,
-  AfterViewInit
+  AfterViewInit,
 } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -21,9 +21,7 @@ export interface ESAudioPlayerDefaultOptions {
   rates?: number[];
 }
 
-export const ES_AUDIO_PLAYER_DEFAULT_OPTIONS = new InjectionToken<ESAudioPlayerDefaultOptions>(
-  'ES_AUDIO_PLAYER_DEFAULT_OPTIONS'
-);
+export const ES_AUDIO_PLAYER_DEFAULT_OPTIONS = new InjectionToken<ESAudioPlayerDefaultOptions>('ES_AUDIO_PLAYER_DEFAULT_OPTIONS');
 
 const DEFAULT_TIME = '00:00:00';
 
@@ -32,7 +30,7 @@ const DEFAULT_TIME = '00:00:00';
   templateUrl: './audio-player.component.html',
   styleUrls: ['./audio-player.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
   /**
@@ -136,9 +134,7 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
     this.isAudioDataLoaded = true;
     this.audio.volume = this.volume / 100;
 
-    this.displayedTime = this.isDisplayedLeftTime
-      ? this.formatTime(duration - currentTime)
-      : this.formatTime(currentTime);
+    this.displayedTime = this.isDisplayedLeftTime ? this.formatTime(duration - currentTime) : this.formatTime(currentTime);
 
     // tslint:disable-next-line: no-string-literal
     // @ts-ignore
@@ -152,9 +148,7 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
 
     this.audioCurrentTime = currentTime;
 
-    this.displayedTime = this.isDisplayedLeftTime
-      ? this.formatTime(duration - currentTime)
-      : this.formatTime(currentTime);
+    this.displayedTime = this.isDisplayedLeftTime ? this.formatTime(duration - currentTime) : this.formatTime(currentTime);
 
     // tslint:disable-next-line: no-string-literal
     // @ts-ignore

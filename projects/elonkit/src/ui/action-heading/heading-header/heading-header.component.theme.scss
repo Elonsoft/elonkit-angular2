@@ -2,6 +2,6 @@
   $mono-a: map-get($elonkit-theme, mono-a);
 
   .es-heading-header {
-      color: mat.get-color-from-palette($mono-a, A900);
+    color: mat.get-color-from-palette($mono-a, A900);
   }
 }

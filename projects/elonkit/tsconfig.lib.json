@@ -9,7 +9,5 @@
     "strictPropertyInitialization": false,
     "types": []
   },
-  "exclude": [
-    "**/*.spec.ts"
-  ]
+  "exclude": ["**/*.spec.ts"]
 }

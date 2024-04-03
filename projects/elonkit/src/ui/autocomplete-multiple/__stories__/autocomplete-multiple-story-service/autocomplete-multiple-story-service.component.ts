@@ -15,8 +15,7 @@ import { AutocompleteMultipleStoryService } from './autocomplete-multiple-story-
       <mat-form-field
         appearance="outline"
         class="es-autocomplete-multiple-story-service__field"
-        [ngStyle]="{ 'width.px': width }"
-      >
+        [ngStyle]="{ 'width.px': width }">
         <mat-label>Country</mat-label>
 
         <es-autocomplete-multiple
@@ -25,11 +24,10 @@ import { AutocompleteMultipleStoryService } from './autocomplete-multiple-story-
           [required]="required"
           [disabled]="disabled"
           [optionsCount]="totalOptionCount"
-          [displayWith]="displayWith"
-        ></es-autocomplete-multiple>
+          [displayWith]="displayWith"></es-autocomplete-multiple>
       </mat-form-field>
     </form>
-  `
+  `,
 })
 export class AutocompleteMultipleStoryServiceComponent {
   @Input() public width: number;
@@ -44,15 +42,18 @@ export class AutocompleteMultipleStoryServiceComponent {
 
   public totalOptionCount: number;
 
-  constructor(private service: AutocompleteMultipleStoryService, private formBuilder: FormBuilder) {
+  constructor(
+    private service: AutocompleteMultipleStoryService,
+    private formBuilder: FormBuilder
+  ) {
     this.form = this.formBuilder.group({
       autocomplete: [
         [
           { id: 3, name: 'Norway' },
           { id: 9, name: 'Portugal' },
-          { id: 10, name: 'Russia' }
-        ]
-      ]
+          { id: 10, name: 'Russia' },
+        ],
+      ],
     });
   }
 

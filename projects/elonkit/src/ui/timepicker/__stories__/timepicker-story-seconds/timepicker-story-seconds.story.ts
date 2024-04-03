@@ -12,5 +12,5 @@ export const TIMEPICKER_STORY_SECONDS_SOURCE = {
     <mat-label>Time</mat-label>
     <es-timepicker [(ngModel)]="date" withSeconds></es-timepicker>
   </mat-form-field>
-  `
+  `,
 };

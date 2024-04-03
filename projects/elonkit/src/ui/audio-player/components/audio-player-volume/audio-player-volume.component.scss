@@ -1,8 +1,8 @@
 .es-audio-player-volume {
   &__button {
     &.mat-icon-button {
-      height: 24px;
       width: 24px;
+      height: 24px;
     }
 
     .mat-button-wrapper {
@@ -12,16 +12,16 @@
   }
 
   &__container {
-    align-items: center;
+    max-width: 24px;
     display: flex;
     flex-direction: column;
-    max-width: 24px;
+    align-items: center;
   }
 
   &__slider {
     &.mat-slider {
-      padding: 0;
       width: 24px;
+      padding: 0;
 
       &:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-thumb,
       &:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-thumb,
@@ -29,18 +29,17 @@
       .cdk-mouse-focused .mat-slider-thumb,
       .mat-slider-thumb {
         border: 0;
+        width: 18px;
         height: 18px;
         right: -10px;
         transform: scale(0.7);
-        width: 18px;
       }
 
       .mat-slider-focus-ring {
         bottom: -10px;
-
+        width: 18px;
         height: 18px;
         left: -8px;
-        width: 18px;
       }
 
       &.mat-slider-vertical {

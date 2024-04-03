@@ -5,12 +5,12 @@ import { Meta, Story, ArgsTable } from '@storybook/blocks';
 import {
   AudioPlayerStoryBasicComponent,
   AudioPlayerStoryBasicModule,
-  AUDIO_PLAYER_STORY_BASIC_SOURCE
+  AUDIO_PLAYER_STORY_BASIC_SOURCE,
 } from './audio-player-story-basic';
 
 import { ESAudioPlayerComponent } from '..';
 
-<Meta title='UI/Audio Player' />
+<Meta title="UI/Audio Player" />
 
 # Audio player
 
@@ -20,30 +20,28 @@ Audio player allows users to play audio tracks.
 
 <Canvas source={AUDIO_PLAYER_STORY_BASIC_SOURCE}>
   <Story
-    name='Basic'
-    height='170px'
+    name="Basic"
+    height="170px"
     args={{
-      source:
-        'https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3',
-      volume: 45
+      source: 'https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3',
+      volume: 45,
     }}
     argTypes={{
       source: {
-        control: 'text'
+        control: 'text',
       },
       volume: {
-        control: 'number'
-      }
-    }}
-  >
+        control: 'number',
+      },
+    }}>
     {((args) => ({
       component: AudioPlayerStoryBasicComponent,
       moduleMetadata: {
-        imports: [AudioPlayerStoryBasicModule]
+        imports: [AudioPlayerStoryBasicModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>

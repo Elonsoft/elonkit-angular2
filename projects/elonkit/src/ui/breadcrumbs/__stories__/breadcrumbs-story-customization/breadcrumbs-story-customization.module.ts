@@ -11,13 +11,10 @@ import {
   BreadcrumbsStoryBasicCategoriesListComponent,
   BreadcrumbsStoryBasicItemsListComponent,
   BreadcrumbsStoryBasicItemsShowComponent,
-  BreadcrumbsStoryBasicItemsEditComponent
+  BreadcrumbsStoryBasicItemsEditComponent,
 } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.component';
 
-import {
-  CategoriesService,
-  ItemsService
-} from '../breadcrumbs-story-basic/breadcrumbs-story-basic.service';
+import { CategoriesService, ItemsService } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.service';
 
 import {
   CategoriesListResolver,
@@ -25,7 +22,7 @@ import {
   CategoriesShowBreadcrumbsResolver,
   ItemsListResolver,
   ItemsShowResolver,
-  ItemsShowBreadcrumbsResolver
+  ItemsShowBreadcrumbsResolver,
 } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.resolver';
 
 import { ESBreadcrumbsModule, ESBreadcrumbsResolver } from '../..';
@@ -34,80 +31,80 @@ const ROUTES = [
   {
     path: '',
     data: {
-      breadcrumb: { icon: 'home', ariaLabel: 'Home' }
+      breadcrumb: { icon: 'home', ariaLabel: 'Home' },
     },
     resolve: {
-      breadcrumb: ESBreadcrumbsResolver
+      breadcrumb: ESBreadcrumbsResolver,
     },
     children: [
       {
         path: '',
-        component: BreadcrumbsStoryBasicHomeComponent
+        component: BreadcrumbsStoryBasicHomeComponent,
       },
       {
         path: 'categories',
         data: {
-          breadcrumb: { label: 'Categories' }
+          breadcrumb: { label: 'Categories' },
         },
         resolve: {
           data: CategoriesListResolver, // We need to move list resolver one level up in order to use horizontal navigation.
-          breadcrumb: ESBreadcrumbsResolver
+          breadcrumb: ESBreadcrumbsResolver,
         },
         children: [
           {
             path: '',
-            component: BreadcrumbsStoryBasicCategoriesListComponent
+            component: BreadcrumbsStoryBasicCategoriesListComponent,
           },
           {
             path: ':category',
             resolve: {
               data: CategoriesShowResolver,
-              breadcrumb: CategoriesShowBreadcrumbsResolver
+              breadcrumb: CategoriesShowBreadcrumbsResolver,
             },
             children: [
               {
                 path: '',
                 component: BreadcrumbsStoryBasicItemsListComponent,
                 resolve: {
-                  data: ItemsListResolver
-                }
+                  data: ItemsListResolver,
+                },
               },
               {
                 path: ':item',
                 resolve: {
-                  data: ItemsShowResolver
+                  data: ItemsShowResolver,
                 },
                 children: [
                   {
                     path: '',
                     resolve: {
-                      breadcrumb: ItemsShowBreadcrumbsResolver
+                      breadcrumb: ItemsShowBreadcrumbsResolver,
                     },
                     children: [
                       {
                         path: '',
-                        component: BreadcrumbsStoryBasicItemsShowComponent
+                        component: BreadcrumbsStoryBasicItemsShowComponent,
                       },
                       {
                         path: 'edit',
                         component: BreadcrumbsStoryBasicItemsEditComponent,
                         data: {
-                          breadcrumb: { label: 'Edit' }
+                          breadcrumb: { label: 'Edit' },
                         },
                         resolve: {
-                          breadcrumb: ESBreadcrumbsResolver
-                        }
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+                          breadcrumb: ESBreadcrumbsResolver,
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({
@@ -117,15 +114,9 @@ const ROUTES = [
     BreadcrumbsStoryBasicCategoriesListComponent,
     BreadcrumbsStoryBasicItemsListComponent,
     BreadcrumbsStoryBasicItemsShowComponent,
-    BreadcrumbsStoryBasicItemsEditComponent
+    BreadcrumbsStoryBasicItemsEditComponent,
   ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    MatIconModule,
-    ESBreadcrumbsModule,
-    RouterTestingModule.withRoutes(ROUTES)
-  ],
+  imports: [CommonModule, HttpClientModule, MatIconModule, ESBreadcrumbsModule, RouterTestingModule.withRoutes(ROUTES)],
   exports: [BreadcrumbsStoryCustomizationComponent],
   providers: [
     CategoriesService,
@@ -136,7 +127,7 @@ const ROUTES = [
     ItemsListResolver,
     ItemsShowResolver,
     ItemsShowBreadcrumbsResolver,
-    { provide: APP_BASE_HREF, useValue: '/' }
-  ]
+    { provide: APP_BASE_HREF, useValue: '/' },
+  ],
 })
 export class BreadcrumbsStoryCustomizationModule {}

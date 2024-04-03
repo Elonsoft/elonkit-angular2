@@ -1,8 +1,8 @@
 .es-audio-player-options {
   &__button {
     &.mat-icon-button {
-      height: 24px;
       width: 24px;
+      height: 24px;
     }
 
     .mat-button-wrapper {
@@ -22,28 +22,28 @@
   }
 
   &__menu {
-    box-shadow: none;
-    flex-direction: column;
     width: 176px;
+    flex-direction: column;
+    box-shadow: none;
   }
 
   &__menu-item {
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
     height: 44px;
     padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
 
     .mat-button-wrapper {
-      padding: 0 18px;
       width: 100%;
+      padding: 0 18px;
     }
   }
 
   &__item-content {
-    align-items: center;
     display: flex;
     flex-wrap: nowrap;
+    align-items: center;
     font-weight: 400;
 
     label {
@@ -52,9 +52,9 @@
   }
 
   &__label-container {
-    align-items: flex-start;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     margin-left: 18px;
   }
 

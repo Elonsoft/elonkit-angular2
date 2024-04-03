@@ -11,6 +11,6 @@ import { ESTimepickerComponent } from './timepicker.component';
   declarations: [ESTimepickerComponent],
   imports: [CommonModule, MatInputModule],
   exports: [ESTimepickerComponent],
-  providers: [DatePipe]
+  providers: [DatePipe],
 })
 export class ESTimepickerModule {}

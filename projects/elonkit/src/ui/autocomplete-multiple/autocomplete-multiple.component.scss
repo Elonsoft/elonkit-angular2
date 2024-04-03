@@ -1,29 +1,29 @@
 .es-autocomplete-multiple {
-  align-items: center;
-  display: flex;
-  height: 24px;
-  justify-content: space-between;
   width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &__value {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
     max-width: calc(100% - 48px);
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
     padding-right: 4px;
     white-space: nowrap;
   }
 
   &__chip-list {
-    flex-wrap: nowrap;
-    height: 24px;
     width: 100%;
+    height: 24px;
+    flex-wrap: nowrap;
 
     .mat-chip-list-wrapper {
-      flex-wrap: nowrap;
-      margin: 0;
-      overflow: hidden;
       width: 100%;
+      margin: 0;
+      flex-wrap: nowrap;
+      overflow: hidden;
 
       .mat-standard-chip {
         margin: 0;
@@ -53,15 +53,15 @@
   }
 
   &__count {
+    height: 24px;
+    padding: 4px 5px 4px 4px;
     align-items: center;
     border: 0 none;
     border-radius: 96px;
     box-sizing: border-box;
     cursor: pointer;
-    height: 24px;
     margin-left: 4px;
     outline: none;
-    padding: 4px 5px 4px 4px;
 
     &_disabled {
       cursor: default;
@@ -70,30 +70,30 @@
   }
 
   &__clear.mat-icon-button {
-    align-items: center;
-    display: flex;
+    width: 20px;
     height: 20px;
+    display: flex;
     justify-content: center;
+    align-items: center;
     margin-left: 4px;
     margin-right: 1px;
-    width: 20px;
 
     .mat-icon {
       font-size: 20px;
-      height: 20px;
       width: 20px;
+      height: 20px;
     }
   }
 
   &__arrow.mat-icon-button {
+    width: 18px;
     height: 18px;
     line-height: 18px;
-    width: 18px;
 
     .mat-icon {
       font-size: 18px;
-      height: 18px;
       width: 18px;
+      height: 18px;
     }
   }
 
@@ -163,11 +163,11 @@
   }
 
   &__menu {
+    height: 32px;
+    display: flex;
     align-items: center;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    display: flex;
-    height: 32px;
     padding-left: 8px;
   }
 
@@ -183,18 +183,18 @@
   }
 
   &__footer {
+    padding: 6px 16px;
     display: flex;
     justify-content: space-between;
-    padding: 6px 16px;
   }
 }
 
 .es-autocomplete-multiple-search {
+  padding: 10px 12px;
+  display: flex;
   align-items: center;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  display: flex;
-  padding: 10px 12px;
 
   &__icon {
     flex-shrink: 0;
@@ -202,30 +202,30 @@
   }
 
   &__input {
+    height: 24px;
+    padding: 0;
+    display: block;
     background: none;
     border: 0;
-    display: block;
     flex: 1;
-    height: 24px;
     outline: none;
-    padding: 0;
   }
 
   &__clear.mat-icon-button {
-    align-items: center;
-    display: flex;
-    flex-shrink: 0;
+    width: 24px;
     height: 24px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     line-height: 24px;
     margin-left: 8px;
-    width: 24px;
 
     .mat-icon {
+      width: 16px;
+      height: 16px;
       display: flex;
       font-size: 16px;
-      height: 16px;
-      width: 16px;
     }
   }
 }

@@ -1,18 +1,18 @@
 .es-empty-state {
-  align-items: center;
+  max-width: 600px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 600px;
-  padding: 24px;
+  align-items: center;
 
   &__image {
     margin-bottom: 12px;
 
     &.mat-icon {
-      display: block;
-      height: 56px;
       width: 56px;
+      height: 56px;
+      display: block;
     }
   }
 

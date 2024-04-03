@@ -1,14 +1,14 @@
 .es-paginator {
-  align-items: baseline;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: baseline;
   white-space: nowrap;
 
   &__size {
-    align-items: center;
     display: flex;
+    align-items: center;
     margin-bottom: 16px;
     margin-right: 24px;
   }
@@ -71,27 +71,28 @@
   }
 
   &__items {
-    align-items: center;
     display: flex;
+    align-items: center;
     margin-left: -12px;
   }
 
   &__item {
-    align-items: center;
     display: flex;
-    font-size: 12px;
     justify-content: center;
+    align-items: center;
+    font-size: 12px;
 
     &-icon {
       opacity: 0.38;
+      margin-top: 12px;
     }
 
     &,
     &.mat-icon-button {
+      width: 32px;
       height: 32px;
       line-height: unset;
       margin: 0;
-      width: 32px;
     }
 
     &:first-child {
@@ -115,18 +116,14 @@
     }
 
     &_gap {
+      width: 32px;
+      display: flex;
       align-items: center;
       color: inherit;
-      display: flex;
-      width: 32px;
 
       &:hover {
         background: none;
       }
-    }
-
-    &-icon {
-      margin-top: 12px;
     }
   }
 }

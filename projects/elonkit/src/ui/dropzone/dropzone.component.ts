@@ -12,21 +12,15 @@ import {
   Output,
   EventEmitter,
   ChangeDetectionStrategy,
-  DoCheck
+  DoCheck,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { validateFileType } from '../../utils/validate-file-type';
-import {
-  ESDropzoneFile,
-  ESDropzoneDefaultOptions,
-  ESDropzoneValidationError
-} from './dropzones.types';
+import { ESDropzoneFile, ESDropzoneDefaultOptions, ESDropzoneValidationError } from './dropzones.types';
 
-export const ES_DROPZONE_DEFAULT_OPTIONS = new InjectionToken<ESDropzoneDefaultOptions>(
-  'ES_DROPZONE_DEFAULT_OPTIONS'
-);
+export const ES_DROPZONE_DEFAULT_OPTIONS = new InjectionToken<ESDropzoneDefaultOptions>('ES_DROPZONE_DEFAULT_OPTIONS');
 
 const toFile = (type: string | undefined, file: File | null) =>
   new Promise<ESDropzoneFile>((resolve, reject) => {
@@ -39,7 +33,7 @@ const toFile = (type: string | undefined, file: File | null) =>
           name: file.name,
           size: file.size,
           type: file.type,
-          base64: reader.result as string
+          base64: reader.result as string,
         });
       };
       reader.onerror = (error) => reject(error);
@@ -51,7 +45,7 @@ const toFile = (type: string | undefined, file: File | null) =>
   templateUrl: './dropzone.component.html',
   styleUrls: ['./dropzone.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
   /**
@@ -146,8 +140,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
     return this._subheadingTypography;
   }
   public set subheadingTypography(value: string | undefined) {
-    this._subheadingTypography =
-      value || this.defaultOptions?.subheadingTypography || 'mat-caption';
+    this._subheadingTypography = value || this.defaultOptions?.subheadingTypography || 'mat-caption';
   }
   private _subheadingTypography: string | undefined;
 
@@ -155,9 +148,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
    * Array of validation errors is emitted.
    */
   @Output()
-  public validate: EventEmitter<ESDropzoneValidationError[]> = new EventEmitter<
-    ESDropzoneValidationError[]
-  >();
+  public validate: EventEmitter<ESDropzoneValidationError[]> = new EventEmitter<ESDropzoneValidationError[]>();
 
   /**
    * @internal
@@ -169,7 +160,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
   private propagateChange = (_: any) => {};
   private errors: ESDropzoneValidationError[];
   // tslint:disable-next-line: no-inferrable-types
-  private errorState: boolean = false;
+  private errorState = false;
 
   /**
    * @internal
@@ -327,7 +318,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
     if (file && !validateFileType(file, this.accept)) {
       this.errors.push({
         fileName: file.name,
-        error: 'FILE_TYPE'
+        error: 'FILE_TYPE',
       });
       return false;
     }
@@ -345,7 +336,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
     if (file && this.maxSizeInBytes && this.maxSize && file.size > this.maxSizeInBytes) {
       this.errors.push({
         fileName: file.name,
-        error: 'FILE_SIZE'
+        error: 'FILE_SIZE',
       });
       return false;
     }
@@ -353,10 +344,6 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
   }
 
   private isErrorState(): boolean {
-    return !!(
-      this.ngControl &&
-      this.ngControl.invalid &&
-      (this.ngControl.touched || (this.ngForm && this.ngForm.submitted))
-    );
+    return !!(this.ngControl && this.ngControl.invalid && (this.ngControl.touched || (this.ngForm && this.ngForm.submitted)));
   }
 }

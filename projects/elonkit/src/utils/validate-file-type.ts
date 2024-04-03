@@ -5,10 +5,7 @@ export const validateFileType = (file: any, types: string): boolean => {
 
 const typesMatch = (types: string[], file: File): boolean =>
   types.some(
-    (type) =>
-      type === file.type ||
-      typeMatchesFileType(type, file.type) ||
-      typeMatchesFilenameExtension(type, file.name)
+    (type) => type === file.type || typeMatchesFileType(type, file.type) || typeMatchesFilenameExtension(type, file.name)
   );
 
 const typeMatchesFilenameExtension = (type: string, fileName: string): boolean =>

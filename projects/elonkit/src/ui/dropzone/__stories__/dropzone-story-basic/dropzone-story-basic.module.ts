@@ -8,14 +8,7 @@ import { ESDropzoneModule } from '../..';
 
 @NgModule({
   declarations: [DropzoneStoryBasicComponent],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    FormsModule,
-    MatFormFieldModule,
-    ESDropzoneModule
-  ],
-  exports: [DropzoneStoryBasicComponent]
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, FormsModule, MatFormFieldModule, ESDropzoneModule],
+  exports: [DropzoneStoryBasicComponent],
 })
 export class DropzoneStoryBasicModule {}

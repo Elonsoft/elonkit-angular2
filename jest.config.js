@@ -5,11 +5,11 @@ module.exports = {
   setupFilesAfterEnv: ['./jest.setup.ts'],
   globals: {
     'ts-jest': {
-      diagnostics: false
-    }
+      diagnostics: false,
+    },
   },
   testPathIgnorePatterns: ['<rootDir>/dist/'],
   roots: ['<rootDir>'],
   modulePaths: ['<rootDir>'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
 };

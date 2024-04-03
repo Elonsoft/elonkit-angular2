@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[esBreadcrumbsMore]'
+  selector: '[esBreadcrumbsMore]',
 })
 export class ESBreadcrumbsMoreDirective {}

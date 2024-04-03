@@ -1,12 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  OnDestroy
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { ESDropzoneFile } from '../../dropzones.types';
@@ -16,7 +8,7 @@ import { Subscription } from 'rxjs';
   selector: 'es-dropzone-basic',
   templateUrl: './dropzone-story-basic.component.html',
   styleUrls: ['./dropzone-story-basic.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropzoneStoryBasicComponent implements OnInit, OnDestroy {
   @Input() public heading: string;

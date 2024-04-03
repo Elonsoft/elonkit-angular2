@@ -1,18 +1,9 @@
-<div
-  *ngIf="locale$ | async as locale"
-  class="es-inline-form-field"
-  [ngClass]="typography"
-  data-testid="root"
->
+<div *ngIf="locale$ | async as locale" class="es-inline-form-field" [ngClass]="typography" data-testid="root">
   <div *ngIf="isHidden" class="es-inline-form-field__preview">
     <div class="es-inline-form-field__text">{{ text }}</div>
 
     <div class="es-inline-form-field__button es-inline-form-field__button_edit">
-      <button
-        mat-icon-button
-        (click)="onEdit()"
-        [attr.aria-label]="locale.inlineFormField.labelEdit"
-      >
+      <button mat-icon-button (click)="onEdit()" [attr.aria-label]="locale.inlineFormField.labelEdit">
         <mat-icon>edit</mat-icon>
       </button>
     </div>
@@ -23,20 +14,12 @@
 
     <div class="es-inline-form-field__buttons">
       <div class="es-inline-form-field__button es-inline-form-field__button_save">
-        <button
-          mat-icon-button
-          (click)="onSave()"
-          [attr.aria-label]="locale.inlineFormField.labelSave"
-        >
+        <button mat-icon-button (click)="onSave()" [attr.aria-label]="locale.inlineFormField.labelSave">
           <mat-icon>check</mat-icon>
         </button>
       </div>
       <div class="es-inline-form-field__button">
-        <button
-          mat-icon-button
-          (click)="onCancel()"
-          [attr.aria-label]="locale.inlineFormField.labelCancel"
-        >
+        <button mat-icon-button (click)="onCancel()" [attr.aria-label]="locale.inlineFormField.labelCancel">
           <mat-icon>close</mat-icon>
         </button>
       </div>

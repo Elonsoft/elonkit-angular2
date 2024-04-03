@@ -28,5 +28,5 @@ export const TOOLTIP_STORY_THEMING_SOURCE = {
       @include es-tooltip-color(#3acac0, #fff);
     }
   }
-  `
+  `,
 };

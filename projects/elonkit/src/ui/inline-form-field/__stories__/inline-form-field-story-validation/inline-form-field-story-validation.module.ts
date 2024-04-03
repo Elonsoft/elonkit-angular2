@@ -11,13 +11,7 @@ import { ESInlineFormFieldModule } from '../..';
 
 @NgModule({
   declarations: [InlineFormFieldStoryValidationComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ESInlineFormFieldModule
-  ],
-  exports: [InlineFormFieldStoryValidationComponent]
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule],
+  exports: [InlineFormFieldStoryValidationComponent],
 })
 export class InlineFormFieldStoryValidationModule {}

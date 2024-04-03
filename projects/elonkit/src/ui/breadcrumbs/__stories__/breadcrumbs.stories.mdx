@@ -7,22 +7,22 @@ import { ESBreadcrumbsComponent } from '..';
 import {
   BreadcrumbsStoryBasicModule,
   BreadcrumbsStoryBasicComponent,
-  BREADCRUMBS_STORY_BASIC_SOURCE
+  BREADCRUMBS_STORY_BASIC_SOURCE,
 } from './breadcrumbs-story-basic';
 
 import {
   BreadcrumbsStoryCustomizationModule,
   BreadcrumbsStoryCustomizationComponent,
-  BREADCRUMBS_STORY_CUSTOMIZATION_SOURCE
+  BREADCRUMBS_STORY_CUSTOMIZATION_SOURCE,
 } from './breadcrumbs-story-customization';
 
 <Meta
-  title='UI/Breadcrumbs'
+  title="UI/Breadcrumbs"
   args={{ withBackButton: true }}
   argTypes={{
     withBackButton: {
-      control: 'boolean'
-    }
+      control: 'boolean',
+    },
   }}
 />
 
@@ -42,15 +42,15 @@ For more details see [source code](https://github.com/Elonsoft/elonkit/blob/mast
 of this story.
 
 <Canvas source={BREADCRUMBS_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='210px'>
+  <Story name="Basic" height="210px">
     {((args) => ({
       component: BreadcrumbsStoryBasicComponent,
       moduleMetadata: {
-        imports: [BreadcrumbsStoryBasicModule]
+        imports: [BreadcrumbsStoryBasicModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -58,15 +58,15 @@ of this story.
 We can customize icons and label's font.
 
 <Canvas source={BREADCRUMBS_STORY_CUSTOMIZATION_SOURCE}>
-  <Story name='Customization' height='210px'>
+  <Story name="Customization" height="210px">
     {((args) => ({
       component: BreadcrumbsStoryCustomizationComponent,
       moduleMetadata: {
-        imports: [BreadcrumbsStoryCustomizationModule]
+        imports: [BreadcrumbsStoryCustomizationModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>

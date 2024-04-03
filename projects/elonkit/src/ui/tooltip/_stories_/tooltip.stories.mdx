@@ -5,28 +5,20 @@ import { action } from '@storybook/addon-actions';
 
 import { ESTooltipModule, ESTooltipDirective } from '..';
 
-import {
-  TooltipStoryBasicModule,
-  TooltipStoryBasicComponent,
-  TOOLTIP_STORY_BASIC_SOURCE
-} from './tooltip-story-basic';
+import { TooltipStoryBasicModule, TooltipStoryBasicComponent, TOOLTIP_STORY_BASIC_SOURCE } from './tooltip-story-basic';
 import {
   TooltipStoryInteractiveModule,
   TooltipStoryInteractiveComponent,
-  TOOLTIP_STORY_INTERACTIVE_SOURCE
+  TOOLTIP_STORY_INTERACTIVE_SOURCE,
 } from './tooltip-story-interactive';
-import {
-  TooltipStoryThemingModule,
-  TooltipStoryThemingComponent,
-  TOOLTIP_STORY_THEMING_SOURCE
-} from './tooltip-story-theming';
+import { TooltipStoryThemingModule, TooltipStoryThemingComponent, TOOLTIP_STORY_THEMING_SOURCE } from './tooltip-story-theming';
 import {
   TooltipStoryListenersModule,
   TooltipStoryListenersComponent,
-  TOOLTIP_STORY_LISTENERS_SOURCE
+  TOOLTIP_STORY_LISTENERS_SOURCE,
 } from './tooltip-story-listeners';
 
-<Meta title='UI/Tooltip' />
+<Meta title="UI/Tooltip" />
 
 # Tooltip
 
@@ -37,25 +29,24 @@ This is a copy of Angular Material tooltip with added support for arrows and com
 
 <Canvas source={TOOLTIP_STORY_BASIC_SOURCE}>
   <Story
-    name='Basic'
-    height='110px'
+    name="Basic"
+    height="110px"
     args={{
-      esTooltipArrow: true
+      esTooltipArrow: true,
     }}
     argTypes={{
       esTooltipArrow: {
-        control: 'boolean'
-      }
-    }}
-  >
+        control: 'boolean',
+      },
+    }}>
     {((args, context) => ({
       component: TooltipStoryBasicComponent,
       moduleMetadata: {
-        imports: [TooltipStoryBasicModule]
+        imports: [TooltipStoryBasicModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -64,29 +55,28 @@ We can place interactive content inside a tooltip.
 
 <Canvas source={TOOLTIP_STORY_INTERACTIVE_SOURCE}>
   <Story
-    name='Interactive'
-    height='150px'
+    name="Interactive"
+    height="150px"
     args={{
       esTooltipArrow: true,
-      esTooltipMouseAimDelay: 300
+      esTooltipMouseAimDelay: 300,
     }}
     argTypes={{
       esTooltipArrow: {
-        control: 'boolean'
+        control: 'boolean',
       },
       esTooltipMouseAimDelay: {
-        control: 'number'
-      }
-    }}
-  >
+        control: 'number',
+      },
+    }}>
     {((args, context) => ({
       component: TooltipStoryInteractiveComponent,
       moduleMetadata: {
-        imports: [TooltipStoryInteractiveModule]
+        imports: [TooltipStoryInteractiveModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -95,25 +85,24 @@ We can use `es-tooltip-color` mixin to easily change tooltip colors.
 
 <Canvas source={TOOLTIP_STORY_THEMING_SOURCE}>
   <Story
-    name='Theming'
-    height='150px'
+    name="Theming"
+    height="150px"
     args={{
-      esTooltipArrow: true
+      esTooltipArrow: true,
     }}
     argTypes={{
       esTooltipArrow: {
-        control: 'boolean'
-      }
-    }}
-  >
+        control: 'boolean',
+      },
+    }}>
     {((args, context) => ({
       component: TooltipStoryThemingComponent,
       moduleMetadata: {
-        imports: [TooltipStoryThemingModule]
+        imports: [TooltipStoryThemingModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>
@@ -122,45 +111,44 @@ We can disable open and close listeners.
 
 <Canvas source={TOOLTIP_STORY_LISTENERS_SOURCE}>
   <Story
-    name='Listeners'
-    height='150px'
+    name="Listeners"
+    height="150px"
     args={{
       esTooltipArrow: true,
       esTooltipDisableFocusListener: true,
       esTooltipDisableHoverListener: false,
       esTooltipDisableCloseFocusListener: true,
       esTooltipDisableCloseHoverListener: true,
-      esTooltipDisableCloseClickListener: true
+      esTooltipDisableCloseClickListener: true,
     }}
     argTypes={{
       esTooltipArrow: {
-        control: 'boolean'
+        control: 'boolean',
       },
       esTooltipDisableFocusListener: {
-        control: 'boolean'
+        control: 'boolean',
       },
       esTooltipDisableHoverListener: {
-        control: 'boolean'
+        control: 'boolean',
       },
       esTooltipDisableCloseFocusListener: {
-        control: 'boolean'
+        control: 'boolean',
       },
       esTooltipDisableCloseHoverListener: {
-        control: 'boolean'
+        control: 'boolean',
       },
       esTooltipDisableCloseClickListener: {
-        control: 'boolean'
-      }
-    }}
-  >
+        control: 'boolean',
+      },
+    }}>
     {((args, context) => ({
       component: TooltipStoryListenersComponent,
       moduleMetadata: {
-        imports: [TooltipStoryListenersModule]
+        imports: [TooltipStoryListenersModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>

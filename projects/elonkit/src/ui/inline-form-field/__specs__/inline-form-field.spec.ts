@@ -1,13 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { fakeAsync, tick } from '@angular/core/testing';
 
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -30,7 +24,7 @@ const TIMEOUT = 100;
         <input [(ngModel)]="text" matInput placeholder="Input" />
       </mat-form-field>
     </es-inline-form-field>
-  `
+  `,
 })
 class InlineFormFieldWrapperComponent {
   @Input() public manualSave = false;
@@ -49,41 +43,33 @@ class InlineFormFieldWrapperComponent {
       <es-inline-form-field [text]="form.get('text').value">
         <mat-form-field>
           <input formControlName="text" matInput placeholder="Input" />
-          <mat-error *ngIf="form.get('text').hasError('required')">
-            ${TEXT_ERROR_REQUIRED}
-          </mat-error>
+          <mat-error *ngIf="form.get('text').hasError('required')"> ${TEXT_ERROR_REQUIRED} </mat-error>
         </mat-form-field>
       </es-inline-form-field>
     </form>
-  `
+  `,
 })
 class InlineFormFieldValidationWrapperComponent {
   public form = new FormGroup({
-    text: new FormControl(TEXT_HELLO, [Validators.required])
+    text: new FormControl(TEXT_HELLO, [Validators.required]),
   });
 }
 
 @Component({
   template: `
     <form [formGroup]="form">
-      <es-inline-form-field
-        [text]="form.get('text').value"
-        [manualSave]="true"
-        (save)="onSave($event)"
-      >
+      <es-inline-form-field [text]="form.get('text').value" [manualSave]="true" (save)="onSave($event)">
         <mat-form-field>
           <input formControlName="text" matInput placeholder="Input" />
-          <mat-error *ngIf="form.get('text').hasError('required')">
-            ${TEXT_ERROR_REQUIRED}
-          </mat-error>
+          <mat-error *ngIf="form.get('text').hasError('required')"> ${TEXT_ERROR_REQUIRED} </mat-error>
         </mat-form-field>
       </es-inline-form-field>
     </form>
-  `
+  `,
 })
 class InlineFormFieldServerValidationWrapperComponent {
   public form = new FormGroup({
-    text: new FormControl(TEXT_HELLO)
+    text: new FormControl(TEXT_HELLO),
   });
 
   constructor(public changeDetector: ChangeDetectorRef) {}
@@ -103,7 +89,7 @@ class InlineFormFieldServerValidationWrapperComponent {
 describe('InlineFormField', () => {
   it('Should update text', async () => {
     const component = await render(InlineFormFieldWrapperComponent, {
-      imports: [FormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule]
+      imports: [FormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule],
     });
 
     expect(screen.getByText(TEXT_HELLO)).toBeInTheDocument();
@@ -123,7 +109,7 @@ describe('InlineFormField', () => {
 
   it('Should reset text', async () => {
     const component = await render(InlineFormFieldWrapperComponent, {
-      imports: [FormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule]
+      imports: [FormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule],
     });
 
     expect(screen.getByText(TEXT_HELLO)).toBeInTheDocument();
@@ -149,17 +135,17 @@ describe('InlineFormField', () => {
     const component = await render(ESInlineFormFieldComponent, {
       componentProperties: {
         edit: {
-          emit: onEdit
+          emit: onEdit,
         } as any,
         save: {
-          emit: onSave
+          emit: onSave,
         } as any,
         cancel: {
-          emit: onCancel
-        } as any
+          emit: onCancel,
+        } as any,
       },
       imports: [ESInlineFormFieldModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     fireEvent.click(screen.getByLabelText('Edit'));
@@ -185,7 +171,7 @@ describe('InlineFormField', () => {
     await render(ESInlineFormFieldComponent, {
       imports: [ESInlineFormFieldModule],
       providers: [{ provide: ESLocaleService, useValue: localeService }],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     const editButton = screen.getByLabelText(ru.inlineFormField.labelEdit);
@@ -199,7 +185,7 @@ describe('InlineFormField', () => {
   it('Should accept typography class', async () => {
     const component = await render(ESInlineFormFieldComponent, {
       imports: [ESInlineFormFieldModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(screen.getByTestId('root')).toHaveClass('es-body-200');
@@ -220,9 +206,9 @@ describe('InlineFormField', () => {
       componentProperties: {
         manualSave: true,
         save: {
-          emit: onSave
-        } as any
-      }
+          emit: onSave,
+        } as any,
+      },
     });
 
     expect(screen.getByText(TEXT_HELLO)).toBeInTheDocument();
@@ -242,7 +228,7 @@ describe('InlineFormField', () => {
 
   it('Should prevent save with validation errors', async () => {
     await render(InlineFormFieldValidationWrapperComponent, {
-      imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule]
+      imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule],
     });
 
     expect(screen.getByText(TEXT_HELLO)).toBeInTheDocument();
@@ -267,7 +253,7 @@ describe('InlineFormField', () => {
 
   it('Should work with server-side validation', fakeAsync(async () => {
     await render(InlineFormFieldServerValidationWrapperComponent, {
-      imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule]
+      imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, ESInlineFormFieldModule],
     });
 
     expect(screen.getByText(TEXT_HELLO)).toBeInTheDocument();

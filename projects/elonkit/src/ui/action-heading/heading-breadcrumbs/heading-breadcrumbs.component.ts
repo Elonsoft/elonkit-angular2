@@ -1,16 +1,10 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ViewEncapsulation,
-} from '@angular/core';
-
+import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'es-heading-breadcrumbs',
   templateUrl: './heading-breadcrumbs.component.html',
   styleUrls: ['./heading-breadcrumbs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
-export class ESHeadingBreadcrumbsComponent {
-}
+export class ESHeadingBreadcrumbsComponent {}

@@ -15,37 +15,21 @@ import {
   AfterViewInit,
   Renderer2,
   Inject,
-  InjectionToken
+  InjectionToken,
 } from '@angular/core';
-import {
-  ControlValueAccessor,
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  NgControl
-} from '@angular/forms';
+import { ControlValueAccessor, FormControl, FormGroup, FormGroupDirective, NgControl } from '@angular/forms';
 
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 
 import { MatButton } from '@angular/material/button';
-import {MatChipListbox } from '@angular/material/chips';
+import { MatChipListbox } from '@angular/material/chips';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 
 import { Observable, Subject, combineLatest, of, BehaviorSubject } from 'rxjs';
-import {
-  catchError,
-  debounceTime,
-  filter,
-  map,
-  shareReplay,
-  startWith,
-  switchMap,
-  takeUntil,
-  tap
-} from 'rxjs/operators';
+import { catchError, debounceTime, filter, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { resizeObserver } from '../../utils/resize-observer';
 import { ESLocale, ESLocaleService } from '../locale';
@@ -64,7 +48,7 @@ export interface ESAutocompleteMultipleDefaultOptions {
 
 export const ES_AUTOCOMPLETE_MULTIPLE_DEFAULT_SIZES = {
   chipLeftMargin: 4,
-  countBadgeMaxWidth: 40
+  countBadgeMaxWidth: 40,
 };
 
 export const ES_AUTOCOMPLETE_MULTIPLE_DEFAULT_OPTIONS = new InjectionToken<ESAutocompleteMultipleDefaultOptions>(
@@ -80,10 +64,11 @@ const MIN_PANEL_WIDTH = 320;
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   providers: [{ provide: MatFormFieldControl, useExisting: ESAutocompleteMultipleComponent }],
-  animations: ES_AUTOCOMPLETE_ANIMATIONS
+  animations: ES_AUTOCOMPLETE_ANIMATIONS,
 })
 export class ESAutocompleteMultipleComponent
-  implements MatFormFieldControl<any[]>, ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
+  implements MatFormFieldControl<any[]>, ControlValueAccessor, OnInit, OnDestroy, AfterViewInit
+{
   private static nextId = 0;
   @HostBinding() public id = `es-autocomplete-multiple-${ESAutocompleteMultipleComponent.nextId++}`;
   @HostBinding('style.display') public styleDisplay = 'block';
@@ -238,7 +223,7 @@ export class ESAutocompleteMultipleComponent
    */
   public form = new FormGroup({
     scope: new FormControl(this.searchScope.ALL),
-    text: new FormControl('')
+    text: new FormControl(''),
   });
 
   /**
@@ -338,10 +323,7 @@ export class ESAutocompleteMultipleComponent
       shareReplay(1)
     );
 
-    this.filteredOptions$ = combineLatest([
-      this.options$,
-      this.selectionChanged$.pipe(filter(() => this.isOpen))
-    ]).pipe(
+    this.filteredOptions$ = combineLatest([this.options$, this.selectionChanged$.pipe(filter(() => this.isOpen))]).pipe(
       debounceTime(100),
       map(([options]) => {
         const { scope } = this.form.value;
@@ -371,7 +353,7 @@ export class ESAutocompleteMultipleComponent
   public ngOnInit() {
     if (this.matFormField) {
       this.origin = {
-        elementRef: this.matFormField.getConnectedOverlayOrigin()
+        elementRef: this.matFormField.getConnectedOverlayOrigin(),
       };
     }
 
@@ -387,7 +369,7 @@ export class ESAutocompleteMultipleComponent
     combineLatest([
       // tslint:disable-next-line:deprecation
       resizeObserver(this.elementRef.nativeElement).pipe(startWith(null), debounceTime(10)),
-      this.selectionChanged$
+      this.selectionChanged$,
     ])
       .pipe(takeUntil(this.destoryed$))
       .subscribe(() => {
@@ -612,9 +594,7 @@ export class ESAutocompleteMultipleComponent
         this.rendered2.setStyle(chip._elementRef.nativeElement, 'display', 'inline-flex');
         this.rendered2.setStyle(chip._elementRef.nativeElement, 'width', 'auto');
 
-        const {
-          width: chipListWidth
-        } = chip._elementRef.nativeElement.parentElement.getBoundingClientRect();
+        const { width: chipListWidth } = chip._elementRef.nativeElement.parentElement.getBoundingClientRect();
 
         const { width: chipWidth } = chip._elementRef.nativeElement.getBoundingClientRect();
 

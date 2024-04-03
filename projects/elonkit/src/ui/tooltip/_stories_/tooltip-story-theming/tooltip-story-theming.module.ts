@@ -10,6 +10,6 @@ import { ESTooltipModule } from '../..';
 @NgModule({
   declarations: [TooltipStoryThemingComponent],
   imports: [CommonModule, MatButtonModule, ESTooltipModule],
-  exports: [TooltipStoryThemingComponent]
+  exports: [TooltipStoryThemingComponent],
 })
 export class TooltipStoryThemingModule {}

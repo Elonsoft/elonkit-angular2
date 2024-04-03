@@ -16,10 +16,10 @@ import { ESAlertModule, ES_ALERT_DEFAULT_OPTIONS } from '../..';
       useValue: {
         iconMapping: {
           warning: { svgIcon: 'warning' },
-          error: { svgIcon: 'error' }
-        }
-      }
-    }
-  ]
+          error: { svgIcon: 'error' },
+        },
+      },
+    },
+  ],
 })
 export class AlertStoryIconMappingModule {}

@@ -1,15 +1,15 @@
 export const ru = {
   alert: {
-    labelClose: 'Закрыть'
+    labelClose: 'Закрыть',
   },
   breadcrumbs: {
     labelMore: 'Ещё',
-    labelBack: 'Назад'
+    labelBack: 'Назад',
   },
   inlineFormField: {
     labelEdit: 'Редактировать',
     labelSave: 'Сохранить',
-    labelCancel: 'Отменить'
+    labelCancel: 'Отменить',
   },
   paginator: {
     labelItemsPerPage: 'Показывать по',
@@ -17,12 +17,12 @@ export const ru = {
     labelPrev: 'Предыдущая страница',
     labelNext: 'Следующая страница',
     labelGoTo: 'Перейти на страницу',
-    labelPage: 'стр'
+    labelPage: 'стр',
   },
   timepicker: {
     labelHH: 'ЧЧ',
     labelMM: 'ММ',
-    labelSS: 'СС'
+    labelSS: 'СС',
   },
   audioPlayer: {
     labelPlay: 'Слушать',
@@ -33,11 +33,11 @@ export const ru = {
     labelRate: 'Скорость',
     labelDownload: 'Скачать',
     labelBack: 'Назад',
-    labelNormal: 'Обычная'
+    labelNormal: 'Обычная',
   },
   avatar: {
     labelAvatar: 'Аватар',
-    labelStatus: 'Статус'
+    labelStatus: 'Статус',
   },
   autocompliteMultiple: {
     labelTabAll: 'Все',
@@ -59,6 +59,6 @@ export const ru = {
     labelRemoveAll: 'Удалить все',
     labelRemoveChoice: 'Снять выбор',
     labelSearch: 'Найти',
-    labelShowSelected: 'Показать выбранные'
-  }
+    labelShowSelected: 'Показать выбранные',
+  },
 };

@@ -9,6 +9,6 @@ import { ESInlineFormFieldComponent } from './inline-form-field.component';
 @NgModule({
   declarations: [ESInlineFormFieldComponent],
   imports: [CommonModule, MatButtonModule, MatIconModule],
-  exports: [ESInlineFormFieldComponent]
+  exports: [ESInlineFormFieldComponent],
 })
 export class ESInlineFormFieldModule {}

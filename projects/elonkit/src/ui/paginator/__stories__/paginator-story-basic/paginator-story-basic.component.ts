@@ -3,7 +3,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 @Component({
   selector: 'es-paginator-basic',
   templateUrl: './paginator-story-basic.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PaginatorStoryBasicComponent {
   private _count: number;

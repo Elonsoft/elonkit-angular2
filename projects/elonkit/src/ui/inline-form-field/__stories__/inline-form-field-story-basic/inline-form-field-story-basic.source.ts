@@ -5,5 +5,5 @@ export const INLINE_FORM_FIELD_STORY_BASIC_SOURCE = {
       <input [(ngModel)]="text" matInput />
     </mat-form-field>
   </es-inline-form-field>
-  `
+  `,
 };

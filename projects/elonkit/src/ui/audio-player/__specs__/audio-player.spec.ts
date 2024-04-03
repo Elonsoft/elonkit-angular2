@@ -22,10 +22,10 @@ describe('AudioPlayer', () => {
       componentProperties: {
         volume: VOLUME,
         audioDownload: { emit: onDownloadAudio } as any,
-        volumeChanged: { emit: onVolumeChanged } as any
+        volumeChanged: { emit: onVolumeChanged } as any,
       },
       imports: [MatIconTestingModule, ESAudioPlayerModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     inject([OverlayContainer], (oc: OverlayContainer) => {

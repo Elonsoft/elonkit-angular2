@@ -20,7 +20,8 @@ import {
   ViewEncapsulation,
   HostListener,
   ElementRef,
-  HostBinding, TemplateRef
+  HostBinding,
+  TemplateRef,
 } from '@angular/core';
 
 import { DomSanitizer } from '@angular/platform-browser';
@@ -43,7 +44,7 @@ import { ESTooltipService } from './tooltip.service';
   styleUrls: ['./tooltip.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [matTooltipAnimations.tooltipState]
+  animations: [matTooltipAnimations.tooltipState],
 })
 export class ESTooltipComponent implements OnDestroy {
   @HostBinding('style.zoom') public get zoom() {
@@ -104,18 +105,14 @@ export class ESTooltipComponent implements OnDestroy {
         if (
           document.hasFocus() &&
           (!event.relatedTarget ||
-            (event.relatedTarget &&
-              this.elementRef.nativeElement.contains(event.relatedTarget as HTMLElement))) &&
+            (event.relatedTarget && this.elementRef.nativeElement.contains(event.relatedTarget as HTMLElement))) &&
           this.elementRef.nativeElement.contains(event.target as HTMLElement)
         ) {
           return;
         }
 
         const isPrev =
-          event.relatedTarget &&
-          (event.target as HTMLElement).compareDocumentPosition(
-            event.relatedTarget as HTMLElement
-          ) === 2;
+          event.relatedTarget && (event.target as HTMLElement).compareDocumentPosition(event.relatedTarget as HTMLElement) === 2;
 
         if (isPrev) {
           this.parentElementRef.nativeElement.focus();
@@ -282,7 +279,7 @@ export class ESTooltipComponent implements OnDestroy {
    * Begins the animation to hide the tooltip after the provided delay in ms.
    * @param delay Amount of milliseconds to delay showing the tooltip.
    */
-  public hide = (delay: number = 0) => {
+  public hide = (delay = 0) => {
     // Cancel the delayed show if it is scheduled
     if (this.showTimeoutId) {
       clearTimeout(this.showTimeoutId);

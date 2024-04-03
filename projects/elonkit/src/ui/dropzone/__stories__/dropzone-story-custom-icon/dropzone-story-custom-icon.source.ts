@@ -24,5 +24,5 @@ export const DROPZONE_STORY_CUSTOM_ICON_SOURCE = {
       <mat-hint>This is an example of a hint message</mat-hint>
     </es-dropzone>
   </form>
-  `
+  `,
 };

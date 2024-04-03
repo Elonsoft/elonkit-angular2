@@ -1,11 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  OnInit,
-  OnDestroy,
-  Input
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { DomSanitizer } from '@angular/platform-browser';
@@ -21,7 +14,7 @@ import { takeUntil } from 'rxjs/operators';
     <br />
     <router-outlet></router-outlet>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsStoryBasicComponent implements OnInit {
   @Input() public withBackButton: boolean;
@@ -31,10 +24,7 @@ export class BreadcrumbsStoryBasicComponent implements OnInit {
     private matIconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer
   ) {
-    this.matIconRegistry.addSvgIcon(
-      'home',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('/icons/home.svg')
-    );
+    this.matIconRegistry.addSvgIcon('home', this.domSanitizer.bypassSecurityTrustResourceUrl('/icons/home.svg'));
   }
 
   public ngOnInit() {
@@ -49,7 +39,7 @@ export class BreadcrumbsStoryBasicComponent implements OnInit {
     <h1 class="mat-h1">Home</h1>
     <a [routerLink]="['categories']"> Categories </a>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsStoryBasicHomeComponent {}
 
@@ -65,7 +55,7 @@ export class BreadcrumbsStoryBasicHomeComponent {}
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsStoryBasicCategoriesListComponent {
   public categories = [];
@@ -87,13 +77,16 @@ export class BreadcrumbsStoryBasicCategoriesListComponent {
       </li>
     </ul>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsStoryBasicItemsListComponent implements OnInit, OnDestroy {
   public items = [];
   public destroyed$ = new Subject<void>();
 
-  constructor(private changeDetector: ChangeDetectorRef, private route: ActivatedRoute) {}
+  constructor(
+    private changeDetector: ChangeDetectorRef,
+    private route: ActivatedRoute
+  ) {}
 
   public ngOnInit() {
     this.route.params.pipe(takeUntil(this.destroyed$)).subscribe(() => {
@@ -113,7 +106,7 @@ export class BreadcrumbsStoryBasicItemsListComponent implements OnInit, OnDestro
     <h1 class="mat-h1">{{ item.title }}</h1>
     <a [routerLink]="['edit']">Edit</a>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsStoryBasicItemsShowComponent {
   public item;
@@ -126,7 +119,7 @@ export class BreadcrumbsStoryBasicItemsShowComponent {
 @Component({
   selector: 'es-breadcrumbs-basic-items-edit',
   template: ` <h1 class="mat-h1">Edit {{ item.title }}</h1> `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsStoryBasicItemsEditComponent {
   public item;

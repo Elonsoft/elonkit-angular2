@@ -3,12 +3,9 @@
     mat-icon-button
     class="es-audio-player__button"
     disableRipple="true"
-    [attr.aria-label]="
-      this.audio.paused ? locale.audioPlayer.labelPlay : locale.audioPlayer.labelPause
-    "
+    [attr.aria-label]="this.audio.paused ? locale.audioPlayer.labelPlay : locale.audioPlayer.labelPause"
     [disabled]="!isAudioDataLoaded"
-    (click)="onPlayback()"
-  >
+    (click)="onPlayback()">
     <mat-icon svgIcon="es-audio-player:{{ this.audio.paused ? 'play' : 'pause' }}"></mat-icon>
   </button>
 
@@ -16,28 +13,24 @@
     class="es-audio-player__time-slider"
     [audioCurrentTime]="audioCurrentTime"
     [duration]="audio.duration"
-    (timeUpdated)="onSeekTo($event)"
-  ></es-audio-player-time-slider>
+    (timeUpdated)="onSeekTo($event)"></es-audio-player-time-slider>
 
   <label
     class="es-audio-player__label es-caption"
     [ngClass]="{ 'es-audio-player__label-prefix': isDisplayedLeftTime }"
-    (click)="changeDisplayedTime()"
-  >
+    (click)="changeDisplayedTime()">
     {{ displayedTime }}</label
   >
 
   <es-audio-player-volume
     class="es-audio-player__volume"
     [volume]="volume"
-    (volumeChanged)="onSetVolume($event)"
-  ></es-audio-player-volume>
+    (volumeChanged)="onSetVolume($event)"></es-audio-player-volume>
 
   <es-audio-player-options
     class="es-audio-player__options"
     [src]="audio?.src"
     [rates]="rates"
     (playbackRateChanged)="onSetPlaybackRate($event)"
-    (downloadClicked)="audioDownload.emit()"
-  ></es-audio-player-options>
+    (downloadClicked)="audioDownload.emit()"></es-audio-player-options>
 </div>

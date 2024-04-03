@@ -7,8 +7,7 @@
   (dragover)="onDragover($event)"
   (dragleave)="onDragleave($event)"
   (dragend)="onDragend($event)"
-  (click)="openSelectFileDialog()"
->
+  (click)="openSelectFileDialog()">
   <div class="es-dropzone__heading" [ngClass]="headingTypography">
     <mat-icon *ngIf="!svgIcon" class="es-dropzone__choose-icon">cloud_upload</mat-icon>
     <mat-icon *ngIf="svgIcon" [svgIcon]="svgIcon" class="es-dropzone__choose-icon"></mat-icon>
@@ -29,5 +28,4 @@
   [accept]="accept"
   type="file"
   (change)="onChange($event)"
-  multiple
-/>
+  multiple />

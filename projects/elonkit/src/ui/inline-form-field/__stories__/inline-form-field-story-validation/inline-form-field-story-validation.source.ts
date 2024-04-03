@@ -52,5 +52,5 @@ export const INLINE_FORM_FIELD_STORY_VALIDATION_SOURCE = {
       </mat-form-field>
     </es-inline-form-field>
   </form>
-  `
+  `,
 };

@@ -6,7 +6,7 @@ import { ESAvatarModule } from '../avatar.module';
 import { ESAvatarVariant } from '../avatar.types';
 
 @Component({
-  template: `<es-avatar>Message</es-avatar>`
+  template: `<es-avatar>Message</es-avatar>`,
 })
 class AvatarTypographyComponent {}
 
@@ -14,10 +14,10 @@ describe('Avatar', () => {
   it('Should change avatar variant to round', async () => {
     const component = await render(ESAvatarComponent, {
       componentProperties: {
-        variant: ESAvatarVariant.Round
+        variant: ESAvatarVariant.Round,
       },
       imports: [ESAvatarModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
     expect(component.getByTestId('avatar')).toHaveClass('es-avatar_variant_round');
   });
@@ -25,10 +25,10 @@ describe('Avatar', () => {
   it('Should change avatar variant to square', async () => {
     const component = await render(ESAvatarComponent, {
       componentProperties: {
-        variant: ESAvatarVariant.Square
+        variant: ESAvatarVariant.Square,
       },
       imports: [ESAvatarModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
     expect(component.getByTestId('avatar')).toHaveClass('es-avatar_variant_square');
   });
@@ -36,10 +36,10 @@ describe('Avatar', () => {
   it('Should change avatar properties', async () => {
     const component = await render(ESAvatarComponent, {
       componentProperties: {
-        size: 200
+        size: 200,
       },
       imports: [ESAvatarModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(component.fixture.componentInstance.size).toBe(200);
@@ -47,7 +47,7 @@ describe('Avatar', () => {
 
   it('Should render text avatar', async () => {
     const component = await render(AvatarTypographyComponent, {
-      imports: [ESAvatarModule]
+      imports: [ESAvatarModule],
     });
     expect(component.getByText('Message')).toBeInTheDocument();
   });
@@ -55,10 +55,10 @@ describe('Avatar', () => {
   it('Should accept class typography', async () => {
     const component = await render(ESAvatarComponent, {
       componentProperties: {
-        typography: 'test-class'
+        typography: 'test-class',
       },
       imports: [ESAvatarModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(component.getByTestId('typography')).toHaveClass('test-class');
@@ -68,10 +68,10 @@ describe('Avatar', () => {
     const component = await render(ESAvatarComponent, {
       componentProperties: {
         src: './test-path-to-icon',
-        alt: 'alt text'
+        alt: 'alt text',
       },
       imports: [ESAvatarModule],
-      excludeComponentDeclaration: true
+      excludeComponentDeclaration: true,
     });
 
     expect(component.getByAltText('alt text')).toBeInTheDocument();

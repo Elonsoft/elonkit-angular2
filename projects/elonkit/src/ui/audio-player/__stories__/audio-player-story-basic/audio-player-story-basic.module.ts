@@ -10,6 +10,6 @@ import { AudioPlayerStoryBasicComponent } from './audio-player-story-basic.compo
 @NgModule({
   declarations: [AudioPlayerStoryBasicComponent],
   imports: [CommonModule, HttpClientModule, CoreModule, ESAudioPlayerModule],
-  exports: [AudioPlayerStoryBasicComponent]
+  exports: [AudioPlayerStoryBasicComponent],
 })
 export class AudioPlayerStoryBasicModule {}

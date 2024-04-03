@@ -18,5 +18,5 @@ export const TOOLTIP_STORY_LISTENERS_SOURCE = {
     <br /><br />
     <button mat-flat-button (click)="hide()">Close</button>
   </ng-template>
-  `
+  `,
 };

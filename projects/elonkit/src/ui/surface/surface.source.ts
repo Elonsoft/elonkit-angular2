@@ -11,5 +11,5 @@ export const SURFACE_SOURCE = {
   <div class="es-surface-16">Surface 16</div>
   <div class="es-surface-24">Surface 24</div>
   <div class="es-surface-on">Surface On</div>
-  `
+  `,
 };

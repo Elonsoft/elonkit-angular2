@@ -5,7 +5,7 @@ import { Component, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/
   templateUrl: './inline-form-field-story-composition.component.html',
   styleUrls: ['./inline-form-field-story-composition.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class InlineFormFieldStoryCompositionComponent {
   public date = new Date();

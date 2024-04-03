@@ -83,5 +83,5 @@ export const AUTOCOMPLETE_MULTIPLE_STORY_SERVICE_SOURCE = {
       ></es-autocomplete-multiple>
     </mat-form-field>
   </form>
-  `
+  `,
 };

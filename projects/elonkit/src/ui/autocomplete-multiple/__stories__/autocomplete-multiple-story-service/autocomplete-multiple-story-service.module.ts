@@ -12,14 +12,8 @@ import { AutocompleteMultipleStoryService } from './autocomplete-multiple-story-
 
 @NgModule({
   declarations: [AutocompleteMultipleStoryServiceComponent],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    CoreModule,
-    ESAutocompleteMultipleModule
-  ],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, CoreModule, ESAutocompleteMultipleModule],
   exports: [AutocompleteMultipleStoryServiceComponent],
-  providers: [AutocompleteMultipleStoryService]
+  providers: [AutocompleteMultipleStoryService],
 })
 export class AutocompleteMultipleStoryServiceModule {}

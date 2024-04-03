@@ -5,7 +5,7 @@ export {
   ESBreadcrumbsDefaultOptionsSizes,
   ES_BREADCRUMBS_DEFAULT_OPTIONS,
   ES_BREADCRUMBS_DEFAULT_SIZES,
-  ES_BREADCRUMBS_DEFAULT_TYPOGRAPHY
+  ES_BREADCRUMBS_DEFAULT_TYPOGRAPHY,
 } from './breadcrumbs.component';
 export { ESBreadcrumbsResolver } from './breadcrumbs.resolver';
 export { ESBreadcrumbsService } from './breadcrumbs.service';

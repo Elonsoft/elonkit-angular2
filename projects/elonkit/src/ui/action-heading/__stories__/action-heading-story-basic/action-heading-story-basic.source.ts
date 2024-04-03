@@ -15,6 +15,5 @@ export const ACTION_HEADING_STORY_BASIC_SOURCE = {
       </es-heading-main>
       <es-heading-status>Status: online</es-heading-status>
     </es-action-heading>
-  `
+  `,
 };
-

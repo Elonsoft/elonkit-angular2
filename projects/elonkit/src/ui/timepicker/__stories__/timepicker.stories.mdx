@@ -8,22 +8,22 @@ import { ESTimepickerComponent } from '..';
 import {
   TimepickerStoryBasicModule,
   TimepickerStoryBasicComponent,
-  TIMEPICKER_STORY_BASIC_SOURCE
+  TIMEPICKER_STORY_BASIC_SOURCE,
 } from './timepicker-story-basic';
 
 import {
   TimepickerStorySecondsModule,
   TimepickerStorySecondsComponent,
-  TIMEPICKER_STORY_SECONDS_SOURCE
+  TIMEPICKER_STORY_SECONDS_SOURCE,
 } from './timepicker-story-seconds';
 
 import {
   TimepickerStoryRequiredModule,
   TimepickerStoryRequiredComponent,
-  TIMEPICKER_STORY_REQUIRED_SOURCE
+  TIMEPICKER_STORY_REQUIRED_SOURCE,
 } from './timepicker-story-required';
 
-<Meta title='UI/Timepicker' />
+<Meta title="UI/Timepicker" />
 
 # Timepicker
 
@@ -33,12 +33,12 @@ This component named `picker` instead of `input` in case we'll implement an actu
 ## Demos
 
 <Canvas source={TIMEPICKER_STORY_BASIC_SOURCE}>
-  <Story name='Basic' height='110px'>
+  <Story name="Basic" height="110px">
     {{
       component: TimepickerStoryBasicComponent,
       moduleMetadata: {
-        imports: [TimepickerStoryBasicModule]
-      }
+        imports: [TimepickerStoryBasicModule],
+      },
     }}
   </Story>
 </Canvas>
@@ -46,12 +46,12 @@ This component named `picker` instead of `input` in case we'll implement an actu
 We can use `withSeconds` in order to display seconds input.
 
 <Canvas source={TIMEPICKER_STORY_SECONDS_SOURCE}>
-  <Story name='Seconds' height='110px'>
+  <Story name="Seconds" height="110px">
     {{
       component: TimepickerStorySecondsComponent,
       moduleMetadata: {
-        imports: [TimepickerStorySecondsModule]
-      }
+        imports: [TimepickerStorySecondsModule],
+      },
     }}
   </Story>
 </Canvas>
@@ -59,20 +59,15 @@ We can use `withSeconds` in order to display seconds input.
 When input is required it won't allow to clear existing value.
 
 <Canvas source={TIMEPICKER_STORY_REQUIRED_SOURCE}>
-  <Story
-    name='Required'
-    height='110px'
-    args={{ required: true }}
-    argTypes={{ required: { control: 'boolean' } }}
-  >
+  <Story name="Required" height="110px" args={{ required: true }} argTypes={{ required: { control: 'boolean' } }}>
     {((args) => ({
       component: TimepickerStoryRequiredComponent,
       moduleMetadata: {
-        imports: [TimepickerStoryRequiredModule]
+        imports: [TimepickerStoryRequiredModule],
       },
       props: {
-        ...args
-      }
+        ...args,
+      },
     })).bind({})}
   </Story>
 </Canvas>

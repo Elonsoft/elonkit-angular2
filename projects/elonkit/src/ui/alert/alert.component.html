@@ -1,15 +1,6 @@
-<div
-  *ngIf="locale$ | async as locale"
-  class="es-alert"
-  [ngClass]="'es-alert_variant_' + variant"
-  data-testid="root"
->
+<div *ngIf="locale$ | async as locale" class="es-alert" [ngClass]="'es-alert_variant_' + variant" data-testid="root">
   <div class="es-alert__content">
-    <mat-icon
-      class="es-alert__icon"
-      [ngClass]="'es-alert__icon_variant_' + variant"
-      [svgIcon]="currentIcon.svgIcon"
-    >
+    <mat-icon class="es-alert__icon" [ngClass]="'es-alert__icon_variant_' + variant" [svgIcon]="currentIcon.svgIcon">
       {{ currentIcon.icon || '' }}
     </mat-icon>
     <div class="es-alert__text-wrapper">
@@ -27,8 +18,7 @@
       mat-icon-button
       type="button"
       [attr.aria-label]="locale.alert.labelClose"
-      (click)="onClose()"
-    >
+      (click)="onClose()">
       <mat-icon>close</mat-icon>
     </button>
   </div>

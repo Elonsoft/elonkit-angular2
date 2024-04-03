@@ -9,7 +9,7 @@ import {
   InjectionToken,
   Optional,
   Inject,
-  HostListener
+  HostListener,
 } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -28,16 +28,14 @@ export interface ESPaginatorDefaultOptions {
   typography?: string;
 }
 
-export const ES_PAGINATOR_DEFAULT_OPTIONS = new InjectionToken<ESPaginatorDefaultOptions>(
-  'ES_PAGINATOR_DEFAULT_OPTIONS'
-);
+export const ES_PAGINATOR_DEFAULT_OPTIONS = new InjectionToken<ESPaginatorDefaultOptions>('ES_PAGINATOR_DEFAULT_OPTIONS');
 
 @Component({
   selector: 'es-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ESPaginatorComponent {
   /**
@@ -72,8 +70,7 @@ export class ESPaginatorComponent {
    */
   @Input()
   public set pageSizeOptions(value: number[] | undefined) {
-    this._pageSizeOptions = value ||
-      this.defaultOptions?.pageSizeOptions || [5, 10, 25, 50, 100, 250, 500];
+    this._pageSizeOptions = value || this.defaultOptions?.pageSizeOptions || [5, 10, 25, 50, 100, 250, 500];
   }
   public get pageSizeOptions(): number[] {
     return this._pageSizeOptions;
@@ -197,10 +194,7 @@ export class ESPaginatorComponent {
    */
   public get pages() {
     const startPages = range(1, Math.min(this.boundaryCount, this.pagesCount));
-    const endPages = range(
-      Math.max(this.pagesCount - this.boundaryCount + 1, this.boundaryCount + 1),
-      this.pagesCount
-    );
+    const endPages = range(Math.max(this.pagesCount - this.boundaryCount + 1, this.boundaryCount + 1), this.pagesCount);
 
     const siblingsStart = Math.max(
       Math.min(
@@ -231,8 +225,8 @@ export class ESPaginatorComponent {
       ...(siblingsStart > this.boundaryCount + 2
         ? [null]
         : this.boundaryCount + 1 < this.pagesCount - this.boundaryCount
-        ? [this.boundaryCount + 1]
-        : []),
+          ? [this.boundaryCount + 1]
+          : []),
 
       // Sibling pages
       ...range(siblingsStart, siblingsEnd),
@@ -241,10 +235,10 @@ export class ESPaginatorComponent {
       ...(siblingsEnd < this.pagesCount - this.boundaryCount - 1
         ? [null]
         : this.pagesCount - this.boundaryCount > this.boundaryCount
-        ? [this.pagesCount - this.boundaryCount]
-        : []),
+          ? [this.pagesCount - this.boundaryCount]
+          : []),
 
-      ...endPages
+      ...endPages,
     ];
 
     return itemList;
@@ -312,15 +306,11 @@ export class ESPaginatorComponent {
     event.preventDefault();
   }
 
-  @HostListener('window:keydown.shift.arrowright', ['$event']) public onKeyWrightDown(
-    event: KeyboardEvent
-  ) {
+  @HostListener('window:keydown.shift.arrowright', ['$event']) public onKeyWrightDown(event: KeyboardEvent) {
     this.onNextPage();
   }
 
-  @HostListener('window:keydown.shift.arrowleft', ['$event']) public onKeyLeftDown(
-    event: KeyboardEvent
-  ) {
+  @HostListener('window:keydown.shift.arrowleft', ['$event']) public onKeyLeftDown(event: KeyboardEvent) {
     if (this.page !== 1) {
       this.onPrevPage();
     }

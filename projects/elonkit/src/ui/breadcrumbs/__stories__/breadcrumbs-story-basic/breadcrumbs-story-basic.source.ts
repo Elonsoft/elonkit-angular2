@@ -90,5 +90,5 @@ export const BREADCRUMBS_STORY_BASIC_SOURCE = {
     ...
   })
   export class AppModule {}
-  `
+  `,
 };

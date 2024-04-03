@@ -20,7 +20,7 @@ export const ES_SVG_ICONS: any = {
     'search',
     'smile',
     'wi-fi',
-    'wi-fi-off'
+    'wi-fi-off',
   ] as const,
   'es-audio-player': [
     'check',
@@ -32,26 +32,27 @@ export const ES_SVG_ICONS: any = {
     'pause',
     'play',
     'speed',
-    'un-mute'
+    'un-mute',
   ] as const,
-  'es-autocomplete-multiple': ['clear-small', 'clear', 'magnify', 'menu-down', 'menu-up'] as const
+  'es-autocomplete-multiple': ['clear-small', 'clear', 'magnify', 'menu-down', 'menu-up'] as const,
 };
 
 @Injectable()
 export class ESIconsService {
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {}
+  constructor(
+    private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer
+  ) {}
 
   /**
    * Add svg icons by resource url.
    * @param overrides Path mapping to icons to use instead of built-in ones.
    */
-  public register(
-    overrides?: {
-      [component in keyof typeof ES_SVG_ICONS]?: {
-        [icon in typeof ES_SVG_ICONS[component][number]]?: string;
-      };
-    }
-  ) {
+  public register(overrides?: {
+    [component in keyof typeof ES_SVG_ICONS]?: {
+      [icon in (typeof ES_SVG_ICONS)[component][number]]?: string;
+    };
+  }) {
     Object.keys(ES_SVG_ICONS).forEach((component) => {
       ES_SVG_ICONS[component].forEach((icon: any) => {
         this.matIconRegistry.addSvgIconInNamespace(

@@ -26,22 +26,10 @@ import { ESBreadcrumbsBackDirective } from './directives/breadcrumbs-back.direct
 
     ESBreadcrumbsMoreDirective,
     ESBreadcrumbsSeparatorDirective,
-    ESBreadcrumbsBackDirective
+    ESBreadcrumbsBackDirective,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatRippleModule
-  ],
-  exports: [
-    ESBreadcrumbsComponent,
-    ESBreadcrumbsMoreDirective,
-    ESBreadcrumbsSeparatorDirective,
-    ESBreadcrumbsBackDirective
-  ],
-  providers: [ESBreadcrumbsResolver]
+  imports: [CommonModule, RouterModule, MatButtonModule, MatIconModule, MatMenuModule, MatRippleModule],
+  exports: [ESBreadcrumbsComponent, ESBreadcrumbsMoreDirective, ESBreadcrumbsSeparatorDirective, ESBreadcrumbsBackDirective],
+  providers: [ESBreadcrumbsResolver],
 })
 export class ESBreadcrumbsModule {}
