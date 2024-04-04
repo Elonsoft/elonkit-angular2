@@ -15,6 +15,15 @@ import {
 import { Observable } from 'rxjs';
 
 import { ESLocaleService, ESLocale } from '../locale';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 function range(start: number, end: number) {
   const length = end - start + 1;
@@ -34,6 +43,18 @@ export const ES_PAGINATOR_DEFAULT_OPTIONS = new InjectionToken<ESPaginatorDefaul
   selector: 'es-paginator',
   templateUrl: './paginator.component.html',
   styleUrls: ['./paginator.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule,
+
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDividerModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
@@ -62,6 +83,18 @@ export class ESPaginatorComponent {
    * Number of items to display on a page.
    */
   @Input() public pageSize: number;
+
+  private _hidePageSize = false;
+
+  /**
+   * Hide page size.
+   */
+  @Input() public get hidePageSize() {
+    return this._hidePageSize;
+  }
+  public set hidePageSize(hidePageSize) {
+    this._hidePageSize = coerceBooleanProperty(hidePageSize);
+  }
 
   private _pageSizeOptions: number[];
 
@@ -100,6 +133,32 @@ export class ESPaginatorComponent {
   }
   public get boundaryCount(): number {
     return this._boundaryCount;
+  }
+
+  private _pageInputBefore = false;
+
+  /**
+   * Page input before.
+   */
+  @Input()
+  public get pageInputBefore() {
+    return this._pageInputBefore;
+  }
+  public set pageInputBefore(pageInputBefore) {
+    this._pageInputBefore = coerceBooleanProperty(pageInputBefore);
+  }
+
+  public _reverse = false;
+
+  /**
+   * Reverse rize with pagination.
+   */
+  @Input()
+  public get reverse() {
+    return this._reverse;
+  }
+  public set reverse(reverse) {
+    this._reverse = coerceBooleanProperty(reverse);
   }
 
   private _typography: string;
@@ -241,7 +300,7 @@ export class ESPaginatorComponent {
       ...endPages,
     ];
 
-    return itemList;
+    return itemList.length ? itemList : [1];
   }
 
   /**
@@ -286,6 +345,21 @@ export class ESPaginatorComponent {
       const page = Math.max(1, Math.min(+this.pageGoTo, this.pagesCount));
       this.pageChange.emit(page);
     }
+  }
+
+  /**
+   * @internal
+   * @ignore
+   */
+  public onValidationInput(event: KeyboardEvent) {
+    const key = event.key;
+    const regex = /[0-9]/;
+
+    if (key === 'Enter' || regex.test(key)) {
+      return;
+    }
+
+    event.preventDefault();
   }
 
   /**
