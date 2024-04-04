@@ -329,6 +329,7 @@ export const ES_SVG_ICONS: { [key: string]: any } = {
     'star-line-w600-lc',
   ] as const,
   'es-other': ['video-300', 'video-500'] as const,
+  'es-paginator': ['chevron-left', 'chevron-right', 'dots-horizontal'] as const,
 };
 
 @Injectable()

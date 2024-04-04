@@ -5,33 +5,62 @@
   .es-paginator {
     color: mat.get-color-from-palette($mono-a, A600);
 
+    &__select {
+      display: block;
+      margin-left: 4px;
+
+      @media (hover: hover) {
+        .mat-mdc-select-trigger:hover {
+          background-color: mat.get-color-from-palette($mono-a, A50);
+        }
+      }
+    }
+
     &__item {
+      &.mdc-icon-button {
+        color: mat.get-color-from-palette($mono-a, A600);
+      }
+
       &_active {
-        background-color: mat.get-color-from-palette($accent, A100);
+        background-color: mat.get-color-from-palette($accent, A100) !important;
         color: mat.get-color-from-palette($mono-a, A500);
-        font-weight: 600;
+      }
 
-        &.mat-icon-button:disabled {
-          color: mat.get-color-from-palette($accent);
-
-          &:hover {
-            background-color: mat.get-color-from-palette($accent, A100);
-            color: mat.get-color-from-palette($accent);
-          }
-        }
-
-        &.mat-icon-button:hover {
-          color: mat.get-color-from-palette($mono-a, A50);
-        }
+      &.mdc-icon-button:disabled {
+        color: mat.get-color-from-palette($mono-a, A800);
       }
 
       &:hover {
         background-color: mat.get-color-from-palette($mono-a, A50);
       }
     }
+
+    &__input.mat-mdc-form-field {
+      border: 1px solid mat.get-color-from-palette($mono-a, A200);
+    }
   }
 
-  .mat-select-arrow {
-    color: mat.get-color-from-palette($mono-a, A500);
+  .es-paginator__options {
+    box-shadow:
+      0 -0.5px 2px 1px rgb(0 0 0 / 2%),
+      0 3px 6px rgb(0 0 0 / 3%),
+      0 8px 16px rgb(0 0 0 / 7%) !important; // elevation-8
+
+    .mdc-list-item--selected {
+      color: mat.get-color-from-palette($mono-a, A900) !important;
+      background-color: mat.get-color-from-palette($mono-a, A150) !important;
+
+      .mdc-list-item__primary-text {
+        color: mat.get-color-from-palette($mono-a, A900) !important;
+      }
+    }
+
+    .mat-mdc-option-active {
+      background-color: mat.get-color-from-palette($mono-a, A50) !important;
+
+      .mdc-list-item__primary-text {
+        color: mat.get-color-from-palette($mono-a, A900) !important;
+      }
+    }
   }
 }
