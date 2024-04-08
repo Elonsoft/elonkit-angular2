@@ -1,0 +1,33 @@
+<div
+  class="snackbar es-caption"
+  [ngClass]="{
+    small: size === 's',
+    medium: size === 'm',
+    large: size === 'l'
+  }">
+  <div class="snackbar__indications">
+    <mat-icon
+      *ngIf="data.icon || data.matIcon"
+      class="snackbar__indications__icon"
+      [ngClass]="{
+        snackbar__indications__icon_success: data.variant === 'success',
+        snackbar__indications__icon_error: data.variant === 'error'
+      }"
+      [svgIcon]="matIcon ? null : data.icon">
+      {{ matIcon }}
+    </mat-icon>
+    <span class="snackbar__indication__text es-caption">{{ data.text }}</span>
+  </div>
+
+  <div class="snackbar__actions">
+    <button *ngIf="data.callback" mat-flat-button class="snackbar__actions__action es-body-100" (click)="onAction()">
+      {{ data.actionText }}
+    </button>
+    <div class="snackbar__actions--wrapper" #progressWrapper>
+      <div class="snackbar__actions--wrapper__progress" [ngStyle]="{ 'width.px': progress$ | async }"></div>
+      <button mat-icon-button class="snackbar__actions--wrapper__close" (click)="onDismiss()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
