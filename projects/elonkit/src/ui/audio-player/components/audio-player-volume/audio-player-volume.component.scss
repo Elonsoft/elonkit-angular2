@@ -1,13 +1,20 @@
 .es-audio-player-volume {
   &__button {
-    &.mat-icon-button {
-      width: 24px;
-      height: 24px;
-    }
-
-    .mat-button-wrapper {
+    &.mat-mdc-icon-button {
+      width: 32px !important;
+      height: 32px !important;
       display: flex;
       justify-content: center;
+      align-items: center;
+
+      .mat-mdc-button-touch-target {
+        width: 32px;
+        height: 32px;
+      }
+
+      .mat-icon {
+        overflow: visible;
+      }
     }
   }
 
@@ -19,45 +26,40 @@
   }
 
   &__slider {
-    &.mat-slider {
-      width: 24px;
-      padding: 0;
+    transform: rotate(270deg);
+    transform-origin: left top;
+    margin: 124px 8px -40px 72px !important;
 
-      &:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-thumb,
-      &:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-thumb,
-      &:not(.mat-slider-disabled).cdk-program-focused .mat-slider-thumb,
-      .cdk-mouse-focused .mat-slider-thumb,
-      .mat-slider-thumb {
-        border: 0;
-        width: 18px;
-        height: 18px;
-        right: -10px;
-        transform: scale(0.7);
-      }
+    .mdc-slider {
+      &__track {
+        &--active {
+          height: 4px !important;
+          top: 0 !important;
 
-      .mat-slider-focus-ring {
-        bottom: -10px;
-        width: 18px;
-        height: 18px;
-        left: -8px;
-      }
-
-      &.mat-slider-vertical {
-        .mat-slider-wrapper {
-          left: 10px;
-        }
-
-        .mat-slider-track-fill,
-        .mat-slider-track-wrapper,
-        .mat-slider-track-background {
-          width: 4px;
+          &_fill {
+            transition: linear 100ms !important;
+            border-width: 4px !important;
+          }
         }
       }
 
-      .mat-slider-track-fill,
-      .mat-slider-track-wrapper,
-      .mat-slider-track-background {
-        border-radius: 16px;
+      &__thumb {
+        transition: linear 100ms !important;
+
+        &-knob {
+          box-shadow: none !important;
+          width: 10px !important;
+          height: 10px !important;
+          border-width: 5px !important;
+        }
+
+        .mat-ripple {
+          border-radius: 50% !important;
+          width: 24px !important;
+          height: 24px !important;
+          top: 12px !important;
+          left: 12px !important;
+        }
       }
     }
   }

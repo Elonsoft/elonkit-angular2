@@ -105,7 +105,7 @@ export class ESAudioPlayerVolumeComponent {
       this.previuseVolume = this.volume;
       this.volume = 0;
     } else {
-      this.volume = this.previuseVolume;
+      this.volume = this.previuseVolume || 25;
     }
 
     this.volumeChanged.emit(this.volume);
