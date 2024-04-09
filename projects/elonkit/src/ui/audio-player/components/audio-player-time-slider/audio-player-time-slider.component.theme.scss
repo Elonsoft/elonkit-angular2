@@ -5,24 +5,20 @@
 
   .es-audio-player-time-slider {
     &__slider {
-      &.mat-slider {
-        &:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-thumb,
-        &:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-thumb,
-        &:not(.mat-slider-disabled).cdk-program-focused .mat-slider-thumb,
-        .cdk-mouse-focused .mat-slider-thumb,
-        .mat-slider-thumb {
-          background: mat.get-color-from-palette($primary, 500);
-        }
+      &--paused {
+        .mdc-slider {
+          &__track {
+            &--inactive {
+              background-color: mat.get-color-from-palette($mono-a, A500) !important;
+            }
 
-        .mat-slider-focus-ring {
-          background-color: mat.get-color-from-palette($mono-a, A200);
-        }
-      }
-
-      &.mat-slider-horizontal {
-        .mat-slider-track-wrapper,
-        .mat-slider-track-background {
-          background: mat.get-color-from-palette($primary, 100);
+            &--active {
+              &_fill {
+                background-color: mat.get-color-from-palette($mono-a, A100) !important;
+                border-color: mat.get-color-from-palette($mono-a, A500) !important;
+              }
+            }
+          }
         }
       }
     }

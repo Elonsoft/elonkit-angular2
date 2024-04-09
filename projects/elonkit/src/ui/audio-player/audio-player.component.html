@@ -9,18 +9,19 @@
     <mat-icon svgIcon="es-audio-player:{{ this.audio.paused ? 'play' : 'pause' }}"></mat-icon>
   </button>
 
-  <es-audio-player-time-slider
-    class="es-audio-player__time-slider"
-    [audioCurrentTime]="audioCurrentTime"
-    [duration]="audio.duration"
-    (timeUpdated)="onSeekTo($event)"></es-audio-player-time-slider>
-
   <label
     class="es-audio-player__label es-caption"
     [ngClass]="{ 'es-audio-player__label-prefix': isDisplayedLeftTime }"
     (click)="changeDisplayedTime()">
-    {{ displayedTime }}</label
-  >
+    {{ displayedTime }}
+  </label>
+
+  <es-audio-player-time-slider
+    class="es-audio-player__time-slider"
+    [audioCurrentTime]="audioCurrentTime"
+    [duration]="audio.duration"
+    [audioPaused]="audio.paused"
+    (timeUpdated)="onSeekTo($event)"></es-audio-player-time-slider>
 
   <es-audio-player-volume
     class="es-audio-player__volume"

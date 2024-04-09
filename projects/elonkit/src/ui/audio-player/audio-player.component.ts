@@ -23,7 +23,7 @@ export interface ESAudioPlayerDefaultOptions {
 
 export const ES_AUDIO_PLAYER_DEFAULT_OPTIONS = new InjectionToken<ESAudioPlayerDefaultOptions>('ES_AUDIO_PLAYER_DEFAULT_OPTIONS');
 
-const DEFAULT_TIME = '00:00:00';
+const DEFAULT_TIME = '00:00';
 
 @Component({
   selector: 'es-audio-player',
@@ -74,6 +74,11 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
+   * Event emitted (true) when audio play and false ushe audio paused.
+   */
+  @Output() public audioPlay = new EventEmitter<boolean>();
+
+  /**
    * Event emitted when audio track playback completed.
    */
   @Output() public audioEnded = new EventEmitter();
@@ -116,7 +121,7 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
    * @internal
    * @ignore
    */
-  public isDisplayedLeftTime = true;
+  public isDisplayedLeftTime = false;
 
   /**
    * @internal
@@ -134,7 +139,7 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
     this.isAudioDataLoaded = true;
     this.audio.volume = this.volume / 100;
 
-    this.displayedTime = this.isDisplayedLeftTime ? this.formatTime(duration - currentTime) : this.formatTime(currentTime);
+    this.displayedTime = this.isDisplayedLeftTime ? this.formatTime(currentTime) : this.formatTime(duration - currentTime);
 
     // tslint:disable-next-line: no-string-literal
     // @ts-ignore
@@ -204,6 +209,7 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
    * @ignore
    */
   public onPlayback() {
+    this.audioPlay.emit(this.audio.paused);
     this.audio.paused ? this.audio.play() : this.audio.pause();
   }
 
@@ -261,9 +267,8 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
     const minutes = Math.floor((time - hours * 3600) / 60);
     const seconds = Math.round(time) - hours * 3600 - minutes * 60;
 
-    const h = hours < 10 ? `0${hours}` : `${hours}`;
     const m = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const s = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${h}:${m}:${s}`;
+    return `${m}:${s}`;
   }
 }

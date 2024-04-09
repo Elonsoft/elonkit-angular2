@@ -3,27 +3,39 @@
   $mono-b: map-get($elonkit-theme, mono-b);
 
   .es-audio-player-options {
-    &__button.mat-icon-button {
-      color: mat.get-color-from-palette($mono-a, A600);
+    &__button {
+      color: mat.get-color-from-palette($mono-a, A600) !important;
+    }
+
+    &__tooltip {
+      background-color: mat.get-color-from-palette($mono-b, 500) !important;
+      box-shadow:
+        0 8px 16px 0 rgba(0, 0, 0, 0.07),
+        0 3px 6px 0 rgba(0, 0, 0, 0.03),
+        0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // elevation-600
+      .es-tooltip__arrow {
+        background: none !important;
+        background-color: mat.get-color-from-palette($mono-b, 500) !important;
+      }
     }
 
     &__sub-label {
-      color: mat.get-color-from-palette($mono-b, A600);
+      color: mat.get-color-from-palette($mono-a, A600);
     }
 
     &__item-content {
-      color: mat.get-color-from-palette($mono-b, 500);
+      color: mat.get-color-from-palette($mono-a, 500);
     }
 
     &__divider {
-      border-color: mat.get-color-from-palette($mono-b, A100);
+      border-color: mat.get-color-from-palette($mono-a, A100);
     }
 
     &__icon {
-      color: mat.get-color-from-palette($mono-b, A900);
+      color: mat.get-color-from-palette($mono-a, A500);
 
       &_dark {
-        color: mat.get-color-from-palette($mono-b, A600);
+        color: mat.get-color-from-palette($mono-a, A600);
       }
     }
   }

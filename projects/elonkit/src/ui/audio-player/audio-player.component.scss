@@ -1,28 +1,21 @@
 .es-audio-player {
   height: 40px;
-  padding: 0 12px;
+  padding: 0 4px;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   border-radius: 40px;
 
   &__button {
-    &.mat-icon-button {
-      width: 24px;
-      height: 24px;
-    }
+    width: 32px !important;
+    height: 32px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 
-    .mat-button-wrapper {
-      display: flex;
-      justify-content: center;
+    .mat-icon {
+      overflow: visible;
     }
-  }
-
-  &__time-slider {
-    display: flex;
-    flex: 1;
-    margin-left: 12px;
-    position: relative;
   }
 
   &__label {
@@ -32,7 +25,7 @@
 
     &,
     &.dark {
-      margin-left: 16px !important;
+      margin-left: 8px !important;
     }
 
     &-prefix {
@@ -44,13 +37,20 @@
     }
   }
 
+  &__time-slider {
+    display: flex;
+    flex: 1;
+    margin-left: 8px;
+    position: relative;
+  }
+
   &__volume {
-    height: 24px;
-    margin-left: 12px;
+    height: 32px;
+    margin-left: 8px;
   }
 
   &__options {
-    height: 24px;
-    margin-left: 8px;
+    height: 32px;
+    margin-left: 4px;
   }
 }
