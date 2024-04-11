@@ -13,11 +13,10 @@
   </button>
 
   <ng-template #content>
-    <div class="es-audio-player-options__menu" [style.display]="isRatePage ? 'none' : 'flex'">
+    <div class="es-audio-player-options__menu main-menu" [style.display]="isRatePage ? 'none' : 'flex'">
       <button
         class="es-audio-player-options__menu-item"
         mat-button
-        disableRipple
         [attr.aria-label]="locale.audioPlayer.labelRate"
         (click)="isRatePage = !isRatePage">
         <div class="es-audio-player-options__item-content es-body-100">
@@ -38,7 +37,6 @@
       <button
         mat-button
         class="es-audio-player-options__menu-item"
-        disableRipple
         [disabled]="!src"
         [attr.aria-label]="locale.audioPlayer.labelDownload"
         (click)="downloadClicked.emit()">
@@ -54,7 +52,6 @@
       <button
         mat-button
         class="es-audio-player-options__menu-item"
-        disableRipple
         [attr.aria-label]="locale.audioPlayer.labelBack"
         (click)="isRatePage = !isRatePage">
         <div class="es-audio-player-options__item-content es-body-100">
@@ -63,12 +60,15 @@
           <label class="es-audio-player-options__label_ml-18">{{ locale.audioPlayer.labelBack }}</label>
         </div>
       </button>
-      <mat-divider class="es-audio-player-options__divider"></mat-divider>
+
+      <div class="es-audio-player-options__divider-wrapper">
+        <mat-divider class="es-audio-player-options__divider"></mat-divider>
+      </div>
+
       <button
         *ngFor="let rate of rates"
         mat-button
         class="es-audio-player-options__menu-item"
-        disableRipple
         [attr.aria-label]="locale.audioPlayer.labelRate + ' ' + rate"
         (click)="onChangePlaybackRate(rate)">
         <div class="es-audio-player-options__item-content es-body-100">

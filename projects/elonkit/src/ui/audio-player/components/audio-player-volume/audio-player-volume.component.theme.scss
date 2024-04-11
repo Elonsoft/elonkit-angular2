@@ -5,34 +5,33 @@
   .es-audio-player-volume {
     background-color: mat.get-color-from-palette($mono-a, A75);
 
-    &__button.mat-icon-button {
-      color: mat.get-color-from-palette($mono-a, A600);
+    &__button {
+      color: mat.get-color-from-palette($mono-a, A600) !important;
     }
 
     &__slider {
-      &.mat-slider {
-        &:not(.mat-slider-disabled).cdk-mouse-focused .mat-slider-thumb,
-        &:not(.mat-slider-disabled).cdk-touch-focused .mat-slider-thumb,
-        &:not(.mat-slider-disabled).cdk-program-focused .mat-slider-thumb,
-        .cdk-mouse-focused .mat-slider-thumb,
-        .mat-slider-thumb {
-          background-color: mat.get-color-from-palette($mono-b, 500);
-        }
-
-        .mat-slider-focus-ring {
-          background-color: mat.get-color-from-palette($mono-b, A200);
-        }
-
-        &.mat-slider-vertical {
-          .mat-slider-track-fill,
-          .mat-slider-track-wrapper,
-          .mat-slider-track-background {
-            background-color: mat.get-color-from-palette($mono-b, 500);
+      .mdc-slider {
+        &__track {
+          &--inactive {
+            background-color: mat.get-color-from-palette($mono-b, 500) !important;
           }
 
-          .mat-slider-track-wrapper,
-          .mat-slider-track-background {
-            background-color: mat.get-color-from-palette($mono-b, A400);
+          &--active {
+            &_fill {
+              border-color: mat.get-color-from-palette($mono-b, 500) !important;
+            }
+          }
+        }
+
+        &__thumb {
+          &-knob {
+            border-color: mat.get-color-from-palette($mono-b, 500) !important;
+          }
+
+          .mat-ripple {
+            &-element {
+              background-color: mat.get-color-from-palette($mono-b, A200) !important;
+            }
           }
         }
       }

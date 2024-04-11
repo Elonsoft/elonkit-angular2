@@ -38,6 +38,14 @@ export class ESAudioPlayerTimeSliderComponent {
   }
   private _audioCurrentTime: number;
 
+  @Input() public set audioPaused(isPaused: boolean) {
+    this._audioPaused = isPaused;
+  }
+  public get audioPaused(): boolean {
+    return this._audioPaused;
+  }
+  private _audioPaused: boolean;
+
   /** Event emitted when current playback position is changed, in seconds. */
   @Output() public timeUpdated = new EventEmitter();
 
@@ -103,8 +111,8 @@ export class ESAudioPlayerTimeSliderComponent {
     const minTop = container.top + container.height / 2 - TIME_LINE_RANGE;
     const maxBottom = container.bottom - container.height / 2 + TIME_LINE_RANGE;
 
-    const scrollTop = document.scrollingElement?.scrollTop;
-    const scrollLeft = document.scrollingElement?.scrollLeft;
+    const scrollTop = document.scrollingElement?.scrollTop || 1;
+    const scrollLeft = document.scrollingElement?.scrollLeft || 1;
 
     if (
       scrollLeft &&
@@ -153,7 +161,7 @@ export class ESAudioPlayerTimeSliderComponent {
    * @internal
    * @ignore
    */
-  public onSeekTo({ value }: any) {
+  public onSeekTo(value: Event) {
     this.timeUpdated.emit(+value);
   }
 
@@ -189,9 +197,8 @@ export class ESAudioPlayerTimeSliderComponent {
     const minutes = Math.floor((timeLeft - hours * 3600) / 60);
     const seconds = Math.round(timeLeft) - hours * 3600 - minutes * 60;
 
-    const h = hours < 10 ? `0${hours}` : `${hours}`;
     const m = minutes < 10 ? `0${minutes}` : `${minutes}`;
     const s = seconds < 10 ? `0${seconds}` : `${seconds}`;
-    return `${h}:${m}:${s}`;
+    return `${m}:${s}`;
   }
 }

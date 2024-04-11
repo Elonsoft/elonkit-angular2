@@ -4,8 +4,9 @@
   color="primary"
   step="1"
   [max]="duration"
-  [(ngModel)]="audioCurrentTime"
-  (change)="onSeekTo($event)"></mat-slider>
+  [ngClass]="{ 'es-audio-player-time-slider__slider--paused': audioPaused }">
+  <input matSliderThumb [(ngModel)]="audioCurrentTime" (valueChange)="onSeekTo($event)" />
+</mat-slider>
 
 <div
   #timeTooltip
