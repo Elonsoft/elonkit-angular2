@@ -13,15 +13,5 @@
         background-color: mat.get-color-from-palette(map-get($elonkit-theme, mono-a), A100);
       }
     }
-
-    &__link-back {
-      border-color: mat.get-color-from-palette(map-get($elonkit-theme, mono-a), A500);
-      color: mat.get-color-from-palette(map-get($elonkit-theme, mono-a), A900);
-
-      &:hover,
-      &:focus {
-        background-color: mat.get-color-from-palette(map-get($elonkit-theme, mono-a), A50);
-      }
-    }
   }
 }
