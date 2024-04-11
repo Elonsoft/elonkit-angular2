@@ -1,0 +1,8 @@
+@mixin es-autocomplete-footer-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+
+  .autocomplete-footer {
+    color: mat.get-color-from-palette($mono-a, A600);
+    border-top: 1px solid mat.get-color-from-palette($mono-a, A100);
+  }
+}

@@ -1,0 +1,59 @@
+<div class="es-autocomplete">
+  <div class="es-autocomplete__value es-subtitle-1">
+    <ng-container *ngIf="multiple ? joined : value">
+      <div class="es-autocomplete__name" [ngClass]="styleDisabled ? 'disabled' : ''">
+        {{ multiple ? joined : displayWith(value) }}
+      </div>
+
+      <mat-icon
+        class="es-autocomplete__clear-icon"
+        svgIcon="es-autocomplete-field:clear"
+        (click)="onResetValue($event)"></mat-icon>
+    </ng-container>
+  </div>
+  <mat-icon class="es-autocomplete__arrow" svgIcon="es-autocomplete-field:menu-down"></mat-icon>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayOrigin]="origin"
+  [cdkConnectedOverlayOffsetY]="0"
+  [cdkConnectedOverlayOpen]="isOpen"
+  (backdropClick)="onClose()"
+  (detach)="onClose(true)">
+  <div class="es-autocomplete__panel" [ngStyle]="{ 'width.px': width }">
+    <div class="es-autocomplete__search-wrapper">
+      <mat-icon class="es-autocomplete__search-icon" matPrefix svgIcon="es-autocomplete-field:magnify"></mat-icon>
+
+      <input #input class="es-autocomplete__search-input" [placeholder]="placeholder" [value]="text" (input)="onInput($event)" />
+
+      <mat-icon
+        *ngIf="text"
+        class="es-autocomplete__clear-icon"
+        svgIcon="es-autocomplete-field:clear"
+        (click)="onClear()"></mat-icon>
+    </div>
+
+    <ng-content select="[header]"></ng-content>
+    <mat-selection-list
+      *ngIf="options$ | async as options"
+      class="es-autocomplete__options"
+      color="accent"
+      [multiple]="multiple"
+      [hideSingleSelectionIndicator]="true"
+      (selectionChange)="onSelectionChange($event)"
+      [disabled]="styleDisabled">
+      <mat-list-option
+        *ngFor="let option of options"
+        class="es-autocomplete__option es-subtitle-1"
+        togglePosition="before"
+        [value]="option"
+        [selected]="isSelected(option)">
+        {{ displayWith(option) }}
+      </mat-list-option>
+    </mat-selection-list>
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</ng-template>
