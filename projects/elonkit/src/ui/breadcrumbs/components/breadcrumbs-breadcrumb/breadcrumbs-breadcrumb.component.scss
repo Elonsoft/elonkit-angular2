@@ -8,11 +8,12 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  &__link {
+  &__button {
     height: 24px;
     display: flex;
     align-items: center;
     border-radius: 4px;
+    border: none;
     min-width: 0;
     overflow: hidden;
     text-decoration: none;
@@ -22,6 +23,7 @@
       &:hover,
       &:focus {
         outline: 0;
+        cursor: pointer;
       }
     }
   }
@@ -30,34 +32,13 @@
     + #{$root}__label {
       margin-left: 4px;
     }
+
+    min-width: 24px;
   }
 
   &__label {
     overflow: hidden;
     padding: 4px;
     text-overflow: ellipsis;
-  }
-
-  &__menu {
-    &.mat-icon-button {
-      border-radius: 4px;
-      width: 20px;
-      height: 24px;
-      line-height: 20px;
-
-      &:hover,
-      &:focus {
-        outline: 0;
-      }
-    }
-
-    .mat-icon {
-      width: 20px;
-      height: 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      line-height: 20px;
-    }
   }
 }
