@@ -1,0 +1,69 @@
+<div class="filters es-body-100">
+  <div class="filters__actions-wrapper">
+    <ng-container *ngIf="showSearchInpuit">
+      <div class="filters__search">
+        <mat-icon class="filters__search-icon" matPrefix svgIcon="es-sfs:magnify-w400"></mat-icon>
+
+        <input #input class="filters__search-input" placeholder="Поиск по списку" [value]="text" (input)="onInput($event)" />
+
+        <mat-icon *ngIf="text" class="filters__search-clear-icon" svgIcon="es-sfs:clear" (click)="onClearSearch()"></mat-icon>
+      </div>
+
+      <mat-divider class="filters__divider" [vertical]="true"></mat-divider>
+    </ng-container>
+
+    <es-sorting
+      [sortingOptions]="sortingOptions"
+      placeholder="Сортировка"
+      (sortingChanged)="sortingChanged.emit($event)"></es-sorting>
+
+    <ng-container *ngIf="showFiltersButton">
+      <mat-divider class="filters__divider" [vertical]="true"></mat-divider>
+
+      <div class="filters__sidebar-action" (click)="onToggle(true)">
+        <label>Фильтр</label>
+
+        <mat-icon *ngIf="!count" svgIcon="es-sfs:filter"></mat-icon>
+        <div *ngIf="count" class="filters__badge es-mini-m">{{ count }}</div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="filterFieldsValues.length" class="filters__chips-wrapper" #listWrapper>
+    <div class="filters__list-box" #listBox>
+      <mat-chip-listbox>
+        <mat-chip
+          *ngFor="let item of filterFieldsValues; trackBy: trackByIndex"
+          class="chip es-caption"
+          (removed)="onRemoveFiltersValue(item)">
+          <!-- <mat-icon matChipAvatar class="" svgIcon="es-sfs:magnify-w400"></mat-icon> -->
+          <span class="chip__text">{{ item.value }}</span>
+
+          <mat-icon matChipRemove class="" svgIcon="es-sfs:close-w350"></mat-icon>
+        </mat-chip>
+      </mat-chip-listbox>
+    </div>
+
+    <mat-icon class="filters__clear-icon" svgIcon="es-sfs:close-w400" (click)="onClear()"></mat-icon>
+  </div>
+</div>
+
+<div *ngIf="isOpen" class="filters__drawer" (click)="onDrawerClick($event)" @drawer>
+  <div class="filters__content" (click)="onContentClick($event)" @content>
+    <div class="filters__header es-h5">
+      <label>Фильтры</label>
+
+      <button class="filters__header-button" mat-icon-button (click)="onToggle(false)" aria-label="Закрыть">
+        <mat-icon svgIcon="es-sfs:close"></mat-icon>
+      </button>
+    </div>
+
+    <div class="filters__fields-wrapper">
+      <ng-content></ng-content>
+    </div>
+
+    <div *ngIf="!!count" class="filters__footer">
+      <button class="filters__footer-button" mat-stroked-button color="warn" (click)="onClear()">Сбросить все фильтры</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="sorting" (click)="onContainerClick()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  <ng-container *ngIf="value.sortBy">
+    <label class="sorting__label">{{ displayWith(value.sortBy) }}</label>
+
+    <mat-icon class="sorting__icon" [svgIcon]="direction === 'asc' ? 'es-sorting:sort-asc' : 'es-sorting:sort-desc'"></mat-icon>
+  </ng-container>
+
+  <ng-container *ngIf="!value?.sortBy && placeholder">
+    <label class="sorting__label">{{ placeholder }}</label>
+    <mat-icon class="sorting__placeholder-icon" svgIcon="es-sorting:sort-off"></mat-icon>
+  </ng-container>
+</div>
+
+<ng-template
+  cdkConnectedOverlay
+  cdkConnectedOverlayHasBackdrop
+  cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+  [cdkConnectedOverlayOffsetY]="0"
+  [cdkConnectedOverlayOrigin]="trigger"
+  [cdkConnectedOverlayOpen]="isOpen"
+  (backdropClick)="onClose()">
+  <div class="sorting-panel">
+    <div class="sorting-panel__header">
+      <label class="sorting-panel__title es-caption">Сортировка по свойствам</label>
+
+      <label *ngIf="value.sortBy" class="sorting-panel__reset es-caption" (click)="onReset()">Сбросить</label>
+    </div>
+
+    <mat-selection-list [multiple]="false" [hideSingleSelectionIndicator]="true">
+      <ng-container *ngIf="sortingOptions?.length">
+        <mat-list-option
+          *ngFor="let option of sortingOptions"
+          [value]="option.sortBy"
+          [selected]="isOptionSelected(option.sortBy)"
+          (click)="onOptionClick(option)"
+          class="sorting-panel__option-list">
+          <ng-container *ngIf="!isOptionSelected(option.sortBy); else selected">
+            <span class="es-body-100">{{ option.label }}</span>
+          </ng-container>
+
+          <ng-template #selected>
+            <div class="sorting-panel__option-wrapper es-body-100">
+              <label>{{ option.label }}</label>
+
+              <div class="sorting-panel__direction-wrapper" (click)="onChangeSortDirection($event)">
+                <label class="sorting-panel__direction-label es-caption">
+                  {{ direction ? option.directionLabels[direction] : '' }}
+                </label>
+
+                <mat-icon
+                  class="sorting-panel__direction-icon"
+                  svgIcon="es-sorting:arrow-sort-asc-fill"
+                  [ngStyle]="{ transform: direction === 'asc' ? 'rotate(0)' : 'rotate(180deg)' }"></mat-icon>
+              </div>
+            </div>
+          </ng-template>
+        </mat-list-option>
+      </ng-container>
+    </mat-selection-list>
+  </div>
+</ng-template>

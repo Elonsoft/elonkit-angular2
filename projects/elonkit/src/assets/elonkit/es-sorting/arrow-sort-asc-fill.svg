@@ -1,0 +1,20 @@
+<svg width="12" height="18" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <rect width="12" height="18" rx="4" fill="currentColor"/>
+    <rect x="0.5" y="0.5" width="11" height="17" rx="3.5" stroke="black" stroke-opacity="0.02" />
+    <path d="M0 4C0 1.79086 1.79086 0 4 0H11V18H4C1.79086 18 0 16.2091 0 14V4Z" fill="url(#pattern0)" />
+    <rect width="8" height="12" transform="translate(2 3)" fill="url(#pattern1)" />
+    <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M9.31054 6.99994H6.74989L6.74989 14.0001H5.24989L5.24989 6.99994H2.68922L5.99989 3.68994L9.31054 6.99994Z"
+        fill="#000" fill-opacity="0.54" />
+    <defs>
+        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlink:href="#image0_861_10556" transform="matrix(1.63636 0 0 1 -0.318182 0)" />
+        </pattern>
+        <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlink:href="#image0_861_10556" transform="matrix(1.5 0 0 1 -0.25 0)" />
+        </pattern>
+        <image id="image0_861_10556" width="1" height="1"
+            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8AAAAAAAAFAAFkeJU4AAAAAElFTkSuQmCC" />
+    </defs>
+</svg>

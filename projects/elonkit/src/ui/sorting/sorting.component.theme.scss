@@ -1,0 +1,58 @@
+@mixin es-sorting-theme($theme, $elonkit-theme) {
+  $surface: map-get($elonkit-theme, surface);
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $accent: map-get($theme, accent);
+
+  .sorting {
+    &__label {
+    }
+
+    &__icon {
+      color: mat.get-color-from-palette($accent, 300);
+    }
+
+    &__placeholder-icon {
+      color: mat.get-color-from-palette($mono-a, A550);
+    }
+  }
+
+  .sorting-panel {
+    box-shadow:
+      0 8px 16px 0 rgba(0, 0, 0, 0.07),
+      0 3px 6px 0 rgba(0, 0, 0, 0.03),
+      0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // elevation-600;
+    background-color: mat.get-color-from-palette($surface, 400);
+
+    &__header {
+    }
+
+    &__title {
+      color: mat.get-color-from-palette($mono-a, A600);
+    }
+
+    &__reset {
+      color: mat.get-color-from-palette($mono-a, A500);
+    }
+
+    .mdc-list-item--selected {
+      background-color: mat.get-color-from-palette($accent, A100) !important;
+    }
+
+    &__option-wrapper {
+      color: mat.get-color-from-palette($mono-a, A900);
+      * {
+      }
+    }
+
+    &__direction-wrapper {
+    }
+
+    &__direction-label {
+      color: mat.get-color-from-palette($mono-a, A600);
+    }
+
+    &__direction-icon {
+      color: mat.get-color-from-palette($accent, A500);
+    }
+  }
+}
