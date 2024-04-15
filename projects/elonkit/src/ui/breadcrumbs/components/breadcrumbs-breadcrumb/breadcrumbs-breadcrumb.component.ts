@@ -42,4 +42,14 @@ export class ESBreadcrumbsBreadcrumbComponent {
   ) {
     this.locale$ = this.localeService.locale();
   }
+
+  /**
+   * @internal
+   * @ignore
+   */
+  public onAction() {
+    if (this.breadcrumb.callback) {
+      this.breadcrumb.callback();
+    }
+  }
 }

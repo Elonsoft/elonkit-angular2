@@ -6,5 +6,11 @@
     &:focus {
       background-color: mat.get-color-from-palette(map-get($elonkit-theme, mono-a), A50);
     }
+
+    &__menu {
+      &__button {
+        background-color: transparent;
+      }
+    }
   }
 }

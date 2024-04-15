@@ -40,44 +40,4 @@
     white-space: nowrap;
     z-index: -1;
   }
-
-  &__link-back {
-    height: 24px;
-    padding: 2px 4px;
-    display: flex;
-    align-items: center;
-    background-color: unset;
-    border-radius: 4px;
-    border-width: 0;
-    cursor: pointer;
-    min-width: fit-content;
-    outline: unset;
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-    transition: 200ms;
-  }
-
-  &__back-icon {
-    display: flex;
-    align-items: baseline;
-    margin-right: 5px;
-  }
-
-  &__menu {
-    min-height: auto !important;
-
-    .mat-menu-content:not(:empty) {
-      padding-bottom: 4px;
-      padding-top: 4px;
-    }
-
-    .mat-menu-item {
-      height: 32px;
-      display: flex;
-      align-items: center;
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-  }
 }

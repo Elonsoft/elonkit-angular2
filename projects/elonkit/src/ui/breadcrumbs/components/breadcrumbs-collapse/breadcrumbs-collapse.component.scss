@@ -19,4 +19,21 @@
     height: 24px;
     display: inline-block;
   }
+
+  &__menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__button {
+      width: 100%;
+      height: 32px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      border: none;
+      background-color: transparent;
+    }
+  }
 }

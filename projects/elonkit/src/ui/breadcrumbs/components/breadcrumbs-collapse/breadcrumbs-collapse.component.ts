@@ -37,4 +37,14 @@ export class ESBreadcrumbsCollapseComponent {
   ) {
     this.locale$ = this.localeService.locale();
   }
+
+  /**
+   * @internal
+   * @ignore
+   */
+  public onAction(breadcrumb: ESBreadcrumb) {
+    if (breadcrumb.callback) {
+      breadcrumb.callback();
+    }
+  }
 }
