@@ -9,6 +9,7 @@ export interface ESDropzoneFile {
 
 export interface ESDropzoneDefaultOptions {
   accept?: string;
+  matIcon?: string;
   svgIcon?: string;
   maxSize?: number;
   type?: 'base64' | 'binary';
@@ -18,5 +19,10 @@ export interface ESDropzoneDefaultOptions {
 
 export interface ESDropzoneValidationError {
   fileName: string;
-  error: 'FILE_TYPE' | 'FILE_SIZE';
+  error: validationError;
+}
+
+interface validationError {
+  FILE_TYPE?: boolean;
+  FILE_SIZE?: boolean;
 }

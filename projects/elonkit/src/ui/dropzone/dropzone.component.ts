@@ -85,6 +85,18 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
   private _accept: string;
 
   /**
+   * Material icon to render with `chooseText`.
+   */
+  @Input()
+  public get matIcon(): string | undefined {
+    return this._matIcon;
+  }
+  public set matIcon(value: string | undefined) {
+    this._matIcon = value || this.defaultOptions?.matIcon;
+  }
+  private _matIcon: string | undefined;
+
+  /**
    * Custom svg icon to render with `chooseText`.
    */
   @Input()
@@ -318,7 +330,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
     if (file && !validateFileType(file, this.accept)) {
       this.errors.push({
         fileName: file.name,
-        error: 'FILE_TYPE',
+        error: { FILE_TYPE: true },
       });
       return false;
     }
@@ -336,7 +348,7 @@ export class ESDropzoneComponent implements ControlValueAccessor, DoCheck {
     if (file && this.maxSizeInBytes && this.maxSize && file.size > this.maxSizeInBytes) {
       this.errors.push({
         fileName: file.name,
-        error: 'FILE_SIZE',
+        error: { FILE_SIZE: true },
       });
       return false;
     }
