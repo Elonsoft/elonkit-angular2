@@ -1,0 +1,37 @@
+@mixin es-spinner-theme($theme, $elonkit-theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $info: map-get($elonkit-theme, info);
+  $positive: map-get($elonkit-theme, positive);
+  $attention: map-get($elonkit-theme, attention);
+  $mono-a: map-get($elonkit-theme, mono-a);
+
+  .primary {
+    color: mat.get-color-from-palette($primary, 300);
+  }
+
+  .accent {
+    color: mat.get-color-from-palette($accent, 300);
+  }
+
+  .warn {
+    color: mat.get-color-from-palette($warn, 300);
+  }
+
+  .info {
+    color: mat.get-color-from-palette($info, 300);
+  }
+
+  .positive {
+    color: mat.get-color-from-palette($positive, 300);
+  }
+
+  .attention {
+    color: mat.get-color-from-palette($attention, 300);
+  }
+
+  .mono {
+    color: mat.get-color-from-palette($mono-a, 300);
+  }
+}
