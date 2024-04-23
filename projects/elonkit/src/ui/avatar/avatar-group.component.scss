@@ -1,4 +1,4 @@
-.es-avatar-group {
+.es-avatar-group--normal {
   display: flex;
 
   es-avatar {
@@ -18,14 +18,48 @@
 
       &:not(:last-of-type) {
         mask: radial-gradient(
-          circle at calc((var(--size) * 0.75) + ((var(--size) / 2) + 2px)),
+          circle at calc((var(--size) * 0.75) + (var(--size) / 2) + (var(--spacing) - var(--cutout)) + 3px),
           transparent calc((var(--size) / 2) + 2px),
           #fff 0
         );
       }
 
       &:not(:first-of-type) {
-        margin-left: calc((var(--size) * -0.25) + 2.2px);
+        margin-left: calc((var(--size) * -0.25) + var(--spacing));
+      }
+
+      .es-avatar {
+        border: unset !important;
+      }
+    }
+  }
+}
+
+.es-avatar-group--reversed {
+  display: flex;
+
+  es-avatar {
+    border-radius: 50%;
+
+    &:last-child {
+      z-index: 1;
+    }
+
+    &:not(:first-child) {
+      margin-left: -12px;
+    }
+
+    /* change the white border to mask only if it's supported: */
+    @supports (mask: radial-gradient(transparent 12px, black 0)) {
+      /* stylelint-disable-next-line */
+
+      &:not(:first-of-type) {
+        mask: radial-gradient(
+          circle at calc((var(--size) / 2) - (var(--size) * 0.75) - (var(--spacing) - var(--cutout)) - 3px),
+          transparent calc((var(--size) / 2) + 2px),
+          #fff 0
+        );
+        margin-left: calc((var(--size) * -0.25) + var(--spacing));
       }
 
       .es-avatar {

@@ -29,6 +29,9 @@ export class ESAvatarComponent {
   public set size(value: number | undefined) {
     this._size = coerceNumberProperty(value, 40);
   }
+  /**
+   * @ignore
+   */
   private _size: number;
 
   /**
@@ -41,6 +44,9 @@ export class ESAvatarComponent {
   public set typography(value: string | undefined) {
     this._typography = value || 'es-subtitle-2';
   }
+  /**
+   * @ignore
+   */
   private _typography: string;
 
   /**
@@ -63,6 +69,9 @@ export class ESAvatarComponent {
   public set variant(value: ESAvatarVariant | undefined) {
     this._variant = value || this.avatarVariant.Round;
   }
+  /**
+   * @ignore
+   */
   private _variant: ESAvatarVariant;
 
   /**
