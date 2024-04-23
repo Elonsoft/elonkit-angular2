@@ -10,11 +10,15 @@ import {
   AfterContentInit,
   Renderer2,
   OnDestroy,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 
 import { ESAvatarComponent } from './avatar.component';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ESAvatarVariant } from './avatar.types';
+import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'es-avatar-group',
@@ -23,13 +27,68 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESAvatarGroupComponent implements OnInit, AfterContentInit, OnDestroy {
+export class ESAvatarGroupComponent implements AfterContentInit, OnDestroy, OnChanges {
   @ContentChildren(ESAvatarComponent, { read: ElementRef }) private avatars: QueryList<ElementRef>;
+
   /**
    * Defines size of the avatar in pixels.
    */
   @Input()
-  public size: number;
+  public get size(): number {
+    return this._size;
+  }
+  public set size(value: number | undefined) {
+    this._size = coerceNumberProperty(value, 40);
+  }
+  /**
+   * @ignore
+   */
+  private _size: number;
+
+  /**
+   * Defines space beetween avatars.
+   */
+  @Input()
+  public get spacing(): number {
+    return this._spacing;
+  }
+  public set spacing(value: number | undefined) {
+    this._spacing = coerceNumberProperty(value, 0);
+  }
+  /**
+   * @ignore
+   */
+  private _spacing: number;
+
+  /**
+   * Defines space around avatar avatars.
+   */
+  @Input()
+  public get cutoutWidth(): number {
+    return this._cutoutWidth;
+  }
+  public set cutoutWidth(value: number) {
+    this._cutoutWidth = coerceNumberProperty(value, 0);
+  }
+  /**
+   * @ignore
+   */
+  public _cutoutWidth: number;
+
+  /**
+   * Reverses avatars stacking.
+   */
+  @Input()
+  public get reverse(): boolean {
+    return this._reverse;
+  }
+  public set reverse(value: boolean | undefined) {
+    this._reverse = coerceBooleanProperty(value);
+  }
+  /**
+   * @ignore
+   */
+  private _reverse = false;
 
   private destroyed$ = new Subject<void>();
 
@@ -44,9 +103,13 @@ export class ESAvatarGroupComponent implements OnInit, AfterContentInit, OnDestr
   /**
    * @ignore
    */
-  public ngOnInit() {
-    console.log(this.size);
+  public ngOnChanges(changes: SimpleChanges): void {
     this._elementRef.nativeElement.style.setProperty('--size', `${this.size + `px`}`);
+    this._elementRef.nativeElement.style.setProperty('--spacing', `${this.spacing + `px`}`);
+    this._elementRef.nativeElement.style.setProperty('--cutout', `${this.cutoutWidth + `px`}`);
+    if (this.avatars) {
+      this.setAvatarsIndex(this.avatars);
+    }
   }
 
   /**
@@ -61,8 +124,12 @@ export class ESAvatarGroupComponent implements OnInit, AfterContentInit, OnDestr
     });
   }
 
+  /**
+   * @ignore
+   */
   private setAvatarsIndex = (avatars: any[] | QueryList<ElementRef<any>>): void => {
-    avatars.forEach((avatar, index) => {
+    const avatarsArray = this.reverse ? Array.from(avatars).reverse() : Array.from(avatars);
+    avatarsArray.forEach((avatar, index) => {
       this.renderer.setStyle(avatar.nativeElement, 'z-index', index);
     });
   };
