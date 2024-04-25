@@ -14,6 +14,7 @@
 @import '../ui/sorting/sorting.component.theme';
 @import '../ui/sfs/sfs.component.theme';
 @import '../ui/spinner/spinner.component.theme';
+@import '../ui/flag/flag.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -55,4 +56,5 @@
   @include es-sorting-theme($theme, $es-theme);
   @include es-sfs-theme($theme, $es-theme);
   @include es-spinner-theme($theme, $es-theme);
+  @include es-flag-theme($theme, $es-theme);
 }
