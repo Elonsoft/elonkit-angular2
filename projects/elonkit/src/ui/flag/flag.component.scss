@@ -1,0 +1,13 @@
+:host {
+  width: 24px;
+  height: 16px;
+  display: inline-flex;
+}
+
+.es-flag__icon {
+  width: inherit;
+  height: inherit;
+  // outline: rgba(0, 0, 0, 0.04) solid 1px;
+  outline-offset: -1px;
+  border-radius: 2px;
+}
