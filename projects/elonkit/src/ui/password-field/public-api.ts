@@ -1,1 +1,1 @@
-export { ESPasswordFieldComponent } from './pasword-field.component'
+export { ESPasswordFieldComponent } from './pasword-field.component';

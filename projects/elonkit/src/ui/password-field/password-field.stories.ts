@@ -4,13 +4,16 @@ import { ESPasswordFieldComponent } from './index';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormControl, FormGroup } from '@angular/forms';
+import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
 
-const meta: Meta<ESPasswordFieldComponent> = {
-  component: ESPasswordFieldComponent,
+const meta: Meta<DemoWrapperComponent> = {
+  component: DemoWrapperComponent,
   tags: ['autodocs'],
   args: {
-    visible: false
+    visible: false,
+    required: true,
+    disabled: false,
+    placeholder: 'Password',
   },
   argTypes: {
     visible: {
@@ -23,23 +26,23 @@ export default meta;
 
 type Story = StoryObj<ESPasswordFieldComponent>;
 
-// const testGroup = new FormGroup({
-//   password: new FormControl(''),
-// });
-
 export const Primary: Story = {
   name: 'Demo',
   render: (args, context) => ({
     template: `
-    <form [formGroup]="testGroup">
-      <es-password-field formControlName="password" [visible]="visible"></es-password-field>
-    </form>
+    <demo-wrapper
+    [visible]="visible"
+    [disabled]="disabled"
+    [required]="required"
+    [placeholder]="placeholder"
+    >
+    </demo-wrapper>
     `,
     props: {
       ...args,
     },
     moduleMetadata: {
-      imports: [ESPasswordFieldComponent, HttpClientModule, CoreModule, BrowserAnimationsModule],
+      imports: [DemoWrapperModule, HttpClientModule, CoreModule, BrowserAnimationsModule],
     },
   }),
 };
