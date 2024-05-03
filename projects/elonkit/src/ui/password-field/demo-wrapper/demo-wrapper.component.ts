@@ -1,19 +1,22 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable, debounceTime, map, of } from 'rxjs';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
   template: `
-    <form [formGroup]="testGroup">
-      <es-password-field
-        formControlName="password"
-        [required]="required"
-        [disabled]="disabled"
-        [visible]="visible"
-        [placeholder]="placeholder"></es-password-field>
-    </form>
+
+  <form [formGroup]="testGroup">
+    <es-password-field
+      formControlName="password"
+      [required]="required"
+      [disabled]="disabled"
+      [visible]="visible"
+      [placeholder]="placeholder">
+    </es-password-field>
+  </form>
+
+
 
     <div>Fom data: {{ testGroup.get('password')?.value }}</div>
   `,
@@ -29,7 +32,7 @@ export class DemoWrapperComponent {
 
   constructor() {
     this.testGroup = new FormGroup({
-      password: new FormControl('', []),
+      password: new FormControl('', [Validators.required]),
     });
 
     this.testGroup.valueChanges.subscribe((val) => console.log(val, this.testGroup));

@@ -26,6 +26,7 @@ import { Subject } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [CommonModule, MatInputModule, MatIconModule, MatButtonModule, FormsModule],
+  providers: [{ provide: MatFormFieldControl, useExisting: ESPasswordFieldComponent }]
 })
 export class ESPasswordFieldComponent implements ControlValueAccessor, MatFormFieldControl<string | null> {
   private static nextId = 0;
@@ -83,7 +84,7 @@ export class ESPasswordFieldComponent implements ControlValueAccessor, MatFormFi
   }
   private _disabled = false;
 
-  public get errorState(): boolean {
+  get errorState(): boolean {
     const control = this.ngControl;
 
     const touched = !!this.ngControl?.touched;
@@ -138,9 +139,9 @@ export class ESPasswordFieldComponent implements ControlValueAccessor, MatFormFi
     this.onTouch = fn;
   }
 
-  public onInput(event: any): void {
-    this.value = event.target.value;
-    this.onChange(event.target.value);
+  public onInput(event: Event): void {
+    this.value = (event.target as HTMLInputElement).value;
+    this.onChange(this.value);
     this.onTouch();
   }
 }
