@@ -15,6 +15,7 @@
 @import '../ui/sfs/sfs.component.theme';
 @import '../ui/spinner/spinner.component.theme';
 @import '../ui/flag/flag.component.theme';
+@import '../ui/error-page/error-page.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -57,4 +58,5 @@
   @include es-sfs-theme($theme, $es-theme);
   @include es-spinner-theme($theme, $es-theme);
   @include es-flag-theme($theme, $es-theme);
+  @include es-error-page-theme($theme, $es-theme);
 }

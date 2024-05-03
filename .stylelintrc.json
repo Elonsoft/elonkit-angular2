@@ -4,6 +4,7 @@
   "rules": {
     "selector-class-pattern": null,
     "scss/dollar-variable-empty-line-before": null,
+    "selector-pseudo-element-no-unknown": null,
     "scss/no-global-function-names": null,
     "no-descending-specificity": null,
     "block-no-empty": null,

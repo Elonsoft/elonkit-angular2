@@ -1,0 +1,6 @@
+@mixin es-error-page-status-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+  es-error-page-status {
+    color: mat.get-color-from-palette($mono-a, A900);
+  }
+}

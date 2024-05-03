@@ -1,0 +1,30 @@
+:host {
+  padding: 16px 32px 24px;
+  display: grid;
+  background-size: contain;
+  background-position: center right;
+  background-repeat: no-repeat;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  grid-template-areas:
+    'logo'
+    'status'
+    'heading'
+    'description'
+    'actions'
+    'footer';
+  grid-template-rows: 1fr auto auto auto auto auto;
+
+  @media (min-width: 640px) {
+    // Tablet XS
+    grid-template-rows: 1fr auto auto auto auto 1fr;
+  }
+  @media (min-width: 1280px) {
+    // Desktop XS
+    padding: 56px 160px 40px;
+  }
+  @media (max-width: 1279px) {
+    // Desctop XS
+    background-image: none !important;
+  }
+}
