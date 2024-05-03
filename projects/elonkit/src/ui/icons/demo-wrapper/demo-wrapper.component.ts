@@ -37,6 +37,7 @@ export class DemoWrapperComponent {
     { names: ES_SVG_ICONS['es-24'], key: 'es-24' },
     { names: ES_SVG_ICONS['es-48'], key: 'es-48' },
     { names: ES_SVG_ICONS['es-other'], key: 'es-other' },
+    { names: ES_SVG_ICONS['es-error-page'], key: 'es-error-page' },
   ];
 
   constructor() {}

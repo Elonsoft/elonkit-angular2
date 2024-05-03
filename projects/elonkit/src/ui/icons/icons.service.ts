@@ -598,6 +598,7 @@ export const ES_SVG_ICONS: { [key: string]: any } = {
     'ZMB',
     'ZWE',
   ] as const,
+  'es-error-page': ['error-400', 'error-403', 'error-404', 'error-500'] as const,
 };
 
 @Injectable()

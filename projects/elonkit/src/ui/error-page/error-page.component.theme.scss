@@ -1,0 +1,16 @@
+@import './error-page-status/error-page-status.component.theme';
+@import './error-page-heading/error-page-heading.component.theme';
+@import './error-page-description/error-page-description.component.theme';
+@import './error-page-footer/error-page-footer.component.theme';
+
+@mixin es-error-page-theme($theme, $elonkit-theme) {
+  @include es-error-page-status-theme($theme, $elonkit-theme);
+  @include es-error-page-heading-theme($theme, $elonkit-theme);
+  @include es-error-page-description-theme($theme, $elonkit-theme);
+  @include es-error-page-footer($theme, $elonkit-theme);
+
+  $es-surface: map-get($elonkit-theme, surface);
+  es-error-page {
+    background-color: mat.get-color-from-palette($es-surface, 50);
+  }
+}
