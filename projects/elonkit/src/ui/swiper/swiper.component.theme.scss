@@ -1,0 +1,10 @@
+@import './swiper-pagination/swiper-pagination.component.theme';
+@mixin es-swiper-theme($theme, $elonkit-theme) {
+  @include es-swiper-pagination-theme($theme, $elonkit-theme);
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $black: map-get($elonkit-theme, black);
+
+  .swiper__button {
+    background-color: mat.get-color-from-palette($black, A600);
+  }
+}
