@@ -1,3 +1,3 @@
+export { ES_DROPZONE_DEFAULT_OPTIONS, ESDropzoneComponent } from './dropzone.component';
 export { ESDropzoneModule } from './dropzone.module';
-export { ESDropzoneComponent, ES_DROPZONE_DEFAULT_OPTIONS } from './dropzone.component';
-export { ESDropzoneFile, ESDropzoneDefaultOptions, ESDropzoneValidationError } from './dropzones.types';
+export { ESDropzoneDefaultOptions, ESDropzoneFile, ESDropzoneValidationError } from './dropzones.types';

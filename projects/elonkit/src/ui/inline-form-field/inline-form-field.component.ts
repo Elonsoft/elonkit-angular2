@@ -1,24 +1,22 @@
 import {
-  Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  Input,
-  Output,
-  EventEmitter,
+  Component,
   ContentChild,
-  InjectionToken,
-  Optional,
+  EventEmitter,
   Inject,
+  InjectionToken,
+  Input,
+  Optional,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
-
 import { FormControl, FormControlName, NgModel } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormField } from '@angular/material/form-field';
 
-import { Observable } from 'rxjs';
-
-import { ESLocaleService, ESLocale } from '../locale';
+import { ESLocale, ESLocaleService } from '../locale';
 
 export interface ESInlineFormFieldDefaultOptions {
   typography?: string;

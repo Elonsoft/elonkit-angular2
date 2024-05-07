@@ -1,10 +1,11 @@
 import { inject } from '@angular/core/testing';
+
 import { OverlayContainer } from '@angular/cdk/overlay';
 
-import { fireEvent, getByText, render, screen } from '@testing-library/angular';
-
-import { ESPaginatorComponent, ESPaginatorModule } from '..';
 import { en, ESLocaleService, ru } from '../../locale';
+import { ESPaginatorComponent, ESPaginatorModule } from '..';
+
+import { fireEvent, getByText, render, screen } from '@testing-library/angular';
 
 describe('Paginator', () => {
   it('Should calculate corrent number of pages', async () => {

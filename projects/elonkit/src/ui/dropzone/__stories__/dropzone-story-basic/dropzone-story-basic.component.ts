@@ -1,8 +1,8 @@
-import { Component, ChangeDetectionStrategy, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 import { ESDropzoneFile } from '../../dropzones.types';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'es-dropzone-basic',

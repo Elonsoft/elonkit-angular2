@@ -1,5 +1,6 @@
 import { ESActionHeadingComponent } from '../action-heading.component';
 import { ESActionHeadingModule } from '../action-heading.module';
+
 import { render } from '@testing-library/angular';
 
 describe('ActionHeading', () => {

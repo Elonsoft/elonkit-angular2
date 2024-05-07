@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+
 import { MatIconRegistry } from '@angular/material/icon';
 
 @Component({

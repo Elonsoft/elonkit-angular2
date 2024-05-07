@@ -1,14 +1,16 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
-import { MatIconTestingModule } from '@angular/material/icon/testing';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { firstValueFrom } from 'rxjs';
 
-import { ESDropzoneModule } from '../dropzone.module';
 import { ESDropzoneValidationError } from '../dropzones.types';
 
-import { firstValueFrom } from 'rxjs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconTestingModule } from '@angular/material/icon/testing';
+
+import { ESDropzoneModule } from '../dropzone.module';
+
+import { fireEvent, render, screen, waitFor } from '@testing-library/angular';
 
 const TEXT_HEADING = 'CHOOSE FILES';
 const TEXT_SUBHEADING = 'This is an example of a description';

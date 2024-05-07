@@ -1,20 +1,20 @@
 import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-  ElementRef,
-  ViewEncapsulation,
-  OnInit,
-  ContentChildren,
-  QueryList,
   AfterContentInit,
-  Renderer2,
+  ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
+  ElementRef,
+  Input,
   OnDestroy,
+  OnInit,
+  QueryList,
+  Renderer2,
+  ViewEncapsulation,
 } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { ESAvatarComponent } from './avatar.component';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'es-avatar-group',

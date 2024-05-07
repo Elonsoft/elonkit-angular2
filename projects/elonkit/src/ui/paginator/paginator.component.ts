@@ -1,20 +1,19 @@
 import {
-  Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  Input,
-  Output,
+  Component,
   EventEmitter,
-  InjectionToken,
-  Optional,
-  Inject,
   HostListener,
+  Inject,
+  InjectionToken,
+  Input,
+  Optional,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
-
 import { Observable } from 'rxjs';
 
-import { ESLocaleService, ESLocale } from '../locale';
+import { ESLocale, ESLocaleService } from '../locale';
 
 function range(start: number, end: number) {
   const length = end - start + 1;

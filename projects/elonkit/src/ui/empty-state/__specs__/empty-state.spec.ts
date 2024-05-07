@@ -1,7 +1,8 @@
-import { render } from '@testing-library/angular';
 import { MatIconTestingModule } from '@angular/material/icon/testing';
 
-import { ESEmptyStateModule, ESEmptyStateComponent, ESEmptyStateIcon } from '..';
+import { ESEmptyStateComponent, ESEmptyStateIcon, ESEmptyStateModule } from '..';
+
+import { render } from '@testing-library/angular';
 
 const TEXT_HEADING = 'HEADING';
 const TEXT_SUBHEADING = 'SUBHEADING';

@@ -1,12 +1,12 @@
 import {
-  Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  Input,
-  InjectionToken,
-  Optional,
+  Component,
   Inject,
+  InjectionToken,
+  Input,
+  Optional,
+  ViewEncapsulation,
 } from '@angular/core';
 
 import { ESEmptyStateIcon } from './empty-state.types';

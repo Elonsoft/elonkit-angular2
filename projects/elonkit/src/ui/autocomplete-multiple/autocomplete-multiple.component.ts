@@ -1,41 +1,40 @@
 import {
-  Component,
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  OnInit,
-  OnDestroy,
-  Input,
-  ViewChild,
-  HostBinding,
-  Optional,
-  Self,
-  Host,
+  Component,
   ElementRef,
-  AfterViewInit,
-  Renderer2,
+  Host,
+  HostBinding,
   Inject,
   InjectionToken,
+  Input,
+  OnDestroy,
+  OnInit,
+  Optional,
+  Renderer2,
+  Self,
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, FormGroup, FormGroupDirective, NgControl } from '@angular/forms';
-
-import { FocusMonitor } from '@angular/cdk/a11y';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { CdkOverlayOrigin } from '@angular/cdk/overlay';
+import { BehaviorSubject, combineLatest, Observable, of, Subject } from 'rxjs';
+import { catchError, debounceTime, filter, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 import { MatButton } from '@angular/material/button';
 import { MatChipListbox } from '@angular/material/chips';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 import { MatSelectionList, MatSelectionListChange } from '@angular/material/list';
 
-import { Observable, Subject, combineLatest, of, BehaviorSubject } from 'rxjs';
-import { catchError, debounceTime, filter, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-
-import { resizeObserver } from '../../utils/resize-observer';
-import { ESLocale, ESLocaleService } from '../locale';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 
 import { ES_AUTOCOMPLETE_ANIMATIONS } from './autocomplete-multiple.animations';
 import { ESAutocompleteMultipleSearchScope } from '.';
+
+import { resizeObserver } from '../../utils/resize-observer';
+import { ESLocale, ESLocaleService } from '../locale';
 
 export interface ESAutocompleteMultipleDefaultOptionsSizes {
   chipLeftMargin: number;

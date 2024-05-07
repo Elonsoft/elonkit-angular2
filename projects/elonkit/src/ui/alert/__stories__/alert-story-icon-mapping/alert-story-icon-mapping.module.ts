@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 
 import { AlertStoryIconMappingComponent } from './alert-story-icon-mapping.component';
 
-import { ESAlertModule, ES_ALERT_DEFAULT_OPTIONS } from '../..';
+import { ES_ALERT_DEFAULT_OPTIONS, ESAlertModule } from '../..';
 
 @NgModule({
   declarations: [AlertStoryIconMappingComponent],

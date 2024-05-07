@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { of } from 'rxjs';
 
 const CATEGORIES = [
