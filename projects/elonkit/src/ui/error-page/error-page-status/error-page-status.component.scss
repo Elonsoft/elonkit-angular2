@@ -1,0 +1,14 @@
+:host {
+  grid-area: status;
+  height: 64px;
+
+  @media (min-width: 640px) {
+    // Tablet XS
+    height: 78px;
+  }
+}
+
+:host ::ng-deep .mat-icon {
+  width: inherit;
+  height: inherit;
+}

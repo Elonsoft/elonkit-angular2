@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/elonkit",
       "sourceRoot": "projects/elonkit/src",
-      "prefix": "lib",
+      "prefix": "es",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
