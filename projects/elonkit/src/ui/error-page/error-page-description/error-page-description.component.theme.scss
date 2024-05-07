@@ -1,6 +1,6 @@
 @mixin es-error-page-description-theme($theme, $elonkit-theme) {
   $mono-a: map-get($elonkit-theme, mono-a);
-  es-error-page-description {
+  .es-error-page-description {
     color: mat.get-color-from-palette($mono-a, A550);
   }
 }
