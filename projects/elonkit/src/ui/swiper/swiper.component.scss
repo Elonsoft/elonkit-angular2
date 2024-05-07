@@ -1,0 +1,100 @@
+.swiper {
+  &__root {
+    display: flex;
+    position: relative;
+
+    .swiper__wrapper {
+      position: relative;
+
+      .swiper__button {
+        position: absolute;
+        width: 40px !important;
+        height: 40px !important;
+        padding: 6px !important;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        border-radius: 4px;
+        .mat-mdc-button-touch-target {
+          width: inherit;
+          height: inherit;
+        }
+        .mdc-icon-button__ripple {
+          border-radius: 4px;
+        }
+      }
+
+      .swiper__container {
+        height: 100%;
+        display: grid;
+        justify-content: flex-start;
+        -ms-overflow-style: none;
+        -webkit-box-pack: start;
+        overflow: scroll;
+        outline: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        & > * {
+          object-fit: cover;
+          border-radius: 8px;
+
+          &:first-child {
+            scroll-snap-align: start;
+          }
+          &:last-child {
+            scroll-snap-align: end;
+          }
+        }
+      }
+    }
+  }
+}
+
+.swiper__buttons_vertical {
+  .swiper__button {
+    right: 50%;
+    transform: translateX(50%) rotate(90deg);
+    &_prev {
+      top: 16px;
+    }
+    &_next {
+      bottom: 16px;
+    }
+  }
+}
+
+.swiper__buttons_horizontal {
+  .swiper__button {
+    top: 50%;
+    transform: translateY(-50%);
+    &_prev {
+      left: 16px;
+    }
+    &_next {
+      right: 16px;
+    }
+  }
+}
+
+.swiper__container_align-start {
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+.swiper__container_align-center {
+  & > * {
+    scroll-snap-align: center;
+  }
+}
+
+.swiper__container_snap-stop {
+  & > * {
+    scroll-snap-stop: always;
+  }
+}
