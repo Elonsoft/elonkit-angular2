@@ -1,18 +1,17 @@
 import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  ViewEncapsulation,
-  OnDestroy,
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  InjectionToken,
-  Optional,
+  Component,
+  EventEmitter,
   Inject,
-  AfterViewInit,
+  InjectionToken,
+  Input,
+  OnDestroy,
+  Optional,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
-
 import { Observable } from 'rxjs';
 
 import { ESLocale, ESLocaleService } from '../locale';

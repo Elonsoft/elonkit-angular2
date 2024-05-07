@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+
 import { MatIconTestingModule } from '@angular/material/icon/testing';
 
-import { fireEvent, render, screen } from '@testing-library/angular';
-
-import { ESAlertComponent, ESAlertModule, ESAlertVariant } from '..';
 import { en, ESLocaleService, ru } from '../../locale';
+import { ESAlertComponent, ESAlertModule, ESAlertVariant } from '..';
+
+import { fireEvent, render, screen } from '@testing-library/angular';
 
 @Component({
   template: `

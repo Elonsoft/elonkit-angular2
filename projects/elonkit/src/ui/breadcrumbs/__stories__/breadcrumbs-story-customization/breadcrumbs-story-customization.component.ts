@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, ViewEncapsulation, OnInit, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { ES_BREADCRUMBS_DEFAULT_SIZES } from '../..';
 
 @Component({

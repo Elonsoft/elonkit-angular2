@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { fakeAsync, inject, tick } from '@angular/core/testing';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { OverlayContainer } from '@angular/cdk/overlay';
-import { fireEvent, getByLabelText, render, RenderResult, screen } from '@testing-library/angular';
-
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 
-import { ESAutocompleteMultipleModule } from '../autocomplete-multiple.module';
-import { en } from '../../locale';
-import { CoreModule } from '~storybook/core.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconTestingModule } from '@angular/material/icon/testing';
+
+import { OverlayContainer } from '@angular/cdk/overlay';
+
+import { en } from '../../locale';
+import { ESAutocompleteMultipleModule } from '../autocomplete-multiple.module';
+
+import { fireEvent, getByLabelText, render, RenderResult, screen } from '@testing-library/angular';
+import { CoreModule } from '~storybook/core.module';
 
 const OPTIONS = [
   { id: 1, name: 'Estonia' },

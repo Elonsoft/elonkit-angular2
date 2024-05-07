@@ -1,10 +1,11 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
-import { fakeAsync, tick, flush, inject } from '@angular/core/testing';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { fakeAsync, flush, inject, tick } from '@angular/core/testing';
+
 import { OverlayContainer } from '@angular/cdk/overlay';
 
-import { render, getByText, queryByText, RenderResult, fireEvent, screen } from '@testing-library/angular';
-
 import { ESTooltipModule } from '..';
+
+import { fireEvent, getByText, queryByText, render, RenderResult, screen } from '@testing-library/angular';
 
 const BUTTON_TEXT = 'Button';
 const BUTTON_ACTION_TEXT = 'Action';

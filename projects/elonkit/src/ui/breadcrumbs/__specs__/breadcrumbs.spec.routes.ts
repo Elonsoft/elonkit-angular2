@@ -1,15 +1,15 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-
-import { ESBreadcrumbsModule, ESBreadcrumbsResolver } from '..';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import {
   CategoriesListResolver,
-  CategoriesShowResolver,
   CategoriesShowBreadcrumbsResolver,
+  CategoriesShowResolver,
   ItemsListResolver,
-  ItemsShowResolver,
   ItemsShowBreadcrumbsResolver,
+  ItemsShowResolver,
 } from './breadcrumbs.spec.resolver';
+
+import { ESBreadcrumbsModule, ESBreadcrumbsResolver } from '..';
 
 @Component({
   selector: 'es-breadcrumbs-spec-root',

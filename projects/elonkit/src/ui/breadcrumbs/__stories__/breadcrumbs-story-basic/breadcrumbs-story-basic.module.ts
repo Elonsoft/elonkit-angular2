@@ -1,28 +1,25 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, APP_BASE_HREF } from '@angular/common';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgModule } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import {
+  BreadcrumbsStoryBasicCategoriesListComponent,
   BreadcrumbsStoryBasicComponent,
   BreadcrumbsStoryBasicHomeComponent,
-  BreadcrumbsStoryBasicCategoriesListComponent,
+  BreadcrumbsStoryBasicItemsEditComponent,
   BreadcrumbsStoryBasicItemsListComponent,
   BreadcrumbsStoryBasicItemsShowComponent,
-  BreadcrumbsStoryBasicItemsEditComponent,
 } from './breadcrumbs-story-basic.component';
-
-import { CategoriesService, ItemsService } from './breadcrumbs-story-basic.service';
-
 import {
   CategoriesListResolver,
-  CategoriesShowResolver,
   CategoriesShowBreadcrumbsResolver,
+  CategoriesShowResolver,
   ItemsListResolver,
-  ItemsShowResolver,
   ItemsShowBreadcrumbsResolver,
+  ItemsShowResolver,
 } from './breadcrumbs-story-basic.resolver';
+import { CategoriesService, ItemsService } from './breadcrumbs-story-basic.service';
 
 import { ESBreadcrumbsModule, ESBreadcrumbsResolver } from '../..';
 

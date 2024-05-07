@@ -1,8 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-
-import { Subject, BehaviorSubject } from 'rxjs';
-import { takeUntil, filter } from 'rxjs/operators';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { filter, takeUntil } from 'rxjs/operators';
 
 import { ESBreadcrumb } from './breadcrumbs.types';
 

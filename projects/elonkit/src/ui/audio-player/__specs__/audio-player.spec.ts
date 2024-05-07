@@ -1,11 +1,14 @@
-import { OverlayContainer } from '@angular/cdk/overlay';
 import { inject } from '@angular/core/testing';
+
 import { MatIconTestingModule } from '@angular/material/icon/testing';
 
-import { fireEvent, getByLabelText, render, RenderResult, screen } from '@testing-library/angular';
+import { OverlayContainer } from '@angular/cdk/overlay';
+
 import { en } from '../../locale';
 import { ESAudioPlayerComponent } from '../audio-player.component';
 import { ESAudioPlayerModule } from '../audio-player.module';
+
+import { fireEvent, getByLabelText, render, RenderResult, screen } from '@testing-library/angular';
 
 const VOLUME = 46;
 

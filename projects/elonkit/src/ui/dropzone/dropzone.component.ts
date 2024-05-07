@@ -1,24 +1,26 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
+  DoCheck,
+  ElementRef,
+  EventEmitter,
+  Inject,
+  InjectionToken,
   Input,
   Optional,
-  ViewChild,
-  ElementRef,
-  ChangeDetectorRef,
-  ViewEncapsulation,
-  InjectionToken,
-  Inject,
-  Self,
   Output,
-  EventEmitter,
-  ChangeDetectionStrategy,
-  DoCheck,
+  Self,
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
+
+import { ESDropzoneDefaultOptions, ESDropzoneFile, ESDropzoneValidationError } from './dropzones.types';
+
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { validateFileType } from '../../utils/validate-file-type';
-import { ESDropzoneFile, ESDropzoneDefaultOptions, ESDropzoneValidationError } from './dropzones.types';
 
 export const ES_DROPZONE_DEFAULT_OPTIONS = new InjectionToken<ESDropzoneDefaultOptions>('ES_DROPZONE_DEFAULT_OPTIONS');
 

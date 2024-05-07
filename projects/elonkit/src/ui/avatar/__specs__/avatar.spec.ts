@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { render } from '@testing-library/angular';
+
+import { ESAvatarVariant } from '../avatar.types';
 
 import { ESAvatarComponent } from '../avatar.component';
 import { ESAvatarModule } from '../avatar.module';
-import { ESAvatarVariant } from '../avatar.types';
+
+import { render } from '@testing-library/angular';
 
 @Component({
   template: `<es-avatar>Message</es-avatar>`,

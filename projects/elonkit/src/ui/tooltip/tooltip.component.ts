@@ -12,31 +12,30 @@
  * found in the LICENSE file
  */
 
+import { AnimationEvent } from '@angular/animations';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  OnDestroy,
-  ViewEncapsulation,
-  HostListener,
   ElementRef,
   HostBinding,
+  HostListener,
+  OnDestroy,
   TemplateRef,
+  ViewEncapsulation,
 } from '@angular/core';
-
 import { DomSanitizer } from '@angular/platform-browser';
-import { AnimationEvent } from '@angular/animations';
-
-import { ESCAPE, hasModifierKey } from '@angular/cdk/keycodes';
-import { FocusMonitor } from '@angular/cdk/a11y';
-import { getNextFocusableElement } from '../../cdk/a11y';
+import { Subject } from 'rxjs';
 
 import { matTooltipAnimations, TooltipVisibility } from '@angular/material/tooltip';
 
-import { Subject } from 'rxjs';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import { ESCAPE, hasModifierKey } from '@angular/cdk/keycodes';
 
 import { ESTooltipDirective } from './tooltip.directive';
 import { ESTooltipService } from './tooltip.service';
+
+import { getNextFocusableElement } from '../../cdk/a11y';
 
 @Component({
   selector: 'es-tooltip-component',

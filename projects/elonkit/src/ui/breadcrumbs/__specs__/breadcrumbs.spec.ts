@@ -1,17 +1,9 @@
-import { fireEvent, render, RenderResult, screen } from '@testing-library/angular';
-
+import { CommonModule, Location } from '@angular/common';
 import { NgZone } from '@angular/core';
 import { inject } from '@angular/core/testing';
-
-import { CommonModule, Location } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { OverlayContainer } from '@angular/cdk/overlay';
-
-import { ESBreadcrumbsModule } from '..';
-import { en, ESLocaleService, ru } from '../../locale';
-
-import { BreadcrumbsLeafComponent, BreadcrumbsRootComponent, ROUTES } from './breadcrumbs.spec.routes';
-import { CategoriesService, ItemsService } from './breadcrumbs.spec.service';
 
 import {
   CategoriesListResolver,
@@ -21,6 +13,13 @@ import {
   ItemsShowBreadcrumbsResolver,
   ItemsShowResolver,
 } from './breadcrumbs.spec.resolver';
+import { BreadcrumbsLeafComponent, BreadcrumbsRootComponent, ROUTES } from './breadcrumbs.spec.routes';
+import { CategoriesService, ItemsService } from './breadcrumbs.spec.service';
+
+import { en, ESLocaleService, ru } from '../../locale';
+import { ESBreadcrumbsModule } from '..';
+
+import { fireEvent, render, RenderResult, screen } from '@testing-library/angular';
 
 const setWidth = (component: RenderResult<BreadcrumbsRootComponent, BreadcrumbsRootComponent>, width: number) => {
   Object.defineProperty((component.fixture.nativeElement as HTMLElement).querySelector('.es-breadcrumbs'), 'clientWidth', {

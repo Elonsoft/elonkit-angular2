@@ -1,31 +1,29 @@
-import { NgModule } from '@angular/core';
-import { CommonModule, APP_BASE_HREF } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+
+import { MatIconModule } from '@angular/material/icon';
 
 import { BreadcrumbsStoryCustomizationComponent } from './breadcrumbs-story-customization.component';
 
+import { ESBreadcrumbsModule, ESBreadcrumbsResolver } from '../..';
 import {
-  BreadcrumbsStoryBasicHomeComponent,
   BreadcrumbsStoryBasicCategoriesListComponent,
+  BreadcrumbsStoryBasicHomeComponent,
+  BreadcrumbsStoryBasicItemsEditComponent,
   BreadcrumbsStoryBasicItemsListComponent,
   BreadcrumbsStoryBasicItemsShowComponent,
-  BreadcrumbsStoryBasicItemsEditComponent,
 } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.component';
-
-import { CategoriesService, ItemsService } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.service';
-
 import {
   CategoriesListResolver,
-  CategoriesShowResolver,
   CategoriesShowBreadcrumbsResolver,
+  CategoriesShowResolver,
   ItemsListResolver,
-  ItemsShowResolver,
   ItemsShowBreadcrumbsResolver,
+  ItemsShowResolver,
 } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.resolver';
-
-import { ESBreadcrumbsModule, ESBreadcrumbsResolver } from '../..';
+import { CategoriesService, ItemsService } from '../breadcrumbs-story-basic/breadcrumbs-story-basic.service';
 
 const ROUTES = [
   {

@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { fireEvent, render, screen } from '@testing-library/angular';
-
-import { ESTimepickerComponent, ESTimepickerModule } from '..';
 import { ESLocaleService, ru } from '../../locale';
+import { ESTimepickerComponent, ESTimepickerModule } from '..';
+
+import { fireEvent, render, screen } from '@testing-library/angular';
 
 @Component({
   template: ` <es-timepicker [(ngModel)]="date" [required]="required"></es-timepicker> `,
