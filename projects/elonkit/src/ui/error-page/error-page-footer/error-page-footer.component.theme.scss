@@ -1,6 +1,6 @@
 @mixin es-error-page-footer($theme, $elonkit-theme) {
   $mono-a: map-get($elonkit-theme, mono-a);
-  es-error-page-footer {
+  .es-error-page-footer {
     color: mat.get-color-from-palette($mono-a, A500);
   }
 }
