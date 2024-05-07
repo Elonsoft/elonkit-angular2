@@ -1,0 +1,25 @@
+@mixin es-swiper-pagination-theme($theme, $elonkit-theme) {
+  $accent: map-get($theme, accent);
+  .swiper {
+    &__pagination {
+      &__item {
+        &__input:focus-visible + &__bullet {
+          box-shadow: 0 0 0 7px mat.get-color-from-palette($accent, A500);
+        }
+
+        &__bullet {
+          background-color: mat.get-color-from-palette($accent, A400);
+          &:hover:not(.bullet-active) {
+            @media (hover: hover) {
+              background-color: mat.get-color-from-palette($accent, A600);
+            }
+          }
+        }
+
+        &__bullet_active {
+          background-color: mat.get-color-from-palette($accent, 300);
+        }
+      }
+    }
+  }
+}

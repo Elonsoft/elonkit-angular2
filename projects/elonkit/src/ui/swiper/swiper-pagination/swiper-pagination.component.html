@@ -1,0 +1,63 @@
+<div
+  class="swiper__pagination"
+  [ngClass]="{
+    'swiper__pagination_horizontal-start': direction === 'horizontal' && swiperPaginationPosition === 'start',
+    'swiper__pagination_horizontal-end': direction === 'horizontal' && swiperPaginationPosition === 'end',
+    'swiper__pagination_vertical-start': direction === 'vertical' && swiperPaginationPosition === 'start',
+    'swiper__pagination_vertical-end': direction === 'vertical' && swiperPaginationPosition === 'end'
+  }"
+  [ngStyle]="{
+    height: direction === 'horizontal' ? (swiperPaginationVariant === 'big' ? '24px' : '') : '',
+    width: direction === 'horizontal' ? (swiperPaginationVariant === 'big' ? '' : '') : '24px'
+  }">
+  <label
+    *ngFor="let bullet of getBullets()"
+    [attr.aria-label]="bullet.toString()"
+    [ngStyle]="{ 'transition-duration': swiperPaginationTransitionDuration + 'ms' }"
+    [ngClass]="{ swiper__pagination__item_hidden: bullet < siblingFrom || bullet > siblingTo }"
+    class="swiper__pagination__item">
+    <input
+      type="radio"
+      class="swiper__pagination__item__input"
+      [checked]="bullet === active"
+      (change)="_onBulletChange(bullet)" />
+    <div
+      class="swiper__pagination__item__bullet"
+      [ngClass]="{
+        swiper__pagination__item__bullet_active: bullet === active,
+        swiper__pagination__item__bullet_small:
+          (bullet === siblingFrom && siblingFrom > from) || (bullet === siblingTo && siblingTo < to)
+      }"
+      [ngStyle]="{
+        width:
+          direction === 'horizontal'
+            ? bullet === active
+              ? swiperPaginationVariant === 'long'
+                ? '16px'
+                : swiperPaginationVariant === 'big'
+                  ? '12px'
+                  : ''
+              : ''
+            : bullet === active
+              ? swiperPaginationVariant === 'big'
+                ? '12px'
+                : ''
+              : '',
+        height:
+          direction === 'horizontal'
+            ? bullet === active
+              ? swiperPaginationVariant === 'big'
+                ? '12px'
+                : ''
+              : ''
+            : bullet === active
+              ? swiperPaginationVariant === 'long'
+                ? '16px'
+                : swiperPaginationVariant === 'big'
+                  ? '12px'
+                  : ''
+              : '',
+        'transition-duration': swiperPaginationTransitionDuration + 'ms'
+      }"></div>
+  </label>
+</div>
