@@ -153,7 +153,7 @@ export class ESTooltipComponent implements OnDestroy {
   /**
    * @internal
    * @ignore
-   * The arrow postition.
+   * The arrow positition.
    */
   public arrow: { position: string; offsetX?: number; offsetY?: number } | null = null;
 

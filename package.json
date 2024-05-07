@@ -14,7 +14,8 @@
     "prettier:write": "prettier --write .",
     "lint": "ng lint",
     "lint:stylelint": "npx stylelint \"**/*.scss\"",
-    "lint:stylelint-fix": "npx stylelint \"**/*.scss\" --fix"
+    "lint:stylelint-fix": "npx stylelint \"**/*.scss\" --fix",
+    "cspell": "npx cspell ."
   },
   "private": true,
   "dependencies": {
@@ -47,6 +48,7 @@
     "@angular/cli": "^16.2.11",
     "@angular/compiler-cli": "^16.2.0",
     "@compodoc/compodoc": "^1.1.23",
+    "@cspell/dict-ru_ru": "^2.2.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.6",
@@ -68,6 +70,7 @@
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "copy-webpack-plugin": "^12.0.2",
+    "cspell": "^8.8.0",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
