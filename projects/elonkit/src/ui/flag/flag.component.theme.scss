@@ -1,0 +1,6 @@
+@mixin es-flag-theme($theme, $elonkit-theme) {
+  $black: map-get($elonkit-theme, black);
+  .es-flag__icon {
+    outline: mat.get-color-from-palette($black, A50) solid 1px;
+  }
+}
