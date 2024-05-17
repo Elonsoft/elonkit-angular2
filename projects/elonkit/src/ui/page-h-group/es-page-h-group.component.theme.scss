@@ -1,0 +1,13 @@
+@import './es-page-h-group-heading/es-page-h-group-heading.component.theme';
+@import './es-page-h-group-status/es-page-h-group-status.component.theme';
+@mixin es-page-h-group-theme($theme, $elonkit-theme) {
+  @include es-page-h-group-heading-theme($theme, $elonkit-theme);
+  @include es-page-h-group-status-theme($theme, $elonkit-theme);
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $mono-b: map-get($elonkit-theme, mono-b);
+  $primary: map-get($theme, primary);
+
+  .es-page-h-group {
+    color: mat.get-color-from-palette($mono-a, A900);
+  }
+}

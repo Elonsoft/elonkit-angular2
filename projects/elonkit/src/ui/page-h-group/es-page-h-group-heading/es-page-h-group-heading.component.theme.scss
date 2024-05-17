@@ -1,0 +1,7 @@
+@mixin es-page-h-group-heading-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+
+  .es-page-h-group-heading {
+    color: mat.get-color-from-palette($mono-a, A900);
+  }
+}

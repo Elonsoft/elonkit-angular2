@@ -1,0 +1,99 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Canvas } from '~storybook/components';
+
+import { action } from '@storybook/addon-actions';
+import { MatButtonModule, MatButton } from '@angular/material/button';
+
+import {
+  ESPageHGroupModule,
+  ESPageHGroupComponent,
+  ESPageHGroupBreadcrumbsComponent,
+  ESPageHGroupMainComponent,
+  ESPageHGroupHeadingComponent,
+  ESPageHGroupActions,
+  ESPageHGroupStatusComponent,
+} from '..';
+
+import { PAGE_H_GROUP_STORY_BASIC_SOURCE } from './page-h-group-story-basic';
+
+<Meta
+  component={ESPageHGroupComponent}
+  title="UI/PageHGroup"
+  args={{
+    text: '',
+    maxLines: 1,
+    color: 'primary',
+    typography: 'es-h2',
+  }}
+  argTypes={{
+    color: {
+      control: 'select',
+      options: ['null', 'primary', 'warn', 'accent'],
+    },
+    typography: {
+      control: 'select',
+      options: ['es-h1', 'es-h2', 'es-h3', 'es-h4', 'es-h5'],
+    },
+  }}
+/>
+
+# PageHGroup
+
+The PageHGroup component.
+
+## Demos
+
+export const getText = (args, context) => {
+  return args.text || (context.globals.locale === 'en' ? 'Title' : 'Заголовок');
+};
+
+<Canvas source={PAGE_H_GROUP_STORY_BASIC_SOURCE}>
+  <Story name="Basic">
+    {((args, context) => ({
+      template: `
+        <es-page-h-group>
+          <es-page-h-group-breadcrumbs>You / Can / Put / Here / Breadcrumbs</es-page-h-group-breadcrumbs>
+          <es-page-h-group-main>
+            <es-page-h-group-heading [typography]="typography" [maxLines]="maxLines">{{ text }}</es-page-h-group-heading>
+            <es-page-h-group-actions>
+              <button mat-raised-button [color]="color">Remove</button>
+              <button mat-raised-button [color]="color">Save</button>
+              <button mat-raised-button [color]="color">Else</button>
+            </es-page-h-group-actions>
+          </es-page-h-group-main>
+          <es-page-h-group-status>Status: online</es-page-h-group-status>
+        </es-page-h-group>
+      `,
+      moduleMetadata: {
+        imports: [ESPageHGroupModule, MatButtonModule],
+      },
+      props: {
+        ...args,
+        text: getText(args, context),
+      },
+    })).bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ESPageHGroupComponent} />
+
+## Constants
+
+Injection token that can be used to configure the default options for all components within an app.
+
+```ts
+import { ES_HEADER_DEFAULT_OPTIONS } from '@elonkit/angular/ui/PageHGroup';
+@NgModule({
+  providers: [
+    {
+      provide: ES_HEADER_DEFAULT_OPTIONS,
+      useValue: {
+        typography: 'es-h4';
+        maxLines: 1;
+      }
+    }
+  ]
+})
+```
