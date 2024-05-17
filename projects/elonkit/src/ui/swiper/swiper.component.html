@@ -1,0 +1,64 @@
+<div
+  class="swiper__root"
+  role="group"
+  [ngStyle]="{
+    'flex-direction':
+      direction === 'vertical'
+        ? swiperPaginationPosition === 'end'
+          ? 'row'
+          : 'row-reverse'
+        : swiperPaginationPosition === 'end'
+          ? 'column'
+          : 'column-reverse',
+    height: direction === 'vertical' ? '100%' : '',
+    width: direction === 'vertical' ? 'max-content' : ''
+  }">
+  <div
+    class="swiper__wrapper"
+    [ngClass]="{ swiper__buttons_vertical: direction === 'vertical', swiper__buttons_horizontal: direction === 'horizontal' }">
+    <button mat-icon-button *ngIf="isPrevVisible" (click)="_onClick(-1)" class="swiper__button swiper__button_prev">
+      <mat-icon svgIcon="es-24:arrow-left-line-w500"></mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="isNextVisible" (click)="_onClick(1)" class="swiper__button swiper__button_next">
+      <mat-icon svgIcon="es-24:arrow-right-line-w500"></mat-icon>
+    </button>
+    <div
+      class="swiper__container"
+      #container
+      [ngStyle]="{
+        'grid-auto-flow': direction === 'vertical' ? 'row' : 'column',
+        'scroll-snap-type': snap ? (direction === 'vertical' ? 'y mandatory' : 'x mandatory') : 'none',
+        'scroll-snap-stop': snapStop ? 'always' : 'normal',
+        gap: gap + 'px',
+        cursor: draggable ? (isMouseDown ? 'grabbing' : 'grab') : 'unset'
+      }"
+      [ngClass]="{
+        'swiper__container_align-start': alignment === 'start',
+        'swiper__container_align-center': alignment === 'center',
+        'swiper__container_snap-stop': snapStop
+      }"
+      (dragstart)="_onDragStart($event)"
+      (mousedown)="_onMouseDown()"
+      (mouseenter)="_onMouseEnter()"
+      (mouseleave)="_onMouseLeave()"
+      (mousemove)="_onMouseMove($event)"
+      (mouseup)="_onMouseUp()"
+      (scroll)="_onScroll()"
+      (touchstart)="_onTouchStart()"
+      (touchend)="_onTouchEnd()">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div class="swiper__pagination__wrapper" *ngIf="swiperPaginationPosition !== 'none'">
+    <es-swiper-pagination
+      (trigger)="setActiveSlide($event)"
+      [direction]="direction"
+      [swiperPaginationPosition]="swiperPaginationPosition"
+      [swiperPaginationVariant]="swiperPaginationVariant"
+      [swiperPaginationSiblingCount]="swiperPaginationSiblingCount"
+      [swiperPaginationTransitionDuration]="swiperPaginationTransitionDuration"
+      [from]="from"
+      [to]="to"
+      [active]="active"></es-swiper-pagination>
+  </div>
+</div>
