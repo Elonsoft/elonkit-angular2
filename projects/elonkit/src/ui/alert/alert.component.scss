@@ -1,13 +1,14 @@
 .es-alert {
-  border-radius: 6px;
+  border-radius: 4px;
   border-style: solid;
   border-width: 1px;
   box-sizing: border-box;
   min-height: 56px;
-  padding: 7px 16px;
+  padding: 7px 15px;
 
   &__content {
     display: flex;
+    position: relative;
   }
 
   &__text-wrapper {
@@ -34,17 +35,24 @@
   }
 
   &__icon {
-    margin: 8px 8px 0 0;
+    padding: 8px 8px 0 0;
     min-width: 24px;
 
-    &_close.mat-icon-button {
-      border-radius: 4px;
-      width: 24px;
-      height: 24px;
-      line-height: 22px;
-      margin: -8px;
-      margin-left: auto;
-      margin-top: 8px;
+    &_close {
+      width: 24px !important;
+      height: 24px !important;
+      padding: 0 !important;
+      margin: 2px 0 0 auto;
+      border-radius: 4px !important;
+
+      .mat-mdc-button-persistent-ripple::before {
+        border-radius: 4px !important;
+      }
+
+      .mat-mdc-button-touch-target {
+        width: 24px !important;
+        height: 24px !important;
+      }
     }
   }
 }

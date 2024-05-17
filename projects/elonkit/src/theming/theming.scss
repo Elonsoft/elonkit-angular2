@@ -1,4 +1,3 @@
-@import '../ui/action-heading/action-heading.component.theme';
 @import '../ui/alert/alert.component.theme';
 @import '../ui/audio-player/audio-player.component.theme';
 @import '../ui/autocomplete-multiple/autocomplete-multiple.theme';
@@ -35,7 +34,6 @@
 }
 
 @mixin es-theme($theme, $es-theme) {
-  @include es-action-heading-theme($theme, $es-theme);
   @include es-alert-theme($theme, $es-theme);
   @include es-audio-player-theme($theme, $es-theme);
   @include es-autocomplete-multiple-theme($theme, $es-theme);
