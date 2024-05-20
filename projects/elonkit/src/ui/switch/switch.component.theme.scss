@@ -1,0 +1,66 @@
+@mixin es-switch-theme($theme, $es-theme) {
+  $mono: map-get($es-theme, mono-a);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $info: map-get($es-theme, info);
+  $positive: map-get($es-theme, positive);
+  $attention: map-get($es-theme, attention);
+  $other: map-get($es-theme, other);
+
+  $colors: (
+    'primary': $primary,
+    'accent': $accent,
+    'warn': $warn,
+    'info': $info,
+    'positive': $positive,
+    'attention': $attention,
+    'mono': $mono
+  );
+
+  .es-switch__wrapper {
+    color: mat.get-color-from-palette($mono, A500);
+
+    .es-switch__button {
+      &:hover {
+        background-color: mat.get-color-from-palette($mono, A50);
+      }
+
+      &:active {
+        background-color: mat.get-color-from-palette($mono, A150);
+      }
+
+      .es-switch__thumb {
+        background-color: mat.get-color-from-palette($other, switch);
+      }
+    }
+  }
+
+  .es-focused {
+    .es-switch__button {
+      background-color: mat.get-color-from-palette($mono, A200);
+    }
+  }
+
+  @each $name, $palette in $colors {
+    .es-#{$name} {
+      color: mat.get-color-from-palette($palette, 300);
+
+      .es-switch__button {
+        &:hover {
+          background-color: mat.get-color-from-palette($palette, A50);
+        }
+
+        &:active {
+          background-color: mat.get-color-from-palette($palette, A150);
+        }
+      }
+
+      &.es-focused {
+        .es-switch__button {
+          background-color: mat.get-color-from-palette($palette, A200);
+        }
+      }
+    }
+  }
+}
