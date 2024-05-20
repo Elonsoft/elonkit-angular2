@@ -17,6 +17,7 @@
 @import '../ui/flag/flag.component.theme';
 @import '../ui/error-page/error-page.component.theme';
 @import '../ui/swiper/swiper.component.theme';
+@import '../ui/switch/switch.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -61,4 +62,5 @@
   @include es-flag-theme($theme, $es-theme);
   @include es-error-page-theme($theme, $es-theme);
   @include es-swiper-theme($theme, $es-theme);
+  @include es-switch-theme($theme, $es-theme);
 }
