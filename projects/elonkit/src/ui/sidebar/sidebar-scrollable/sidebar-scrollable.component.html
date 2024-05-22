@@ -1,0 +1,16 @@
+<div class="es-sidebar-scrollable__before-scroll" *ngIf="isScrollable && isBeforeScroll">
+  <ng-content select="[role=before-scroll-content]"></ng-content>
+</div>
+<div
+  #scrollableContainer
+  class="es-sidebar-scrollable__root"
+  [ngClass]="{
+    'es-sidebar-scrollable__root_before-scroll': isScrollable && isBeforeScroll,
+    'es-sidebar-scrollable__root_after-scroll': isScrollable && isAfterScroll
+  }"
+  (scroll)="onScroll()">
+  <ng-content></ng-content>
+</div>
+<div class="es-sidebar-scrollable__after-scroll" *ngIf="isScrollable && isAfterScroll">
+  <ng-content select="[role=after-scroll-content]"></ng-content>
+</div>

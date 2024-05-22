@@ -1,0 +1,26 @@
+.es-sidebar-scrollable {
+  display: contents;
+  &__root {
+    overflow-y: scroll;
+
+    &_before-scroll {
+      mask: linear-gradient(to bottom, transparent 0, black 32px) top;
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+    }
+
+    &_after-scroll {
+      mask: linear-gradient(to bottom, black calc(100% - 32px), transparent 100%) bottom;
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+    }
+
+    &_before-scroll.es-sidebar-scrollable__root_after-scroll {
+      mask:
+        linear-gradient(transparent 0px, black 32px) top,
+        linear-gradient(black calc(100% - 32px), transparent 100%) bottom;
+      mask-size: 100% 51%;
+      mask-repeat: no-repeat;
+    }
+  }
+}

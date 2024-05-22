@@ -1,0 +1,140 @@
+.es-sidebar-item {
+  &__root {
+    margin: 0 8px;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    padding: 8px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 150ms;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &__container {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+
+      &__icon:first-of-type {
+        margin-right: 12px;
+      }
+
+      &__text {
+        white-space: nowrap;
+      }
+    }
+
+    &_disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  &__button-secondary-action.mat-mdc-icon-button {
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    top: 8px;
+    cursor: pointer;
+
+    .mat-mdc-button-touch-target {
+      width: inherit;
+      height: inherit;
+    }
+  }
+
+  &__button-secondary-action_disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  &__collapse {
+    &__wrapper {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition:
+        grid-template-rows 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        margin 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      margin-top: 2px;
+
+      &_collapsed {
+        grid-template-rows: 0fr;
+        margin-top: 0px;
+      }
+
+      &__inner {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+  }
+
+  &__tooltip {
+    max-width: 288px;
+    padding: 0 !important;
+    margin-left: 10px !important;
+
+    &__header {
+      margin: 4px 0;
+
+      &__button {
+        text-align: start;
+        border: none;
+        width: 100%;
+        padding: 6px 16px !important;
+        cursor: pointer;
+
+        &:focus-visible {
+          outline: none;
+        }
+      }
+
+      &__text {
+        padding: 6px 16px !important;
+      }
+    }
+
+    &__children {
+      &__container {
+        .es-sidebar-item {
+          &__root {
+            margin: 0;
+          }
+
+          &__button {
+            padding: 4px 16px;
+            border-radius: 0;
+            min-height: 32px;
+
+            &__container {
+              padding: 0;
+
+              &__text {
+                padding: 0 !important;
+                display: block !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

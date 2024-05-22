@@ -61,4 +61,8 @@ export const en = {
     labelSearch: 'Search',
     labelShowSelected: 'Show selected',
   },
+  sidebar: {
+    toggleExpand: 'Expand',
+    toggleCollapse: 'Collapse',
+  },
 };
