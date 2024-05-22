@@ -1,0 +1,39 @@
+<div
+  class="es-switch__wrapper"
+  [ngClass]="{
+    'es-checked': checked,
+    'es-disabled': disabled,
+    'es-small': size === 'small',
+    'es-medium': size === 'medium',
+    'es-large': size === 'large',
+    'es-primary': paletteColor === 'primary' && checked && !indeterminate,
+    'es-accent': paletteColor === 'accent' && checked && !indeterminate,
+    'es-warn': paletteColor === 'warn' && checked && !indeterminate,
+    'es-info': paletteColor === 'info' && checked && !indeterminate,
+    'es-positive': paletteColor === 'positive' && checked && !indeterminate,
+    'es-attention': paletteColor === 'attention' && checked && !indeterminate,
+    'es-mono': paletteColor === 'mono' && checked && !indeterminate,
+    'es-indeterminate': indeterminate,
+    'es-focused': focused
+  }"
+  [ngStyle]="{ color: checked ? color : '' }">
+  <span class="es-switch__button">
+    <input
+      #checkbox
+      type="checkbox"
+      [name]="name"
+      [id]="id"
+      [indeterminate]="indeterminate"
+      class="es-switch__input"
+      [checked]="checked"
+      [disabled]="disabled"
+      (focus)="_onFocusBlur($event)"
+      (blur)="_onFocusBlur($event)"
+      (mouseup)="focused = false"
+      (keydown)="_onKeyDown($event)"
+      (click)="_onClick()"
+      (input)="_toggle()" />
+    <div class="es-switch__thumb"></div>
+  </span>
+  <div class="es-switch__track"></div>
+</div>
