@@ -1,0 +1,46 @@
+@import './sidebar-toggle/sidebar-toggle.component.theme';
+@import './sidebar-divider/sidebar-divider.component.theme';
+@import './sidebar-item/sidebar-item.component.theme';
+@mixin es-sidebar-theme($theme, $es-theme) {
+  @include es-sidebar-toggle-theme($theme, $es-theme);
+  @include es-sidebar-divider-theme($theme, $es-theme);
+  @include es-sidebar-item-theme($theme, $es-theme);
+
+  $mono: map-get($es-theme, mono-a);
+  $primary: map-get($theme, primary);
+  $info: map-get($es-theme, info);
+  $other: map-get($es-theme, other);
+
+  .es-sidebar {
+    &__handler {
+      &_open {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono, A50);
+
+          .es-sidebar__handler__line {
+            background-color: mat.get-color-from-palette($mono, A150);
+          }
+        }
+      }
+
+      &_open.es-sidebar__handler_mouse-down {
+        .es-sidebar__handler__line {
+          background-color: mat.get-color-from-palette($info, A600) !important;
+        }
+      }
+    }
+
+    &__content {
+      background-color: mat.get-color-from-palette($other, background);
+      border-right: 1px solid mat.get-color-from-palette($mono, A100);
+
+      &_primary {
+        background-color: mat.get-color-from-palette($primary, 300);
+      }
+
+      &_secondary {
+        background-color: mat.get-color-from-palette($other, background-2);
+      }
+    }
+  }
+}

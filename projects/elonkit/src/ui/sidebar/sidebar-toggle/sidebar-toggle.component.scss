@@ -1,0 +1,32 @@
+.es-sidebar-toggle {
+  &__root {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__button.mat-mdc-icon-button {
+    transition: none;
+    width: 20px !important;
+    height: 20px !important;
+    padding: 0 !important;
+    border-radius: 20px;
+    z-index: 4;
+    overflow: hidden;
+    position: absolute;
+    right: -10px;
+    top: -9px;
+
+    display: flex;
+    align-items: center;
+
+    .mat-mdc-button-touch-target {
+      width: inherit;
+      height: inherit;
+    }
+
+    .mat-icon {
+      position: relative;
+      right: 1.5px;
+    }
+  }
+}

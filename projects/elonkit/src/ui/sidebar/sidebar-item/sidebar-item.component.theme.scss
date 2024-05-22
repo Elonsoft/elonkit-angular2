@@ -1,0 +1,182 @@
+@mixin es-sidebar-item-theme($theme, $es-theme) {
+  $mono-a: map-get($es-theme, mono-a);
+  $mono-b: map-get($es-theme, mono-b);
+  $accent: map-get($theme, accent);
+  $surface: map-get($es-theme, surface);
+
+  .es-sidebar-item {
+    &__button {
+      background-color: transparent;
+      color: mat.get-color-from-palette($mono-a, A800);
+
+      &:focus-visible {
+        box-shadow: inset 0 0 0 2px mat.get-color-from-palette($mono-a, 500);
+      }
+
+      &:active:not(.es-sidebar-item__button_disabled) {
+        background-color: mat.get-color-from-palette($mono-a, A150);
+      }
+
+      @media (hover: hover) {
+        &:hover:not(.es-sidebar-item__button_disabled) {
+          background-color: mat.get-color-from-palette($mono-a, A50);
+        }
+      }
+
+      &__container__icon {
+        color: mat.get-color-from-palette($mono-a, A500);
+      }
+
+      .mat-ripple-element {
+        background-color: mat.get-color-from-palette($mono-a, A150);
+      }
+
+      &_selected {
+        background-color: mat.get-color-from-palette($mono-a, A100);
+
+        &:active {
+          background-color: mat.get-color-from-palette($mono-a, A150);
+        }
+      }
+
+      &_selected &__container__icon {
+        color: mat.get-color-from-palette($mono-a, A600);
+      }
+
+      &_primary {
+        color: mat.get-color-from-palette($mono-b, A800);
+
+        &:active:not(.es-sidebar-item__button_disabled) {
+          background-color: mat.get-color-from-palette($mono-b, A150);
+        }
+
+        @media (hover: hover) {
+          &:hover:not(.es-sidebar-item__button_disabled) {
+            background-color: mat.get-color-from-palette($mono-b, A50);
+          }
+        }
+      }
+
+      &_primary &__container__icon {
+        color: mat.get-color-from-palette($mono-b, A800) !important;
+      }
+
+      &_primary .mat-ripple-element {
+        background-color: mat.get-color-from-palette($mono-b, A150);
+      }
+
+      &_primary.es-sidebar-item__button_selected {
+        background-color: mat.get-color-from-palette($mono-b, A100);
+        color: mat.get-color-from-palette($mono-b, 500);
+      }
+
+      &_primary.es-sidebar-item__button_selected &__container__icon {
+        color: mat.get-color-from-palette($mono-b, 500) !important;
+      }
+    }
+
+    &__button-secondary-action.mat-mdc-icon-button {
+      background-color: transparent;
+      color: mat.get-color-from-palette($mono-a, A500);
+
+      &:focus-visible {
+        box-shadow: inset 0 0 0 2px mat.get-color-from-palette($mono-a, 500);
+
+        .mat-mdc-button-persistent-ripple::before {
+          background-color: transparent !important;
+        }
+      }
+
+      &:active {
+        background-color: mat.get-color-from-palette($mono-a, A150);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono-a, A50);
+        }
+      }
+    }
+
+    &__button-secondary-action_primary.mat-mdc-icon-button {
+      color: mat.get-color-from-palette($mono-b, A800);
+
+      &:active {
+        background-color: mat.get-color-from-palette($mono-b, A150);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono-b, A50);
+        }
+      }
+
+      .mat-ripple-element {
+        background-color: mat.get-color-from-palette($mono-b, A200);
+      }
+    }
+
+    &__tooltip {
+      background-color: mat.get-color-from-palette($surface, 400);
+      color: mat.get-color-from-palette($mono-a, A900);
+      box-shadow:
+        0 8px 16px 0 rgba(0, 0, 0, 0.07),
+        0 3px 6px 0 rgba(0, 0, 0, 0.03),
+        0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // TODO: *elevation 600* (make palette for elevations)
+
+      .es-tooltip__arrow {
+        background: linear-gradient(135deg, transparent 50%, mat.get-color-from-palette($surface, 400) 50%);
+      }
+
+      &__header {
+        &__button {
+          background-color: transparent;
+          color: mat.get-color-from-palette($mono-a, A900);
+          padding: 0;
+
+          &:focus-visible {
+            box-shadow: inset 0 0 0 2px mat.get-color-from-palette($mono-a, 500);
+          }
+
+          &:active {
+            background-color: mat.get-color-from-palette($mono-a, A150);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              background-color: mat.get-color-from-palette($mono-a, A50);
+            }
+          }
+        }
+      }
+
+      &__children {
+        &__container {
+          .es-sidebar-item {
+            &__button {
+              color: mat.get-color-from-palette($mono-a, A800);
+
+              &:active {
+                background-color: mat.get-color-from-palette($mono-a, A150);
+              }
+
+              @media (hover: hover) {
+                &:hover {
+                  background-color: mat.get-color-from-palette($mono-a, A50);
+                }
+              }
+
+              &_selected {
+                background-color: mat.get-color-from-palette($accent, A100);
+
+                &:active {
+                  background-color: mat.get-color-from-palette($accent, A150);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -61,4 +61,8 @@ export const ru = {
     labelSearch: 'Найти',
     labelShowSelected: 'Показать выбранные',
   },
+  sidebar: {
+    toggleExpand: 'Развернуть',
+    toggleCollapse: 'Свернуть',
+  },
 };

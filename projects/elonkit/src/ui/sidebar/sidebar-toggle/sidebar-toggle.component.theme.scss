@@ -1,0 +1,27 @@
+@mixin es-sidebar-toggle-theme($theme, $es-theme) {
+  $primary: map-get($theme, primary);
+  $mono-a: map-get($es-theme, mono-a);
+  $mono-b: map-get($es-theme, mono-b);
+  $other: map-get($es-theme, other);
+
+  .es-sidebar-toggle {
+    &__button {
+      box-shadow: inset 0 0 0 1px mat.get-color-from-palette($mono-a, A100);
+      background-color: mat.get-color-from-palette($other, background-2) !important;
+      color: mat.get-color-from-palette($mono-a, A500) !important;
+
+      &:focus-visible {
+        box-shadow: inset 0 0 0 2px mat.get-color-from-palette($mono-a, 500);
+
+        .mat-mdc-button-persistent-ripple::before {
+          background-color: transparent !important;
+        }
+      }
+
+      &_primary {
+        background-color: mat.get-color-from-palette($primary, 300) !important;
+        color: mat.get-color-from-palette($mono-b, 500) !important;
+      }
+    }
+  }
+}
