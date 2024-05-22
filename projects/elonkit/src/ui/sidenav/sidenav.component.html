@@ -1,0 +1,19 @@
+<div #root class="es-sidenav__root">
+  <div class="es-sidenav__container">
+    <div
+      [@hideShow]="(isOpen$ | async) || (isHover$ | async) ? 'visible' : 'hidden'"
+      (mouseenter)="_onMouseEnter()"
+      (mouseleave)="_onMouseLeave()"
+      (keydown)="_onKeyDown($event)"
+      class="es-sidenav__drawer">
+      <ng-content select="#drawer"></ng-content>
+    </div>
+    <div #rail class="es-sidenav__rail">
+      <ng-content select="#rail"></ng-content>
+    </div>
+  </div>
+  <div
+    (click)="_onBackdropClick()"
+    class="es-sidenav__overlay"
+    [ngClass]="{ 'es-sidenav__overlay_hover': isHover$ | async }"></div>
+</div>
