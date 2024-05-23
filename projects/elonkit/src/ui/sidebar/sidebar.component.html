@@ -1,1 +1,22 @@
-<p>sidebar works!</p>
+<div class="es-sidebar__root" [ngStyle]="{ cursor: isOpen && isMouseMove ? 'col-resize' : 'default' }">
+  <div
+    class="es-sidebar__handler"
+    [ngClass]="{
+      'es-sidebar__handler_open': isOpen,
+      'es-sidebar__handler_mouse-down': isMouseDown
+    }">
+    <div class="es-sidebar__handler__line"></div>
+  </div>
+  <div
+    class="es-sidebar__content"
+    [ngStyle]="{
+      'max-width': maxWidth + 'px',
+      width: isOpen ? width + 'px' : '',
+      'min-width': isMouseMove ? minWidth + 'px' : ''
+    }"
+    [ngClass]="{
+      'es-sidebar__content_mouse-move': isMouseMove
+    }">
+    <ng-content></ng-content>
+  </div>
+</div>
