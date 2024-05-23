@@ -9,8 +9,16 @@ const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperComponent,
   tags: ['autodocs'],
   title: 'ui/Sidebar',
-  args: {},
-  argTypes: {},
+  args: {
+    color: 'default',
+  },
+  argTypes: {
+    color: {
+      control: { type: 'select' },
+      options: ['default', 'primary', 'secondary'],
+      description: 'Color of sidebar contnent',
+    },
+  },
 };
 
 export default meta;
@@ -22,7 +30,7 @@ export const Primary: Story = {
   render: (args, context) => ({
     template: `
     <demo-wrapper
-
+    [color]="color"
     ></demo-wrapper>
     `,
     props: {

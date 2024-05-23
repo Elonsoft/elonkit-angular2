@@ -17,10 +17,7 @@
       transition: backgorund-color 0.3s;
       cursor: col-resize;
       &:hover {
-        background-color: grey; // theme.vars.palette.monoA.A50,
-
         .es-sidebar__handler__line {
-          background-color: red !important; // theme.vars.palette.monoA.A150
         }
       }
     }
@@ -33,7 +30,6 @@
 
       .es-sidebar__handler__line {
         width: 3px;
-        background-color: green !important; // `${theme.vars.palette.info.A600} !important`,
         backdrop-filter: blur(20px);
       }
     }
@@ -50,8 +46,6 @@
     display: flex;
     flex-direction: column;
     order: 1;
-    background-color: #eee; // theme.vars.palette.surface.background,
-    border-right: 1px solid black; // theme.vars.palette.monoA.A100
     transition: width 0.2s;
 
     &_mouse-move {

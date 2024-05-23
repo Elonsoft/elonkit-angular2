@@ -1,13 +1,16 @@
 <div class="es-sidebar__root" [ngStyle]="{ cursor: isOpen && isMouseMove ? 'col-resize' : 'default' }">
   <div
     class="es-sidebar__handler"
+    (touchstart)="_onTouchStart($event)"
+    (mousedown)="_onMouseDown($event)"
     [ngClass]="{
       'es-sidebar__handler_open': isOpen,
       'es-sidebar__handler_mouse-down': isMouseDown
     }">
     <div class="es-sidebar__handler__line"></div>
   </div>
-  <div
+  <aside
+    #content
     class="es-sidebar__content"
     [ngStyle]="{
       'max-width': maxWidth + 'px',
@@ -15,8 +18,10 @@
       'min-width': isMouseMove ? minWidth + 'px' : ''
     }"
     [ngClass]="{
-      'es-sidebar__content_mouse-move': isMouseMove
+      'es-sidebar__content_mouse-move': isMouseMove,
+      'es-sidebar__content_primary-color': color === 'primary',
+      'es-sidebar__content_secondary-color': color === 'secondary'
     }">
     <ng-content></ng-content>
-  </div>
+  </aside>
 </div>

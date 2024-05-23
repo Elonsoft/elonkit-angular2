@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   selector: 'demo-wrapper',
   template: `
     <div style="height: 100vh; margin: -16px; display: flex; gap: 20px; overflow: auto;">
-      <es-sidebar style="position: sticky; top: 0;">
+      <es-sidebar [color]="color" style="position: sticky; top: 0;">
         <span>content</span>
       </es-sidebar>
       <div>
@@ -58,5 +58,6 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class DemoWrapperComponent {
+  @Input() color: 'default' | 'primary' | 'secondary' = 'default';
   constructor() {}
 }

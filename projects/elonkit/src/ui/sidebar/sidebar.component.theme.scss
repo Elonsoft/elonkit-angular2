@@ -1,0 +1,43 @@
+@mixin es-sidebar-theme($theme, $es-theme) {
+  $mono: map-get($es-theme, mono-a);
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $info: map-get($es-theme, info);
+  $positive: map-get($es-theme, positive);
+  $attention: map-get($es-theme, attention);
+  $other: map-get($es-theme, other);
+
+  .es-sidebar {
+    &__handler {
+      &_open {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono, A50);
+
+          .es-sidebar__handler__line {
+            background-color: mat.get-color-from-palette($mono, A150);
+          }
+        }
+      }
+
+      &_open.es-sidebar__handler_mouse-down {
+        .es-sidebar__handler__line {
+          background-color: mat.get-color-from-palette($info, A600) !important;
+        }
+      }
+    }
+
+    &__content {
+      background-color: mat.get-color-from-palette($other, background);
+      border-right: 1px solid mat.get-color-from-palette($mono, A100);
+
+      &_primary-color {
+        background-color: mat.get-color-from-palette($primary, 300);
+      }
+
+      &_secondary-color {
+        background-color: mat.get-color-from-palette($other, background-2);
+      }
+    }
+  }
+}
