@@ -14,7 +14,8 @@ import { Component, Input } from '@angular/core';
         style="position: sticky; top: 0;">
         <div style="height: 100px; width: 100%; background-color: gray;">Demo-spacer</div>
         <span>content</span>
-        <div style="height: 100px; width: 100%; background-color: gray;">Demo-spacer</div>
+        <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+        <div style="height: 100px; width: 100%;">Demo-spacer</div>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
       </es-sidebar>
       <div>

@@ -1,6 +1,9 @@
 @import './sidebar-toggle/sidebar-toggle.component.theme';
+@import './sidebar-divider/sidebar-divider.component.theme';
 @mixin es-sidebar-theme($theme, $es-theme) {
   @include es-sidebar-toggle-theme($theme, $es-theme);
+  @include es-sidebar-divider-theme($theme, $es-theme);
+
   $mono: map-get($es-theme, mono-a);
   $primary: map-get($theme, primary);
   $info: map-get($es-theme, info);

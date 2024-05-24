@@ -1,0 +1,10 @@
+.es-sidebar-divider {
+  &__root {
+    transition: padding 150ms ease-out;
+  }
+
+  &__line {
+    position: relative;
+    top: 0.5px;
+  }
+}

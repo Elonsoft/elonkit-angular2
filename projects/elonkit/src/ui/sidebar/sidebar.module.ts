@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     ESSidebarSpacerComponent,
     ESSidebarToggleComponent,
   ],
-  imports: [CommonModule, ESTooltipModule, MatButtonModule, MatIconModule],
+  imports: [CommonModule, ESTooltipModule, MatButtonModule, MatIconModule, MatDividerModule],
   exports: [
     ESSidebarComponent,
     ESSidebarDividerComponent,
