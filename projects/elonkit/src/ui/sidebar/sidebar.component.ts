@@ -19,7 +19,7 @@ import { BehaviorSubject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESSidebarComponent implements OnDestroy{
+export class ESSidebarComponent implements OnDestroy {
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
   @Input() maxWidth = 400;
   @Input() minWidth = 220;
@@ -37,12 +37,10 @@ export class ESSidebarComponent implements OnDestroy{
 
   private removeEventListeners: (() => void)[] = [];
 
-  constructor(
-    private renderer: Renderer2,
-  ) {}
+  constructor(private renderer: Renderer2) {}
 
   public ngOnDestroy(): void {
-    this.removeAllEventListeners()
+    this.removeAllEventListeners();
   }
 
   @ViewChild('content', { static: true }) private content: ElementRef;
@@ -74,13 +72,12 @@ export class ESSidebarComponent implements OnDestroy{
   }
 
   private _onMouseMove(event: MouseEvent): void {
-    if (this.screenX !== null  && this.initialWidth !== null && this.content.nativeElement) {
+    if (this.screenX !== null && this.initialWidth !== null && this.content.nativeElement) {
       const deltaX = event.screenX - this.screenX;
       const newWidth = this.initialWidth + deltaX;
       const clampedWidth = Math.min(this.maxWidth, Math.max(newWidth, this.minWidth));
 
-      this.content.nativeElement.style.width = `${clampedWidth}px`;
-
+      this.width = clampedWidth;
       this.widthChange.emit(clampedWidth);
     }
 
@@ -93,8 +90,7 @@ export class ESSidebarComponent implements OnDestroy{
       const newWidth = this.initialWidth + deltaX;
       const clampedWidth = Math.min(this.maxWidth, Math.max(newWidth, this.minWidth));
 
-      this.content.nativeElement.style.width = `${clampedWidth}px`;
-
+      this.width = clampedWidth;
       this.widthChange.emit(clampedWidth);
     }
 
@@ -123,7 +119,7 @@ export class ESSidebarComponent implements OnDestroy{
   }
 
   private removeAllEventListeners() {
-    this.removeEventListeners.forEach(removeListener => removeListener());
+    this.removeEventListeners.forEach((removeListener) => removeListener());
     this.removeEventListeners = [];
   }
 }

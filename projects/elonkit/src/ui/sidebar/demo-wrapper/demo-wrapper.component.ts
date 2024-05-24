@@ -5,7 +5,13 @@ import { Component, Input } from '@angular/core';
   selector: 'demo-wrapper',
   template: `
     <div style="height: 100vh; margin: -16px; display: flex; gap: 20px; overflow: auto;">
-      <es-sidebar [color]="color" style="position: sticky; top: 0;">
+      <es-sidebar
+        [color]="color"
+        [width]="width"
+        [maxWidth]="maxWidth"
+        [minWidth]="minWidth"
+        [isOpen]="isOpen"
+        style="position: sticky; top: 0;">
         <span>content</span>
       </es-sidebar>
       <div>
@@ -58,6 +64,10 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class DemoWrapperComponent {
-  @Input() color: 'default' | 'primary' | 'secondary' = 'default';
+  @Input() color: 'default' | 'primary' | 'secondary';
+  @Input() width: number;
+  @Input() maxWidth: number;
+  @Input() minWidth: number;
+  @Input() isOpen: boolean;
   constructor() {}
 }
