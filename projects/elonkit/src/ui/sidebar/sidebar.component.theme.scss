@@ -1,11 +1,9 @@
+@import './sidebar-toggle/sidebar-toggle.component.theme';
 @mixin es-sidebar-theme($theme, $es-theme) {
+  @include es-sidebar-toggle-theme($theme, $es-theme);
   $mono: map-get($es-theme, mono-a);
   $primary: map-get($theme, primary);
-  $accent: map-get($theme, accent);
-  $warn: map-get($theme, warn);
   $info: map-get($es-theme, info);
-  $positive: map-get($es-theme, positive);
-  $attention: map-get($es-theme, attention);
   $other: map-get($es-theme, other);
 
   .es-sidebar {

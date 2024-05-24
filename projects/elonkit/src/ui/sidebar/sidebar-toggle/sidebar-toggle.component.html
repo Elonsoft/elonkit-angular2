@@ -1,1 +1,27 @@
-<p>sidebar-toggle works!</p>
+<div class="es-sidebar-toggle__root">
+  <es-sidebar-divider></es-sidebar-divider>
+  <button
+    mat-icon-button
+    (click)="_onClick()"
+    [ngClass]="{
+      'es-sidebar-toggle__button_primary-color': color === 'primary',
+      'es-sidebar-toggle__button_secondary-color': color === 'secondary'
+    }"
+    [ngStyle]="{ 'margin-left': isOpen ? '7px' : '0' }"
+    class="es-sidebar-toggle__button"
+    [attr.aria-label]="isOpen ? labelClose : labelOpen"
+    esTooltip
+    [esTooltipContent]="template"
+    esTooltipShowDelay="200"
+    esTooltipHideDelay="100"
+    esTooltipArrow="true"
+    esTooltipPosition="right">
+    <mat-icon
+      class="es-sidebar-toggle__button__icon"
+      [svgIcon]="isOpen ? 'es-24:chevron-left-line-w300' : 'es-24:chevron-right-line-w300'"></mat-icon>
+  </button>
+</div>
+
+<ng-template #template>
+  <span class="es-caption">{{ isOpen ? labelClose : labelOpen }}</span>
+</ng-template>

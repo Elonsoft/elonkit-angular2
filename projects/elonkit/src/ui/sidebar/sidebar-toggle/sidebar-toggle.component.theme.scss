@@ -1,0 +1,26 @@
+@mixin es-sidebar-toggle-theme($theme, $es-theme) {
+  $mono-a: map-get($es-theme, mono-a);
+  $mono-b: map-get($es-theme, mono-b);
+  $primary: map-get($theme, primary);
+  $other: map-get($es-theme, other);
+
+  .es-sidebar-toggle {
+    &__root {
+    }
+
+    &__button {
+      box-shadow: inset 0 0 0 1px mat.get-color-from-palette($mono-a, A100);
+      background-color: mat.get-color-from-palette($other, background-2) !important;
+      color: mat.get-color-from-palette($mono-a, A500) !important;
+
+      &_primary-color {
+        background-color: mat.get-color-from-palette($primary, 300) !important;
+        color: mat.get-color-from-palette($mono-b, 500) !important;
+      }
+      &_secondary-color {
+        background-color: mat.get-color-from-palette($other, background-2) !important;
+        color: mat.get-color-from-palette($mono-a, A500) !important;
+      }
+    }
+  }
+}

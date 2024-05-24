@@ -12,7 +12,10 @@ import { Component, Input } from '@angular/core';
         [minWidth]="minWidth"
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
+        <div style="height: 100px; width: 100%; background-color: gray;">Demo-spacer</div>
         <span>content</span>
+        <div style="height: 100px; width: 100%; background-color: gray;">Demo-spacer</div>
+        <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
       </es-sidebar>
       <div>
         <h2 class="es-h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
