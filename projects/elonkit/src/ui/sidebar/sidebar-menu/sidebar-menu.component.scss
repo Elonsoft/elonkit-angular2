@@ -1,0 +1,11 @@
+.es-sidebar-menu {
+  &__root {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    gap: 2px;
+    text-align: center;
+    overflow-x: hidden;
+    padding: 8px 0;
+  }
+}

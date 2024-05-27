@@ -12,13 +12,24 @@ import { Component, Input } from '@angular/core';
         [minWidth]="minWidth"
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
-        <div style="height: 100px; width: 100%; background-color: gray;">Demo-spacer</div>
+        <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
+        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         <span>content</span>
-        <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
-        <es-sidebar-spacer></es-sidebar-spacer>
-        <div style="height: 100px; width: 100%;">Demo-spacer</div>
 
+        <es-sidebar-spacer></es-sidebar-spacer>
+        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        </es-sidebar-menu>
+        <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        </es-sidebar-menu>
       </es-sidebar>
       <div>
         <h2 class="es-h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
@@ -75,5 +86,7 @@ export class DemoWrapperComponent {
   @Input() maxWidth: number;
   @Input() minWidth: number;
   @Input() isOpen: boolean;
+  @Input() behavior: 'click' | 'hover';
+  @Input() exclusive: boolean;
   constructor() {}
 }

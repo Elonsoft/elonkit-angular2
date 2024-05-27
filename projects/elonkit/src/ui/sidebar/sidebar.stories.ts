@@ -15,12 +15,19 @@ const meta: Meta<DemoWrapperComponent> = {
     maxWidth: 400,
     minWidth: 220,
     isOpen: false,
+    behavior: 'click',
+    exclusive: false,
   },
   argTypes: {
     color: {
       control: { type: 'select' },
       options: ['default', 'primary', 'secondary'],
       description: 'Color of sidebar contnent',
+    },
+    behavior: {
+      control: { type: 'radio' },
+      options: ['click', 'hover'],
+      description: "Behavior of openning item's dropdowns",
     },
   },
 };
@@ -34,7 +41,7 @@ export const Primary: Story = {
   render: (args, context) => ({
     template: `
     <demo-wrapper
-    [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen"
+    [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen" [behavior]="behavior" [exclusive]="exclusive"
     ></demo-wrapper>
     `,
     props: {

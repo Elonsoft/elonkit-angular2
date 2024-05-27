@@ -7,13 +7,11 @@ import { ESSidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { ESSidebarScrollableComponent } from './sidebar-scrollable/sidebar-scrollable.component';
 import { ESSidebarSpacerComponent } from './sidebar-spacer/sidebar-spacer.component';
 import { ESSidebarToggleComponent } from './sidebar-toggle/sidebar-toggle.component';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { ESTooltipModule } from '../tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { CoreModule } from '~storybook/core.module';
-import { HttpClientModule } from '@angular/common/http';
 import { MatDividerModule } from '@angular/material/divider';
+import { ESSidebarMenuService } from './sidebar-menu/sidebar-menu.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +33,6 @@ import { MatDividerModule } from '@angular/material/divider';
     ESSidebarSpacerComponent,
     ESSidebarToggleComponent,
   ],
-  providers: [MatIconRegistry],
+  providers: [MatIconRegistry, ESSidebarMenuService],
 })
 export class ESSidebarModule {}
