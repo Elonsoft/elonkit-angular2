@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'es-sidebar-spacer',
-  templateUrl: './sidebar-spacer.component.html',
-  styleUrls: ['./sidebar-spacer.component.scss'],
+  template: '',
+  styles: [':host { flex-grow: 1; }'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ESSidebarSpacerComponent {}

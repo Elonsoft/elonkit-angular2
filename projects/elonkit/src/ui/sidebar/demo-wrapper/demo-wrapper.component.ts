@@ -13,10 +13,12 @@ import { Component, Input } from '@angular/core';
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
         <div style="height: 100px; width: 100%; background-color: gray;">Demo-spacer</div>
-        <span>content</span>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
-        <div style="height: 100px; width: 100%;">Demo-spacer</div>
+        <span>content</span>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
+        <es-sidebar-spacer></es-sidebar-spacer>
+        <div style="height: 100px; width: 100%;">Demo-spacer</div>
+
       </es-sidebar>
       <div>
         <h2 class="es-h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
