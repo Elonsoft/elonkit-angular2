@@ -12,18 +12,32 @@ import { Component, Input } from '@angular/core';
         [minWidth]="minWidth"
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
-        <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        <div style="height: 55px; width: 100%;">List item</div>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
-          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+          <div style="height: 55px; width: 100%;">List item</div>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
-        <span>content</span>
+        <es-sidebar-scrollable>
+          <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+            <div style="height: 55px; width: 100%;">List item</div>
+          </es-sidebar-menu>
+          <es-sidebar-divider role="after-scroll-content" [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+        </es-sidebar-scrollable>
 
         <es-sidebar-spacer></es-sidebar-spacer>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+          <div style="height: 55px; width: 100%;">List item</div>
           <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>

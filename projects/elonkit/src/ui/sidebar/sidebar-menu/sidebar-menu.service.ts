@@ -10,7 +10,6 @@ export class ESSidebarMenuService {
   private exclusive = false;
 
   public setConfig(behaviour: 'click' | 'hover', exclusive: boolean): void {
-    console.log('config: ', behaviour, exclusive);
     this.behaviour = behaviour;
     this.exclusive = exclusive;
   }
