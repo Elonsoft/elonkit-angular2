@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { ESSidebarMenuService } from './sidebar-menu/sidebar-menu.service';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ESSidebarMenuService } from './sidebar-menu/sidebar-menu.service';
     ESSidebarSpacerComponent,
     ESSidebarToggleComponent,
   ],
-  imports: [CommonModule, ESTooltipModule, MatButtonModule, MatIconModule, MatDividerModule],
+  imports: [CommonModule, ESTooltipModule, MatButtonModule, MatIconModule, MatDividerModule, MatRippleModule],
   exports: [
     ESSidebarComponent,
     ESSidebarDividerComponent,

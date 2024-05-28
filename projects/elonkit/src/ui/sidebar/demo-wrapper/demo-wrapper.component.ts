@@ -12,10 +12,12 @@ import { Component, Input } from '@angular/core';
         [minWidth]="minWidth"
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
-        <div style="height: 55px; width: 100%;">List item</div>
+        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+          <es-sidebar-item [color]="color" icon="es-24:at-line-w500" text="Test item 1"></es-sidebar-item>
+        </es-sidebar-menu>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <div style="height: 55px; width: 100%;">List item</div>
+          <es-sidebar-item [color]="color" icon="es-24:at-line-w500" text="Test Item 2"></es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         <es-sidebar-scrollable>

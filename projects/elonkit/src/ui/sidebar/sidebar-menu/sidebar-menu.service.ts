@@ -6,7 +6,7 @@ export class ESSidebarMenuService {
   private openedItemsSubject = new BehaviorSubject<string[]>([]);
   public openedItems$ = this.openedItemsSubject.asObservable();
 
-  private behaviour: 'click' | 'hover' = 'click';
+  public behaviour: 'click' | 'hover' = 'click';
   private exclusive = false;
 
   public setConfig(behaviour: 'click' | 'hover', exclusive: boolean): void {

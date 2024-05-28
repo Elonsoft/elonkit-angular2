@@ -1,0 +1,48 @@
+.es-sidebar-item {
+  &__root {
+    margin: 0 8px;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__button {
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+    padding: 6px 8px;
+    font-family: inherit;
+    transition: background-color 150ms;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &__container {
+      // color: inherit;
+    }
+
+    &__text {
+      // color: inherit;
+    }
+  }
+
+  &__button-secondary-action.mat-mdc-icon-button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    // left: 40px;
+
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 5;
+    top: 8px;
+
+    .mat-mdc-button-touch-target {
+      width: inherit;
+      height: inherit;
+    }
+  }
+}

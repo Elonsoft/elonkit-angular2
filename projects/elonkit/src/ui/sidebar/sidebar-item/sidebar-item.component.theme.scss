@@ -1,0 +1,64 @@
+@mixin es-sidebar-item-theme($theme, $es-theme) {
+  $mono-a: map-get($es-theme, mono-a);
+  $mono-b: map-get($es-theme, mono-b);
+  $primary: map-get($theme, primary);
+  $other: map-get($es-theme, other);
+
+  .es-sidebar-item {
+    &__root {
+    }
+
+    &__wrapper {
+    }
+
+    // TODO: Добавить стили для selected, когда дойду до него
+    &__button {
+      background-color: transparent;
+      color: mat.get-color-from-palette($mono-a, A800);
+      &:focus-visible {
+        background-color: mat.get-color-from-palette($mono-a, A200);
+      }
+      &:active {
+        background-color: mat.get-color-from-palette($mono-a, A150);
+      }
+      @media (hover: hover) {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono-a, A50);
+        }
+      }
+
+      &__icon {
+        color: mat.get-color-from-palette($mono-a, A500);
+      }
+
+      .mat-ripple-element {
+        background-color: mat.get-color-from-palette($mono-a, A150);
+      }
+
+      &_primary-color {
+        color: mat.get-color-from-palette($mono-b, A800);
+
+        &:focus-visible {
+          background-color: mat.get-color-from-palette($mono-b, A200);
+        }
+        &:active {
+          background-color: mat.get-color-from-palette($mono-b, A150);
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            background-color: mat.get-color-from-palette($mono-b, A50);
+          }
+        }
+      }
+
+      &_primary-color &__icon {
+        color: mat.get-color-from-palette($mono-b, A800);
+      }
+
+      &_primary-color .mat-ripple-element {
+        background-color: mat.get-color-from-palette($mono-b, A150);
+      }
+    }
+  }
+}
