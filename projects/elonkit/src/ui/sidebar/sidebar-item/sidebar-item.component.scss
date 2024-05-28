@@ -11,7 +11,7 @@
     border-radius: 4px;
     border: none;
     width: 100%;
-    padding: 6px 8px;
+    padding: 8px;
     font-family: inherit;
     transition: background-color 150ms;
 
@@ -20,11 +20,17 @@
     }
 
     &__container {
-      // color: inherit;
-    }
+      display: flex;
+      align-items: center;
+      width: fit-content;
 
-    &__text {
-      // color: inherit;
+      &__icon:first-of-type {
+        margin-right: 12px;
+      }
+
+      &__text {
+        white-space: nowrap;
+      }
     }
   }
 
@@ -32,7 +38,6 @@
     width: 24px;
     height: 24px;
     padding: 0;
-    // left: 40px;
 
     display: flex;
     align-items: center;

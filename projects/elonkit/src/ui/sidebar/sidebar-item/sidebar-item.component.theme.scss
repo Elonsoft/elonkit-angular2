@@ -27,7 +27,7 @@
         }
       }
 
-      &__icon {
+      &__container__icon {
         color: mat.get-color-from-palette($mono-a, A500);
       }
 
@@ -52,13 +52,51 @@
         }
       }
 
-      &_primary-color &__icon {
+      &_primary-color &__container__icon {
         color: mat.get-color-from-palette($mono-b, A800);
       }
 
       &_primary-color .mat-ripple-element {
         background-color: mat.get-color-from-palette($mono-b, A150);
       }
+    }
+
+    &__button-secondary-action.mat-mdc-icon-button {
+      background-color: transparent;
+      color: mat.get-color-from-palette($mono-a, A500);
+      &:focus-visible {
+        background-color: mat.get-color-from-palette($mono-a, A200);
+      }
+      &:active {
+        background-color: mat.get-color-from-palette($mono-a, A150);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono-a, A50);
+        }
+      }
+    }
+
+    &__button-secondary-action_primary-color.mat-mdc-icon-button {
+      color: mat.get-color-from-palette($mono-b, A800);
+
+      &:focus-visible {
+        background-color: mat.get-color-from-palette($mono-b, A200);
+      }
+      &:active {
+        background-color: mat.get-color-from-palette($mono-b, A150);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: mat.get-color-from-palette($mono-b, A50);
+        }
+      }
+      .mat-ripple-element {
+        background-color: mat.get-color-from-palette($mono-b, A200) ;
+      }
+
     }
   }
 }
