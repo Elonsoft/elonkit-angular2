@@ -35,6 +35,20 @@
         background-color: mat.get-color-from-palette($mono-a, A150);
       }
 
+      &_selected {
+        background-color: mat.get-color-from-palette($mono-a, A100);
+        &:focus-visible {
+          background-color: mat.get-color-from-palette($mono-a, A75);
+        }
+        &:active {
+          background-color: mat.get-color-from-palette($mono-a, A150);
+        }
+      }
+
+      &_selected &__container__icon {
+        color: mat.get-color-from-palette($mono-a, A600);
+      }
+
       &_primary-color {
         color: mat.get-color-from-palette($mono-b, A800);
 
@@ -58,6 +72,18 @@
 
       &_primary-color .mat-ripple-element {
         background-color: mat.get-color-from-palette($mono-b, A150);
+      }
+
+      &_primary-color.es-sidebar-item__button_selected {
+        background-color: mat.get-color-from-palette($mono-b, A100);
+        color: mat.get-color-from-palette($mono-b, 500);
+        &:focus-visible {
+          background-color: mat.get-color-from-palette($mono-b, A75);
+        }
+      }
+
+      &_primary-color.es-sidebar-item__button_selected &__container__icon {
+        color: mat.get-color-from-palette($mono-b, 500);
       }
     }
 
@@ -94,9 +120,8 @@
         }
       }
       .mat-ripple-element {
-        background-color: mat.get-color-from-palette($mono-b, A200) ;
+        background-color: mat.get-color-from-palette($mono-b, A200);
       }
-
     }
   }
 }

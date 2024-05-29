@@ -31,6 +31,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() id?: number;
   @Input() isOpen = false;
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
+  @Input() selected = false;
   @Input() isNestedMenuOpen?: boolean | null = null;
 
   @Output() itemClick = new EventEmitter<void>();
@@ -42,7 +43,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   constructor(public menuService: ESSidebarMenuService) {}
 
   public ngAfterViewInit(): void {
-    console.log('init');
+    console.log('init', this.selected);
     this.behaviour = this.menuService.behaviour;
 
     this.resizeSubscription = resizeObserver(this.itemButtonContainer.nativeElement).subscribe(() => {

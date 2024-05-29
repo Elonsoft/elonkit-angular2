@@ -4,13 +4,14 @@
       mat-ripple
       class="es-sidebar-item__button"
       [ngClass]="{
-        'es-sidebar-item__button_primary-color': color === 'primary'
+        'es-sidebar-item__button_primary-color': color === 'primary',
+        'es-sidebar-item__button_selected': selected
       }">
       <div #sidebarItemButtonContainer class="es-sidebar-item__button__container">
         <mat-icon class="es-sidebar-item__button__container__icon" [svgIcon]="icon"></mat-icon>
-        <span class="es-sidebar-item__button__container__text es-body-100"
-        [ngStyle]="{display: isOpen ? 'block' : 'none'}"
-        >{{ text }}</span>
+        <span class="es-sidebar-item__button__container__text es-body-100" [ngStyle]="{ display: isOpen ? 'block' : 'none' }">{{
+          text
+        }}</span>
       </div>
     </button>
     <button

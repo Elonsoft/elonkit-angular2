@@ -17,7 +17,12 @@ import { Component, Input } from '@angular/core';
         </es-sidebar-menu>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Проекты"></es-sidebar-item>
+          <es-sidebar-item
+            [color]="color"
+            [isOpen]="isOpen"
+            icon="es-24:at-line-w500"
+            text="Проекты"
+            [selected]="true"></es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         <es-sidebar-scrollable>
