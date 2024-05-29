@@ -8,21 +8,34 @@
         'es-sidebar-item__button_selected': selected
       }">
       <div #sidebarItemButtonContainer class="es-sidebar-item__button__container">
-        <mat-icon class="es-sidebar-item__button__container__icon" [svgIcon]="icon"></mat-icon>
-        <span class="es-sidebar-item__button__container__text es-body-100" [ngStyle]="{ display: isOpen ? 'block' : 'none' }">{{
-          text
-        }}</span>
+        <mat-icon class="es-sidebar-item__button__container__icon" *ngIf="icon" [svgIcon]="icon"></mat-icon>
+        <span
+          class="es-sidebar-item__button__container__text es-body-100"
+          [ngStyle]="{ display: isOpen ? 'block' : 'none', 'padding-left': inset ? '36px' : '' }"
+          >{{ text }}</span
+        >
       </div>
     </button>
     <button
       mat-icon-button
-      *ngIf="isOpen"
+      *ngIf="isOpen && (hasChildren$ | async)"
+      (click)="onNestedMenuClick($event)"
       class="es-sidebar-item__button-secondary-action"
       [ngClass]="{
         'es-sidebar-item__button-secondary-action_primary-color': color === 'primary'
       }"
       [ngStyle]="{ 'pointer-events': behaviour === 'hover' ? 'none' : 'all', left: (width$ | async) + 'px' }">
-      <mat-icon [svgIcon]="isNestedMenuOpen ? 'es-24:chevron-down-line-w200' : 'es-24:chevron-left-line-w200'"></mat-icon>
+      <mat-icon
+        [svgIcon]="(isNestedMenuOpen$ | async) ? 'es-24:chevron-down-line-w200' : 'es-24:chevron-left-line-w200'"></mat-icon>
     </button>
+  </div>
+  <div class="es-sidebar-item__collapse" [ngStyle]="{ display: isOpen ? '' : 'none' }">
+    <div
+      class="es-sidebar-item__collapse__wrapper"
+      [ngClass]="{ 'es-sidebar-item__collapse__wrapper_collapsed': !(isNestedMenuOpen$ | async) }">
+      <div #contentContainer class="es-sidebar-item__collapse__wrapper__inner">
+        <ng-content></ng-content>
+      </div>
+    </div>
   </div>
 </div>

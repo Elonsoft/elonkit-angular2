@@ -20,9 +20,9 @@
     }
 
     &__container {
+      width: fit-content;
       display: flex;
       align-items: center;
-      width: fit-content;
 
       &__icon:first-of-type {
         margin-right: 12px;
@@ -48,6 +48,27 @@
     .mat-mdc-button-touch-target {
       width: inherit;
       height: inherit;
+    }
+  }
+
+  &__collapse {
+    &__wrapper {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+      &_collapsed {
+        grid-template-rows: 0fr;
+      }
+
+      &__inner {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-top: 2px;
+      }
     }
   }
 }

@@ -11,7 +11,6 @@
     &__wrapper {
     }
 
-    // TODO: Добавить стили для selected, когда дойду до него
     &__button {
       background-color: transparent;
       color: mat.get-color-from-palette($mono-a, A800);
