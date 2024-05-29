@@ -1,5 +1,4 @@
 import {
-  AfterContentInit,
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
@@ -11,7 +10,6 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
-  ViewChildren,
   ViewEncapsulation,
 } from '@angular/core';
 import { ESSidebarMenuService } from '../public-api';
@@ -35,6 +33,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() isOpen = false;
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
   @Input() selected = false;
+  @Input() isExpandClicable = false;
   @Input() inset = false;
 
   @Output() itemClick = new EventEmitter<void>();
@@ -49,10 +48,9 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   public isNestedMenuOpen$ = new BehaviorSubject<boolean>(false);
 
   public isTooltipOpen = false;
+  private shouldSkipClick = false;
   private resizeSubscription!: Subscription;
   private openedItemsSubscription!: Subscription;
-
-  // TODO: Добавить открытие на hover и сокрытие кнопки развернуть (behavior) и убрать фокусировку (уточнить по component)
 
   constructor(public menuService: ESSidebarMenuService) {}
 
@@ -70,12 +68,22 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
         this.isNestedMenuOpen$.next(this.isNestedMenuOpen);
       }
     });
+
+    this.checkChildren();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
-    console.log('changes');
     this.behaviour = this.menuService.behaviour;
 
+    this.checkChildren();
+  }
+
+  public ngOnDestroy(): void {
+    this.resizeSubscription.unsubscribe();
+    this.openedItemsSubscription.unsubscribe();
+  }
+
+  private checkChildren(): void {
     if (this.contentContainer) {
       const contentElement = this.contentContainer.nativeElement;
       this.hasChildren = contentElement.hasChildNodes();
@@ -84,16 +92,28 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
 
       childrenArr.forEach((el: HTMLElement) => {
         (el.firstChild as HTMLElement).style.margin = '0px';
+
+        const elementButton = el.firstChild?.firstChild?.firstChild as HTMLElement;
+
+        if (!this.isNestedMenuOpen) {
+          elementButton.tabIndex = -1;
+        } else {
+          elementButton.tabIndex = 0;
+        }
       });
     }
   }
 
-  public ngOnDestroy(): void {
-    this.resizeSubscription.unsubscribe();
-    this.openedItemsSubscription.unsubscribe();
+  public _onItemKeyDown(event: KeyboardEvent): void {
+    if (this.hasChildren && event.key === 'ArrowRight') {
+      console.log(event.key);
+      // TODO: focus on first tooltip item
+    }
+
+    this.itemClick.emit();
   }
 
-  public onNestedMenuClick(event: MouseEvent): void {
+  public _onNestedMenuClick(event: MouseEvent): void {
     if (this.hasChildren && !this.isTooltipOpen) {
       event.preventDefault();
     }
@@ -104,6 +124,29 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       } else {
         this.menuService.openItem(this.id);
       }
+
+      this.checkChildren();
+    }
+  }
+
+  public _onItemTouchStart(event: TouchEvent): void {
+    if (!this.isOpen && !this.isTooltipOpen && this.hasChildren) {
+      console.log('skip');
+      this.shouldSkipClick = true;
+    }
+  }
+
+  public _onItemClick(event: MouseEvent): void {
+    if (this.shouldSkipClick) {
+      this.shouldSkipClick = false;
+      event.preventDefault();
+      return;
+    }
+
+    this.itemClick.emit();
+
+    if (!this.isExpandClicable) {
+      this._onNestedMenuClick(event);
     }
   }
 }

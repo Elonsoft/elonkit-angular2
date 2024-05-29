@@ -13,14 +13,27 @@ import { Component, Input } from '@angular/core';
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" id="0" icon="es-24:at-line-w500" text="Test item 1">
+          <es-sidebar-item
+            [color]="color"
+            [isOpen]="isOpen"
+            [isExpandClicable]="true"
+            id="0"
+            icon="es-24:at-line-w500"
+            text="Test item 1">
             <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-a" [inset]="true"></es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-b" [inset]="true"></es-sidebar-item>
           </es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" id="1" icon="es-24:at-line-w500" text="Проекты" [selected]="true">
+          <es-sidebar-item
+            (itemClick)="onElementClick()"
+            [color]="color"
+            [isOpen]="isOpen"
+            id="1"
+            icon="es-24:at-line-w500"
+            text="Проекты"
+            [selected]="true">
             <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-1" [inset]="true"></es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-2" [inset]="true"></es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-3" [inset]="true"></es-sidebar-item>
@@ -112,4 +125,8 @@ export class DemoWrapperComponent {
   @Input() behavior: 'click' | 'hover';
   @Input() exclusive: boolean;
   constructor() {}
+
+  public onElementClick(): void {
+    console.log('element clicked');
+  }
 }
