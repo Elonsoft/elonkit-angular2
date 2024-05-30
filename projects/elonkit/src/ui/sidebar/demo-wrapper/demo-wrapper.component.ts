@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
   template: `
-    <div style="height: 100vh; margin: -16px; display: flex; gap: 20px; overflow: auto;">
+    <div style="height: 100vh; margin: -10px 0; display: flex; gap: 20px; overflow: auto;">
       <es-sidebar
         [color]="color"
         [width]="width"
@@ -13,16 +13,7 @@ import { Component, Input } from '@angular/core';
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item
-            [color]="color"
-            [isOpen]="isOpen"
-            [isExpandClicable]="true"
-            id="0"
-            icon="es-24:at-line-w500"
-            text="Test item 1">
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-a" [inset]="true"></es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-b" [inset]="true"></es-sidebar-item>
-          </es-sidebar-item>
+          <es-sidebar-item [color]="color" [isOpen]="isOpen" text="CRM" icon="es-24:at-line-w500"></es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
@@ -30,41 +21,95 @@ import { Component, Input } from '@angular/core';
             (itemClick)="onElementClick()"
             [color]="color"
             [isOpen]="isOpen"
-            id="1"
             icon="es-24:at-line-w500"
-            text="Проекты"
-            [selected]="true">
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-1" [inset]="true"></es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-2" [inset]="true"></es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Вложенный-3" [inset]="true"></es-sidebar-item>
+            text="Work Time">
           </es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         <es-sidebar-scrollable>
           <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
-            <div style="height: 55px; width: 100%;">List item</div>
+            <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              [isExpandClicable]="true"
+              id="0"
+              icon="es-24:at-line-w500"
+              text="Projects"
+              [selected]="true">
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №0" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №1" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №2" [inset]="true" [selected]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №3" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №4" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №5" [inset]="true"></es-sidebar-item>
+            </es-sidebar-item>
+            <es-sidebar-item
+              (itemClick)="onElementClick()"
+              [color]="color"
+              [isOpen]="isOpen"
+              id="1"
+              icon="es-24:at-line-w500"
+              text="Files">
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №0" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №1" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №2" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №3" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №4" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №5" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №6" [inset]="true"></es-sidebar-item>
+              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №7" [inset]="true"></es-sidebar-item>
+            </es-sidebar-item>
+            <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:at-line-w500"
+              text="Infographic">
+            </es-sidebar-item>
+            <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:at-line-w500"
+              text="Schedule">
+            </es-sidebar-item>
+            <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:at-line-w500"
+              text="Messages">
+            </es-sidebar-item>
+            <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:at-line-w500"
+              text="Inbox">
+            </es-sidebar-item>
           </es-sidebar-menu>
           <es-sidebar-divider role="after-scroll-content" [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         </es-sidebar-scrollable>
 
         <es-sidebar-spacer></es-sidebar-spacer>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <div style="height: 55px; width: 100%;">List item</div>
-          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:magnify-2-line-w500"
+              text="Search">
+            </es-sidebar-item>
+            <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:bell-line-line-w500"
+              text="Notifications">
+            </es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <div style="height: 55px; width: 100%; background-color: #fef9;">List item</div>
+        <es-sidebar-item
+              [color]="color"
+              [isOpen]="isOpen"
+              icon="es-24:account-line-w500"
+              text="Name">
+            </es-sidebar-item>
         </es-sidebar-menu>
       </es-sidebar>
       <div>

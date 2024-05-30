@@ -1,4 +1,4 @@
-<div class="es-sidebar-item__root">
+<div class="es-sidebar-item__root" (mouseenter)="_onNestedMenuHover($event)" (mouseleave)="_onNestedMenuHover($event)">
   <div class="es-sidebar-item__wrapper">
     <button
       mat-ripple
@@ -14,7 +14,11 @@
         <mat-icon class="es-sidebar-item__button__container__icon" *ngIf="icon" [svgIcon]="icon"></mat-icon>
         <span
           class="es-sidebar-item__button__container__text es-body-100"
-          [ngStyle]="{ display: isOpen ? 'block' : 'none', 'padding-left': inset ? '36px' : '' }"
+          [ngStyle]="{
+            display: isOpen ? 'block' : 'none',
+            margin: inset ? '2px 0' : '',
+            'padding-left': inset ? '36px' : ''
+            }"
           >{{ text }}</span
         >
       </div>
@@ -24,7 +28,7 @@
       *ngIf="isOpen && (hasChildren$ | async)"
       (click)="_onNestedMenuClick($event)"
       class="es-sidebar-item__button-secondary-action"
-      [tabindex]="behaviour === 'hover' || !isExpandClicable ? '-1' : '0'"
+      [tabindex]="!isExpandClicable ? '-1' : '0'"
       [ngClass]="{
         'es-sidebar-item__button-secondary-action_primary-color': color === 'primary'
       }"
@@ -36,7 +40,7 @@
         [svgIcon]="(isNestedMenuOpen$ | async) ? 'es-24:chevron-down-line-w200' : 'es-24:chevron-left-line-w200'"></mat-icon>
     </button>
   </div>
-  <div class="es-sidebar-item__collapse" [ngStyle]="{ display: isOpen ? '' : 'none' }">
+  <div class="es-sidebar-item__collapse" [ngStyle]="{ display: isOpen && (hasChildren$ | async) ? '' : 'none'}">
     <div
       class="es-sidebar-item__collapse__wrapper"
       [ngClass]="{ 'es-sidebar-item__collapse__wrapper_collapsed': !(isNestedMenuOpen$ | async) }">

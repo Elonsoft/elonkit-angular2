@@ -113,6 +113,17 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     this.itemClick.emit();
   }
 
+  public _onNestedMenuHover(event: MouseEvent): void {
+    if (this.behaviour === 'hover' && this.id) {
+      console.log('hover:', event);
+      if (event.type === 'mouseenter') {
+        this.menuService.openItem(this.id);
+      } else {
+        this.menuService.closeItem(this.id);
+      }
+    }
+  }
+
   public _onNestedMenuClick(event: MouseEvent): void {
     if (this.hasChildren && !this.isTooltipOpen) {
       event.preventDefault();
@@ -149,4 +160,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       this._onNestedMenuClick(event);
     }
   }
+
+  // TODO: добавить метод раскрытия вложенных элементов на hover (root element)
 }
