@@ -3,15 +3,16 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  DestroyRef,
   ElementRef,
   HostBinding,
-  Input,
-  OnDestroy,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { resizeHeightObserver } from 'projects/elonkit/src/utils/resize-height-observer';
 import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
-import { Subscription } from 'rxjs';
+import { debounceTime, merge } from 'rxjs';
 
 @Component({
   selector: 'es-sidebar-scrollable',
@@ -20,7 +21,7 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESSidebarScrollableComponent implements AfterViewInit, OnDestroy {
+export class ESSidebarScrollableComponent implements AfterViewInit {
   @ViewChild('scrollableContainer', { static: true }) scrollableContainer!: ElementRef<HTMLDivElement>;
   @HostBinding('class.es-sidebar-scrollable') class = true;
 
@@ -28,47 +29,32 @@ export class ESSidebarScrollableComponent implements AfterViewInit, OnDestroy {
   public isBeforeScroll = false;
   public isAfterScroll = true;
 
-  private resizeSubscription!: Subscription;
+  constructor(
+    private cd: ChangeDetectorRef,
+    private destroyRef: DestroyRef
+  ) {}
 
-  constructor(private cd: ChangeDetectorRef) {}
-
-  public ngAfterViewInit() {
-    this.resizeSubscription = resizeObserver(this.scrollableContainer.nativeElement).subscribe(() => {
-      this.updateScrollableState();
-    });
+  public ngAfterViewInit(): void {
+    merge(resizeObserver(this.scrollableContainer.nativeElement), resizeHeightObserver(this.scrollableContainer.nativeElement))
+      .pipe(debounceTime(25), takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.updateScrollableState();
+      });
 
     this.updateScrollableState();
   }
 
-  public ngOnDestroy() {
-    if (this.resizeSubscription) {
-      this.resizeSubscription.unsubscribe();
-    }
-  }
-
-  public updateScrollableState() {
+  public updateScrollableState(): void {
     const container = this.scrollableContainer.nativeElement;
     this.isScrollable = container.scrollHeight > container.clientHeight;
     this.onScroll(); // Initialize the scroll state
     this.cd.detectChanges();
   }
 
-  public onScroll() {
+  public onScroll(): void {
     const container = this.scrollableContainer.nativeElement;
     this.isBeforeScroll = container.scrollTop > 0;
     this.isAfterScroll = !(container.scrollTop >= container.scrollHeight - container.clientHeight);
     this.cd.detectChanges();
-  }
-
-  public getScrollableStyles() {
-    return this.isScrollable
-      ? {
-          mask: `${this.isBeforeScroll ? 'linear-gradient(to bottom, transparent 0, black 32px) top' : 'none'}, ${
-            this.isAfterScroll ? 'linear-gradient(to bottom, black calc(100% - 32px), transparent 100%) bottom' : 'none'
-          }`,
-          'mask-size': `${this.isBeforeScroll ? '100%' : 'auto'} ${this.isAfterScroll ? '100%' : 'auto'}`,
-          'mask-repeat': 'no-repeat',
-        }
-      : {};
   }
 }

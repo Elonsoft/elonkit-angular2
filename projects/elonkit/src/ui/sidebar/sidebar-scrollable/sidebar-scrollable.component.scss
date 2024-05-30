@@ -11,7 +11,7 @@
 
     &_after-scroll {
       mask: linear-gradient(to bottom, black calc(100% - 32px), transparent 100%) bottom;
-      mask-size: 51%;
+      mask-size: 100%;
       mask-repeat: no-repeat;
     }
 

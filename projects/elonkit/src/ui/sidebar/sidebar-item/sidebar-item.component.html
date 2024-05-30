@@ -18,7 +18,7 @@
             display: isOpen ? 'block' : 'none',
             margin: inset ? '2px 0' : '',
             'padding-left': inset ? '36px' : ''
-            }"
+          }"
           >{{ text }}</span
         >
       </div>
@@ -40,7 +40,7 @@
         [svgIcon]="(isNestedMenuOpen$ | async) ? 'es-24:chevron-down-line-w200' : 'es-24:chevron-left-line-w200'"></mat-icon>
     </button>
   </div>
-  <div class="es-sidebar-item__collapse" [ngStyle]="{ display: isOpen && (hasChildren$ | async) ? '' : 'none'}">
+  <div class="es-sidebar-item__collapse" [ngStyle]="{ display: isOpen && (hasChildren$ | async) ? '' : 'none' }">
     <div
       class="es-sidebar-item__collapse__wrapper"
       [ngClass]="{ 'es-sidebar-item__collapse__wrapper_collapsed': !(isNestedMenuOpen$ | async) }">

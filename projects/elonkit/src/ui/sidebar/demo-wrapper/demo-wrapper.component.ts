@@ -26,6 +26,7 @@ import { Component, Input } from '@angular/core';
           </es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+
         <es-sidebar-scrollable>
           <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
             <es-sidebar-item
@@ -38,7 +39,12 @@ import { Component, Input } from '@angular/core';
               [selected]="true">
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №0" [inset]="true"></es-sidebar-item>
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №1" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №2" [inset]="true" [selected]="true"></es-sidebar-item>
+              <es-sidebar-item
+                [color]="color"
+                [isOpen]="isOpen"
+                text="Project №2"
+                [inset]="true"
+                [selected]="true"></es-sidebar-item>
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №3" [inset]="true"></es-sidebar-item>
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №4" [inset]="true"></es-sidebar-item>
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №5" [inset]="true"></es-sidebar-item>
@@ -59,57 +65,23 @@ import { Component, Input } from '@angular/core';
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №6" [inset]="true"></es-sidebar-item>
               <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №7" [inset]="true"></es-sidebar-item>
             </es-sidebar-item>
-            <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:at-line-w500"
-              text="Infographic">
-            </es-sidebar-item>
-            <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:at-line-w500"
-              text="Schedule">
-            </es-sidebar-item>
-            <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:at-line-w500"
-              text="Messages">
-            </es-sidebar-item>
-            <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:at-line-w500"
-              text="Inbox">
-            </es-sidebar-item>
+            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
+            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Schedule"> </es-sidebar-item>
+            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Messages"> </es-sidebar-item>
+            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Inbox"> </es-sidebar-item>
           </es-sidebar-menu>
           <es-sidebar-divider role="after-scroll-content" [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         </es-sidebar-scrollable>
 
         <es-sidebar-spacer></es-sidebar-spacer>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-        <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:magnify-2-line-w500"
-              text="Search">
-            </es-sidebar-item>
-            <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:bell-line-line-w500"
-              text="Notifications">
-            </es-sidebar-item>
+          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:magnify-2-line-w500" text="Search"> </es-sidebar-item>
+          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:bell-line-line-w500" text="Notifications">
+          </es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-        <es-sidebar-item
-              [color]="color"
-              [isOpen]="isOpen"
-              icon="es-24:account-line-w500"
-              text="Name">
-            </es-sidebar-item>
+          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:account-line-w500" text="Name"> </es-sidebar-item>
         </es-sidebar-menu>
       </es-sidebar>
       <div>
