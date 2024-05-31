@@ -39,8 +39,18 @@ import { Component, Input } from '@angular/core';
               text="Projects"
               [selected]="true">
               <ng-template #items>
-                <es-sidebar-item (itemClick)="onElementValueClick('Project №0')" [color]="color" [isOpen]="isOpen" text="Project №0" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item (itemClick)="onElementValueClick('Project №1')" [color]="color" [isOpen]="isOpen" text="Project №1" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  (itemClick)="onElementValueClick('Project №0')"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="Project №0"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  (itemClick)="onElementValueClick('Project №1')"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="Project №1"
+                  [inset]="true"></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №2')"
                   [color]="color"
@@ -70,7 +80,6 @@ import { Component, Input } from '@angular/core';
                 <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №6" [inset]="true"></es-sidebar-item>
                 <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №7" [inset]="true"></es-sidebar-item>
               </ng-template>
-
             </es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Schedule"> </es-sidebar-item>
