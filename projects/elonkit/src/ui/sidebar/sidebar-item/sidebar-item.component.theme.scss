@@ -3,6 +3,7 @@
   $mono-b: map-get($es-theme, mono-b);
   $primary: map-get($theme, primary);
   $other: map-get($es-theme, other);
+  $surface: map-get($es-theme, surface);
 
   .es-sidebar-item {
     &__root {
@@ -120,6 +121,37 @@
       }
       .mat-ripple-element {
         background-color: mat.get-color-from-palette($mono-b, A200);
+      }
+    }
+
+    &__tooltip {
+      background-color: mat.get-color-from-palette($surface, 400);
+      color: mat.get-color-from-palette($mono-a, A900);
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.07), 0 3px 6px 0 rgba(0, 0, 0, 0.03), 0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // elevation 600
+
+      .es-tooltip__arrow {
+        background: linear-gradient(135deg, transparent 50%, mat.get-color-from-palette($surface, 400) 50%);
+      }
+  
+      &__header {
+        &__button {
+          background-color: transparent;
+          color: mat.get-color-from-palette($mono-a, A900);
+          padding: 0;
+        }
+      }
+
+      .es-sidebar-item {
+        &__root {
+        }
+  
+        &__button {
+  
+          &__container {
+            &__text {
+            }
+          }
+        }
       }
     }
   }

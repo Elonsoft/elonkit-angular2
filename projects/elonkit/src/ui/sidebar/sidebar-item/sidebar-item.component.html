@@ -1,6 +1,15 @@
 <div class="es-sidebar-item__root" (mouseenter)="_onNestedMenuHover($event)" (mouseleave)="_onNestedMenuHover($event)">
-  <div class="es-sidebar-item__wrapper">
+  <div
+    class="es-sidebar-item__wrapper">
     <button
+      esTooltip
+      [esTooltipContent]="tooltipTemplate"
+      esTooltipArrow
+      [esTooltipInteractive]="hasChildren$ | async"
+      esTooltipClass="es-sidebar-item__tooltip"
+      [esTooltipDisabled]="isOpen"
+      esTooltipPosition="after"
+
       mat-ripple
       (click)="_onItemClick($event)"
       (keydown)="_onItemKeyDown($event)"
@@ -44,9 +53,21 @@
     <div
       class="es-sidebar-item__collapse__wrapper"
       [ngClass]="{ 'es-sidebar-item__collapse__wrapper_collapsed': !(isNestedMenuOpen$ | async) }">
-      <div #contentContainer class="es-sidebar-item__collapse__wrapper__inner">
-        <ng-content></ng-content>
+      <div #templateContainer class="es-sidebar-item__collapse__wrapper__inner">
+        <ng-container [ngTemplateOutlet]="templateRef"></ng-container>
       </div>
     </div>
   </div>
 </div>
+
+<ng-template #tooltipTemplate>
+  <div class="es-sidebar-item__tooltip__header">
+    <button class="es-sidebar-item__tooltip__header__button es-body-100" mat-ripple *ngIf="isExpandClicable" (click)="_onItemClick($event)">{{text}}</button>
+    <div class="es-sidebar-item__tooltip__header__text es-body-100" *ngIf="!isExpandClicable">{{text}}</div>
+  </div>
+
+  <div class="es-sidebar-item__tooltip__children" [ngStyle]="{dispalay: (hasChildren$ | async) ? 'block' : 'none'}">
+    <mat-divider *ngIf="(hasChildren$ | async)"></mat-divider>
+    <ng-container [ngTemplateOutlet]="templateRef"></ng-container>
+  </div>
+</ng-template>

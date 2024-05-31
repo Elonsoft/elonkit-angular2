@@ -18,7 +18,7 @@ import { Component, Input } from '@angular/core';
         <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
           <es-sidebar-item
-            (itemClick)="onElementClick()"
+            (itemClick)="onElementValueClick('Work Time')"
             [color]="color"
             [isOpen]="isOpen"
             icon="es-24:at-line-w500"
@@ -30,6 +30,7 @@ import { Component, Input } from '@angular/core';
         <es-sidebar-scrollable>
           <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
             <es-sidebar-item
+              (itemClick)="onElementValueClick('Projects')"
               [color]="color"
               [isOpen]="isOpen"
               [isExpandClicable]="true"
@@ -37,17 +38,20 @@ import { Component, Input } from '@angular/core';
               icon="es-24:at-line-w500"
               text="Projects"
               [selected]="true">
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №0" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №1" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item
-                [color]="color"
-                [isOpen]="isOpen"
-                text="Project №2"
-                [inset]="true"
-                [selected]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №3" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №4" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №5" [inset]="true"></es-sidebar-item>
+              <ng-template #items>
+                <es-sidebar-item (itemClick)="onElementValueClick('Project №0')" [color]="color" [isOpen]="isOpen" text="Project №0" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item (itemClick)="onElementValueClick('Project №1')" [color]="color" [isOpen]="isOpen" text="Project №1" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  (itemClick)="onElementValueClick('Project №2')"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="Project №2"
+                  [inset]="true"
+                  [selected]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №3" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №4" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №5" [inset]="true"></es-sidebar-item>
+              </ng-template>
             </es-sidebar-item>
             <es-sidebar-item
               (itemClick)="onElementClick()"
@@ -56,14 +60,17 @@ import { Component, Input } from '@angular/core';
               id="1"
               icon="es-24:at-line-w500"
               text="Files">
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №0" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №1" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №2" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №3" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №4" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №5" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №6" [inset]="true"></es-sidebar-item>
-              <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №7" [inset]="true"></es-sidebar-item>
+              <ng-template #items>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №0" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №1" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №2" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №3" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №4" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №5" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №6" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №7" [inset]="true"></es-sidebar-item>
+              </ng-template>
+
             </es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Schedule"> </es-sidebar-item>
@@ -145,5 +152,9 @@ export class DemoWrapperComponent {
 
   public onElementClick(): void {
     console.log('element clicked');
+  }
+
+  public onElementValueClick(value: string): void {
+    console.log(`click on ${value}`);
   }
 }

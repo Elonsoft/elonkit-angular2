@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
   Input,
@@ -9,6 +10,7 @@ import {
   OnDestroy,
   Output,
   SimpleChanges,
+  TemplateRef,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -24,8 +26,10 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @ViewChild('sidebarItemButtonContainer') itemButtonContainer: ElementRef<HTMLDivElement>;
-  @ViewChild('contentContainer', { static: false }) contentContainer: ElementRef<HTMLDivElement>;
+  @ViewChild('sidebarItemButtonContainer') itemButtonContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('templateContainer', { static: false, read: ElementRef }) templateContainer!: ElementRef<HTMLDivElement>;
+
+  @ContentChild('items') templateRef!: TemplateRef<any>;
 
   @Input() icon = '';
   @Input() text = '';
@@ -55,7 +59,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   constructor(public menuService: ESSidebarMenuService) {}
 
   public ngAfterViewInit(): void {
-    console.log('init');
     this.behaviour = this.menuService.behaviour;
 
     this.resizeSubscription = resizeObserver(this.itemButtonContainer.nativeElement).subscribe(() => {
@@ -84,11 +87,11 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   private checkChildren(): void {
-    if (this.contentContainer) {
-      const contentElement = this.contentContainer.nativeElement;
-      this.hasChildren = contentElement.hasChildNodes();
+    if (this.templateRef) {
+      const templateElement = this.templateContainer.nativeElement;
+      this.hasChildren = templateElement.hasChildNodes();
       this.hasChildren$.next(this.hasChildren);
-      const childrenArr = Array.from(contentElement.children) as HTMLElement[];
+      const childrenArr = Array.from(templateElement.children) as HTMLElement[];
 
       childrenArr.forEach((el: HTMLElement) => {
         (el.firstChild as HTMLElement).style.margin = '0px';
@@ -109,8 +112,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       console.log(event.key);
       // TODO: focus on first tooltip item
     }
-
-    this.itemClick.emit();
   }
 
   public _onNestedMenuHover(event: MouseEvent): void {
@@ -160,6 +161,4 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       this._onNestedMenuClick(event);
     }
   }
-
-  // TODO: добавить метод раскрытия вложенных элементов на hover (root element)
 }
