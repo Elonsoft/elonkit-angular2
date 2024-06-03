@@ -30,6 +30,9 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @ViewChild('templateContainer', { static: false, read: ElementRef }) templateContainer!: ElementRef<HTMLDivElement>;
 
   @ContentChild('items') templateRef!: TemplateRef<any>;
+  @ViewChild('tooltipHeader') tooltipHeader: ElementRef<HTMLDivElement>;
+  @ViewChild('tootipChildrenContainer') tootipChildrenContainer: ElementRef<HTMLDivElement>;
+  @ViewChild('itemButton') itemButton!: ElementRef<HTMLButtonElement>;
 
   @Input() icon = '';
   @Input() text = '';
@@ -51,8 +54,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   private isNestedMenuOpen = false;
   public isNestedMenuOpen$ = new BehaviorSubject<boolean>(false);
 
-  public isTooltipOpen = false;
-  private shouldSkipClick = false;
   private resizeSubscription!: Subscription;
   private openedItemsSubscription!: Subscription;
 
@@ -75,7 +76,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     this.checkChildren();
   }
 
-  public ngOnChanges(changes: SimpleChanges): void {
+  public ngOnChanges(): void {
     this.behaviour = this.menuService.behaviour;
 
     this.checkChildren();
@@ -88,6 +89,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
 
   private checkChildren(): void {
     if (this.templateRef) {
+      console.log(this.templateRef);
       const templateElement = this.templateContainer.nativeElement;
       this.hasChildren = templateElement.hasChildNodes();
       this.hasChildren$.next(this.hasChildren);
@@ -107,16 +109,54 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     }
   }
 
+  public selectedTooltipItemIndex = 0;
+
   public _onItemKeyDown(event: KeyboardEvent): void {
+    if (!this.hasChildren) return;
+
+    const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
+    if (this.tooltipHeader.nativeElement.querySelector('button')) {
+      childrenArr.unshift(this.tooltipHeader.nativeElement);
+    }
+
     if (this.hasChildren && event.key === 'ArrowRight') {
-      console.log(event.key);
-      // TODO: focus on first tooltip item
+      const childButton = childrenArr[0]?.querySelector('button') as HTMLButtonElement;
+      childButton.focus();
+    }
+  }
+
+  public _onTooltipKeydown(event: KeyboardEvent): void {
+    const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
+
+    if (this.tooltipHeader.nativeElement.querySelector('button')) {
+      childrenArr.unshift(this.tooltipHeader.nativeElement);
+    }
+
+    if (this.hasChildren && event.key === 'ArrowDown') {
+      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % childrenArr.length;
+      const nextButton = childrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
+
+      if (nextButton) {
+        nextButton.focus();
+      }
+    }
+
+    if (this.hasChildren && event.key === 'ArrowUp') {
+      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + childrenArr.length - 1) % childrenArr.length;
+      const prevButton = childrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
+
+      if (prevButton) {
+        prevButton.focus();
+      }
+    }
+
+    if (this.hasChildren && event.key === 'ArrowLeft') {
+      this.itemButton.nativeElement.focus();
     }
   }
 
   public _onNestedMenuHover(event: MouseEvent): void {
     if (this.behaviour === 'hover' && this.id) {
-      console.log('hover:', event);
       if (event.type === 'mouseenter') {
         this.menuService.openItem(this.id);
       } else {
@@ -126,10 +166,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   public _onNestedMenuClick(event: MouseEvent): void {
-    if (this.hasChildren && !this.isTooltipOpen) {
-      event.preventDefault();
-    }
-
     if (this.isOpen && (this.behaviour === 'click' || event.detail === 0) && this.id) {
       if (this.isNestedMenuOpen) {
         this.menuService.closeItem(this.id);
@@ -142,19 +178,11 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   public _onItemTouchStart(event: TouchEvent): void {
-    if (!this.isOpen && !this.isTooltipOpen && this.hasChildren) {
-      console.log('skip');
-      this.shouldSkipClick = true;
-    }
+    this.itemClick.emit();
+    event.preventDefault();
   }
 
   public _onItemClick(event: MouseEvent): void {
-    if (this.shouldSkipClick) {
-      this.shouldSkipClick = false;
-      event.preventDefault();
-      return;
-    }
-
     this.itemClick.emit();
 
     if (!this.isExpandClicable) {

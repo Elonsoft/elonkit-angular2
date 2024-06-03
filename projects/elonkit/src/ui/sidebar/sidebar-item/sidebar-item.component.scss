@@ -13,6 +13,7 @@
     width: 100%;
     padding: 8px;
     font-family: inherit;
+    cursor: pointer;
     transition: background-color 150ms;
 
     &:focus-visible {
@@ -44,6 +45,7 @@
     position: absolute;
     z-index: 5;
     top: 8px;
+    cursor: pointer;
 
     .mat-mdc-button-touch-target {
       width: inherit;
@@ -111,8 +113,6 @@
             padding: 4px 16px;
             border-radius: 0;
             min-height: 32px;
-
-            cursor: pointer;
 
             &__container {
               padding: 0;
