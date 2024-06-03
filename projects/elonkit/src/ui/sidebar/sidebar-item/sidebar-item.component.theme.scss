@@ -1,8 +1,7 @@
 @mixin es-sidebar-item-theme($theme, $es-theme) {
   $mono-a: map-get($es-theme, mono-a);
   $mono-b: map-get($es-theme, mono-b);
-  $primary: map-get($theme, primary);
-  $other: map-get($es-theme, other);
+  $accent: map-get($theme, accent);
   $surface: map-get($es-theme, surface);
 
   .es-sidebar-item {
@@ -15,12 +14,15 @@
     &__button {
       background-color: transparent;
       color: mat.get-color-from-palette($mono-a, A800);
+
       &:focus-visible {
         background-color: mat.get-color-from-palette($mono-a, A200);
       }
+
       &:active {
         background-color: mat.get-color-from-palette($mono-a, A150);
       }
+
       @media (hover: hover) {
         &:hover {
           background-color: mat.get-color-from-palette($mono-a, A50);
@@ -37,9 +39,11 @@
 
       &_selected {
         background-color: mat.get-color-from-palette($mono-a, A100);
+
         &:focus-visible {
           background-color: mat.get-color-from-palette($mono-a, A75);
         }
+
         &:active {
           background-color: mat.get-color-from-palette($mono-a, A150);
         }
@@ -55,6 +59,7 @@
         &:focus-visible {
           background-color: mat.get-color-from-palette($mono-b, A200);
         }
+
         &:active {
           background-color: mat.get-color-from-palette($mono-b, A150);
         }
@@ -77,6 +82,7 @@
       &_primary-color.es-sidebar-item__button_selected {
         background-color: mat.get-color-from-palette($mono-b, A100);
         color: mat.get-color-from-palette($mono-b, 500);
+
         &:focus-visible {
           background-color: mat.get-color-from-palette($mono-b, A75);
         }
@@ -90,9 +96,11 @@
     &__button-secondary-action.mat-mdc-icon-button {
       background-color: transparent;
       color: mat.get-color-from-palette($mono-a, A500);
+
       &:focus-visible {
         background-color: mat.get-color-from-palette($mono-a, A200);
       }
+
       &:active {
         background-color: mat.get-color-from-palette($mono-a, A150);
       }
@@ -110,6 +118,7 @@
       &:focus-visible {
         background-color: mat.get-color-from-palette($mono-b, A200);
       }
+
       &:active {
         background-color: mat.get-color-from-palette($mono-b, A150);
       }
@@ -119,6 +128,7 @@
           background-color: mat.get-color-from-palette($mono-b, A50);
         }
       }
+
       .mat-ripple-element {
         background-color: mat.get-color-from-palette($mono-b, A200);
       }
@@ -141,16 +151,62 @@
           background-color: transparent;
           color: mat.get-color-from-palette($mono-a, A900);
           padding: 0;
+
+          &:focus-visible {
+            background-color: mat.get-color-from-palette($mono-a, A200);
+          }
+
+          &:active {
+            background-color: mat.get-color-from-palette($mono-a, A150);
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              background-color: mat.get-color-from-palette($mono-a, A50);
+            }
+          }
         }
       }
 
-      .es-sidebar-item {
-        &__root {
-        }
+      &__children {
+        &__container {
+          .es-sidebar-item {
+            &__root {
+            }
 
-        &__button {
-          &__container {
-            &__text {
+            &__button {
+              color: mat.get-color-from-palette($mono-a, A800);
+
+              &:focus-visible {
+                background-color: mat.get-color-from-palette($mono-a, A200);
+              }
+
+              &:active {
+                background-color: mat.get-color-from-palette($mono-a, A150);
+              }
+
+              @media (hover: hover) {
+                &:hover {
+                  background-color: mat.get-color-from-palette($mono-a, A50);
+                }
+              }
+
+              &_selected {
+                background-color: mat.get-color-from-palette($accent, A100);
+
+                &:focus-visible {
+                  background-color: mat.get-color-from-palette($accent, A75);
+                }
+
+                &:active {
+                  background-color: mat.get-color-from-palette($accent, A150);
+                }
+              }
+
+              &__container {
+                &__text {
+                }
+              }
             }
           }
         }

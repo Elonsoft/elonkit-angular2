@@ -8,6 +8,7 @@
       esTooltipClass="es-sidebar-item__tooltip"
       [esTooltipDisabled]="isOpen"
       esTooltipPosition="after"
+      [esTooltipShowDelay]="100"
       mat-ripple
       (click)="_onItemClick($event)"
       (keydown)="_onItemKeyDown($event)"
@@ -72,6 +73,8 @@
 
   <div class="es-sidebar-item__tooltip__children" [ngStyle]="{ dispalay: (hasChildren$ | async) ? 'block' : 'none' }">
     <mat-divider *ngIf="hasChildren$ | async"></mat-divider>
-    <ng-container [ngTemplateOutlet]="templateRef"></ng-container>
+    <div class="es-sidebar-item__tooltip__children__container" [ngStyle]="{ padding: (hasChildren$ | async) ? '8px 0' : '0' }">
+      <ng-container [ngTemplateOutlet]="templateRef"></ng-container>
+    </div>
   </div>
 </ng-template>

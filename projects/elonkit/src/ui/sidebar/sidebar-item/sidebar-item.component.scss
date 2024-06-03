@@ -76,9 +76,9 @@
   }
 
   &__tooltip {
+    max-width: 288px;
     padding: 0 !important;
     margin-left: 10px !important;
-    max-width: 288px;
 
     &__header {
       margin: 4px 0;
@@ -87,28 +87,41 @@
         text-align: start;
         border: none;
         width: 100%;
-        padding: 7px 14px !important;
+        padding: 6px 16px !important;
         cursor: pointer;
+
+        &:focus-visible {
+          outline: none;
+        }
       }
 
       &__text {
-        padding: 7px 14px !important;
+        padding: 6px 16px !important;
       }
     }
 
-    .es-sidebar-item {
-      &__root {
-        margin: 0;
-      }
+    &__children {
+      &__container {
+        .es-sidebar-item {
+          &__root {
+            margin: 0;
+          }
 
-      &__button {
-        padding: 0;
-        border-radius: 0;
-        &__container {
-          padding: 0;
-          &__text {
-            padding: 0 !important;
-            display: block !important;
+          &__button {
+            padding: 4px 16px;
+            border-radius: 0;
+            min-height: 32px;
+
+            cursor: pointer;
+
+            &__container {
+              padding: 0;
+
+              &__text {
+                padding: 0 !important;
+                display: block !important;
+              }
+            }
           }
         }
       }

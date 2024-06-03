@@ -60,7 +60,6 @@ import { Component, Input } from '@angular/core';
                   [selected]="true"></es-sidebar-item>
                 <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №3" [inset]="true"></es-sidebar-item>
                 <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №4" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №5" [inset]="true"></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item
