@@ -41,6 +41,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() selected = false;
   @Input() isExpandClicable = false;
   @Input() inset = false;
+  @Input() disabled = false;
 
   @Output() itemClick = new EventEmitter<void>();
 
@@ -96,19 +97,14 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       const templateElement = this.templateContainer.nativeElement;
       this.hasChildren = templateElement.hasChildNodes();
       this.hasChildren$.next(this.hasChildren);
+
       const childrenArr = Array.from(templateElement.children) as HTMLElement[];
+      childrenArr.map((el) => ((el.firstChild as HTMLElement).style.margin = '0px'));
 
-      childrenArr.forEach((el: HTMLElement) => {
-        (el.firstChild as HTMLElement).style.margin = '0px';
-
-        const elementButton = el.firstChild?.firstChild?.firstChild as HTMLElement;
-
-        if (!this.isNestedMenuOpen) {
-          elementButton.tabIndex = -1;
-        } else {
-          elementButton.tabIndex = 0;
-        }
-      });
+      const enabledChildrenArr = childrenArr.filter((child) =>
+        child.querySelector('button:not(.es-sidebar-item__button_disabled)')
+      );
+      enabledChildrenArr.map((el) => ((el.querySelector('button') as HTMLElement).tabIndex = !this.isNestedMenuOpen ? -1 : 0));
     }
   }
 
@@ -135,9 +131,13 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       childrenArr.unshift(this.tooltipHeader.nativeElement);
     }
 
+    const enabledChildrenArr = childrenArr.filter((child) =>
+      child.querySelector('button:not(.es-sidebar-item__button_disabled)')
+    );
+
     if (this.hasChildren && event.key === 'ArrowDown') {
-      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % childrenArr.length;
-      const nextButton = childrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
+      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % enabledChildrenArr.length;
+      const nextButton = enabledChildrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
 
       if (nextButton) {
         nextButton.focus();
@@ -145,8 +145,8 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     }
 
     if (this.hasChildren && event.key === 'ArrowUp') {
-      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + childrenArr.length - 1) % childrenArr.length;
-      const prevButton = childrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
+      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + enabledChildrenArr.length - 1) % enabledChildrenArr.length;
+      const prevButton = enabledChildrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
 
       if (prevButton) {
         prevButton.focus();
@@ -158,16 +158,16 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     }
 
     if (this.hasChildren && event.key === 'Tab') {
-      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % childrenArr.length;
+      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % enabledChildrenArr.length;
       if (this.selectedTooltipItemIndex === 0) {
-        const lastButton = childrenArr[childrenArr.length - 1]?.querySelector('button') as HTMLButtonElement;
+        const lastButton = enabledChildrenArr[enabledChildrenArr.length - 1]?.querySelector('button') as HTMLButtonElement;
         lastButton.blur();
 
         const container = document.querySelector('aside');
 
         if (container) {
           const buttons = Array.from(
-            container.querySelectorAll('.es-sidebar-item__button:not(.template-button)')
+            container.querySelectorAll('.es-sidebar-item__button:not(.template-button):not(.es-sidebar-item__button_disabled)')
           ) as HTMLElement[];
           const currentButton = this.itemButton.nativeElement;
           const index = buttons.findIndex((button) => button === currentButton);
@@ -191,6 +191,8 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   public _onNestedMenuClick(event: MouseEvent): void {
+    if (this.disabled) return;
+
     if (this.isOpen && (this.behaviour === 'click' || event.detail === 0) && this.id) {
       if (this.isNestedMenuOpen) {
         this.menuService.closeItem(this.id);
@@ -203,11 +205,15 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   public _onItemTouchStart(event: TouchEvent): void {
+    if (this.disabled) return;
+
     this.itemClick.emit();
     event.preventDefault();
   }
 
   public _onItemClick(event: MouseEvent): void {
+    if (this.disabled) return;
+
     this.itemClick.emit();
 
     if (!this.isExpandClicable) {

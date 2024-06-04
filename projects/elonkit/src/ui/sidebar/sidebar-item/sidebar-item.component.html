@@ -7,10 +7,12 @@
       esTooltipArrow
       [esTooltipInteractive]="hasChildren$ | async"
       esTooltipClass="es-sidebar-item__tooltip"
-      [esTooltipDisabled]="isOpen"
+      [esTooltipDisabled]="isOpen || disabled"
       esTooltipPosition="after"
       [esTooltipShowDelay]="100"
       mat-ripple
+      [matRippleDisabled]="disabled"
+      [tabIndex]="disabled ? -1 : 0"
       (mouseenter)="selectedTooltipItemIndex = 0"
       (focus)="selectedTooltipItemIndex = 0"
       (click)="_onItemClick($event)"
@@ -19,7 +21,8 @@
       class="es-sidebar-item__button"
       [ngClass]="{
         'es-sidebar-item__button_primary-color': color === 'primary',
-        'es-sidebar-item__button_selected': selected
+        'es-sidebar-item__button_selected': selected,
+        'es-sidebar-item__button_disabled': disabled
       }">
       <div #sidebarItemButtonContainer class="es-sidebar-item__button__container">
         <mat-icon class="es-sidebar-item__button__container__icon" *ngIf="icon" [svgIcon]="icon"></mat-icon>
@@ -41,7 +44,8 @@
       class="es-sidebar-item__button-secondary-action"
       [tabindex]="!isExpandClicable ? '-1' : '0'"
       [ngClass]="{
-        'es-sidebar-item__button-secondary-action_primary-color': color === 'primary'
+        'es-sidebar-item__button-secondary-action_primary-color': color === 'primary',
+        'es-sidebar-item__button-secondary-action_disabled': disabled
       }"
       [ngStyle]="{
         'pointer-events': behaviour === 'hover' || !isExpandClicable ? 'none' : 'all',

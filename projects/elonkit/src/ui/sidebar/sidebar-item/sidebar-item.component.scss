@@ -33,6 +33,11 @@
         white-space: nowrap;
       }
     }
+
+    &_disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
   }
 
   &__button-secondary-action.mat-mdc-icon-button {
@@ -51,6 +56,11 @@
       width: inherit;
       height: inherit;
     }
+  }
+
+  &__button-secondary-action_disabled {
+    opacity: 0.3;
+    cursor: default;
   }
 
   &__collapse {

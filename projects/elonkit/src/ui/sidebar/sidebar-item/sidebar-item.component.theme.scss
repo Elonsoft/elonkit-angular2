@@ -19,12 +19,12 @@
         background-color: mat.get-color-from-palette($mono-a, A200);
       }
 
-      &:active {
+      &:active:not(.es-sidebar-item__button_disabled) {
         background-color: mat.get-color-from-palette($mono-a, A150);
       }
 
       @media (hover: hover) {
-        &:hover {
+        &:hover:not(.es-sidebar-item__button_disabled) {
           background-color: mat.get-color-from-palette($mono-a, A50);
         }
       }
@@ -60,12 +60,12 @@
           background-color: mat.get-color-from-palette($mono-b, A200);
         }
 
-        &:active {
+        &:active:not(.es-sidebar-item__button_disabled) {
           background-color: mat.get-color-from-palette($mono-b, A150);
         }
 
         @media (hover: hover) {
-          &:hover {
+          &:hover:not(.es-sidebar-item__button_disabled) {
             background-color: mat.get-color-from-palette($mono-b, A50);
           }
         }

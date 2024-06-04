@@ -66,28 +66,76 @@ import { Component, Input } from '@angular/core';
                   [inset]="true"></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №4')"
+                  [disabled]="disabled"
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №4"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  (itemClick)="onElementValueClick('Project №5')"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="Project №5"
                   [inset]="true"></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item
               (itemClick)="onElementValueClick('Files')"
+              [disabled]="disabled"
               [color]="color"
               [isOpen]="isOpen"
               id="1"
               icon="es-24:at-line-w500"
               text="Files">
               <ng-template #items>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №0" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №1" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №2" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №3" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №4" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №5" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №6" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="File №7" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №0"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №1"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №2"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №3"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №4"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №5"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №6"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  [disabled]="disabled"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="File №7"
+                  [inset]="true"></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
@@ -166,6 +214,7 @@ export class DemoWrapperComponent {
   @Input() isOpen: boolean;
   @Input() behavior: 'click' | 'hover';
   @Input() exclusive: boolean;
+  @Input() disabled: boolean = true;
   constructor() {}
 
   public onElementValueClick(value: string): void {
