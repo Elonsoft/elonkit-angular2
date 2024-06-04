@@ -58,12 +58,22 @@ import { Component, Input } from '@angular/core';
                   text="Project №2"
                   [inset]="true"
                   [selected]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №3" [inset]="true"></es-sidebar-item>
-                <es-sidebar-item [color]="color" [isOpen]="isOpen" text="Project №4" [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  (itemClick)="onElementValueClick('Project №3')"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="Project №3"
+                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item
+                  (itemClick)="onElementValueClick('Project №4')"
+                  [color]="color"
+                  [isOpen]="isOpen"
+                  text="Project №4"
+                  [inset]="true"></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item
-              (itemClick)="onElementClick()"
+              (itemClick)="onElementValueClick('Files')"
               [color]="color"
               [isOpen]="isOpen"
               id="1"
@@ -157,10 +167,6 @@ export class DemoWrapperComponent {
   @Input() behavior: 'click' | 'hover';
   @Input() exclusive: boolean;
   constructor() {}
-
-  public onElementClick(): void {
-    console.log('element clicked');
-  }
 
   public onElementValueClick(value: string): void {
     console.log(`click on ${value}`);
