@@ -9,7 +9,6 @@ import {
   OnChanges,
   OnDestroy,
   Output,
-  SimpleChanges,
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
@@ -74,6 +73,11 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     });
 
     this.checkChildren();
+
+    const templateButtons = Array.from(
+      this.templateContainer.nativeElement.querySelectorAll('.es-sidebar-item__button')
+    ) as HTMLElement[];
+    templateButtons.map((btn) => btn.classList.add('template-button')); // Mark nested buttons as a template-button for filter it then
   }
 
   public ngOnChanges(): void {
@@ -89,7 +93,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
 
   private checkChildren(): void {
     if (this.templateRef) {
-      console.log(this.templateRef);
       const templateElement = this.templateContainer.nativeElement;
       this.hasChildren = templateElement.hasChildNodes();
       this.hasChildren$.next(this.hasChildren);
@@ -112,7 +115,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   public selectedTooltipItemIndex = 0;
 
   public _onItemKeyDown(event: KeyboardEvent): void {
-    if (!this.hasChildren) return;
+    if (!this.hasChildren || !this.tootipChildrenContainer) return;
 
     const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
     if (this.tooltipHeader.nativeElement.querySelector('button')) {
@@ -152,6 +155,29 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
 
     if (this.hasChildren && event.key === 'ArrowLeft') {
       this.itemButton.nativeElement.focus();
+    }
+
+    if (this.hasChildren && event.key === 'Tab') {
+      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % childrenArr.length;
+      if (this.selectedTooltipItemIndex === 0) {
+        console.log('last el gone');
+        const lastButton = childrenArr[childrenArr.length - 1]?.querySelector('button') as HTMLButtonElement;
+        lastButton.blur();
+
+        const container = document.querySelector('aside');
+
+        if (container) {
+          const buttons = Array.from(
+            container.querySelectorAll('.es-sidebar-item__button:not(.template-button)')
+          ) as HTMLElement[];
+          const currentButton = this.itemButton.nativeElement;
+          const index = buttons.findIndex((button) => button === currentButton);
+
+          buttons[index].dispatchEvent(new MouseEvent('mouseleave'));
+          buttons[index + 1].focus();
+          event.preventDefault();
+        }
+      }
     }
   }
 
