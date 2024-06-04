@@ -160,7 +160,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
     if (this.hasChildren && event.key === 'Tab') {
       this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % childrenArr.length;
       if (this.selectedTooltipItemIndex === 0) {
-        console.log('last el gone');
         const lastButton = childrenArr[childrenArr.length - 1]?.querySelector('button') as HTMLButtonElement;
         lastButton.blur();
 
