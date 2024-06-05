@@ -11,6 +11,7 @@
 @import '../ui/surface/surface.component.theme';
 @import '../ui/tooltip/tooltip.component.theme';
 @import '../ui/sidebar/sidebar.component.theme';
+@import '../ui/sidenav/sidenav.component.theme';
 
 @function es-make-theme($es-theme) {
   $result: $es-theme;
@@ -49,4 +50,5 @@
   @include es-surface-theme($theme, $es-theme);
   @include es-tooltip-theme($theme, $es-theme);
   @include es-sidebar-theme($theme, $es-theme);
+  @include es-sidenav-theme($theme, $es-theme);
 }
