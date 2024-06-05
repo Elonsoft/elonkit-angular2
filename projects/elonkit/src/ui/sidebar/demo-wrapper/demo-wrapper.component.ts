@@ -214,7 +214,7 @@ export class DemoWrapperComponent {
   @Input() isOpen: boolean;
   @Input() behavior: 'click' | 'hover';
   @Input() exclusive: boolean;
-  @Input() disabled: boolean = true;
+  @Input() disabled: boolean;
   constructor() {}
 
   public onElementValueClick(value: string): void {
