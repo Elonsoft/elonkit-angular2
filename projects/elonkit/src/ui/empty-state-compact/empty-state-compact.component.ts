@@ -1,7 +1,4 @@
-import {
-  Component,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'es-empty-state-compact',
@@ -9,5 +6,4 @@ import {
   styleUrls: ['./empty-state-compact.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ESEmptyStateCompactComponent {
-}
+export class ESEmptyStateCompactComponent {}

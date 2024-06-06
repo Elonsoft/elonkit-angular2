@@ -15,6 +15,6 @@ const meta: Meta<ESEmptyStateCompactComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<ESEmptyStateCompactComponent>
+type Story = StoryObj<ESEmptyStateCompactComponent>;
 
 export const Demo: Story = {};
