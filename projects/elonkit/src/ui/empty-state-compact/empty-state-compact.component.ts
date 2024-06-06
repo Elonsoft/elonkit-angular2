@@ -10,8 +10,4 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class ESEmptyStateCompactComponent {
-
-  constructor() {}
-
-
 }

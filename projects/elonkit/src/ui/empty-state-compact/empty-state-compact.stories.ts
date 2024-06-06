@@ -10,7 +10,7 @@ const meta: Meta<ESEmptyStateCompactComponent> = {
     props: {
       ...args,
     },
-    template: `<es-empty-state-compact class="es-body-200">Сущностей нет</es-empty-state-compact>`,
+    template: `<es-empty-state-compact>Сущностей нет</es-empty-state-compact>`,
   }),
 };
 
