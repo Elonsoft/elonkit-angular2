@@ -18,6 +18,6 @@ const meta: Meta<KbdComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<KbdComponent>
+type Story = StoryObj<KbdComponent>;
 
 export const Demo: Story = {};
