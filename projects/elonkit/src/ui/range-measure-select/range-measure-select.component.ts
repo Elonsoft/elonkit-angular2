@@ -402,7 +402,7 @@ export class RangeMeasureSelectComponent implements MatFormFieldControl<IRangeSe
     const target = event.target as HTMLInputElement;
     const inputValue = target.value;
 
-    this.endOptionVariantsTransformed = !!inputValue
+    this.endOptionVariantsTransformed = inputValue?.length
       ? this.getOptionVariantsByType(ERangeOption.end).filter((option) => (option.value ? +option.value >= +inputValue : false))
       : this.getOptionVariantsByType(ERangeOption.end);
   }
@@ -414,7 +414,7 @@ export class RangeMeasureSelectComponent implements MatFormFieldControl<IRangeSe
     const target = event.target as HTMLInputElement;
     const inputValue = target.value;
 
-    this.startOptionVariantsTransformed = !!inputValue
+    this.startOptionVariantsTransformed = inputValue?.length
       ? this.getOptionVariantsByType(ERangeOption.start).filter((option) => (option.value ? +option.value <= +inputValue : false))
       : this.getOptionVariantsByType(ERangeOption.start);
   }
