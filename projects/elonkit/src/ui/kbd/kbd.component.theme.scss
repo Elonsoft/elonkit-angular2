@@ -1,0 +1,17 @@
+@mixin es-kbd-theme($theme, $elonkit-theme) {
+  $mono-a: map-get($elonkit-theme, mono-a);
+  .es-kbd {
+    box-shadow: mat.get-color-from-palette($mono-a, A200) 0 0 0 1px inset;
+
+    &.raised {
+      background-color: mat.get-color-from-palette($mono-a, A75);
+    }
+
+    &.contained {
+      background-color: mat.get-color-from-palette($mono-a, A75);
+      box-shadow:
+        mat.get-color-from-palette($mono-a, A300) 0 1px 0,
+        mat.get-color-from-palette($mono-a, A50) 0 0 0 1px inset;
+    }
+  }
+}
