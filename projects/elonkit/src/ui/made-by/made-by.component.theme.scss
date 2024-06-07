@@ -1,5 +1,6 @@
 @mixin es-made-by-theme($theme, $elonkit-theme) {
   $mono-a: map-get($elonkit-theme, mono-a);
+
   .made-by {
     color: mat.get-color-from-palette($mono-a, A500);
 

@@ -10,4 +10,4 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [CommonModule, MatButtonModule, MatIconModule],
   exports: [MadeByComponent]
 })
-export class MadeByModule { }
+export class MadeByModule {}
