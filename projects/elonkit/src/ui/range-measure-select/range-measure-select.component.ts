@@ -11,7 +11,7 @@ import {
   Optional,
   Self,
   Host,
-  ElementRef
+  ElementRef,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { FocusMonitor } from '@angular/cdk/a11y';
@@ -30,11 +30,9 @@ import { ERangeOption, IRangeOption, IRangeSelect } from './range-measure-select
   styleUrls: ['./range-measure-select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  providers: [{ provide: MatFormFieldControl, useExisting: RangeMeasureSelectComponent }]
+  providers: [{ provide: MatFormFieldControl, useExisting: RangeMeasureSelectComponent }],
 })
-export class RangeMeasureSelectComponent
-  implements MatFormFieldControl<IRangeSelect>, ControlValueAccessor, OnInit
-{
+export class RangeMeasureSelectComponent implements MatFormFieldControl<IRangeSelect>, ControlValueAccessor, OnInit {
   /**
    * @ignore
    */
@@ -151,7 +149,7 @@ export class RangeMeasureSelectComponent
    */
   private _value: IRangeSelect = {
     start: null,
-    end: null
+    end: null,
   };
 
   public get isValueEmpty(): boolean {
@@ -225,7 +223,6 @@ export class RangeMeasureSelectComponent
     private changeDetectorRef: ChangeDetectorRef,
     private focusMonitor: FocusMonitor
   ) {
-
     if (this.ngControl !== null) {
       this.ngControl.valueAccessor = this as any;
     }
@@ -235,10 +232,8 @@ export class RangeMeasureSelectComponent
    * @ignore
    */
   public ngOnInit() {
-
     if (this.matFormField) {
       this.origin = new CdkOverlayOrigin(this.matFormField.getConnectedOverlayOrigin());
-      console.log(this.origin)
     }
 
     this.stateChanges.subscribe(() => {
@@ -295,11 +290,7 @@ export class RangeMeasureSelectComponent
       }
     }
 
-    if (
-      rangeOption === ERangeOption.start &&
-      !!startValue &&
-      (+startValue < this.minValue || +startValue > this.maxValue)
-    ) {
+    if (rangeOption === ERangeOption.start && !!startValue && (+startValue < this.minValue || +startValue > this.maxValue)) {
       startElement.value = '';
 
       this.endOptionVariantsTransformed = this.getOptionVariantsByType(ERangeOption.end);
@@ -366,7 +357,7 @@ export class RangeMeasureSelectComponent
   public onClose(shouldFocusArrow?: boolean) {
     this.writeValue({
       start: this.startInput?.nativeElement.value ?? null,
-      end: this.endInput?.nativeElement.value ?? null
+      end: this.endInput?.nativeElement.value ?? null,
     });
 
     this.onTouched();
@@ -388,7 +379,7 @@ export class RangeMeasureSelectComponent
     if (option.type === ERangeOption.start) {
       const options = this.getOptionVariantsByType(ERangeOption.end);
 
-      this.endOptionVariantsTransformed = options.filter(o => (o.value && value ? +o.value >= +value : true));
+      this.endOptionVariantsTransformed = options.filter((o) => (o.value && value ? +o.value >= +value : true));
 
       if (this.startInput?.nativeElement) {
         this.startInput.nativeElement.value = option.value as string;
@@ -396,7 +387,7 @@ export class RangeMeasureSelectComponent
     } else {
       const options = this.getOptionVariantsByType(ERangeOption.start);
 
-      this.startOptionVariantsTransformed = options.filter(o => (o.value && value ? +o.value <= +value : true));
+      this.startOptionVariantsTransformed = options.filter((o) => (o.value && value ? +o.value <= +value : true));
 
       if (this.endInput?.nativeElement) {
         this.endInput.nativeElement.value = option.value as string;
@@ -412,9 +403,7 @@ export class RangeMeasureSelectComponent
     const inputValue = target.value;
 
     this.endOptionVariantsTransformed = !!inputValue
-      ? this.getOptionVariantsByType(ERangeOption.end).filter(option =>
-          option.value ? +option.value >= +inputValue : false
-        )
+      ? this.getOptionVariantsByType(ERangeOption.end).filter((option) => (option.value ? +option.value >= +inputValue : false))
       : this.getOptionVariantsByType(ERangeOption.end);
   }
 
@@ -426,9 +415,7 @@ export class RangeMeasureSelectComponent
     const inputValue = target.value;
 
     this.startOptionVariantsTransformed = !!inputValue
-      ? this.getOptionVariantsByType(ERangeOption.start).filter(option =>
-          option.value ? +option.value <= +inputValue : false
-        )
+      ? this.getOptionVariantsByType(ERangeOption.start).filter((option) => (option.value ? +option.value <= +inputValue : false))
       : this.getOptionVariantsByType(ERangeOption.start);
   }
 
@@ -483,14 +470,14 @@ export class RangeMeasureSelectComponent
       case ERangeOption.start: {
         return this.startOptionVariants?.map((variant: string) => ({
           value: variant,
-          type: ERangeOption.start
+          type: ERangeOption.start,
         }));
       }
 
       case ERangeOption.end: {
         return this.endOptionVariants?.map((variant: string) => ({
           value: variant,
-          type: ERangeOption.end
+          type: ERangeOption.end,
         }));
       }
     }
