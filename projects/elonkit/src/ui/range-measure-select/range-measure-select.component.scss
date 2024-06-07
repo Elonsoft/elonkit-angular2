@@ -1,0 +1,90 @@
+.es-range-measure-select {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+
+  &__panel {
+    //@include elevation-600;
+
+    border-radius: 8px;
+    min-width: 295px;
+    overflow: hidden;
+  }
+
+  &__value {
+    flex: 1;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__value-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    //@include typography-subtitle-1();
+
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__clear-icon.mat-icon {
+    cursor: pointer;
+    height: 16px;
+  }
+
+  &__arrow.mat-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__inputs-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &__input-wrapper {
+    width: 100%;
+  }
+
+  &__input {
+    width: calc(100% - 20px);
+    margin: 8px 4px 8px 16px;
+    //@include typography-body-100();
+    border: 0;
+    outline: none;
+  }
+
+  &__divider {
+    &_mini {
+      left: calc(50% - 3px);
+      position: absolute;
+      width: 6px;
+    }
+  }
+
+  &__lists-wrapper {
+    max-height: 296px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  &__selection-list.mat-mdc-selection-list.mat-mdc-list-base {
+    flex: 1;
+    overflow-y: auto;
+
+    .mat-mdc-list-item.mat-mdc-list-option.mdc-list-item--disabled:first-child {
+      //@include typography-caption();
+
+      .mdc-list-item__primary-text {
+        opacity: 1;
+      }
+    }
+  }
+}

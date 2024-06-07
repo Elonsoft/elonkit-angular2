@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+
+@mixin es-range-measure-select-theme($theme, $elonkit-theme) {
+  $primary: map-get($theme, primary);
+  $mono-a: map-get($elonkit-theme, mono-a);
+  $mono-b: map-get($elonkit-theme, mono-b);
+
+  .es-range-measure-select {
+    color: mat.get-color-from-palette($mono-a, A600);
+
+    &__panel {
+      //@include elevation-600;
+
+      background-color: mat.get-color-from-palette($mono-b, 500);
+      box-shadow: 0 8px 16px 0 mat.get-color-from-palette($mono-a, A150);
+    }
+
+    &__value-wrapper {
+      //@include typography-subtitle-1();
+      color: mat.get-color-from-palette($mono-a, A900);
+    }
+
+    &__clear-icon.mat-icon,
+    &__arrow.mat-icon {
+      color: mat.get-color-from-palette($mono-a, A500);
+    }
+
+    &__divider {
+      border-bottom: 1px solid mat.get-color-from-palette($mono-a, A100);
+
+      &_mini {
+        border-bottom: 2px solid mat.get-color-from-palette($mono-a, A100);
+      }
+    }
+
+    &__selection-list.mat-mdc-selection-list.mat-mdc-list-base {
+      &:first-child {
+        border-right: 1px solid mat.get-color-from-palette($mono-a, A100);
+      }
+
+      .mat-mdc-list-item.mat-mdc-list-option.mdc-list-item--disabled:first-child {
+        //@include typography-caption();
+
+        .mdc-list-item__primary-text {
+          color: mat.get-color-from-palette($mono-a, A600);
+        }
+      }
+    }
+  }
+}
