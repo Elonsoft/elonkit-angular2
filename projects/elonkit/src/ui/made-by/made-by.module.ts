@@ -4,10 +4,9 @@ import { MadeByComponent } from './made-by.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
-
 @NgModule({
   declarations: [MadeByComponent],
   imports: [CommonModule, MatButtonModule, MatIconModule],
-  exports: [MadeByComponent]
+  exports: [MadeByComponent],
 })
 export class MadeByModule {}

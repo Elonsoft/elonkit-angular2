@@ -5,8 +5,8 @@
     color: mat.get-color-from-palette($mono-a, A500);
 
     &.clickable {
-
-      &:hover, &:focus-visible {
+      &:hover,
+      &:focus-visible {
         color: mat.get-color-from-palette($mono-a, A400);
       }
 
