@@ -1,10 +1,10 @@
 .es-range-measure-select {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  display: flex;
-  height: 24px;
-  justify-content: space-between;
-  width: 100%;
 
   &__panel {
     //@include elevation-600;
@@ -23,13 +23,13 @@
   }
 
   &__value-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     //@include typography-subtitle-1();
 
     align-items: center;
-    display: flex;
     flex: 1;
-    flex-direction: row;
-    flex-wrap: nowrap;
     overflow: hidden;
   }
 
@@ -39,13 +39,13 @@
   }
 
   &__arrow.mat-icon {
-    height: 18px;
     width: 18px;
+    height: 18px;
   }
 
   &__inputs-container {
-    align-items: center;
     display: flex;
+    align-items: center;
     position: relative;
   }
 
@@ -54,11 +54,11 @@
   }
 
   &__input {
+    width: calc(100% - 20px);
+    margin: 8px 4px 8px 16px;
     //@include typography-body-100();
     border: 0;
-    margin: 8px 4px 8px 16px;
     outline: none;
-    width: calc(100% - 20px);
   }
 
   &__divider {
@@ -71,9 +71,9 @@
   }
 
   &__lists-wrapper {
+    max-height: 296px;
     display: flex;
     flex-wrap: nowrap;
-    max-height: 296px;
   }
 
   &__selection-list.mat-mdc-selection-list.mat-mdc-list-base {
