@@ -19,12 +19,23 @@ const meta: Meta<RangeMeasureSelectComponent> = {
   decorators: [
     moduleMetadata({
       declarations: [RangeMeasureSelectComponent],
-      imports: [HttpClientModule, CoreModule, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatListModule, MatFormFieldModule, BrowserAnimationsModule, OverlayModule],
-      providers: [MatIconRegistry, { provide: MatFormFieldControl, useExisting: RangeMeasureSelectComponent }]
+      imports: [
+        HttpClientModule,
+        CoreModule,
+        CommonModule,
+        FormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatListModule,
+        MatFormFieldModule,
+        BrowserAnimationsModule,
+        OverlayModule,
+      ],
+      providers: [MatIconRegistry, { provide: MatFormFieldControl, useExisting: RangeMeasureSelectComponent }],
     }),
   ],
   args: {
-    placeholder: "",
+    placeholder: '',
     required: false,
     disabled: false,
     measuringUnit: '',
@@ -46,6 +57,6 @@ const meta: Meta<RangeMeasureSelectComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<RangeMeasureSelectComponent>
+type Story = StoryObj<RangeMeasureSelectComponent>;
 
 export const Demo: Story = {};

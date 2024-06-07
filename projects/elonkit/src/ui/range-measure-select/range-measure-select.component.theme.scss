@@ -13,7 +13,6 @@
 
       background-color: mat.get-color-from-palette($mono-b, 500);
       box-shadow: 0 8px 16px 0 mat.get-color-from-palette($mono-a, A150);
-
     }
 
     &__value-wrapper {
@@ -21,7 +20,8 @@
       color: mat.get-color-from-palette($mono-a, A900);
     }
 
-    &__clear-icon.mat-icon, &__arrow.mat-icon {
+    &__clear-icon.mat-icon,
+    &__arrow.mat-icon {
       color: mat.get-color-from-palette($mono-a, A500);
     }
 
@@ -34,7 +34,6 @@
     }
 
     &__selection-list.mat-mdc-selection-list.mat-mdc-list-base {
-
       &:first-child {
         border-right: 1px solid mat.get-color-from-palette($mono-a, A100);
       }

@@ -1,6 +1,6 @@
 export enum ERangeOption {
   start = 'start',
-  end = 'end'
+  end = 'end',
 }
 
 export interface IRangeOption {

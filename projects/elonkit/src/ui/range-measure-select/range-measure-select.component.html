@@ -15,11 +15,7 @@
         {{ measuringUnit }}
       </div>
 
-      <mat-icon
-        class="es-range-measure-select__clear-icon"
-        svgIcon="close-w350"
-        (click)="onResetValue($event)"
-      ></mat-icon>
+      <mat-icon class="es-range-measure-select__clear-icon" svgIcon="close-w350" (click)="onResetValue($event)"></mat-icon>
     </ng-container>
   </div>
   <mat-icon class="es-range-measure-select__arrow">arrow_drop_down</mat-icon>
@@ -33,8 +29,7 @@
   [cdkConnectedOverlayOffsetY]="0"
   [cdkConnectedOverlayOpen]="isOpen"
   (backdropClick)="onClose()"
-  (detach)="onClose(true)"
->
+  (detach)="onClose(true)">
   <div class="es-range-measure-select__panel" [ngStyle]="{ 'width.px': width }">
     <div class="es-range-measure-select__inputs-container">
       <input
@@ -44,8 +39,7 @@
         type="number"
         [value]="value.start"
         (input)="onChangeStartInput($event)"
-        (blur)="onBlur(RangeOption.start)"
-      />
+        (blur)="onBlur(RangeOption.start)" />
 
       <div class="es-range-measure-select__divider_mini"></div>
 
@@ -56,8 +50,7 @@
         type="number"
         [value]="value.end"
         (input)="onChangeEndInput($event)"
-        (blur)="onBlur(RangeOption.end)"
-      />
+        (blur)="onBlur(RangeOption.end)" />
     </div>
 
     <div class="es-range-measure-select__divider"></div>
@@ -67,16 +60,14 @@
         class="es-range-measure-select__selection-list"
         color="primary"
         [multiple]="false"
-        [hideSingleSelectionIndicator]="true"
-      >
+        [hideSingleSelectionIndicator]="true">
         <mat-list-option [disabled]="true">От</mat-list-option>
         <mat-list-option
           *ngFor="let option of startOptionVariantsTransformed"
           checkboxPosition="before"
           [value]="option"
           [selected]="isSelected(option)"
-          (click)="onMatOptionSelectionChange(option)"
-        >
+          (click)="onMatOptionSelectionChange(option)">
           {{ option.value }}
         </mat-list-option>
       </mat-selection-list>
@@ -85,16 +76,14 @@
         class="es-range-measure-select__selection-list"
         color="primary"
         [multiple]="false"
-        [hideSingleSelectionIndicator]="true"
-      >
+        [hideSingleSelectionIndicator]="true">
         <mat-list-option [disabled]="true">До</mat-list-option>
         <mat-list-option
           *ngFor="let option of endOptionVariantsTransformed"
           checkboxPosition="before"
           [value]="option"
           [selected]="isSelected(option)"
-          (click)="onMatOptionSelectionChange(option)"
-        >
+          (click)="onMatOptionSelectionChange(option)">
           {{ option.value }}
         </mat-list-option>
       </mat-selection-list>
