@@ -9,8 +9,9 @@
 
     &.contained {
       background-color: mat.get-color-from-palette($mono-a, A75);
-      box-shadow: mat.get-color-from-palette($mono-a, A300) 0 1px 0, mat.get-color-from-palette($mono-a, A50) 0 0 0 1px inset;
+      box-shadow:
+        mat.get-color-from-palette($mono-a, A300) 0 1px 0,
+        mat.get-color-from-palette($mono-a, A50) 0 0 0 1px inset;
     }
-
   }
 }
