@@ -1,1 +1,15 @@
-<p>sidenav works!</p>
+<div #root class="es-sidenav__root">
+  <div class="es-sidenav__container">
+    <div
+      class="es-sidenav__drawer"
+      [ngClass]="{ 'es-sidenav__drawer_hover': isHover, 'es-sidenav__drawer_open': isOpen$ | async }">
+      <ng-content select="#drawer"></ng-content>
+    </div>
+    <div class="es-sidenav__rail">
+      <ng-content select="#rail"></ng-content>
+    </div>
+  </div>
+  <div
+    class="es-sidenav__overlay"
+    [ngClass]="{ 'es-sidenav__overlay_hover': isHover, 'es-sidenav__overlay_open': isOpen$ | async }"></div>
+</div>

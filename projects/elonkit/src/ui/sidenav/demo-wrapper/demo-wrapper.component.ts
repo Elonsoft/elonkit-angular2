@@ -5,6 +5,13 @@ import { Component, Input } from '@angular/core';
   selector: 'demo-wrapper',
   template: `
     <div style="height: 100vh; margin: -10px 0; display: flex; gap: 20px; overflow: auto;">
+      <es-sidenav [isOpen]="isOpen" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
+        <es-sidebar id="rail" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
+        </es-sidebar>
+
+        <es-sidebar id="drawer" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
+        </es-sidebar>
+      </es-sidenav>
       <!-- <es-sidebar
         [color]="color"
         [width]="width"
@@ -207,6 +214,9 @@ import { Component, Input } from '@angular/core';
   `,
 })
 export class DemoWrapperComponent {
+  @Input() disableEscapeKeyDown: boolean;
+  @Input() disableItemHover: boolean;
+
   @Input() color: 'default' | 'primary' | 'secondary';
   @Input() width: number;
   @Input() maxWidth: number;
