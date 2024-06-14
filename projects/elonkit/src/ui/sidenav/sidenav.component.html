@@ -5,7 +5,7 @@
       [ngClass]="{ 'es-sidenav__drawer_hover': isHover, 'es-sidenav__drawer_open': isOpen$ | async }">
       <ng-content select="#drawer"></ng-content>
     </div>
-    <div class="es-sidenav__rail">
+    <div #rail class="es-sidenav__rail">
       <ng-content select="#rail"></ng-content>
     </div>
   </div>

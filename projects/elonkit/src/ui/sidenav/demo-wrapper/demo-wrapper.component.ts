@@ -1,12 +1,24 @@
 import { Component, Input } from '@angular/core';
-
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
   template: `
-    <div style="height: 100vh; margin: -10px 0; display: flex; gap: 20px; overflow: auto;">
-      <es-sidenav [isOpen]="isOpen" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
-        <es-sidebar id="rail" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
+    <div style="height: 100vh; margin: -10px; display: flex; gap: 20px; overflow: auto;">
+      <es-sidenav [isOpen]="isOpen" (closeEvent)="onCloseEvent($event)" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
+        <es-sidebar id="rail" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="false">
+          <es-sidebar-menu>
+            <es-sidenav-item></es-sidenav-item>
+          </es-sidebar-menu>
+          <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
+          <es-sidebar-menu>
+            <es-sidenav-item></es-sidenav-item>
+            <es-sidenav-item></es-sidenav-item>
+          </es-sidebar-menu>
+          <es-sidebar-spacer></es-sidebar-spacer>
+          <es-sidebar-divider [color]="color"></es-sidebar-divider>
+          <es-sidebar-menu>
+            <es-sidenav-item></es-sidenav-item>
+          </es-sidebar-menu>
         </es-sidebar>
 
         <es-sidebar id="drawer" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
@@ -216,7 +228,6 @@ import { Component, Input } from '@angular/core';
 export class DemoWrapperComponent {
   @Input() disableEscapeKeyDown: boolean;
   @Input() disableItemHover: boolean;
-
   @Input() color: 'default' | 'primary' | 'secondary';
   @Input() width: number;
   @Input() maxWidth: number;
@@ -226,6 +237,11 @@ export class DemoWrapperComponent {
   @Input() exclusive: boolean;
   @Input() disabled: boolean;
   constructor() {}
+
+  public onCloseEvent(close: boolean): void {
+    console.log('event:', close);
+    this.isOpen = close;
+  }
 
   public onElementValueClick(value: string): void {
     console.log(`click on ${value}`);
