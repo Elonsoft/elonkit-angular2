@@ -7,17 +7,17 @@ import { Component, Input } from '@angular/core';
       <es-sidenav [isOpen]="isOpen" (closeEvent)="onCloseEvent($event)" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
         <es-sidebar id="rail" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="false">
           <es-sidebar-menu>
-            <es-sidenav-item></es-sidenav-item>
+            <es-sidenav-item id="test_0" icon="es-24:at-line-w500" [color]="color" [isOpen]="isOpen" text="Tootip text"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
           <es-sidebar-menu>
-            <es-sidenav-item></es-sidenav-item>
-            <es-sidenav-item></es-sidenav-item>
+            <es-sidenav-item id="test_1" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
+            <es-sidenav-item id="test_2" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-spacer></es-sidebar-spacer>
           <es-sidebar-divider [color]="color"></es-sidebar-divider>
           <es-sidebar-menu>
-            <es-sidenav-item></es-sidenav-item>
+            <es-sidenav-item id="test_3" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
           </es-sidebar-menu>
         </es-sidebar>
 

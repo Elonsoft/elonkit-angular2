@@ -26,6 +26,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
   @Input() isOpen = false;
   public isOpen$ = new BehaviorSubject<boolean>(false);
   @Input() isHover = false;
+  public isHover$ = new BehaviorSubject<boolean>(false);
   @Output() closeEvent = new EventEmitter<boolean>(false);
 
   @ViewChild('rail') railElement: ElementRef;
@@ -48,11 +49,24 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
     if (nestedSidebar) {
       nestedSidebar.style.position = 'absolute';
       nestedSidebar.style.height = '100%';
-    }
 
+      (nestedSidebar.querySelectorAll('es-sidenav-item')).forEach((element: HTMLElement, index: number) => {
+        element.id = String(index);
+      });
+    }
   }
 
   public ngOnChanges(): void {
     this.isOpen$.next(this.isOpen);
+    this.isHover$.next(this.isHover);
+  }
+
+  public _onMouseEnter(event: MouseEvent): void {
+    const items = (event.target as HTMLElement).querySelectorAll('es-sidenav-item');
+    console.log(items);
+  }
+
+  public _onMouseLeave(event: MouseEvent): void {
+    // console.log('leave', event);
   }
 }
