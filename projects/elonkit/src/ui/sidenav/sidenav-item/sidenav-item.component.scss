@@ -21,10 +21,6 @@
       width: fit-content;
       display: flex;
       align-items: center;
-
-      &__icon:first-of-type {
-        margin-right: 12px; // ?
-      }
     }
 
     &_disabled {

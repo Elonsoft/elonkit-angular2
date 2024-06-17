@@ -1,227 +1,115 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
       <es-sidenav [isOpen]="isOpen" (closeEvent)="onCloseEvent($event)" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
         <es-sidebar id="rail" [color]="color">
           <es-sidebar-menu>
-            <es-sidenav-item id="test_0" icon="es-24:at-line-w500" [color]="color" text="Tootip text"></es-sidenav-item>
+            <es-sidenav-item (itemClick)="onElementSelect(0)" [selected]="getSelectedStatus(0)" icon="es-24:at-line-w500" [color]="color" text="Tootip text"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
           <es-sidebar-menu>
-            <es-sidenav-item id="test_1" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
-            <es-sidenav-item id="test_2" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
+            <es-sidenav-item id="test_1" (itemClick)="onElementSelect(1)" [selected]="getSelectedStatus(1)" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
+            <es-sidenav-item id="test_2" (itemClick)="onElementSelect(2)" [selected]="getSelectedStatus(2)" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-spacer></es-sidebar-spacer>
           <es-sidebar-divider [color]="color"></es-sidebar-divider>
           <es-sidebar-menu>
-            <es-sidenav-item id="test_3" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
+            <es-sidenav-item icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
           </es-sidebar-menu>
         </es-sidebar>
 
         <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
-          <ng-container [ngSwitch]="selectedMenu">
+          <ng-container [ngSwitch]="selectedPage ? selectedPage : '1'">
 
-            <ng-container *ngSwitchCase="0">
+            <ng-container *ngSwitchCase="1">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Projects</h6>
                 <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
               </div>
 
               <es-sidebar-scrollable>
-                <div class="es-caption" style="padding: 0 16px; flex-shrink: 0;">Favorites</div>
+                <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Favorites</div>
                 <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-                  <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="All projects"></es-sidebar-item>
-                  <es-sidebar-item [color]="color" [isOpen]="isOpen" id="1" icon="es-24:list-alt-line-w500" text="Documents">
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:at-line-w500" text="All projects"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" id="1" icon="es-24:list-alt-line-w500" text="Documents">
                     <ng-template #items>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #1"></es-sidebar-item>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #2"></es-sidebar-item>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #3"></es-sidebar-item>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #4"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #1"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #2"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #3"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #4"></es-sidebar-item>
                     </ng-template>
                   </es-sidebar-item>
-                  <es-sidebar-item [color]="color" [isOpen]="isOpen" id="2" icon="es-24:view-kanban" text="New projects">
+                  <es-sidebar-item [isOpen]="isOpen" id="2" icon="es-24:view-kanban" text="New projects">
                     <ng-template #items>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #1"></es-sidebar-item>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #2"></es-sidebar-item>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #3"></es-sidebar-item>
-                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #4"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #1"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #2"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #3"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #4"></es-sidebar-item>
                     </ng-template>
                   </es-sidebar-item>
-
                 </es-sidebar-menu>
 
+                <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Current projects</div>
+                <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 1#"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 2#"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 3#"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 4#"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 5#"></es-sidebar-item>
+                </es-sidebar-menu>
               </es-sidebar-scrollable>
 
             </ng-container>
 
-            <ng-container *ngSwitchCase="1">
-              <div>
+            <ng-container *ngSwitchCase="2">
+              <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Reports</h6>
                 <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
               </div>
+
+              <es-sidebar-scrollable>
+                <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Favorites</div>
+                <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:at-line-w500" text="All reports"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" id="3" icon="es-24:list-alt-line-w500" text="Saved reports">
+                    <ng-template #items>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #1"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #2"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #3"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #4"></es-sidebar-item>
+                    </ng-template>
+                  </es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" id="4" icon="es-24:view-kanban" text="Planned reports">
+                    <ng-template #items>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #1"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #2"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #3"></es-sidebar-item>
+                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #4"></es-sidebar-item>
+                    </ng-template>
+                  </es-sidebar-item>
+                </es-sidebar-menu>
+
+                <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Current reports</div>
+                <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #1"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #2"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #3"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #4"></es-sidebar-item>
+                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #5"></es-sidebar-item>
+                </es-sidebar-menu>
+              </es-sidebar-scrollable>
 
             </ng-container>
 
           </ng-container>
         </es-sidebar>
       </es-sidenav>
-      <!-- <es-sidebar
-        [color]="color"
-        [width]="width"
-        [maxWidth]="maxWidth"
-        [minWidth]="minWidth"
-        [isOpen]="isOpen"
-        style="position: sticky; top: 0;">
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" text="CRM" icon="es-24:at-line-w500"></es-sidebar-item>
-        </es-sidebar-menu>
-        <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item
-            (itemClick)="onElementValueClick('Work Time')"
-            [color]="color"
-            [isOpen]="isOpen"
-            icon="es-24:at-line-w500"
-            text="Work Time">
-          </es-sidebar-item>
-        </es-sidebar-menu>
-        <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
-
-        <es-sidebar-scrollable>
-          <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-            <es-sidebar-item
-              (itemClick)="onElementValueClick('Projects')"
-              [color]="color"
-              [isOpen]="isOpen"
-              [isExpandClicable]="true"
-              id="0"
-              icon="es-24:at-line-w500"
-              text="Projects"
-              [selected]="true">
-              <ng-template #items>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №0')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №0"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №1')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №1"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №2')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №2"
-                  [inset]="true"
-                  [selected]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №3')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №3"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №4')"
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №4"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №5')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №5"
-                  [inset]="true"></es-sidebar-item>
-              </ng-template>
-            </es-sidebar-item>
-            <es-sidebar-item
-              (itemClick)="onElementValueClick('Files')"
-              [disabled]="disabled"
-              [color]="color"
-              [isOpen]="isOpen"
-              id="1"
-              icon="es-24:at-line-w500"
-              text="Files">
-              <ng-template #items>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №0"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №1"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №2"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №3"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №4"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №5"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №6"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №7"
-                  [inset]="true"></es-sidebar-item>
-              </ng-template>
-            </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Schedule"> </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Messages"> </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Inbox"> </es-sidebar-item>
-          </es-sidebar-menu>
-          <es-sidebar-divider role="after-scroll-content" [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
-        </es-sidebar-scrollable>
-
-        <es-sidebar-spacer></es-sidebar-spacer>
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:magnify-2-line-w500" text="Search"> </es-sidebar-item>
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:bell-line-line-w500" text="Notifications">
-          </es-sidebar-item>
-        </es-sidebar-menu>
-        <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:account-line-w500" text="Name"> </es-sidebar-item>
-        </es-sidebar-menu>
-      </es-sidebar> -->
       <div>
-        <h2 class="es-h2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
+        <h2 class="es-h3">{{ selectedPage }}</h2>
         <br />
         <p class="es-body-100">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nihil quibusdam natus dolore suscipit deleniti? Alias quod
@@ -281,7 +169,7 @@ export class DemoWrapperComponent {
   @Input() exclusive: boolean;
   @Input() disabled: boolean;
 
-  public selectedMenu = 0;
+  public selectedPage = 1;
   constructor() {}
 
   public onCloseEvent(close: boolean): void {
@@ -289,7 +177,11 @@ export class DemoWrapperComponent {
     this.isOpen = close;
   }
 
-  public onElementValueClick(value: string): void {
-    console.log(`click on ${value}`);
+  public onElementSelect(value: number): void {
+    this.selectedPage = value;
+  }
+
+  public getSelectedStatus(page: number): boolean {
+    return this.selectedPage === page;
   }
 }

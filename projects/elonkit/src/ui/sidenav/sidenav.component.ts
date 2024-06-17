@@ -44,7 +44,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
   constructor() {}
 
   public ngAfterViewInit(): void {
-    console.log(this.railElement.nativeElement.children);
+    // console.log(this.railElement.nativeElement.children);
     const nestedSidebar = this.railElement.nativeElement.children[0];
     if (nestedSidebar) {
       nestedSidebar.style.position = 'absolute';
@@ -63,7 +63,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
 
   public _onMouseEnter(event: MouseEvent): void {
     const items = (event.target as HTMLElement).querySelectorAll('es-sidenav-item');
-    console.log(items);
+    // console.log(items);
   }
 
   public _onMouseLeave(event: MouseEvent): void {

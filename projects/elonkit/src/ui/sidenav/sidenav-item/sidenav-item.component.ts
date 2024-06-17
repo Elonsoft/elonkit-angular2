@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ESSidenavService } from '../sidenav.service';
 
 @Component({
   selector: 'es-sidenav-item',
@@ -14,6 +15,10 @@ export class ESSidenavItemComponent {
   @Input() disabled = false;
 
   @Output() itemClick = new EventEmitter<void>();
+
+  constructor(private ss: ESSidenavService) {
+
+  }
 
   public _onItemKeyDown(event: KeyboardEvent): void {
     // const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
