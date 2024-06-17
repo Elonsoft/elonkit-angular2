@@ -5,15 +5,38 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
-      <es-sidenav [isOpen]="isOpen" (closeEvent)="onCloseEvent($event)" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
+      <es-sidenav
+        [isOpen]="isOpen"
+        (closeEvent)="onCloseEvent($event)"
+        [disableEscapeKeyDown]="disableEscapeKeyDown"
+        [disableItemHover]="disableItemHover">
         <es-sidebar id="rail" [color]="color">
           <es-sidebar-menu>
-            <es-sidenav-item (itemClick)="onElementSelect(0)" [selected]="getSelectedStatus(0)" icon="es-24:at-line-w500" [color]="color" text="Tootip text"></es-sidenav-item>
+            <es-sidenav-item
+              (itemClick)="onElementSelect(0)"
+              [selected]="getSelectedStatus(0)"
+              icon="es-24:at-line-w500"
+              [color]="color"
+              text="Tootip text"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
           <es-sidebar-menu>
-            <es-sidenav-item id="test_1" (itemClick)="onElementSelect(1)" [selected]="getSelectedStatus(1)" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
-            <es-sidenav-item id="test_2" (itemClick)="onElementSelect(2)" [selected]="getSelectedStatus(2)" icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
+            <es-sidenav-item
+              id="test_1"
+              (itemClick)="onElementSelect(1)"
+              [selected]="getSelectedStatus(1)"
+              icon="es-24:at-line-w500"
+              [color]="color"
+              >></es-sidenav-item
+            >
+            <es-sidenav-item
+              id="test_2"
+              (itemClick)="onElementSelect(2)"
+              [selected]="getSelectedStatus(2)"
+              icon="es-24:at-line-w500"
+              [color]="color"
+              >></es-sidenav-item
+            >
           </es-sidebar-menu>
           <es-sidebar-spacer></es-sidebar-spacer>
           <es-sidebar-divider [color]="color"></es-sidebar-divider>
@@ -24,7 +47,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
         <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
           <ng-container [ngSwitch]="selectedPage ? selectedPage : '1'">
-
             <ng-container *ngSwitchCase="1">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Projects</h6>
@@ -62,7 +84,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
                   <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 5#"></es-sidebar-item>
                 </es-sidebar-menu>
               </es-sidebar-scrollable>
-
             </ng-container>
 
             <ng-container *ngSwitchCase="2">
@@ -102,9 +123,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
                   <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #5"></es-sidebar-item>
                 </es-sidebar-menu>
               </es-sidebar-scrollable>
-
             </ng-container>
-
           </ng-container>
         </es-sidebar>
       </es-sidenav>

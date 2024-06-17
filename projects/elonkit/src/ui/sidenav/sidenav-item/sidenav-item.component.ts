@@ -16,16 +16,13 @@ export class ESSidenavItemComponent {
 
   @Output() itemClick = new EventEmitter<void>();
 
-  constructor(private ss: ESSidenavService) {
-
-  }
+  constructor(private ss: ESSidenavService) {}
 
   public _onItemKeyDown(event: KeyboardEvent): void {
     // const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
     // if (this.tooltipHeader.nativeElement.querySelector('button')) {
     //   childrenArr.unshift(this.tooltipHeader.nativeElement);
     // }
-
     // if (this.hasChildren && event.key === 'ArrowRight') {
     //   const childButton = childrenArr[0]?.querySelector('button') as HTMLButtonElement;
     //   childButton.focus();

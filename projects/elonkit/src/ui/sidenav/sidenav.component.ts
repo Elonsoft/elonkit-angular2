@@ -40,7 +40,6 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
     }
   }
 
-
   constructor() {}
 
   public ngAfterViewInit(): void {
@@ -50,7 +49,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
       nestedSidebar.style.position = 'absolute';
       nestedSidebar.style.height = '100%';
 
-      (nestedSidebar.querySelectorAll('es-sidenav-item')).forEach((element: HTMLElement, index: number) => {
+      nestedSidebar.querySelectorAll('es-sidenav-item').forEach((element: HTMLElement, index: number) => {
         element.id = String(index);
       });
     }
