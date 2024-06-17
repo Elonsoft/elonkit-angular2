@@ -3,11 +3,11 @@ import { Component, Input } from '@angular/core';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
   template: `
-    <div style="height: 100vh; margin: -10px; display: flex; gap: 20px; overflow: auto;">
+    <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
       <es-sidenav [isOpen]="isOpen" (closeEvent)="onCloseEvent($event)" [disableEscapeKeyDown]="disableEscapeKeyDown" [disableItemHover]="disableItemHover">
-        <es-sidebar id="rail" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="false">
+        <es-sidebar id="rail" [color]="color">
           <es-sidebar-menu>
-            <es-sidenav-item id="test_0" icon="es-24:at-line-w500" [color]="color" [isOpen]="isOpen" text="Tootip text"></es-sidenav-item>
+            <es-sidenav-item id="test_0" icon="es-24:at-line-w500" [color]="color" text="Tootip text"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
           <es-sidebar-menu>
@@ -21,7 +21,51 @@ import { Component, Input } from '@angular/core';
           </es-sidebar-menu>
         </es-sidebar>
 
-        <es-sidebar id="drawer" [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
+        <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
+          <ng-container [ngSwitch]="selectedMenu">
+
+            <ng-container *ngSwitchCase="0">
+              <div style="margin-bottom: 24px;">
+                <h6 class="es-h6" style="padding: 16px;">Projects</h6>
+                <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
+              </div>
+
+              <es-sidebar-scrollable>
+                <div class="es-caption" style="padding: 0 16px; flex-shrink: 0;">Favorites</div>
+                <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+                  <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="All projects"></es-sidebar-item>
+                  <es-sidebar-item [color]="color" [isOpen]="isOpen" id="1" icon="es-24:list-alt-line-w500" text="Documents">
+                    <ng-template #items>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #1"></es-sidebar-item>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #2"></es-sidebar-item>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #3"></es-sidebar-item>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="Document #4"></es-sidebar-item>
+                    </ng-template>
+                  </es-sidebar-item>
+                  <es-sidebar-item [color]="color" [isOpen]="isOpen" id="2" icon="es-24:view-kanban" text="New projects">
+                    <ng-template #items>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #1"></es-sidebar-item>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #2"></es-sidebar-item>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #3"></es-sidebar-item>
+                      <es-sidebar-item [color]="color" [isOpen]="isOpen" [inset]="true" text="New project #4"></es-sidebar-item>
+                    </ng-template>
+                  </es-sidebar-item>
+
+                </es-sidebar-menu>
+
+              </es-sidebar-scrollable>
+
+            </ng-container>
+
+            <ng-container *ngSwitchCase="1">
+              <div>
+                <h6 class="es-h6" style="padding: 16px;">Reports</h6>
+                <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
+              </div>
+
+            </ng-container>
+
+          </ng-container>
         </es-sidebar>
       </es-sidenav>
       <!-- <es-sidebar
@@ -236,6 +280,8 @@ export class DemoWrapperComponent {
   @Input() behavior: 'click' | 'hover';
   @Input() exclusive: boolean;
   @Input() disabled: boolean;
+
+  public selectedMenu = 0;
   constructor() {}
 
   public onCloseEvent(close: boolean): void {

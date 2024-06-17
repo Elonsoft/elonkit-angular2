@@ -3,16 +3,16 @@
     [esTooltip]="text"
     esTooltipArrow
     esTooltipClass="es-sidenav-item__tooltip"
-    [esTooltipDisabled]="isOpen || disabled"
+    [esTooltipDisabled]="disabled"
     esTooltipPosition="after"
     [esTooltipShowDelay]="200"
     [esTooltipHideDelay]="120"
     mat-ripple
     [matRippleDisabled]="disabled"
-    (focus)="null"
-    (click)="null"
-    (keydown)="null"
-    (touchstart)="null"
+    (focus)="_onItemFocus($event)"
+    (click)="_onItemClick()"
+    (keydown)="_onItemKeyDown($event)"
+    (touchstart)="_onItemTouchStart($event)"
     class="es-sidenav-item__button"
     [ngClass]="{
       'es-sidenav-item__button_primary-color': color === 'primary',
