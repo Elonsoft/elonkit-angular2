@@ -23,18 +23,11 @@ export class ESSidenavItemComponent {
   ) {}
 
   public _onItemKeyDown(event: KeyboardEvent): void {
-    const railSidebar = this.document.querySelector('#rail');
     const drawerSidebar = this.document.querySelector('#drawer');
 
     if (event.key === 'ArrowRight') {
       const firstDrawerButton = drawerSidebar?.querySelector('.es-sidebar-item__button') as HTMLButtonElement;
       firstDrawerButton.focus();
-    }
-
-    if (event.key === 'ArrowLeft') {
-      const currentRailButton = railSidebar?.querySelector(`#${this.id}`) as HTMLButtonElement;
-      currentRailButton.focus();
-      // Вывести в отдельный метод и пересадить на drawer
     }
   }
 

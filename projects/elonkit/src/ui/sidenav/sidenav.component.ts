@@ -9,6 +9,7 @@ import {
   OnChanges,
   OnDestroy,
   Output,
+  Renderer2,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -33,8 +34,10 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Output() closeEvent = new EventEmitter<boolean>(false);
 
   private sidebarServiceSubscription!: Subscription;
+  private activeId = '';
 
   @ViewChild('rail') railElement: ElementRef;
+  @ViewChild('drawer') drawerElement: ElementRef;
 
   @HostListener('document:keydown', ['$event'])
   _onDocumentKeydown(event: KeyboardEvent): void {
@@ -45,23 +48,43 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
     }
   }
 
-  constructor(private ss: ESSidenavService) {}
+  constructor(
+    private ss: ESSidenavService,
+    private renderer: Renderer2
+  ) {}
 
   public ngAfterViewInit(): void {
-    // console.log(this.railElement.nativeElement.children);
-    const nestedSidebar = this.railElement.nativeElement.children[0];
-    if (nestedSidebar) {
-      nestedSidebar.style.position = 'absolute';
-      nestedSidebar.style.height = '100%';
+    const nestedRailSidebar = this.railElement.nativeElement.children[0];
+    if (nestedRailSidebar) {
+      nestedRailSidebar.style.position = 'absolute';
+      nestedRailSidebar.style.height = '100%';
+      nestedRailSidebar.querySelector('.es-sidebar__handler').style.display = 'none';
     }
+
+    const nestedSidebarMenu = this.railElement.nativeElement.querySelectorAll('es-sidebar-menu');
+
+    nestedSidebarMenu.forEach((menuItem: HTMLElement) => {
+      this.renderer.listen(menuItem, 'mouseleave', () => {
+        const items = menuItem.querySelectorAll('es-sidenav-item') as NodeListOf<HTMLElement>;
+
+        let drawerClosed = false;
+        items.forEach((item) => {
+          if (item.hasAttribute('id') && !drawerClosed) {
+            this.ss.closeDrawer();
+            drawerClosed = true;
+          }
+        });
+      });
+    });
 
     this.sidebarServiceSubscription = this.ss.openedDrawer$.subscribe((drawerId) => {
       this.selectedPageEvent.emit(drawerId);
       if (drawerId) {
-        console.log(drawerId);
+        this.activeId = drawerId;
         this.isOpen = true;
         this.isOpen$.next(this.isOpen);
-        // здесть вызывать будущий сервис, отвечающий за открытие сайдбара;
+        // здесь вызывать будущий сервис, отвечающий за открытие сайдбара, который передает isopen между элементами сайдбара;
+        // Пока привязка сделана через emit
       } else {
         console.log('close');
       }
@@ -77,11 +100,11 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.sidebarServiceSubscription.unsubscribe();
   }
 
-  public _onMouseEnter(event: MouseEvent): void {
-    // console.log(items);
+  public _onMouseEnter(): void {
+    this.ss.openDrawer(this.activeId);
   }
 
-  public _onMouseLeave(event: MouseEvent): void {
-    // console.log('leave', event);
+  public _onMouseLeave(): void {
+    this.ss.closeDrawer();
   }
 }

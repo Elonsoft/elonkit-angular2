@@ -1,11 +1,13 @@
 <div #root class="es-sidenav__root">
   <div class="es-sidenav__container">
     <div
+      (mouseenter)="_onMouseEnter()"
+      (mouseleave)="_onMouseLeave()"
       class="es-sidenav__drawer"
       [ngClass]="{ 'es-sidenav__drawer_hover': isHover, 'es-sidenav__drawer_open': isOpen$ | async }">
       <ng-content select="#drawer"></ng-content>
     </div>
-    <div #rail (mouseenter)="_onMouseEnter($event)" (mouseleave)="_onMouseLeave($event)" class="es-sidenav__rail">
+    <div #rail class="es-sidenav__rail">
       <ng-content select="#rail"></ng-content>
     </div>
   </div>
