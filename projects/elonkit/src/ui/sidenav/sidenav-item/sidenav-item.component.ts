@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { ESSidenavService } from '../sidenav.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'es-sidenav-item',
@@ -16,21 +17,30 @@ export class ESSidenavItemComponent {
 
   @Output() itemClick = new EventEmitter<void>();
 
-  constructor(private ss: ESSidenavService) {}
+  constructor(
+    private ss: ESSidenavService,
+    @Inject(DOCUMENT) private document: Document
+  ) {}
 
   public _onItemKeyDown(event: KeyboardEvent): void {
-    // const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
-    // if (this.tooltipHeader.nativeElement.querySelector('button')) {
-    //   childrenArr.unshift(this.tooltipHeader.nativeElement);
-    // }
-    // if (this.hasChildren && event.key === 'ArrowRight') {
-    //   const childButton = childrenArr[0]?.querySelector('button') as HTMLButtonElement;
-    //   childButton.focus();
-    // }
+    const railSidebar = this.document.querySelector('#rail');
+    const drawerSidebar = this.document.querySelector('#drawer');
+
+    if (event.key === 'ArrowRight') {
+      const firstDrawerButton = drawerSidebar?.querySelector('.es-sidebar-item__button') as HTMLButtonElement;
+      firstDrawerButton.focus();
+    }
+
+    if (event.key === 'ArrowLeft') {
+      const currentRailButton = railSidebar?.querySelector(`#${this.id}`) as HTMLButtonElement;
+      currentRailButton.focus();
+      // Вывести в отдельный метод и пересадить на drawer
+    }
   }
 
-  public _onItemFocus(event: FocusEvent): void {
-    console.log('focus:', event);
+  public _openDrawer(): void {
+    if (!this.id) return;
+    this.ss.openDrawer(this.id);
   }
 
   public _onItemTouchStart(event: TouchEvent): void {

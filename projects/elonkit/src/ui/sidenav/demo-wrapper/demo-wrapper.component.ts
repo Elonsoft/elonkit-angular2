@@ -7,14 +7,15 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
       <es-sidenav
         [isOpen]="isOpen"
+        (selectedPageEvent)="onElementSelect($event)"
         (closeEvent)="onCloseEvent($event)"
         [disableEscapeKeyDown]="disableEscapeKeyDown"
         [disableItemHover]="disableItemHover">
         <es-sidebar id="rail" [color]="color">
           <es-sidebar-menu>
             <es-sidenav-item
-              (itemClick)="onElementSelect(0)"
-              [selected]="getSelectedStatus(0)"
+              (itemClick)="onElementSelect('empty')"
+              [selected]="getSelectedStatus('empty')"
               icon="es-24:at-line-w500"
               [color]="color"
               text="Tootip text"></es-sidenav-item>
@@ -22,21 +23,17 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
           <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
           <es-sidebar-menu>
             <es-sidenav-item
-              id="test_1"
-              (itemClick)="onElementSelect(1)"
-              [selected]="getSelectedStatus(1)"
+              id="projects"
+              (itemClick)="(null)"
+              [selected]="getSelectedStatus('projects')"
               icon="es-24:at-line-w500"
-              [color]="color"
-              >></es-sidenav-item
-            >
+              [color]="color"></es-sidenav-item>
             <es-sidenav-item
-              id="test_2"
-              (itemClick)="onElementSelect(2)"
-              [selected]="getSelectedStatus(2)"
+              id="reports"
+              (itemClick)="(null)"
+              [selected]="getSelectedStatus('reports')"
               icon="es-24:at-line-w500"
-              [color]="color"
-              >></es-sidenav-item
-            >
+              [color]="color"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-spacer></es-sidebar-spacer>
           <es-sidebar-divider [color]="color"></es-sidebar-divider>
@@ -47,7 +44,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
         <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
           <ng-container [ngSwitch]="selectedPage ? selectedPage : '1'">
-            <ng-container *ngSwitchCase="1">
+            <ng-container *ngSwitchCase="'projects'">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Projects</h6>
                 <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
@@ -86,7 +83,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
               </es-sidebar-scrollable>
             </ng-container>
 
-            <ng-container *ngSwitchCase="2">
+            <ng-container *ngSwitchCase="'reports'">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Reports</h6>
                 <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
@@ -188,7 +185,7 @@ export class DemoWrapperComponent {
   @Input() exclusive: boolean;
   @Input() disabled: boolean;
 
-  public selectedPage = 1;
+  public selectedPage = 'projects';
   constructor() {}
 
   public onCloseEvent(close: boolean): void {
@@ -196,11 +193,19 @@ export class DemoWrapperComponent {
     this.isOpen = close;
   }
 
-  public onElementSelect(value: number): void {
-    this.selectedPage = value;
+  public onElementSelect(value: string | null): void {
+    if (value) {
+      this.selectedPage = value;
+
+      if (value !== 'empty') {
+        this.isOpen = true;
+      }
+    } else {
+      this.isOpen = false;
+    }
   }
 
-  public getSelectedStatus(page: number): boolean {
+  public getSelectedStatus(page: string): boolean {
     return this.selectedPage === page;
   }
 }

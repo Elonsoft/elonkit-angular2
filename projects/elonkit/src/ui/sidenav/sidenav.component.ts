@@ -7,11 +7,13 @@ import {
   HostListener,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
+import { ESSidenavService } from './sidenav.service';
 
 @Component({
   selector: 'es-sidenav',
@@ -20,14 +22,17 @@ import { BehaviorSubject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESSidenavComponent implements AfterViewInit, OnChanges {
+export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() disableEscapeKeyDown = false;
   @Input() disableItemHover = false;
   @Input() isOpen = false;
   public isOpen$ = new BehaviorSubject<boolean>(false);
   @Input() isHover = false;
   public isHover$ = new BehaviorSubject<boolean>(false);
+  @Output() selectedPageEvent = new EventEmitter<string | null>();
   @Output() closeEvent = new EventEmitter<boolean>(false);
+
+  private sidebarServiceSubscription!: Subscription;
 
   @ViewChild('rail') railElement: ElementRef;
 
@@ -40,7 +45,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
     }
   }
 
-  constructor() {}
+  constructor(private ss: ESSidenavService) {}
 
   public ngAfterViewInit(): void {
     // console.log(this.railElement.nativeElement.children);
@@ -48,11 +53,19 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
     if (nestedSidebar) {
       nestedSidebar.style.position = 'absolute';
       nestedSidebar.style.height = '100%';
-
-      nestedSidebar.querySelectorAll('es-sidenav-item').forEach((element: HTMLElement, index: number) => {
-        element.id = String(index);
-      });
     }
+
+    this.sidebarServiceSubscription = this.ss.openedDrawer$.subscribe((drawerId) => {
+      this.selectedPageEvent.emit(drawerId);
+      if (drawerId) {
+        console.log(drawerId);
+        this.isOpen = true;
+        this.isOpen$.next(this.isOpen);
+        // здесть вызывать будущий сервис, отвечающий за открытие сайдбара;
+      } else {
+        console.log('close');
+      }
+    });
   }
 
   public ngOnChanges(): void {
@@ -60,8 +73,11 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
     this.isHover$.next(this.isHover);
   }
 
+  public ngOnDestroy(): void {
+    this.sidebarServiceSubscription.unsubscribe();
+  }
+
   public _onMouseEnter(event: MouseEvent): void {
-    const items = (event.target as HTMLElement).querySelectorAll('es-sidenav-item');
     // console.log(items);
   }
 

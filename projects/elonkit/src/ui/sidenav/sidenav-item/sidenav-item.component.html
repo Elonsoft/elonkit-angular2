@@ -9,7 +9,9 @@
     [esTooltipHideDelay]="120"
     mat-ripple
     [matRippleDisabled]="disabled"
-    (focus)="_onItemFocus($event)"
+    (focus)="_openDrawer()"
+    (mouseenter)="_openDrawer()"
+    (touchstart)="_openDrawer()"
     (click)="_onItemClick()"
     (keydown)="_onItemKeyDown($event)"
     (touchstart)="_onItemTouchStart($event)"
