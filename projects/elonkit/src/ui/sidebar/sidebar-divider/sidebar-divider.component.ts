@@ -1,3 +1,4 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,5 +10,12 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 })
 export class ESSidebarDividerComponent {
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
-  @Input() isOpen = false;
+  @Input()
+  get isOpen(): boolean {
+    return this._isOpen;
+  }
+  set isOpen(value: BooleanInput) {
+    this._isOpen = coerceBooleanProperty(value);
+  }
+  private _isOpen = false;
 }

@@ -1,3 +1,4 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -23,8 +24,15 @@ export class ESSidebarComponent implements OnDestroy {
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
   @Input() maxWidth = 400;
   @Input() minWidth = 220;
-  @Input() isOpen = false;
   @Input() width = 280;
+  @Input()
+  get isOpen(): boolean {
+    return this._isOpen;
+  }
+  set isOpen(value: BooleanInput) {
+    this._isOpen = coerceBooleanProperty(value);
+  }
+  private _isOpen = false;
 
   @Output() widthChange = new EventEmitter<number>();
   @Output() widthChangeCommit = new EventEmitter<number>();

@@ -16,6 +16,7 @@ import {
 import { ESSidebarMenuService } from '../public-api';
 import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'es-sidebar-item',
@@ -36,12 +37,52 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() icon = '';
   @Input() text = '';
   @Input() id?: string;
-  @Input() isOpen = false;
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
-  @Input() selected = false;
-  @Input() isExpandClicable = false;
-  @Input() inset = false;
-  @Input() disabled = false;
+
+  @Input()
+  get isOpen(): boolean {
+    return this._isOpen;
+  }
+  set isOpen(value: BooleanInput) {
+    this._isOpen = coerceBooleanProperty(value);
+  }
+  private _isOpen = false;
+
+  @Input()
+  get selected(): boolean {
+    return this._selected;
+  }
+  set selected(value: BooleanInput) {
+    this._selected = coerceBooleanProperty(value);
+  }
+  private _selected = false;
+
+  @Input()
+  get isExpandClicable(): boolean {
+    return this._isExpandClicable;
+  }
+  set isExpandClicable(value: BooleanInput) {
+    this._isExpandClicable = coerceBooleanProperty(value);
+  }
+  private _isExpandClicable = false;
+
+  @Input()
+  get inset(): boolean {
+    return this._inset;
+  }
+  set inset(value: BooleanInput) {
+    this._inset = coerceBooleanProperty(value);
+  }
+  private _inset = false;
+
+  @Input()
+  get disabled(): boolean {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Output() itemClick = new EventEmitter<void>();
 

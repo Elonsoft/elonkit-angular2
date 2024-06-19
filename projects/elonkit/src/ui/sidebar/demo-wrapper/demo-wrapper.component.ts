@@ -44,39 +44,39 @@ import { Component, Input } from '@angular/core';
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №0"
-                  [inset]="true"></es-sidebar-item>
+                  inset></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №1')"
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №1"
-                  [inset]="true"></es-sidebar-item>
+                  inset></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №2')"
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №2"
-                  [inset]="true"
+                  inset
                   [selected]="true"></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №3')"
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №3"
-                  [inset]="true"></es-sidebar-item>
+                  inset></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №4')"
                   [disabled]="disabled"
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №4"
-                  [inset]="true"></es-sidebar-item>
+                  inset></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №5')"
                   [color]="color"
                   [isOpen]="isOpen"
                   text="Project №5"
-                  [inset]="true"></es-sidebar-item>
+                  inset></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item
@@ -88,54 +88,14 @@ import { Component, Input } from '@angular/core';
               icon="es-24:at-line-w500"
               text="Files">
               <ng-template #items>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №0"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №1"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №2"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №3"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №4"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №5"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №6"
-                  [inset]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="File №7"
-                  [inset]="true"></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №0" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №1" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №2" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №3" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №4" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №5" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №6" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №7" inset></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>

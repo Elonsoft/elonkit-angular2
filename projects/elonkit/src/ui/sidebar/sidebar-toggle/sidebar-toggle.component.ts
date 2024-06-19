@@ -1,3 +1,4 @@
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -9,9 +10,16 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEn
 })
 export class ESSidebarToggleComponent {
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
-  @Input() isOpen = false;
   @Input() labelOpen = 'Expand';
   @Input() labelClose = 'Collapse';
+  @Input()
+  get isOpen(): boolean {
+    return this._isOpen;
+  }
+  set isOpen(value: BooleanInput) {
+    this._isOpen = coerceBooleanProperty(value);
+  }
+  private _isOpen = false;
 
   @Output() openEvent = new EventEmitter<boolean>(false);
 

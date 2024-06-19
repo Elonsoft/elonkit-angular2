@@ -11,7 +11,6 @@ import { ESTooltipModule } from '../tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { ESSidebarMenuService } from './sidebar-menu/sidebar-menu.service';
 import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
@@ -34,6 +33,6 @@ import { MatRippleModule } from '@angular/material/core';
     ESSidebarSpacerComponent,
     ESSidebarToggleComponent,
   ],
-  providers: [MatIconRegistry, ESSidebarMenuService],
+  providers: [MatIconRegistry],
 })
 export class ESSidebarModule {}
