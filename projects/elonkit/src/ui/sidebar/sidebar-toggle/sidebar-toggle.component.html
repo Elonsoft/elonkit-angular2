@@ -1,13 +1,9 @@
 <div class="es-sidebar-toggle__root">
-  <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
-  <!-- Свойство октырия для разделителя должно браться из сервиса -->
+  <es-sidebar-divider></es-sidebar-divider>
   <button
     mat-icon-button
     (click)="_onClick()"
-    [ngClass]="{
-      'es-sidebar-toggle__button_primary-color': color === 'primary',
-      'es-sidebar-toggle__button_secondary-color': color === 'secondary'
-    }"
+    [ngClass]="'es-sidebar-toggle__button_' + cas.color"
     [ngStyle]="{ 'margin-left': isOpen ? '7px' : '0' }"
     class="es-sidebar-toggle__button"
     [attr.aria-label]="isOpen ? labelClose : labelOpen"

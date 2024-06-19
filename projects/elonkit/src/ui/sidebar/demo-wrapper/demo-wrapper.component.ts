@@ -13,108 +13,74 @@ import { Component, Input } from '@angular/core';
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" text="CRM" icon="es-24:at-line-w500"></es-sidebar-item>
+          <es-sidebar-item text="CRM" icon="es-24:at-line-w500"></es-sidebar-item>
         </es-sidebar-menu>
-        <es-sidebar-toggle (openEvent)="isOpen = $event" [color]="color"></es-sidebar-toggle>
+        <es-sidebar-toggle (openEvent)="isOpen = $event"></es-sidebar-toggle>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item
-            (itemClick)="onElementValueClick('Work Time')"
-            [color]="color"
-            [isOpen]="isOpen"
-            icon="es-24:at-line-w500"
-            text="Work Time">
+          <es-sidebar-item (itemClick)="onElementValueClick('Work Time')" icon="es-24:at-line-w500" text="Work Time">
           </es-sidebar-item>
         </es-sidebar-menu>
-        <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+        <es-sidebar-divider></es-sidebar-divider>
 
         <es-sidebar-scrollable>
           <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
             <es-sidebar-item
               (itemClick)="onElementValueClick('Projects')"
-              [color]="color"
-              [isOpen]="isOpen"
               [isExpandClicable]="true"
               id="0"
               icon="es-24:at-line-w500"
               text="Projects"
               [selected]="true">
               <ng-template #items>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №0')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №0"
-                  inset></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №1')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №1"
-                  inset></es-sidebar-item>
+                <es-sidebar-item (itemClick)="onElementValueClick('Project №0')" text="Project №0" inset></es-sidebar-item>
+                <es-sidebar-item (itemClick)="onElementValueClick('Project №1')" text="Project №1" inset></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №2')"
-                  [color]="color"
-                  [isOpen]="isOpen"
                   text="Project №2"
                   inset
                   [selected]="true"></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №3')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №3"
-                  inset></es-sidebar-item>
+                <es-sidebar-item (itemClick)="onElementValueClick('Project №3')" text="Project №3" inset></es-sidebar-item>
                 <es-sidebar-item
                   (itemClick)="onElementValueClick('Project №4')"
                   [disabled]="disabled"
-                  [color]="color"
-                  [isOpen]="isOpen"
                   text="Project №4"
                   inset></es-sidebar-item>
-                <es-sidebar-item
-                  (itemClick)="onElementValueClick('Project №5')"
-                  [color]="color"
-                  [isOpen]="isOpen"
-                  text="Project №5"
-                  inset></es-sidebar-item>
+                <es-sidebar-item (itemClick)="onElementValueClick('Project №5')" text="Project №5" inset></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
             <es-sidebar-item
               (itemClick)="onElementValueClick('Files')"
               [disabled]="disabled"
-              [color]="color"
-              [isOpen]="isOpen"
               id="1"
               icon="es-24:at-line-w500"
               text="Files">
               <ng-template #items>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №0" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №1" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №2" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №3" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №4" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №5" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №6" inset></es-sidebar-item>
-                <es-sidebar-item [disabled]="disabled" [color]="color" [isOpen]="isOpen" text="File №7" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №0" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №1" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №2" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №3" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №4" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №5" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №6" inset></es-sidebar-item>
+                <es-sidebar-item [disabled]="disabled" text="File №7" inset></es-sidebar-item>
               </ng-template>
             </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Schedule"> </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Messages"> </es-sidebar-item>
-            <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:at-line-w500" text="Inbox"> </es-sidebar-item>
+            <es-sidebar-item icon="es-24:at-line-w500" text="Infographic"> </es-sidebar-item>
+            <es-sidebar-item icon="es-24:at-line-w500" text="Schedule"> </es-sidebar-item>
+            <es-sidebar-item icon="es-24:at-line-w500" text="Messages"> </es-sidebar-item>
+            <es-sidebar-item icon="es-24:at-line-w500" text="Inbox"> </es-sidebar-item>
           </es-sidebar-menu>
-          <es-sidebar-divider role="after-scroll-content" [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+          <es-sidebar-divider role="after-scroll-content"></es-sidebar-divider>
         </es-sidebar-scrollable>
 
         <es-sidebar-spacer></es-sidebar-spacer>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:magnify-2-line-w500" text="Search"> </es-sidebar-item>
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:bell-line-line-w500" text="Notifications">
-          </es-sidebar-item>
+          <es-sidebar-item icon="es-24:magnify-2-line-w500" text="Search"> </es-sidebar-item>
+          <es-sidebar-item icon="es-24:bell-line-line-w500" text="Notifications"> </es-sidebar-item>
         </es-sidebar-menu>
-        <es-sidebar-divider [color]="color" [isOpen]="isOpen"></es-sidebar-divider>
+        <es-sidebar-divider></es-sidebar-divider>
         <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-          <es-sidebar-item [color]="color" [isOpen]="isOpen" icon="es-24:account-line-w500" text="Name"> </es-sidebar-item>
+          <es-sidebar-item icon="es-24:account-line-w500" text="Name"> </es-sidebar-item>
         </es-sidebar-menu>
       </es-sidebar>
       <div>

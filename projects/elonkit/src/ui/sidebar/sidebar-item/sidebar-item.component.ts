@@ -13,7 +13,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { ESSidebarMenuService } from '../public-api';
+import { ESSidebarCommonAttrService, ESSidebarMenuService } from '../public-api';
 import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -37,16 +37,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @Input() icon = '';
   @Input() text = '';
   @Input() id?: string;
-  @Input() color: 'default' | 'primary' | 'secondary' = 'default';
-
-  @Input()
-  get isOpen(): boolean {
-    return this._isOpen;
-  }
-  set isOpen(value: BooleanInput) {
-    this._isOpen = coerceBooleanProperty(value);
-  }
-  private _isOpen = false;
 
   @Input()
   get selected(): boolean {
@@ -92,19 +82,27 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   private hasChildren = false;
   public hasChildren$ = new BehaviorSubject<boolean>(false);
 
+  private isOpen = false;
+  public isOpen$ = new BehaviorSubject<boolean>(false);
+
   private isNestedMenuOpen = false;
   public isNestedMenuOpen$ = new BehaviorSubject<boolean>(false);
 
   private resizeSubscription!: Subscription;
   private openedItemsSubscription!: Subscription;
+  private commonAttrSubscription!: Subscription;
 
-  constructor(public menuService: ESSidebarMenuService) {}
+  constructor(
+    public menuService: ESSidebarMenuService,
+    private cas: ESSidebarCommonAttrService
+  ) {}
 
   public ngAfterViewInit(): void {
     this.behaviour = this.menuService.behaviour;
 
     this.resizeSubscription = resizeObserver(this.itemButtonContainer.nativeElement).subscribe(() => {
       this.width$.next(this.itemButtonContainer.nativeElement.clientWidth + this.itemButtonContainer.nativeElement.offsetLeft);
+      // TODO: разобраться, почему стрекли появляются только после движения мышью.
     });
 
     this.openedItemsSubscription = this.menuService.openedItems$.subscribe((openedItems) => {
@@ -112,6 +110,11 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
         this.isNestedMenuOpen = openedItems.includes(this.id);
         this.isNestedMenuOpen$.next(this.isNestedMenuOpen);
       }
+    });
+
+    this.commonAttrSubscription = this.cas.isOpen$.subscribe((isOpen) => {
+      this.isOpen = isOpen;
+      this.isOpen$.next(this.isOpen);
     });
 
     this.checkChildren();
@@ -131,6 +134,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   public ngOnDestroy(): void {
     this.resizeSubscription.unsubscribe();
     this.openedItemsSubscription.unsubscribe();
+    this.commonAttrSubscription.unsubscribe();
   }
 
   private checkChildren(): void {

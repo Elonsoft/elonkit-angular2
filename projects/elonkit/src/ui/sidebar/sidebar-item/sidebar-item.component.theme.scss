@@ -53,7 +53,7 @@
         color: mat.get-color-from-palette($mono-a, A600);
       }
 
-      &_primary-color {
+      &_primary {
         color: mat.get-color-from-palette($mono-b, A800);
 
         &:focus-visible {
@@ -71,15 +71,15 @@
         }
       }
 
-      &_primary-color &__container__icon {
+      &_primary &__container__icon {
         color: mat.get-color-from-palette($mono-b, A800);
       }
 
-      &_primary-color .mat-ripple-element {
+      &_primary .mat-ripple-element {
         background-color: mat.get-color-from-palette($mono-b, A150);
       }
 
-      &_primary-color.es-sidebar-item__button_selected {
+      &_primary.es-sidebar-item__button_selected {
         background-color: mat.get-color-from-palette($mono-b, A100);
         color: mat.get-color-from-palette($mono-b, 500);
 
@@ -88,7 +88,7 @@
         }
       }
 
-      &_primary-color.es-sidebar-item__button_selected &__container__icon {
+      &_primary.es-sidebar-item__button_selected &__container__icon {
         color: mat.get-color-from-palette($mono-b, 500);
       }
     }
@@ -112,7 +112,7 @@
       }
     }
 
-    &__button-secondary-action_primary-color.mat-mdc-icon-button {
+    &__button-secondary-action_primary.mat-mdc-icon-button {
       color: mat.get-color-from-palette($mono-b, A800);
 
       &:focus-visible {

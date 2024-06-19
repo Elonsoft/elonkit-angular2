@@ -5,13 +5,16 @@ import {
   ElementRef,
   EventEmitter,
   Input,
+  OnChanges,
   OnDestroy,
   Output,
   Renderer2,
+  SimpleChanges,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
 
 @Component({
   selector: 'es-sidebar',
@@ -20,7 +23,7 @@ import { BehaviorSubject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESSidebarComponent implements OnDestroy {
+export class ESSidebarComponent implements OnChanges, OnDestroy {
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
   @Input() maxWidth = 400;
   @Input() minWidth = 220;
@@ -45,7 +48,17 @@ export class ESSidebarComponent implements OnDestroy {
 
   private removeEventListeners: (() => void)[] = [];
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private renderer: Renderer2,
+    private cas: ESSidebarCommonAttrService
+  ) {
+    this.cas.color = this.color;
+  }
+
+  public ngOnChanges(): void {
+    this.cas.setColor(this.color);
+    this.cas.operateOpenState(this.isOpen);
+  }
 
   public ngOnDestroy(): void {
     this.removeAllEventListeners();

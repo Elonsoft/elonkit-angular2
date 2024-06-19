@@ -1,5 +1,5 @@
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ESSidebarCommonAttrService } from '../sidebar-common-attr.service';
 
 @Component({
   selector: 'es-sidebar-divider',
@@ -9,13 +9,5 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
   encapsulation: ViewEncapsulation.None,
 })
 export class ESSidebarDividerComponent {
-  @Input() color: 'default' | 'primary' | 'secondary' = 'default';
-  @Input()
-  get isOpen(): boolean {
-    return this._isOpen;
-  }
-  set isOpen(value: BooleanInput) {
-    this._isOpen = coerceBooleanProperty(value);
-  }
-  private _isOpen = false;
+  constructor(public cas: ESSidebarCommonAttrService) {}
 }

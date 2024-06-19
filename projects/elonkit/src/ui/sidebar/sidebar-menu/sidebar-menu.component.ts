@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { ESSidebarMenuService } from './sidebar-menu.service';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
@@ -10,7 +10,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   encapsulation: ViewEncapsulation.None,
   providers: [ESSidebarMenuService],
 })
-export class ESSidebarMenuComponent implements OnInit {
+export class ESSidebarMenuComponent implements OnChanges {
   @Input() behaviour: 'click' | 'hover' = 'click';
   @Input()
   get exclusive(): boolean {
@@ -23,7 +23,7 @@ export class ESSidebarMenuComponent implements OnInit {
 
   constructor(public menuService: ESSidebarMenuService) {}
 
-  public ngOnInit() {
+  public ngOnChanges(): void {
     this.menuService.setConfig(this.behaviour, this.exclusive);
   }
 }

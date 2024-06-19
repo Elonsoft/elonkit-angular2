@@ -7,10 +7,10 @@
   .es-sidebar-divider {
     &__line {
       border-color: mat.get-color-from-palette($mono-a, A100) !important;
-      &_primary-color {
+      &_primary {
         border-color: mat.get-color-from-palette($mono-b, A200) !important;
       }
-      &_secondary-color {
+      &_secondary {
         border-color: mat.get-color-from-palette($mono-a, A100) !important;
       }
     }
