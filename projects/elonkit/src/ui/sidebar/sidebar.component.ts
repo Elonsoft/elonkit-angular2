@@ -44,8 +44,9 @@ export class ESSidebarComponent implements OnChanges, OnDestroy {
 
   public screenX: number | null = null;
   private initialWidth: number | null = null;
-
   private removeEventListeners: (() => void)[] = [];
+
+  @ViewChild('content', { static: true }) private content: ElementRef;
 
   constructor(
     private renderer: Renderer2,
@@ -63,28 +64,23 @@ export class ESSidebarComponent implements OnChanges, OnDestroy {
     this.removeAllEventListeners();
   }
 
-  @ViewChild('content', { static: true }) private content: ElementRef;
-
   public _onMouseDown(event: MouseEvent): void {
-    if (event.button === 0 && this.isOpen) {
-      this.screenX = event.screenX;
+    this.startResize(event.button === 0, event.screenX);
+  }
+
+  public _onTouchStart(event: TouchEvent): void {
+    this.startResize(true, event.touches[0].screenX);
+  }
+
+  private startResize(isPrimaryButton: boolean, screenX: number): void {
+    if (isPrimaryButton && this.isOpen) {
+      this.screenX = screenX;
       this.isMouseDown$.next(true);
       this.initialWidth = this.content.nativeElement.getBoundingClientRect().width;
 
       this.removeEventListeners.push(
         this.renderer.listen('document', 'mousemove', this._onMouseMove.bind(this)),
-        this.renderer.listen('document', 'mouseup', this._onMouseUp.bind(this))
-      );
-    }
-  }
-
-  public _onTouchStart(event: TouchEvent): void {
-    if (this.isOpen) {
-      this.screenX = event.touches[0].screenX;
-      this.isMouseDown$.next(true);
-      this.initialWidth = this.content.nativeElement.getBoundingClientRect().width;
-
-      this.removeEventListeners.push(
+        this.renderer.listen('document', 'mouseup', this._onMouseUp.bind(this)),
         this.renderer.listen('document', 'touchmove', this._onTouchMove.bind(this)),
         this.renderer.listen('document', 'touchend', this._onTouchEnd.bind(this))
       );
@@ -92,21 +88,16 @@ export class ESSidebarComponent implements OnChanges, OnDestroy {
   }
 
   private _onMouseMove(event: MouseEvent): void {
-    if (this.screenX !== null && this.initialWidth !== null && this.content.nativeElement) {
-      const deltaX = event.screenX - this.screenX;
-      const newWidth = this.initialWidth + deltaX;
-      const clampedWidth = Math.min(this.maxWidth, Math.max(newWidth, this.minWidth));
-
-      this.width = clampedWidth;
-      this.widthChange.emit(clampedWidth);
-    }
-
-    this.isMouseMove$.next(true);
+    this.handleMove(event.screenX);
   }
 
   private _onTouchMove(event: TouchEvent): void {
-    if (this.screenX !== null && this.initialWidth !== null && this.content.nativeElement) {
-      const deltaX = event.touches[0].screenX - this.screenX;
+    this.handleMove(event.touches[0].screenX);
+  }
+
+  private handleMove(currentScreenX: number): void {
+    if (this.screenX !== null && this.initialWidth !== null) {
+      const deltaX = currentScreenX - this.screenX;
       const newWidth = this.initialWidth + deltaX;
       const clampedWidth = Math.min(this.maxWidth, Math.max(newWidth, this.minWidth));
 

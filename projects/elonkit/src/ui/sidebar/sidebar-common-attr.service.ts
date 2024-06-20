@@ -10,11 +10,9 @@ export class ESSidebarCommonAttrService {
 
   public setColor(color: 'default' | 'primary' | 'secondary'): void {
     this.color = color;
-    console.log('color in cas: ', color);
   }
 
   public operateOpenState(isOpen: boolean): void {
     this.isOpenSubject.next(isOpen);
-    console.log('open stat in cas: ', isOpen);
   }
 }
