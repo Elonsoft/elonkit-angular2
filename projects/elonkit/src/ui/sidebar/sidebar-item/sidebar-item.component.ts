@@ -259,6 +259,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
       } else {
         this.menuService.closeItem(this.id);
       }
+      this.checkChildren();
     }
   }
 
@@ -271,6 +272,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
       } else {
         this.menuService.openItem(this.id);
       }
+      this.checkChildren();
     }
   }
 
