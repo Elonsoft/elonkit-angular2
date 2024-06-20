@@ -9,7 +9,6 @@ import {
   OnDestroy,
   Output,
   Renderer2,
-  SimpleChanges,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
