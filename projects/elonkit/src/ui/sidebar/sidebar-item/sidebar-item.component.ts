@@ -127,7 +127,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
       // If the nested elements change, we will run a check
       this.checkChildren();
       this.cdr.detectChanges();
-      console.log('mutation');
     }).observe(this.templateContainer.nativeElement, { childList: true, subtree: true });
   }
 
@@ -145,13 +144,19 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
       this.hasChildren$.next(this.hasChildren);
 
       const childrenArr = Array.from(templateElement.children) as HTMLElement[];
-      childrenArr.map((el) => ((el.firstChild as HTMLElement).style.margin = '0px'));
 
-      const enabledChildrenArr = childrenArr.filter((child) =>
-        child.querySelector('button:not(.es-sidebar-item__button_disabled)')
-      );
-      enabledChildrenArr.map((el) => ((el.querySelector('button') as HTMLElement).tabIndex = !this.isNestedMenuOpen ? -1 : 0));
+      this.removeChildernMargin(childrenArr);
+      this.operateNestedChildrenFocus(childrenArr);
     }
+  }
+
+  private removeChildernMargin(children: HTMLElement[]): void {
+    children.map((el) => ((el.firstChild as HTMLElement).style.margin = '0px'));
+  }
+
+  private operateNestedChildrenFocus(children: HTMLElement[]): void {
+    const enabledChildrenArr = children.filter((child) => child.querySelector('button:not(.es-sidebar-item__button_disabled)'));
+    enabledChildrenArr.map((el) => ((el.querySelector('button') as HTMLElement).tabIndex = !this.isNestedMenuOpen ? -1 : 0));
   }
 
   // Mark nested buttons as a template-button for filter it then
@@ -254,8 +259,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
       } else {
         this.menuService.closeItem(this.id);
       }
-
-      this.checkChildren();
     }
   }
 
@@ -268,8 +271,6 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
       } else {
         this.menuService.openItem(this.id);
       }
-
-      this.checkChildren();
     }
   }
 
