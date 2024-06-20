@@ -16,10 +16,6 @@
     &_open {
       transition: backgorund-color 0.3s;
       cursor: col-resize;
-      &:hover {
-        .es-sidebar__handler__line {
-        }
-      }
     }
 
     &_open.es-sidebar__handler_mouse-down {

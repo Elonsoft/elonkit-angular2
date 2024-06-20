@@ -34,11 +34,11 @@
       background-color: mat.get-color-from-palette($other, background);
       border-right: 1px solid mat.get-color-from-palette($mono, A100);
 
-      &_primary-color {
+      &_primary {
         background-color: mat.get-color-from-palette($primary, 300);
       }
 
-      &_secondary-color {
+      &_secondary {
         background-color: mat.get-color-from-palette($other, background-2);
       }
     }

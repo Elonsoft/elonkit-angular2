@@ -11,9 +11,9 @@ const meta: Meta<DemoWrapperComponent> = {
   title: 'ui/Sidebar',
   args: {
     color: 'default',
-    width: 280,
+    width: 200,
     maxWidth: 400,
-    minWidth: 220,
+    minWidth: 180,
     isOpen: false,
     behavior: 'click',
     exclusive: false,
@@ -64,10 +64,6 @@ export const Primary: Story = {
     <demo-wrapper
     [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen" [behavior]="behavior" [exclusive]="exclusive" [disabled]="disabled"
     ></demo-wrapper>
-
-    <!-- Demo layout
- 
-    -->
     `,
     props: {
       ...args,

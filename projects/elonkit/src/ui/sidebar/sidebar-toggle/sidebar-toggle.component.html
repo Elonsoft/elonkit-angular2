@@ -1,4 +1,4 @@
-<div class="es-sidebar-toggle__root">
+<div *ngIf="locale$ | async as locale" class="es-sidebar-toggle__root">
   <es-sidebar-divider></es-sidebar-divider>
   <button
     mat-icon-button
@@ -6,7 +6,7 @@
     [ngClass]="'es-sidebar-toggle__button_' + cas.color"
     [ngStyle]="{ 'margin-left': isOpen ? '7px' : '0' }"
     class="es-sidebar-toggle__button"
-    [attr.aria-label]="isOpen ? labelClose : labelOpen"
+    [attr.aria-label]="isOpen ? labelClose || locale.sidebar.toggleCollapse : labelOpen || locale.sidebar.toggleExpand"
     esTooltip
     [esTooltipContent]="template"
     esTooltipShowDelay="200"
@@ -20,5 +20,7 @@
 </div>
 
 <ng-template #template>
-  <span class="es-caption">{{ isOpen ? labelClose : labelOpen }}</span>
+  <span *ngIf="locale$ | async as locale" class="es-caption">{{
+    isOpen ? labelClose || locale.sidebar.toggleCollapse : labelOpen || locale.sidebar.toggleExpand
+  }}</span>
 </ng-template>

@@ -48,13 +48,13 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   private _selected = false;
 
   @Input()
-  get isExpandClicable(): boolean {
-    return this._isExpandClicable;
+  get isExpandClickable(): boolean {
+    return this._isExpandClickable;
   }
-  set isExpandClicable(value: BooleanInput) {
-    this._isExpandClicable = coerceBooleanProperty(value);
+  set isExpandClickable(value: BooleanInput) {
+    this._isExpandClickable = coerceBooleanProperty(value);
   }
-  private _isExpandClicable = false;
+  private _isExpandClickable = false;
 
   @Input()
   get inset(): boolean {
@@ -94,7 +94,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
 
   constructor(
     public menuService: ESSidebarMenuService,
-    private cas: ESSidebarCommonAttrService
+    public cas: ESSidebarCommonAttrService
   ) {}
 
   public ngAfterViewInit(): void {
@@ -261,7 +261,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
 
     this.itemClick.emit();
 
-    if (!this.isExpandClicable) {
+    if (!this.isExpandClickable) {
       this._onNestedMenuClick(event);
     }
   }

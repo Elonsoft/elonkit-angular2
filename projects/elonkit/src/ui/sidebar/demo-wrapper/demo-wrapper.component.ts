@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
   template: `
-    <div style="height: 100vh; margin: -10px 0; display: flex; gap: 20px; overflow: auto;">
+    <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
       <es-sidebar
         [color]="color"
         [width]="width"
@@ -26,7 +26,7 @@ import { Component, Input } from '@angular/core';
           <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
             <es-sidebar-item
               (itemClick)="onElementValueClick('Projects')"
-              [isExpandClicable]="true"
+              [isExpandClickable]="true"
               id="0"
               icon="es-24:at-line-w500"
               text="Projects"

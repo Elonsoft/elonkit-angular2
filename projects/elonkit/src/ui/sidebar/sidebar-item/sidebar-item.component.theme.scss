@@ -5,12 +5,6 @@
   $surface: map-get($es-theme, surface);
 
   .es-sidebar-item {
-    &__root {
-    }
-
-    &__wrapper {
-    }
-
     &__button {
       background-color: transparent;
       color: mat.get-color-from-palette($mono-a, A800);
@@ -140,7 +134,7 @@
       box-shadow:
         0 8px 16px 0 rgba(0, 0, 0, 0.07),
         0 3px 6px 0 rgba(0, 0, 0, 0.03),
-        0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // elevation 600
+        0 -0.5px 2px 1px rgba(0, 0, 0, 0.02); // TODO: *elevation 600* (make palette for elevations)
 
       .es-tooltip__arrow {
         background: linear-gradient(135deg, transparent 50%, mat.get-color-from-palette($surface, 400) 50%);
@@ -171,9 +165,6 @@
       &__children {
         &__container {
           .es-sidebar-item {
-            &__root {
-            }
-
             &__button {
               color: mat.get-color-from-palette($mono-a, A800);
 
@@ -200,11 +191,6 @@
 
                 &:active {
                   background-color: mat.get-color-from-palette($accent, A150);
-                }
-              }
-
-              &__container {
-                &__text {
                 }
               }
             }

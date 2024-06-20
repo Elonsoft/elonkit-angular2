@@ -19,8 +19,8 @@
     }"
     [ngClass]="{
       'es-sidebar__content_mouse-move': isMouseMove$ | async,
-      'es-sidebar__content_primary-color': color === 'primary',
-      'es-sidebar__content_secondary-color': color === 'secondary'
+      'es-sidebar__content_primary': color === 'primary',
+      'es-sidebar__content_secondary': color === 'secondary'
     }">
     <ng-content></ng-content>
   </aside>

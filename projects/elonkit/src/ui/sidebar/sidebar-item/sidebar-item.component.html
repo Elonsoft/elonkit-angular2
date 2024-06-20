@@ -42,13 +42,13 @@
       *ngIf="(isOpen$ | async) && (hasChildren$ | async)"
       (click)="_onNestedMenuClick($event)"
       class="es-sidebar-item__button-secondary-action"
-      [tabindex]="!isExpandClicable ? '-1' : '0'"
+      [tabindex]="!isExpandClickable ? '-1' : '0'"
       [ngClass]="{
         'es-sidebar-item__button-secondary-action_primary': cas.color === 'primary',
         'es-sidebar-item__button-secondary-action_disabled': disabled
       }"
       [ngStyle]="{
-        'pointer-events': behaviour === 'hover' || !isExpandClicable ? 'none' : 'all',
+        'pointer-events': behaviour === 'hover' || !isExpandClickable ? 'none' : 'all',
         left: (width$ | async) + 'px'
       }">
       <mat-icon
@@ -72,11 +72,11 @@
       <button
         class="es-sidebar-item__tooltip__header__button es-body-100"
         mat-ripple
-        *ngIf="isExpandClicable"
+        *ngIf="isExpandClickable"
         (click)="_onItemClick($event)">
         {{ text }}
       </button>
-      <div class="es-sidebar-item__tooltip__header__text es-body-100" *ngIf="!isExpandClicable">{{ text }}</div>
+      <div class="es-sidebar-item__tooltip__header__text es-body-100" *ngIf="!isExpandClickable">{{ text }}</div>
     </div>
 
     <div class="es-sidebar-item__tooltip__children" [ngStyle]="{ dispalay: (hasChildren$ | async) ? 'block' : 'none' }">
