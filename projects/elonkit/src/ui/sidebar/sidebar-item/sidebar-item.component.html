@@ -49,7 +49,7 @@
       }"
       [ngStyle]="{
         'pointer-events': behaviour === 'hover' || !isExpandClickable ? 'none' : 'all',
-        left: (width$ | async) + 'px'
+        left: buttonContainerWidth + 'px'
       }">
       <mat-icon
         [svgIcon]="(isNestedMenuOpen$ | async) ? 'es-24:chevron-down-line-w200' : 'es-24:chevron-left-line-w200'"></mat-icon>

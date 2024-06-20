@@ -1,21 +1,23 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChild,
+  DestroyRef,
   ElementRef,
   EventEmitter,
   Input,
   OnChanges,
-  OnDestroy,
   Output,
   TemplateRef,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ESSidebarCommonAttrService, ESSidebarMenuService } from '../public-api';
 import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
@@ -25,9 +27,9 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
   @ViewChild('sidebarItemButtonContainer') itemButtonContainer!: ElementRef<HTMLDivElement>;
-  @ViewChild('templateContainer', { static: false, read: ElementRef }) templateContainer!: ElementRef<HTMLDivElement>;
+  @ViewChild('templateContainer') templateContainer!: ElementRef<HTMLDivElement>;
 
   @ContentChild('items') templateRef!: TemplateRef<any>;
   @ViewChild('tooltipHeader') tooltipHeader: ElementRef<HTMLDivElement>;
@@ -77,7 +79,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   @Output() itemClick = new EventEmitter<void>();
 
   public behaviour: 'click' | 'hover' = 'click';
-  public width$ = new BehaviorSubject<number>(0);
+  public buttonContainerWidth = 0;
 
   private hasChildren = false;
   public hasChildren$ = new BehaviorSubject<boolean>(false);
@@ -88,11 +90,9 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   private isNestedMenuOpen = false;
   public isNestedMenuOpen$ = new BehaviorSubject<boolean>(false);
 
-  private resizeSubscription!: Subscription;
-  private openedItemsSubscription!: Subscription;
-  private commonAttrSubscription!: Subscription;
-
   constructor(
+    private destroyRef: DestroyRef,
+    private cdr: ChangeDetectorRef,
     public menuService: ESSidebarMenuService,
     public cas: ESSidebarCommonAttrService
   ) {}
@@ -100,41 +100,42 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   public ngAfterViewInit(): void {
     this.behaviour = this.menuService.behaviour;
 
-    this.resizeSubscription = resizeObserver(this.itemButtonContainer.nativeElement).subscribe(() => {
-      this.width$.next(this.itemButtonContainer.nativeElement.clientWidth + this.itemButtonContainer.nativeElement.offsetLeft);
-      // TODO: разобраться, почему стрекли появляются только после движения мышью.
-    });
+    resizeObserver(this.itemButtonContainer.nativeElement)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(() => {
+        this.buttonContainerWidth =
+          this.itemButtonContainer.nativeElement.clientWidth + this.itemButtonContainer.nativeElement.offsetLeft;
+        this.cdr.detectChanges();
+      });
 
-    this.openedItemsSubscription = this.menuService.openedItems$.subscribe((openedItems) => {
+    this.menuService.openedItems$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((openedItems) => {
       if (this.id) {
         this.isNestedMenuOpen = openedItems.includes(this.id);
         this.isNestedMenuOpen$.next(this.isNestedMenuOpen);
       }
     });
 
-    this.commonAttrSubscription = this.cas.isOpen$.subscribe((isOpen) => {
+    this.cas.isOpen$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((isOpen) => {
       this.isOpen = isOpen;
       this.isOpen$.next(this.isOpen);
     });
 
     this.checkChildren();
+    this.markTemplateButtons();
 
-    const templateButtons = Array.from(
-      this.templateContainer.nativeElement.querySelectorAll('.es-sidebar-item__button')
-    ) as HTMLElement[];
-    templateButtons.map((btn) => btn.classList.add('template-button')); // Mark nested buttons as a template-button for filter it then
+    new MutationObserver(() => {
+      // If the nested elements change, we will run a check
+      this.checkChildren();
+      this.cdr.detectChanges();
+      console.log('mutation');
+    }).observe(this.templateContainer.nativeElement, { childList: true, subtree: true });
   }
 
   public ngOnChanges(): void {
     this.behaviour = this.menuService.behaviour;
 
     this.checkChildren();
-  }
-
-  public ngOnDestroy(): void {
-    this.resizeSubscription.unsubscribe();
-    this.openedItemsSubscription.unsubscribe();
-    this.commonAttrSubscription.unsubscribe();
+    this.markTemplateButtons();
   }
 
   private checkChildren(): void {
@@ -151,6 +152,15 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       );
       enabledChildrenArr.map((el) => ((el.querySelector('button') as HTMLElement).tabIndex = !this.isNestedMenuOpen ? -1 : 0));
     }
+  }
+
+  // Mark nested buttons as a template-button for filter it then
+  private markTemplateButtons(): void {
+    if (!this.templateContainer) return;
+    const templateButtons = Array.from(
+      this.templateContainer.nativeElement.querySelectorAll('.es-sidebar-item__button')
+    ) as HTMLElement[];
+    templateButtons.forEach((btn) => btn.classList.add('template-button'));
   }
 
   public selectedTooltipItemIndex = 0;
@@ -170,6 +180,8 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
   }
 
   public _onTooltipKeydown(event: KeyboardEvent): void {
+    if (!this.hasChildren) return;
+
     const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
 
     if (this.tooltipHeader.nativeElement.querySelector('button')) {
@@ -180,48 +192,58 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       child.querySelector('button:not(.es-sidebar-item__button_disabled)')
     );
 
-    if (this.hasChildren && event.key === 'ArrowDown') {
-      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % enabledChildrenArr.length;
-      const nextButton = enabledChildrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
+    switch (event.key) {
+      case 'ArrowDown':
+        {
+          this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % enabledChildrenArr.length;
+          const nextButton = enabledChildrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
 
-      if (nextButton) {
-        nextButton.focus();
-      }
-    }
-
-    if (this.hasChildren && event.key === 'ArrowUp') {
-      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + enabledChildrenArr.length - 1) % enabledChildrenArr.length;
-      const prevButton = enabledChildrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
-
-      if (prevButton) {
-        prevButton.focus();
-      }
-    }
-
-    if (this.hasChildren && event.key === 'ArrowLeft') {
-      this.itemButton.nativeElement.focus();
-    }
-
-    if (this.hasChildren && event.key === 'Tab') {
-      this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % enabledChildrenArr.length;
-      if (this.selectedTooltipItemIndex === 0) {
-        const lastButton = enabledChildrenArr[enabledChildrenArr.length - 1]?.querySelector('button') as HTMLButtonElement;
-        lastButton.blur();
-
-        const container = document.querySelector('aside');
-
-        if (container) {
-          const buttons = Array.from(
-            container.querySelectorAll('.es-sidebar-item__button:not(.template-button):not(.es-sidebar-item__button_disabled)')
-          ) as HTMLElement[];
-          const currentButton = this.itemButton.nativeElement;
-          const index = buttons.findIndex((button) => button === currentButton);
-
-          buttons[index].dispatchEvent(new MouseEvent('mouseleave'));
-          buttons[index + 1].focus();
-          event.preventDefault();
+          if (nextButton) {
+            nextButton.focus();
+          }
         }
-      }
+        break;
+      case 'ArrowUp':
+        {
+          this.selectedTooltipItemIndex =
+            (this.selectedTooltipItemIndex + enabledChildrenArr.length - 1) % enabledChildrenArr.length;
+          const prevButton = enabledChildrenArr[this.selectedTooltipItemIndex]?.querySelector('button') as HTMLButtonElement;
+
+          if (prevButton) {
+            prevButton.focus();
+          }
+        }
+        break;
+      case 'ArrowLeft':
+        {
+          this.itemButton.nativeElement.focus();
+        }
+        break;
+      case 'Tab':
+        {
+          this.selectedTooltipItemIndex = (this.selectedTooltipItemIndex + 1) % enabledChildrenArr.length;
+          if (this.selectedTooltipItemIndex === 0) {
+            const lastButton = enabledChildrenArr[enabledChildrenArr.length - 1]?.querySelector('button') as HTMLButtonElement;
+            lastButton.blur();
+
+            const container = document.querySelector('aside');
+
+            if (container) {
+              const buttons = Array.from(
+                container.querySelectorAll(
+                  '.es-sidebar-item__button:not(.template-button):not(.es-sidebar-item__button_disabled)'
+                )
+              ) as HTMLElement[];
+              const currentButton = this.itemButton.nativeElement;
+              const index = buttons.findIndex((button) => button === currentButton);
+
+              buttons[index].dispatchEvent(new MouseEvent('mouseleave'));
+              buttons[index + 1].focus();
+              event.preventDefault();
+            }
+          }
+        }
+        break;
     }
   }
 
@@ -232,6 +254,8 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges, OnDestr
       } else {
         this.menuService.closeItem(this.id);
       }
+
+      this.checkChildren();
     }
   }
 

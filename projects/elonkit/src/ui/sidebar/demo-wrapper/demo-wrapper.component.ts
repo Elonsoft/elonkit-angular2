@@ -12,11 +12,11 @@ import { Component, Input } from '@angular/core';
         [minWidth]="minWidth"
         [isOpen]="isOpen"
         style="position: sticky; top: 0;">
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+        <es-sidebar-menu>
           <es-sidebar-item text="CRM" icon="es-24:at-line-w500"></es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-toggle (openEvent)="isOpen = $event"></es-sidebar-toggle>
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+        <es-sidebar-menu>
           <es-sidebar-item (itemClick)="onElementValueClick('Work Time')" icon="es-24:at-line-w500" text="Work Time">
           </es-sidebar-item>
         </es-sidebar-menu>
@@ -74,12 +74,12 @@ import { Component, Input } from '@angular/core';
         </es-sidebar-scrollable>
 
         <es-sidebar-spacer></es-sidebar-spacer>
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+        <es-sidebar-menu>
           <es-sidebar-item icon="es-24:magnify-2-line-w500" text="Search"> </es-sidebar-item>
           <es-sidebar-item icon="es-24:bell-line-line-w500" text="Notifications"> </es-sidebar-item>
         </es-sidebar-menu>
         <es-sidebar-divider></es-sidebar-divider>
-        <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
+        <es-sidebar-menu>
           <es-sidebar-item icon="es-24:account-line-w500" text="Name"> </es-sidebar-item>
         </es-sidebar-menu>
       </es-sidebar>

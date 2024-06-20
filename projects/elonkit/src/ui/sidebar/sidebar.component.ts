@@ -23,6 +23,8 @@ import { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ESSidebarComponent implements OnChanges, OnDestroy {
+  @ViewChild('content', { static: true }) private content: ElementRef;
+
   @Input() color: 'default' | 'primary' | 'secondary' = 'default';
   @Input() maxWidth = 400;
   @Input() minWidth = 220;
@@ -45,8 +47,6 @@ export class ESSidebarComponent implements OnChanges, OnDestroy {
   public screenX: number | null = null;
   private initialWidth: number | null = null;
   private removeEventListeners: (() => void)[] = [];
-
-  @ViewChild('content', { static: true }) private content: ElementRef;
 
   constructor(
     private renderer: Renderer2,
