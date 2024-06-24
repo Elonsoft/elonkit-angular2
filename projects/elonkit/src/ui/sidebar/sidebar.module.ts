@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRippleModule } from '@angular/material/core';
-import { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
 
 @NgModule({
   declarations: [
@@ -34,6 +33,6 @@ import { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
     ESSidebarSpacerComponent,
     ESSidebarToggleComponent,
   ],
-  providers: [MatIconRegistry, ESSidebarCommonAttrService],
+  providers: [MatIconRegistry],
 })
 export class ESSidebarModule {}

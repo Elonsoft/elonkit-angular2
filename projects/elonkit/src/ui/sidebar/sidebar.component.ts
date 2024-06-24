@@ -21,6 +21,7 @@ import { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
   styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  providers: [ESSidebarCommonAttrService],
 })
 export class ESSidebarComponent implements OnChanges, OnDestroy {
   @ViewChild('content', { static: true }) private content: ElementRef;
