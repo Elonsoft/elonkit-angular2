@@ -47,7 +47,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
             <ng-container *ngSwitchCase="'projects'">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Projects</h6>
-                <es-sidebar-divider/>
+                <es-sidebar-divider />
               </div>
 
               <es-sidebar-scrollable>

@@ -103,11 +103,13 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.sidebarServiceSubscription.unsubscribe();
   }
 
-  public _onMouseEnter(): void { // Для удержания drawer в открытом состоянии
+  public _onMouseEnter(): void {
+    // Для удержания drawer в открытом состоянии
     this.ss.openDrawer(this.activeId);
   }
 
-  public _onMouseLeave(): void { // Для закрытия drawer, если юзер увел с него курсор
+  public _onMouseLeave(): void {
+    // Для закрытия drawer, если юзер увел с него курсор
     this.ss.closeDrawer();
   }
 }
