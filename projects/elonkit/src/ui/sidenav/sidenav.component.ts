@@ -37,7 +37,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
   private activeId = '';
 
   @ViewChild('rail') railElement: ElementRef;
-  @ViewChild('drawer') drawerElement: ElementRef;
+  @ViewChild('drawer') drawerElement: ElementRef; // если закрыт, давать display: none
 
   @HostListener('document:keydown', ['$event'])
   _onDocumentKeydown(event: KeyboardEvent): void {
@@ -86,6 +86,9 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
         // здесь вызывать будущий сервис, отвечающий за открытие сайдбара, который передает isopen между элементами сайдбара;
         // Пока привязка сделана через emit
       } else {
+        this.isOpen = false;
+        this.isOpen$.next(this.isOpen);
+
         console.log('close');
       }
     });
@@ -100,11 +103,11 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.sidebarServiceSubscription.unsubscribe();
   }
 
-  public _onMouseEnter(): void {
+  public _onMouseEnter(): void { // Для удержания drawer в открытом состоянии
     this.ss.openDrawer(this.activeId);
   }
 
-  public _onMouseLeave(): void {
+  public _onMouseLeave(): void { // Для закрытия drawer, если юзер увел с него курсор
     this.ss.closeDrawer();
   }
 }

@@ -4,7 +4,7 @@
       (mouseenter)="_onMouseEnter()"
       (mouseleave)="_onMouseLeave()"
       class="es-sidenav__drawer"
-      [ngClass]="{ 'es-sidenav__drawer_hover': isHover, 'es-sidenav__drawer_open': isOpen$ | async }">
+      [ngClass]="{ 'es-sidenav__drawer_hover': isHover$ | async, 'es-sidenav__drawer_open': isOpen$ | async }">
       <ng-content select="#drawer"></ng-content>
     </div>
     <div #rail class="es-sidenav__rail">
@@ -13,5 +13,5 @@
   </div>
   <div
     class="es-sidenav__overlay"
-    [ngClass]="{ 'es-sidenav__overlay_hover': isHover, 'es-sidenav__overlay_open': isOpen$ | async }"></div>
+    [ngClass]="{ 'es-sidenav__overlay_hover': isHover$ | async }"></div>
 </div>

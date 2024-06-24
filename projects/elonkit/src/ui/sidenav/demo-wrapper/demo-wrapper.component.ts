@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
       <es-sidenav
-        [isOpen]="isOpen"
+        [isOpen]="false"
         (selectedPageEvent)="onElementSelect($event)"
         (closeEvent)="onCloseEvent($event)"
         [disableEscapeKeyDown]="disableEscapeKeyDown"
@@ -20,7 +20,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
               [color]="color"
               text="Tootip text"></es-sidenav-item>
           </es-sidebar-menu>
-          <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen" [color]="color"></es-sidebar-toggle>
+          <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen"></es-sidebar-toggle>
           <es-sidebar-menu>
             <es-sidenav-item
               id="projects"
@@ -36,49 +36,49 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
               [color]="color"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-spacer></es-sidebar-spacer>
-          <es-sidebar-divider [color]="color"></es-sidebar-divider>
+          <es-sidebar-divider></es-sidebar-divider>
           <es-sidebar-menu>
-            <es-sidenav-item icon="es-24:at-line-w500" [color]="color">></es-sidenav-item>
+            <es-sidenav-item icon="es-24:at-line-w500" [color]="color"></es-sidenav-item>
           </es-sidebar-menu>
         </es-sidebar>
 
-        <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen">
+        <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="true">
           <ng-container [ngSwitch]="selectedPage ? selectedPage : '1'">
             <ng-container *ngSwitchCase="'projects'">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Projects</h6>
-                <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
+                <es-sidebar-divider/>
               </div>
 
               <es-sidebar-scrollable>
                 <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Favorites</div>
                 <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:at-line-w500" text="All projects"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" id="1" icon="es-24:list-alt-line-w500" text="Documents">
+                  <es-sidebar-item icon="es-24:at-line-w500" text="All projects"></es-sidebar-item>
+                  <es-sidebar-item id="1" icon="es-24:list-alt-line-w500" text="Documents">
                     <ng-template #items>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #1"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #2"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #3"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Document #4"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Document #1"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Document #2"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Document #3"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Document #4"></es-sidebar-item>
                     </ng-template>
                   </es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" id="2" icon="es-24:view-kanban" text="New projects">
+                  <es-sidebar-item id="2" icon="es-24:view-kanban" text="New projects">
                     <ng-template #items>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #1"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #2"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #3"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="New project #4"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="New project #1"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="New project #2"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="New project #3"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="New project #4"></es-sidebar-item>
                     </ng-template>
                   </es-sidebar-item>
                 </es-sidebar-menu>
 
                 <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Current projects</div>
                 <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 1#"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 2#"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 3#"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 4#"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current project 5#"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current project 1#"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current project 2#"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current project 3#"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current project 4#"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current project 5#"></es-sidebar-item>
                 </es-sidebar-menu>
               </es-sidebar-scrollable>
             </ng-container>
@@ -86,38 +86,38 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
             <ng-container *ngSwitchCase="'reports'">
               <div style="margin-bottom: 24px;">
                 <h6 class="es-h6" style="padding: 16px;">Reports</h6>
-                <es-sidebar-divider [color]="color" [isOpen]="isOpen" />
+                <es-sidebar-divider />
               </div>
 
               <es-sidebar-scrollable>
                 <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Favorites</div>
                 <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:at-line-w500" text="All reports"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" id="3" icon="es-24:list-alt-line-w500" text="Saved reports">
+                  <es-sidebar-item icon="es-24:at-line-w500" text="All reports"></es-sidebar-item>
+                  <es-sidebar-item id="3" icon="es-24:list-alt-line-w500" text="Saved reports">
                     <ng-template #items>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #1"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #2"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #3"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Saved report #4"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Saved report #1"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Saved report #2"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Saved report #3"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Saved report #4"></es-sidebar-item>
                     </ng-template>
                   </es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" id="4" icon="es-24:view-kanban" text="Planned reports">
+                  <es-sidebar-item id="4" icon="es-24:view-kanban" text="Planned reports">
                     <ng-template #items>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #1"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #2"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #3"></es-sidebar-item>
-                      <es-sidebar-item [isOpen]="isOpen" [inset]="true" text="Planned report #4"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Planned report #1"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Planned report #2"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Planned report #3"></es-sidebar-item>
+                      <es-sidebar-item [inset]="true" text="Planned report #4"></es-sidebar-item>
                     </ng-template>
                   </es-sidebar-item>
                 </es-sidebar-menu>
 
                 <div class="es-caption" style="padding: 0 16px; flex-shrink: 0; opacity: .75;">Current reports</div>
                 <es-sidebar-menu [behaviour]="behavior" [exclusive]="exclusive">
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #1"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #2"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #3"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #4"></es-sidebar-item>
-                  <es-sidebar-item [isOpen]="isOpen" icon="es-24:view-kanban" text="Current report #5"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current report #1"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current report #2"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current report #3"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current report #4"></es-sidebar-item>
+                  <es-sidebar-item icon="es-24:view-kanban" text="Current report #5"></es-sidebar-item>
                 </es-sidebar-menu>
               </es-sidebar-scrollable>
             </ng-container>
