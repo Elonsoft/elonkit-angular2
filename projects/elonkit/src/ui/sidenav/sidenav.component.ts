@@ -15,6 +15,7 @@ import {
 } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { ESSidenavService } from './sidenav.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'es-sidenav',
@@ -22,6 +23,20 @@ import { ESSidenavService } from './sidenav.service';
   styleUrls: ['./sidenav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('hideShow', [
+      state('hidden', style({ transform: 'translateX(-100%)', left: '-57px', display: 'none' })),
+      state('visible', style({ transform: 'translateX(0)', left: '57px', display: 'block' })),
+      transition('visible => hidden', [
+        animate('0.2s linear', style({ transform: 'translateX(-100%)', left: '-57px' })),
+        animate('0.2s', style({ display: 'none' })),
+      ]),
+      transition('hidden => visible', [
+        style({ display: 'block' }),
+        animate('0.2s linear', style({ transform: 'translateX(0)', left: '57px' })),
+      ]),
+    ]),
+  ],
 })
 export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() disableEscapeKeyDown = false;
@@ -37,7 +52,6 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
   private activeId = '';
 
   @ViewChild('rail') railElement: ElementRef;
-  @ViewChild('drawer') drawerElement: ElementRef; // если закрыт, давать display: none
 
   @HostListener('document:keydown', ['$event'])
   _onDocumentKeydown(event: KeyboardEvent): void {
@@ -78,18 +92,19 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
     });
 
     this.sidebarServiceSubscription = this.ss.openedDrawer$.subscribe((drawerId) => {
-      this.selectedPageEvent.emit(drawerId);
+      if (!this.disableItemHover) {
+        this.selectedPageEvent.emit(drawerId);
+      }
+
+      if (this.isOpen) return;
+
       if (drawerId) {
         this.activeId = drawerId;
-        this.isOpen = true;
-        this.isOpen$.next(this.isOpen);
-        // здесь вызывать будущий сервис, отвечающий за открытие сайдбара, который передает isopen между элементами сайдбара;
-        // Пока привязка сделана через emit
+        this.isHover = true;
+        this.isHover$.next(this.isHover);
       } else {
-        this.isOpen = false;
-        this.isOpen$.next(this.isOpen);
-
-        console.log('close');
+        this.isHover = false;
+        this.isHover$.next(this.isHover);
       }
     });
   }
@@ -105,11 +120,13 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   public _onMouseEnter(): void {
     // Для удержания drawer в открытом состоянии
+    if (this.isOpen) return;
     this.ss.openDrawer(this.activeId);
   }
 
   public _onMouseLeave(): void {
     // Для закрытия drawer, если юзер увел с него курсор
+    if (this.isOpen) return;
     this.ss.closeDrawer();
   }
 }

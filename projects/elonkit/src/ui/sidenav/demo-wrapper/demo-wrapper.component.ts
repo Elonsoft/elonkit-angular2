@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <div style="height: 100vh; display: flex; gap: 20px; overflow: auto;">
       <es-sidenav
-        [isOpen]="false"
+        [isOpen]="isOpen"
         (selectedPageEvent)="onElementSelect($event)"
         (closeEvent)="onCloseEvent($event)"
         [disableEscapeKeyDown]="disableEscapeKeyDown"
@@ -190,7 +190,7 @@ export class DemoWrapperComponent {
 
   public onCloseEvent(close: boolean): void {
     console.log('event:', close);
-    this.isOpen = close;
+    this.isOpen = false;
   }
 
   public onElementSelect(value: string | null): void {
@@ -198,10 +198,10 @@ export class DemoWrapperComponent {
       this.selectedPage = value;
 
       if (value !== 'empty') {
-        this.isOpen = true;
+        // this.isOpen = true;
       }
     } else {
-      this.isOpen = false;
+      // this.isOpen = false;
     }
   }
 

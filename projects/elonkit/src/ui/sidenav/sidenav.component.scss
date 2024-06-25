@@ -35,23 +35,8 @@
   &__drawer {
     position: absolute;
     top: 0;
-    left: -57px;
-    transform: translateX(-100%);
     z-index: 98;
     height: 100%;
-    transition: all 0.2s;
-
-    &_hover,
-    &_open {
-      left: 57px;
-      transform: translateX(0);
-    }
-
-    @media (max-width: 1280px) {
-      &_open {
-        position: absolute;
-      }
-    }
   }
 
   &__rail {
