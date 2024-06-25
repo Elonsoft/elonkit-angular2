@@ -44,5 +44,11 @@
     height: 100%;
     display: flex;
     z-index: 99;
+
+    @media (max-width: 1279px) {
+      .es-sidebar-toggle__button {
+        display: none !important;
+      }
+    }
   }
 }

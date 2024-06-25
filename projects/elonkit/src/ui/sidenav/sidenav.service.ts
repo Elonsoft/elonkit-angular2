@@ -4,7 +4,7 @@ import { delay, switchMap, takeUntil } from 'rxjs/operators';
 
 @Injectable()
 export class ESSidenavService {
-  private openedDrawerSubject = new BehaviorSubject<string | null>(null);
+  private openedDrawerSubject = new BehaviorSubject<string | null>('');
   private cancelCloseSubject = new Subject<void>();
 
   public openedDrawer$ = this.openedDrawerSubject.asObservable().pipe(
@@ -16,6 +16,15 @@ export class ESSidenavService {
       }
     })
   );
+
+  private selectedPageSubject = new BehaviorSubject<string>('');
+  public selectedPage$ = this.selectedPageSubject.asObservable();
+
+  public selectPage(id: string): void {
+    if (id) {
+      this.selectedPageSubject.next(id);
+    }
+  }
 
   public openDrawer(id: string): void {
     if (id) {

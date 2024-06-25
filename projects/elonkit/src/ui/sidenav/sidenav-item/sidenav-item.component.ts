@@ -15,7 +15,7 @@ export class ESSidenavItemComponent {
   @Input() selected = false;
   @Input() disabled = false;
 
-  @Output() itemClick = new EventEmitter<void>();
+  @Output() itemClick = new EventEmitter<string | null>();
 
   constructor(
     private ss: ESSidenavService,
@@ -38,13 +38,14 @@ export class ESSidenavItemComponent {
 
   public _onItemTouchStart(event: TouchEvent): void {
     if (this.disabled) return;
-
-    this.itemClick.emit();
+    if (this.id) this.ss.selectPage(this.id);
+    this.itemClick.emit(this.id ? this.id : null);
     event.preventDefault();
   }
 
   public _onItemClick(): void {
     if (this.disabled) return;
-    this.itemClick.emit();
+    if (this.id) this.ss.selectPage(this.id);
+    this.itemClick.emit(this.id ? this.id : null);
   }
 }

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'demo-wrapper',
@@ -14,7 +15,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
         <es-sidebar id="rail" [color]="color">
           <es-sidebar-menu>
             <es-sidenav-item
-              (itemClick)="onElementSelect('empty')"
+              (itemClick)="onSidenavItemClick($event)"
               [selected]="getSelectedStatus('empty')"
               icon="es-24:at-line-w500"
               [color]="color"
@@ -24,13 +25,13 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
           <es-sidebar-menu>
             <es-sidenav-item
               id="projects"
-              (itemClick)="(null)"
+              (itemClick)="onSidenavItemClick($event)"
               [selected]="getSelectedStatus('projects')"
               icon="es-24:at-line-w500"
               [color]="color"></es-sidenav-item>
             <es-sidenav-item
               id="reports"
-              (itemClick)="(null)"
+              (itemClick)="onSidenavItemClick($event)"
               [selected]="getSelectedStatus('reports')"
               icon="es-24:at-line-w500"
               [color]="color"></es-sidenav-item>
@@ -42,7 +43,15 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
           </es-sidebar-menu>
         </es-sidebar>
 
-        <es-sidebar id="drawer" color="default" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="true">
+        <es-sidebar
+          id="drawer"
+          color="default"
+          (widthChange)="resize($event)"
+          (widthChangeCommit)="resizeEnd()"
+          [width]="width"
+          [maxWidth]="maxWidth"
+          [minWidth]="minWidth"
+          [isOpen]="true">
           <ng-container [ngSwitch]="selectedPage ? selectedPage : '1'">
             <ng-container *ngSwitchCase="'projects'">
               <div style="margin-bottom: 24px;">
@@ -124,7 +133,11 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
           </ng-container>
         </es-sidebar>
       </es-sidenav>
-      <div>
+      <div
+        [ngStyle]="{
+          'padding-left': isOpen ? this.width + 'px' : '0px',
+          transition: (inResize$ | async) ? 'none' : 'padding-left 200ms ease'
+        }">
         <h2 class="es-h3">{{ selectedPage }}</h2>
         <br />
         <p class="es-body-100">
@@ -186,6 +199,9 @@ export class DemoWrapperComponent {
   @Input() disabled: boolean;
 
   public selectedPage = 'projects';
+
+  public inResize = false;
+  public inResize$ = new BehaviorSubject<boolean>(false);
   constructor() {}
 
   public onCloseEvent(close: boolean): void {
@@ -196,16 +212,25 @@ export class DemoWrapperComponent {
   public onElementSelect(value: string | null): void {
     if (value) {
       this.selectedPage = value;
-
-      if (value !== 'empty') {
-        // this.isOpen = true;
-      }
-    } else {
-      // this.isOpen = false;
     }
   }
 
   public getSelectedStatus(page: string): boolean {
     return this.selectedPage === page;
+  }
+
+  public resize(resizeEvent: number): void {
+    this.width = resizeEvent;
+    this.inResize = true;
+    this.inResize$.next(this.inResize);
+  }
+
+  public resizeEnd(): void {
+    this.inResize = false;
+    this.inResize$.next(this.inResize);
+  }
+
+  public onSidenavItemClick(id: string | null): void {
+    console.log('click on sidenav item', id ? 'with id ' + id : 'without id');
   }
 }

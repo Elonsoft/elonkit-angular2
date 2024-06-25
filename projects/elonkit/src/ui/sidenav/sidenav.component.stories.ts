@@ -18,6 +18,8 @@ const meta: Meta<DemoWrapperComponent> = {
     behavior: 'click',
     exclusive: false,
     disabled: false,
+    disableEscapeKeyDown: false,
+    disableItemHover: false,
   },
   argTypes: {
     color: {
@@ -62,7 +64,16 @@ export const Primary: Story = {
   render: (args, context) => ({
     template: `
     <demo-wrapper
-    [color]="color" [width]="width" [maxWidth]="maxWidth" [minWidth]="minWidth" [isOpen]="isOpen" [behavior]="behavior" [exclusive]="exclusive" [disabled]="disabled"
+    [disableEscapeKeyDown]="disableEscapeKeyDown"
+    [disableItemHover]="disableItemHover"
+    [color]="color"
+    [width]="width"
+    [maxWidth]="maxWidth"
+    [minWidth]="minWidth"
+    [isOpen]="isOpen"
+    [behavior]="behavior"
+    [exclusive]="exclusive"
+    [disabled]="disabled"
     ></demo-wrapper>
 
     <!-- Demo layout

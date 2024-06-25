@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
   ElementRef,
   EventEmitter,
   HostListener,
@@ -16,6 +17,7 @@ import {
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { ESSidenavService } from './sidenav.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'es-sidenav',
@@ -28,17 +30,17 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       state('hidden', style({ transform: 'translateX(-100%)', left: '-57px', display: 'none' })),
       state('visible', style({ transform: 'translateX(0)', left: '57px', display: 'block' })),
       transition('visible => hidden', [
-        animate('0.2s linear', style({ transform: 'translateX(-100%)', left: '-57px' })),
+        animate('0.2s ease', style({ transform: 'translateX(-100%)', left: '-57px' })),
         animate('0.2s', style({ display: 'none' })),
       ]),
       transition('hidden => visible', [
         style({ display: 'block' }),
-        animate('0.2s linear', style({ transform: 'translateX(0)', left: '57px' })),
+        animate('0.2s ease', style({ transform: 'translateX(0)', left: '57px' })),
       ]),
     ]),
   ],
 })
-export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
+export class ESSidenavComponent implements AfterViewInit, OnChanges {
   @Input() disableEscapeKeyDown = false;
   @Input() disableItemHover = false;
   @Input() isOpen = false;
@@ -48,14 +50,13 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Output() selectedPageEvent = new EventEmitter<string | null>();
   @Output() closeEvent = new EventEmitter<boolean>(false);
 
-  private sidebarServiceSubscription!: Subscription;
   private activeId = '';
 
   @ViewChild('rail') railElement: ElementRef;
 
   @HostListener('document:keydown', ['$event'])
   _onDocumentKeydown(event: KeyboardEvent): void {
-    if (this.isOpen && event.code === 'Escape') {
+    if (this.isOpen && !this.disableEscapeKeyDown && event.code === 'Escape') {
       this.isOpen = false;
       this.isOpen$.next(this.isOpen);
       this.closeEvent.emit(false);
@@ -64,7 +65,8 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   constructor(
     private ss: ESSidenavService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private destroyRef: DestroyRef
   ) {}
 
   public ngAfterViewInit(): void {
@@ -91,7 +93,7 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
       });
     });
 
-    this.sidebarServiceSubscription = this.ss.openedDrawer$.subscribe((drawerId) => {
+    this.ss.openedDrawer$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((drawerId) => {
       if (!this.disableItemHover) {
         this.selectedPageEvent.emit(drawerId);
       }
@@ -107,15 +109,15 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges, OnDestroy {
         this.isHover$.next(this.isHover);
       }
     });
+
+    this.ss.selectedPage$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((selectedId) => {
+      this.selectedPageEvent.emit(selectedId);
+    });
   }
 
   public ngOnChanges(): void {
     this.isOpen$.next(this.isOpen);
     this.isHover$.next(this.isHover);
-  }
-
-  public ngOnDestroy(): void {
-    this.sidebarServiceSubscription.unsubscribe();
   }
 
   public _onMouseEnter(): void {
