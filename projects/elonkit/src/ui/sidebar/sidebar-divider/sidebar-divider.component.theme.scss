@@ -1,0 +1,18 @@
+@mixin es-sidebar-divider-theme($theme, $es-theme) {
+  $mono-a: map-get($es-theme, mono-a);
+  $mono-b: map-get($es-theme, mono-b);
+  $primary: map-get($theme, primary);
+  $other: map-get($es-theme, other);
+
+  .es-sidebar-divider {
+    &__line {
+      border-color: mat.get-color-from-palette($mono-a, A100) !important;
+      &_primary {
+        border-color: mat.get-color-from-palette($mono-b, A200) !important;
+      }
+      &_secondary {
+        border-color: mat.get-color-from-palette($mono-a, A100) !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div *ngIf="locale$ | async as locale" class="es-sidebar-toggle__root">
+  <es-sidebar-divider></es-sidebar-divider>
+  <button
+    mat-icon-button
+    (click)="_onClick()"
+    [ngClass]="'es-sidebar-toggle__button_' + cas.color"
+    [ngStyle]="{ 'margin-left': isOpen ? '7px' : '0' }"
+    class="es-sidebar-toggle__button"
+    [attr.aria-label]="isOpen ? labelClose || locale.sidebar.toggleCollapse : labelOpen || locale.sidebar.toggleExpand"
+    esTooltip
+    [esTooltipContent]="template"
+    esTooltipShowDelay="200"
+    esTooltipHideDelay="100"
+    esTooltipArrow="true"
+    esTooltipPosition="right">
+    <mat-icon
+      class="es-sidebar-toggle__button__icon"
+      [svgIcon]="isOpen ? 'es-24:chevron-left-line-w300' : 'es-24:chevron-right-line-w300'"></mat-icon>
+  </button>
+</div>
+
+<ng-template #template>
+  <span *ngIf="locale$ | async as locale" class="es-caption">{{
+    isOpen ? labelClose || locale.sidebar.toggleCollapse : labelOpen || locale.sidebar.toggleExpand
+  }}</span>
+</ng-template>
