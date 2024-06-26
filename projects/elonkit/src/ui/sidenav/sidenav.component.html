@@ -11,5 +11,8 @@
       <ng-content select="#rail"></ng-content>
     </div>
   </div>
-  <div (click)="_onBackdropClick()" class="es-sidenav__overlay" [ngClass]="{ 'es-sidenav__overlay_hover': isHover$ | async }"></div>
+  <div
+    (click)="_onBackdropClick()"
+    class="es-sidenav__overlay"
+    [ngClass]="{ 'es-sidenav__overlay_hover': isHover$ | async }"></div>
 </div>
