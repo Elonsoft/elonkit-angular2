@@ -1,0 +1,28 @@
+<div class="es-sidenav-item__wrapper">
+  <button
+    [esTooltip]="text"
+    esTooltipArrow
+    esTooltipClass="es-sidenav-item__tooltip"
+    [esTooltipDisabled]="disabled"
+    esTooltipPosition="after"
+    [esTooltipShowDelay]="200"
+    [esTooltipHideDelay]="120"
+    mat-ripple
+    [matRippleDisabled]="disabled"
+    (focus)="_openDrawer()"
+    (mouseenter)="_openDrawer()"
+    (touchstart)="_openDrawer()"
+    (click)="_onItemClick()"
+    (keydown)="_onItemKeyDown($event)"
+    (touchstart)="_onItemTouchStart($event)"
+    class="es-sidenav-item__button"
+    [ngClass]="{
+      'es-sidenav-item__button_primary-color': color === 'primary',
+      'es-sidenav-item__button_selected': selected,
+      'es-sidenav-item__button_disabled': disabled
+    }">
+    <div class="es-sidenav-item__button__container">
+      <mat-icon class="es-sidenav-item__button__container__icon" *ngIf="icon" [svgIcon]="icon"></mat-icon>
+    </div>
+  </button>
+</div>

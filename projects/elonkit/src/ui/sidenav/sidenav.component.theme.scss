@@ -1,0 +1,11 @@
+@import './sidenav-item/sidenav-item.component.theme';
+@mixin es-sidenav-theme($theme, $es-theme) {
+  @include es-sidenav-item-theme($theme, $es-theme);
+  $other: map-get($es-theme, other);
+
+  .es-sidenav {
+    &__overlay {
+      background-color: mat.get-color-from-palette($other, overlay-filter);
+    }
+  }
+}
