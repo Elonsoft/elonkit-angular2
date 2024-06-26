@@ -118,6 +118,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
     this.cas.isOpen$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((isOpen) => {
       this.isOpen = isOpen;
       this.isOpen$.next(this.isOpen);
+      this.cdr.detectChanges();
     });
 
     this.checkChildren();
