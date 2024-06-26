@@ -8,13 +8,12 @@ import {
   HostListener,
   Input,
   OnChanges,
-  OnDestroy,
   Output,
   Renderer2,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { ESSidenavService } from './sidenav.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -129,6 +128,10 @@ export class ESSidenavComponent implements AfterViewInit, OnChanges {
   public _onMouseLeave(): void {
     // Для закрытия drawer, если юзер увел с него курсор
     if (this.isOpen) return;
+    this.ss.closeDrawer();
+  }
+
+  public _onBackdropClick(): void {
     this.ss.closeDrawer();
   }
 }
