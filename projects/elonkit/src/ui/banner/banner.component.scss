@@ -1,3 +1,55 @@
-.hold {
-  background-color: transparent;
+.es-banner {
+  box-sizing: border-box;
+  min-height: 56px;
+  padding: 4px 8px 4px 16px;
+
+  &__content {
+    display: flex;
+    position: relative;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 40px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__text {
+    position: relative;
+  }
+
+  &__icon {
+    padding: 8px 8px 0 0;
+    min-width: 24px;
+
+    &_close {
+      width: 24px !important;
+      height: 24px !important;
+      padding: 0 !important;
+      margin: 2px 0 0 auto;
+      border-radius: 4px !important;
+
+      .mat-mdc-button-persistent-ripple::before {
+        border-radius: 4px !important;
+      }
+
+      .mat-mdc-button-touch-target {
+        width: 24px !important;
+        height: 24px !important;
+      }
+    }
+  }
 }

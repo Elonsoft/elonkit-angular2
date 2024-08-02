@@ -6,6 +6,9 @@ export const en = {
     labelMore: 'More',
     labelBack: 'Back',
   },
+  banner: {
+    labelClose: 'Close',
+  },
   inlineFormField: {
     labelEdit: 'Edit',
     labelSave: 'Save',

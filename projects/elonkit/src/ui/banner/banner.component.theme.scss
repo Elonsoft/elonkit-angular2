@@ -1,2 +1,76 @@
+// @import './components/alert-actions/alert-actions.component.theme';
+
 @mixin es-banner-theme($theme, $es-theme) {
+  $warn: map-get($theme, warn);
+  $info: map-get($es-theme, info);
+  $positive: map-get($es-theme, positive);
+  $attention: map-get($es-theme, attention);
+  $mono-a: map-get($es-theme, mono-a);
+
+  // @include es-alert-actions-theme($theme, $elonkit-theme);
+
+  .es-banner {
+    &_variant {
+      &_default {
+        background-color: mat.get-color-from-palette($mono-a, A50);
+        border-color: mat.get-color-from-palette($mono-a, A100);
+      }
+
+      &_info {
+        background-color: mat.get-color-from-palette($info, A100);
+        border-color: mat.get-color-from-palette($info, A300);
+      }
+
+      &_success {
+        background-color: mat.get-color-from-palette($positive, A100);
+        border-color: mat.get-color-from-palette($positive, A300);
+      }
+
+      &_warning {
+        background-color: mat.get-color-from-palette($attention, A100);
+        border-color: mat.get-color-from-palette($attention, A200);
+      }
+
+      &_error {
+        background-color: mat.get-color-from-palette($warn, A100);
+        border-color: mat.get-color-from-palette($warn, A200);
+      }
+    }
+
+    &__title {
+      color: mat.get-color-from-palette($mono-a, A800);
+    }
+
+    &__text {
+      color: mat.get-color-from-palette($mono-a, A900);
+    }
+
+    &__icon {
+      &_variant {
+        &_default {
+          color: mat.get-color-from-palette($mono-a, A500);
+        }
+
+        &_info {
+          color: mat.get-color-from-palette($info);
+        }
+
+        &_success {
+          color: mat.get-color-from-palette($positive);
+        }
+
+        &_warning {
+          color: mat.get-color-from-palette($attention);
+        }
+
+        &_error {
+          color: mat.get-color-from-palette($warn);
+        }
+      }
+
+      &_close {
+        color: mat.get-color-from-palette($mono-a, A500) !important;
+      }
+    }
+  }
 }

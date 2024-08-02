@@ -2,6 +2,9 @@ export const ru = {
   alert: {
     labelClose: 'Закрыть',
   },
+  banner: {
+    labelClose: 'Закрыть',
+  },
   breadcrumbs: {
     labelMore: 'Ещё',
     labelBack: 'Назад',

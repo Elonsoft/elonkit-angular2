@@ -2,7 +2,6 @@
  * Public API Surface of elonkit
  */
 export * from './ui/action-heading';
-export * from './ui/alert';
 export * from './ui/audio-player';
 export * from './ui/autocomplete-multiple';
 export * from './ui/avatar';
@@ -13,6 +12,7 @@ export * from './ui/inline-form-field';
 export * from './ui/paginator';
 export * from './ui/timepicker';
 export * from './ui/tooltip';
+export * from './ui/banner';
 
 export * from './ui/icons';
 export * from './ui/locale';

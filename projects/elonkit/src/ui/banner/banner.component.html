@@ -1,1 +1,38 @@
-<div>banner</div>
+<div
+  *ngIf="locale$ | async as locale"
+  class="es-banner"
+  [ngClass]="'es-banner_variant_' + (color || severity)"
+  [ngStyle]="{ padding: (isWithActions | async) ? mainPadding.withActions : mainPadding.withoutActions }"
+  data-testid="root">
+  <div class="es-banner__content">
+    <mat-icon
+      *ngIf="hasIcon"
+      class="es-banner__icon"
+      [ngClass]="'es-banner__icon_variant_' + (color || severity)"
+      [svgIcon]="currentIcon.svgIcon">
+      {{ currentIcon.icon || '' }}
+    </mat-icon>
+    <div class="es-banner__text-wrapper">
+      <div class="es-banner__title" [ngClass]="titleTypography">
+        <ng-content select="[role=title]"></ng-content>
+      </div>
+      <div class="es-banner__text" [ngClass]="typography" #actions>
+        <ng-content></ng-content>
+      </div>
+    </div>
+    <button
+      *ngIf="closable"
+      class="es-banner__icon es-banner__icon_close"
+      [ngClass]="'es-banner__icon_variant_' + (color || severity)"
+      [ngStyle]="{ 'margin-top': (isWithActions | async) ? closeMargin.withActions : closeMargin.withoutActions }"
+      mat-icon-button
+      type="button"
+      [attr.aria-label]="locale.banner.labelClose"
+      (click)="onClose()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <span>
+    <ng-content select="es-banner-actions"></ng-content>
+  </span>
+</div>
