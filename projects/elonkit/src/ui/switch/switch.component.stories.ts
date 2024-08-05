@@ -1,4 +1,4 @@
-import { DemoWrapperComponent,DemoWrapperModule } from './demo-wrapper';
+import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
 import { ESSwitchComponent } from '.';
 
 import type { Meta, StoryObj } from '@storybook/angular';

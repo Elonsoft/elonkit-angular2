@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ESSFSChipVisibilityDirective } from './sfs-chip-visibility.directive';
 
-import { ESSortingComponent,ISorting, ISortingOption } from '../sorting';
+import { ESSortingComponent, ISorting, ISortingOption } from '../sorting';
 
 const TRANSITION_DURATION = 400;
 const TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;

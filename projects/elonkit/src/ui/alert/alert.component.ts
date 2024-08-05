@@ -19,7 +19,7 @@ import { ESAlertVariant } from './alert.types';
 
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { ESLocale,ESLocaleService } from '../locale';
+import { ESLocale, ESLocaleService } from '../locale';
 
 export interface ESAlertDefaultOptions {
   typography?: string;

@@ -16,7 +16,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { Observable,Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { ESBreadcrumb } from './breadcrumbs.types';
@@ -24,7 +24,7 @@ import { ESBreadcrumb } from './breadcrumbs.types';
 import { ESBreadcrumbsMoreDirective } from './directives/breadcrumbs-more.directive';
 import { ESBreadcrumbsSeparatorDirective } from './directives/breadcrumbs-separator.directive';
 
-import { ESLocale,ESLocaleService } from '../locale';
+import { ESLocale, ESLocaleService } from '../locale';
 
 export interface ESBreadcrumbsDefaultOptionsSizes {
   itemPadding: number;

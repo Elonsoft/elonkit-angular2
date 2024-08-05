@@ -11,7 +11,7 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { ControlValueAccessor, FormGroupDirective,NgControl } from '@angular/forms';
+import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 import { MatFormFieldControl } from '@angular/material/form-field';

@@ -1,4 +1,4 @@
-import { ESAlertComponent,ESAlertModule } from '.';
+import { ESAlertComponent, ESAlertModule } from '.';
 
 import { action } from '@storybook/addon-actions';
 import type { Meta, StoryObj } from '@storybook/angular';

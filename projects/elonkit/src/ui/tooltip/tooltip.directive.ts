@@ -28,7 +28,7 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { delay as delayPipe,take, takeUntil } from 'rxjs/operators';
+import { delay as delayPipe, take, takeUntil } from 'rxjs/operators';
 
 import {
   getMatTooltipInvalidPositionError,
@@ -54,7 +54,7 @@ import {
   ScrollStrategy,
   VerticalConnectionPos,
 } from '@angular/cdk/overlay';
-import { normalizePassiveListenerOptions,Platform } from '@angular/cdk/platform';
+import { normalizePassiveListenerOptions, Platform } from '@angular/cdk/platform';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 

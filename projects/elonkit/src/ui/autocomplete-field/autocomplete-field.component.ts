@@ -15,7 +15,7 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
-import { BehaviorSubject, Observable, of,Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { catchError, debounceTime, shareReplay, switchMap, takeUntil } from 'rxjs/operators';
 
 import { MatButton } from '@angular/material/button';

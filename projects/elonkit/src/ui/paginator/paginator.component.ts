@@ -24,7 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
-import { ESLocale,ESLocaleService } from '../locale';
+import { ESLocale, ESLocaleService } from '../locale';
 
 function range(start: number, end: number) {
   const length = end - start + 1;

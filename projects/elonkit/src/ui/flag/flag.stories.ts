@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 
-import { DemoWrapperComponent,DemoWrapperModule } from './demo-wrapper';
+import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
 
 import type { Meta, StoryObj } from '@storybook/angular';
 import { CoreModule } from '~storybook/core.module';

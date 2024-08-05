@@ -1,6 +1,6 @@
 import { MatIconTestingModule } from '@angular/material/icon/testing';
 
-import { ESEmptyStateComponent, ESEmptyStateIcon,ESEmptyStateModule } from '..';
+import { ESEmptyStateComponent, ESEmptyStateIcon, ESEmptyStateModule } from '..';
 
 import { render } from '@testing-library/angular';
 

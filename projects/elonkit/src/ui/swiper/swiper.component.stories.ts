@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatIconModule } from '@angular/material/icon';
 
-import { ESSwiperComponent,ESSwiperModule } from '.';
+import { ESSwiperComponent, ESSwiperModule } from '.';
 
 import type { Meta, StoryObj } from '@storybook/angular';
 import { CoreModule } from '~storybook/core.module';

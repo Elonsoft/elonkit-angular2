@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input,ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ESBreadcrumb } from '../../breadcrumbs.types';
 
-import { ESLocale,ESLocaleService } from '../../../locale';
+import { ESLocale, ESLocaleService } from '../../../locale';
 
 @Component({
   selector: 'es-breadcrumbs-breadcrumb',

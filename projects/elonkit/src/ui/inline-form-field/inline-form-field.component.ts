@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
 
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormField } from '@angular/material/form-field';
 
-import { ESLocale,ESLocaleService } from '../locale';
+import { ESLocale, ESLocaleService } from '../locale';
 
 export interface ESInlineFormFieldDefaultOptions {
   typography?: string;

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject,InjectionToken, Input, Optional, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, InjectionToken, Input, Optional, ViewEncapsulation } from '@angular/core';
 
 export interface ESHeaderDefaultOptions {
   typography?: string;

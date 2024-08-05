@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { DemoWrapperComponent,DemoWrapperModule } from './demo-wrapper';
+import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
 
 import type { Meta, StoryObj } from '@storybook/angular';
 import { CoreModule } from '~storybook/core.module';
