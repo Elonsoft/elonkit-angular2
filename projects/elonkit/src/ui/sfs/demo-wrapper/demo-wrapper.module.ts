@@ -1,12 +1,16 @@
-import { NgModule } from '@angular/core';
-import { DemoWrapperComponent } from './demo-wrapper.component';
-import { ESSFSComponent } from '../sfs.component';
 import { CommonModule } from '@angular/common';
-import { MatIconRegistry } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { CoreModule } from '~storybook/core.module';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconRegistry } from '@angular/material/icon';
+
+import { DemoWrapperComponent } from './demo-wrapper.component';
+
+import { ESSFSComponent } from '../sfs.component';
+
+import { CoreModule } from '~storybook/core.module';
 
 @NgModule({
   imports: [CommonModule, ESSFSComponent, HttpClientModule, CoreModule, ReactiveFormsModule, MatFormFieldModule],

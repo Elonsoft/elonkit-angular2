@@ -1,7 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ESSortingComponent } from './sorting.component';
+
 import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
+import { ESSortingComponent } from './sorting.component';
+
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const options = [
   {

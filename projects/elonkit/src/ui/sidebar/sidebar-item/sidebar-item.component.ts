@@ -15,10 +15,13 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ESSidebarCommonAttrService, ESSidebarMenuService } from '../public-api';
-import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
 import { BehaviorSubject } from 'rxjs';
+
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+
+import { ESSidebarCommonAttrService, ESSidebarMenuService } from '../public-api';
+
+import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
 
 @Component({
   selector: 'es-sidebar-item',

@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import {
-  ChangeDetectionStrategy,
-  Component,
-  ViewEncapsulation,
-  Input,
-  forwardRef,
-  ViewChild,
-  ElementRef,
   AfterViewInit,
-  Output,
-  EventEmitter,
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  forwardRef,
+  Input,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 

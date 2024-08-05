@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -9,12 +10,13 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
+import { BehaviorSubject } from 'rxjs';
+
 import { ISnackbarData, USnackbarSize } from './snackbar.types';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { BehaviorSubject } from 'rxjs';
+import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar';
 
 @Component({
   templateUrl: './snackbar.component.html',

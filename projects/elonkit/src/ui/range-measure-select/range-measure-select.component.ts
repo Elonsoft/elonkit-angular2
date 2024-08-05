@@ -1,26 +1,27 @@
 /* eslint-disable brace-style */
 import {
-  Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  OnInit,
-  Input,
-  ViewChild,
+  Component,
+  ElementRef,
+  Host,
   HostBinding,
+  Input,
+  OnInit,
   Optional,
   Self,
-  Host,
-  ElementRef,
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl } from '@angular/forms';
-import { FocusMonitor } from '@angular/cdk/a11y';
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { CdkOverlayOrigin } from '@angular/cdk/overlay';
+import { Subject } from 'rxjs';
+
 import { MatButton } from '@angular/material/button';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 
-import { Subject } from 'rxjs';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CdkOverlayOrigin } from '@angular/cdk/overlay';
 
 import { ERangeOption, IRangeOption, IRangeSelect } from './range-measure-select.interface';
 

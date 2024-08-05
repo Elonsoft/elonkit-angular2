@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DialogComponent } from './dialog.component';
-import { DialogTitleComponent } from './dialog-title/dialog-title.component';
-import { DialogContentComponent } from './dialog-content/dialog-content.component';
-import { DialogActionsComponent } from './dialog-actions/dialog-actions.component';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { DialogActionsComponent } from './dialog-actions/dialog-actions.component';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import { DialogTitleComponent } from './dialog-title/dialog-title.component';
+import { DialogComponent } from './dialog.component';
 
 @NgModule({
   declarations: [DialogComponent, DialogTitleComponent, DialogContentComponent, DialogActionsComponent],

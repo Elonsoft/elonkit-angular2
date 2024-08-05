@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output, ViewEncapsulation, ChangeDetectionStrategy, Input } from '@angular/core';
-
+import { ChangeDetectionStrategy, Component, EventEmitter, Input,Output, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { ESLocale, ESLocaleService } from '../../../locale';

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+
 import { ESSidebarCommonAttrService } from '../sidebar-common-attr.service';
 
 @Component({

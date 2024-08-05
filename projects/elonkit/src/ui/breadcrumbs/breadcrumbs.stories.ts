@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-
-import { ESBreadcrumbsComponent } from './';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
+import { ESBreadcrumbsComponent } from './';
+
+import type { Meta, StoryObj } from '@storybook/angular';
+import { CoreModule } from '~storybook/core.module';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperComponent,

@@ -1,18 +1,16 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatRippleModule } from '@angular/material/core';
-
-import { ESBreadcrumbsComponent } from './breadcrumbs.component';
 
 import { ESBreadcrumbsBreadcrumbComponent } from './components/breadcrumbs-breadcrumb';
 import { ESBreadcrumbsCollapseComponent } from './components/breadcrumbs-collapse';
-
 import { ESBreadcrumbsMoreDirective } from './directives/breadcrumbs-more.directive';
 import { ESBreadcrumbsSeparatorDirective } from './directives/breadcrumbs-separator.directive';
+import { ESBreadcrumbsComponent } from './breadcrumbs.component';
 
 @NgModule({
   declarations: [

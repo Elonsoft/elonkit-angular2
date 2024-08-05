@@ -1,15 +1,14 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { fakeAsync, tick } from '@angular/core/testing';
-
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-import { fireEvent, render, screen } from '@testing-library/angular';
-
-import { ESInlineFormFieldComponent, ESInlineFormFieldModule } from '..';
 import { ESLocaleService, ru } from '../../locale';
+import { ESInlineFormFieldComponent, ESInlineFormFieldModule } from '..';
+
+import { fireEvent, render, screen } from '@testing-library/angular';
 
 const TEXT_HELLO = 'Hello';
 const TEXT_HELLO_WORLD = 'Hello World';

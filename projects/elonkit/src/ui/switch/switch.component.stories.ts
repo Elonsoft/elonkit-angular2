@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { DemoWrapperComponent,DemoWrapperModule } from './demo-wrapper';
 import { ESSwitchComponent } from '.';
-import { DemoWrapperModule, DemoWrapperComponent } from './demo-wrapper';
+
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperComponent,

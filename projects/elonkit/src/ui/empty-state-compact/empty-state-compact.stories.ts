@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from '@storybook/angular';
 import { ESEmptyStateCompactComponent } from './empty-state-compact.component';
+
+import { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<ESEmptyStateCompactComponent> = {
   title: 'UI/Empty state compact',

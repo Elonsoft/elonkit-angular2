@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
-import { ESSidenavService } from '../sidenav.service';
 import { DOCUMENT } from '@angular/common';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
+
+import { ESSidenavService } from '../sidenav.service';
 
 @Component({
   selector: 'es-sidenav-item',

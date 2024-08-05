@@ -1,14 +1,17 @@
+import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+
+import { ISFSFieldValue } from './sfs.types';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
-import { animate, animateChild, group, query, state, style, transition, trigger } from '@angular/animations';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
-import { ISorting, ISortingOption, ESSortingComponent } from '../sorting';
-import { ISFSFieldValue } from './sfs.types';
 import { ESSFSChipVisibilityDirective } from './sfs-chip-visibility.directive';
+
+import { ESSortingComponent,ISorting, ISortingOption } from '../sorting';
 
 const TRANSITION_DURATION = 400;
 const TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;

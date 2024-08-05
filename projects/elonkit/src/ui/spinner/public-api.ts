@@ -1,3 +1,3 @@
-export { ESSpinnerModule } from './spinner.module';
 export { ESSpinnerComponent } from './spinner.component';
-export { ESSpinnerEaseType, ESSpinnerDefaultOptions, ESSpinnerVariant } from './spinner.types';
+export { ESSpinnerModule } from './spinner.module';
+export { ESSpinnerDefaultOptions, ESSpinnerEaseType, ESSpinnerVariant } from './spinner.types';

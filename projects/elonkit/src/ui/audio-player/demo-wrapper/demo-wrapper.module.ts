@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
-import { DemoWrapperComponent } from './demo-wrapper.component';
-import { MatIconRegistry } from '@angular/material/icon';
-import { ESAudioPlayerModule } from '..';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+
+import { MatIconRegistry } from '@angular/material/icon';
+
+import { DemoWrapperComponent } from './demo-wrapper.component';
+
+import { ESAudioPlayerModule } from '..';
+
 import { CoreModule } from '~storybook/core.module';
 
 @NgModule({

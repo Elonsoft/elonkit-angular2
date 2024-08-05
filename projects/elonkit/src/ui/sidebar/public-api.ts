@@ -1,5 +1,5 @@
-export { ESSidebarModule } from './sidebar.module';
 export { ESSidebarComponent } from './sidebar.component';
+export { ESSidebarModule } from './sidebar.module';
 export { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
 export { ESSidebarDividerComponent } from './sidebar-divider/sidebar-divider.component';
 export { ESSidebarItemComponent } from './sidebar-item/sidebar-item.component';

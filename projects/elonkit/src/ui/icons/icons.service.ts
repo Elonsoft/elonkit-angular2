@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 
 export const ES_SVG_ICONS: { [key: string]: any } = {
   'es-empty-state': [

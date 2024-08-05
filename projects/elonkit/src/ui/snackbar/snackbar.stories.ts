@@ -1,10 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-
-import { ESSnackbarComponent } from './';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { DemoWrapperModule } from './demo-wrapper/demo-wrapper.module';
 import { DemoWrapperComponent } from './demo-wrapper';
+import { ESSnackbarComponent } from './';
+
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,

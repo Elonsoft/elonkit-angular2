@@ -1,7 +1,10 @@
 import { Component, Input } from '@angular/core';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { ESSnackbarComponent } from '../index';
+
 import { USnackbarSize, USnackbarVariant } from '../snackbar.types';
+
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+
+import { ESSnackbarComponent } from '../index';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

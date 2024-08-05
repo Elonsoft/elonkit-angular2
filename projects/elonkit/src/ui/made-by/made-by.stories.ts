@@ -1,8 +1,11 @@
-import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { MadeByComponent } from './made-by.component';
 import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
+import { MadeByComponent } from './made-by.component';
+
+import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 
 const meta: Meta<MadeByComponent> = {
   title: 'ui/Made by',

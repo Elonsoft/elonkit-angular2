@@ -1,4 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
+
 import { ESAudioPlayerComponent } from '../audio-player.component';
 
 @Component({

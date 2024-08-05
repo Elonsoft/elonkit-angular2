@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
-import { DemoWrapperComponent } from './demo-wrapper.component';
 import { CommonModule } from '@angular/common';
-import { ESDropzoneModule } from '..';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { DemoWrapperComponent } from './demo-wrapper.component';
+
+import { ESDropzoneModule } from '..';
 
 @NgModule({
   imports: [CommonModule, ESDropzoneModule, ReactiveFormsModule, MatButtonModule, MatFormFieldModule],

@@ -1,5 +1,6 @@
-import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { KbdComponent } from './kbd.component';
+
+import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 
 const meta: Meta<KbdComponent> = {
   title: 'UI/Kbd',
