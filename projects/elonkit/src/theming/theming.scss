@@ -16,6 +16,7 @@
 @import '../ui/sorting/sorting.component.theme';
 @import '../ui/sfs/sfs.component.theme';
 @import '../ui/spinner/spinner.component.theme';
+@import '../ui/snackbar/snackbar.component.theme';
 @import '../ui/flag/flag.component.theme';
 @import '../ui/error-page/error-page.component.theme';
 @import '../ui/swiper/swiper.component.theme';
@@ -67,6 +68,7 @@
   @include es-sorting-theme($theme, $es-theme);
   @include es-sfs-theme($theme, $es-theme);
   @include es-spinner-theme($theme, $es-theme);
+  @include es-snackbar-theme($theme, $es-theme);
   @include es-flag-theme($theme, $es-theme);
   @include es-error-page-theme($theme, $es-theme);
   @include es-swiper-theme($theme, $es-theme);
