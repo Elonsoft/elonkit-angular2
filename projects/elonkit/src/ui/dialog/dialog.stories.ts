@@ -1,12 +1,16 @@
-import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
-import { DialogComponent } from './dialog.component';
-import { OverlayComponent } from '../overlay';
 import { CommonModule } from '@angular/common';
-import { DialogTitleComponent } from './dialog-title/dialog-title.component';
-import { DialogContentComponent } from './dialog-content/dialog-content.component';
-import { DialogActionsComponent } from './dialog-actions/dialog-actions.component';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
+import { DialogActionsComponent } from './dialog-actions/dialog-actions.component';
+import { DialogContentComponent } from './dialog-content/dialog-content.component';
+import { DialogTitleComponent } from './dialog-title/dialog-title.component';
+import { DialogComponent } from './dialog.component';
+
+import { OverlayComponent } from '../overlay';
+
+import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 
 const meta: Meta<DialogComponent> = {
   title: 'UI/Dialog',

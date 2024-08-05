@@ -10,6 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
+
 import { MatSlider } from '@angular/material/slider';
 
 const TIME_LINE_RANGE = 8;

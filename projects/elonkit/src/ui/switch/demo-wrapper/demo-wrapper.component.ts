@@ -1,6 +1,6 @@
 import { Component, DestroyRef, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

@@ -1,6 +1,7 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, Inject, InjectionToken, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { ESSpinnerEaseType, ESSpinnerDefaultOptions, ESSpinnerVariant } from '.';
+
+import { ESSpinnerDefaultOptions, ESSpinnerEaseType, ESSpinnerVariant } from '.';
 
 export const ES_SPINNER_DEFAULT_OPTIONS = new InjectionToken<ESSpinnerDefaultOptions>('ES_SPINNER_DEFAULT_OPTIONS');
 @Component({

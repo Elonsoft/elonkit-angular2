@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, Input } from '@angular/core';
+
 import { ESBreadcrumb } from '..';
 
 @Component({

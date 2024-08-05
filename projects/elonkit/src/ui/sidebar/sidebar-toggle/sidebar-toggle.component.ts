@@ -1,8 +1,10 @@
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { ESSidebarCommonAttrService } from '../sidebar-common-attr.service';
 import { Observable } from 'rxjs';
+
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+
 import { ESLocale, ESLocaleService } from '../../locale';
+import { ESSidebarCommonAttrService } from '../sidebar-common-attr.service';
 
 @Component({
   selector: 'es-sidebar-toggle',

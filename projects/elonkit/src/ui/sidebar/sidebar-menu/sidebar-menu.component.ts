@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
-import { ESSidebarMenuService } from './sidebar-menu.service';
+
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+
+import { ESSidebarMenuService } from './sidebar-menu.service';
 
 @Component({
   selector: 'es-sidebar-menu',

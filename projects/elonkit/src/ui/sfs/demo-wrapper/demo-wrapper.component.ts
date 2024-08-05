@@ -1,10 +1,12 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { map, Observable, shareReplay, startWith } from 'rxjs';
+
 // import { ISorting, ISortingOption } from '../sorting.types';
 import { SortDirection } from '@angular/material/sort';
+
 import { ISFSFieldValue, ISorting, ISortingOption } from 'projects/elonkit/src/public-api';
-import { Observable, map, shareReplay, startWith } from 'rxjs';
 
 @Component({
   selector: 'demo-wrapper',

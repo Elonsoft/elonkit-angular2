@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable, debounceTime, map, of } from 'rxjs';
+import { debounceTime, map, Observable, of } from 'rxjs';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector

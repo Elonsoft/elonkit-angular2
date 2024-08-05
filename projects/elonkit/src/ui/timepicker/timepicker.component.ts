@@ -1,23 +1,22 @@
+import { DatePipe } from '@angular/common';
 import {
-  Component,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostBinding,
   Input,
   OnDestroy,
   Optional,
   Self,
-  ChangeDetectorRef,
-  HostBinding,
   ViewChild,
-  ElementRef,
 } from '@angular/core';
-
-import { DatePipe } from '@angular/common';
-import { ControlValueAccessor, NgControl, FormGroupDirective } from '@angular/forms';
-
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { ControlValueAccessor, FormGroupDirective,NgControl } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 import { MatFormFieldControl } from '@angular/material/form-field';
-import { Subject } from 'rxjs';
+
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
 const autoCorrectedTimePipe = createAutoCorrectedDatePipe('HH:MM');

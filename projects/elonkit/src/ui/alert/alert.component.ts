@@ -1,25 +1,25 @@
 import {
-  Component,
+  AfterContentChecked,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  Input,
-  Output,
-  EventEmitter,
-  InjectionToken,
-  Optional,
-  Inject,
+  Component,
   ElementRef,
-  AfterContentChecked,
+  EventEmitter,
+  Inject,
+  InjectionToken,
+  Input,
+  Optional,
+  Output,
   ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
-
-import { coerceBooleanProperty } from '@angular/cdk/coercion';
-
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ESAlertVariant } from './alert.types';
-import { ESLocaleService, ESLocale } from '../locale';
+
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+
+import { ESLocale,ESLocaleService } from '../locale';
 
 export interface ESAlertDefaultOptions {
   typography?: string;

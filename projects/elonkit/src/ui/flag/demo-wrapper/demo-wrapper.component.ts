@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 import { ES_SVG_ICONS } from '../../icons';
 
 @Component({

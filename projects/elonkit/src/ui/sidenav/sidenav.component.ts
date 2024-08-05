@@ -1,3 +1,4 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -13,10 +14,11 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { ESSidenavService } from './sidenav.service';
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { BehaviorSubject } from 'rxjs';
+
+import { ESSidenavService } from './sidenav.service';
+
 import { getInnerFocusableElement } from '../../cdk/a11y/focusable';
 
 @Component({

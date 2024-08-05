@@ -13,28 +13,38 @@
  */
 
 import {
+  AfterViewInit,
   Directive,
   ElementRef,
+  HostBinding,
+  HostListener,
   Inject,
+  InjectionToken,
   Input,
   NgZone,
   OnDestroy,
   Optional,
-  InjectionToken,
-  ViewContainerRef,
-  AfterViewInit,
-  HostBinding,
-  HostListener,
   TemplateRef,
+  ViewContainerRef,
 } from '@angular/core';
+import { Subject } from 'rxjs';
+import { delay as delayPipe,take, takeUntil } from 'rxjs/operators';
+
+import {
+  getMatTooltipInvalidPositionError,
+  MAT_TOOLTIP_DEFAULT_OPTIONS,
+  MAT_TOOLTIP_SCROLL_STRATEGY,
+  MatTooltipDefaultOptions,
+  TooltipPosition,
+  TooltipTouchGestures,
+} from '@angular/material/tooltip';
 
 import { AriaDescriber, FocusMonitor } from '@angular/cdk/a11y';
-import { getInnerFocusableElement } from '../../cdk/a11y';
-
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput, coerceBooleanProperty, NumberInput } from '@angular/cdk/coercion';
 import { ESCAPE, hasModifierKey } from '@angular/cdk/keycodes';
 import {
+  ConnectedOverlayPositionChange,
   FlexibleConnectedPositionStrategy,
   HorizontalConnectionPos,
   OriginConnectionPosition,
@@ -43,26 +53,15 @@ import {
   OverlayRef,
   ScrollStrategy,
   VerticalConnectionPos,
-  ConnectedOverlayPositionChange,
 } from '@angular/cdk/overlay';
-import { Platform, normalizePassiveListenerOptions } from '@angular/cdk/platform';
+import { normalizePassiveListenerOptions,Platform } from '@angular/cdk/platform';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 
-import {
-  TooltipPosition,
-  TooltipTouchGestures,
-  getMatTooltipInvalidPositionError,
-  MAT_TOOLTIP_SCROLL_STRATEGY,
-  MAT_TOOLTIP_DEFAULT_OPTIONS,
-  MatTooltipDefaultOptions,
-} from '@angular/material/tooltip';
-
-import { Subject } from 'rxjs';
-import { take, takeUntil, delay as delayPipe } from 'rxjs/operators';
-
 import { ESTooltipComponent } from './tooltip.component';
 import { ESTooltipService } from './tooltip.service';
+
+import { getInnerFocusableElement } from '../../cdk/a11y';
 
 /** CSS class that will be attached to the overlay panel. */
 const TOOLTIP_PANEL_CLASS = 'es-tooltip-panel';

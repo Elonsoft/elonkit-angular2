@@ -1,11 +1,13 @@
-import { moduleMetadata, type Meta, type StoryObj } from '@storybook/angular';
-import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ESAvatarComponent } from './avatar.component';
 
-import { ESAvatarModule } from './avatar.module';
 import { MatIconModule } from '@angular/material/icon';
+
+import { ESAvatarComponent } from './avatar.component';
+import { ESAvatarModule } from './avatar.module';
 import { ESAvatarGroupComponent } from './avatar-group.component';
+
+import { type Meta, moduleMetadata, type StoryObj } from '@storybook/angular';
+import { CoreModule } from '~storybook/core.module';
 
 const meta: Meta<ESAvatarComponent> = {
   component: ESAvatarComponent,

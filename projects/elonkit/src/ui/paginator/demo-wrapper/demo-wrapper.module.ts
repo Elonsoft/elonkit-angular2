@@ -1,11 +1,15 @@
-import { NgModule } from '@angular/core';
-import { DemoWrapperComponent } from './demo-wrapper.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ESPaginatorComponent } from '..';
-import { MatIconRegistry } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconRegistry } from '@angular/material/icon';
+
+import { DemoWrapperComponent } from './demo-wrapper.component';
+
+import { ESPaginatorComponent } from '..';
+
 import { CoreModule } from '~storybook/core.module';
 
 @NgModule({

@@ -1,30 +1,30 @@
 import {
-  Component,
+  AfterContentInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  HostListener,
-  ViewChild,
-  ElementRef,
-  OnInit,
-  OnDestroy,
-  AfterContentInit,
-  InjectionToken,
-  Optional,
-  Inject,
-  Input,
+  Component,
   ContentChild,
+  ElementRef,
+  HostListener,
+  Inject,
+  InjectionToken,
+  Input,
+  OnDestroy,
+  OnInit,
+  Optional,
   TemplateRef,
+  ViewChild,
+  ViewEncapsulation,
 } from '@angular/core';
-
-import { Subject, Observable } from 'rxjs';
+import { Observable,Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { ESBreadcrumb } from './breadcrumbs.types';
 
 import { ESBreadcrumbsMoreDirective } from './directives/breadcrumbs-more.directive';
 import { ESBreadcrumbsSeparatorDirective } from './directives/breadcrumbs-separator.directive';
-import { ESLocaleService, ESLocale } from '../locale';
+
+import { ESLocale,ESLocaleService } from '../locale';
 
 export interface ESBreadcrumbsDefaultOptionsSizes {
   itemPadding: number;

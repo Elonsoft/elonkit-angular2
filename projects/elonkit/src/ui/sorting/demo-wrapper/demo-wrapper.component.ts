@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { ISorting, ISortingOption } from '../sorting.types';
+
 import { SortDirection } from '@angular/material/sort';
 
 @Component({

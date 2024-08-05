@@ -1,7 +1,8 @@
-import { Component, Input, ChangeDetectionStrategy, InjectionToken, Optional, Inject, ViewEncapsulation } from '@angular/core';
-import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { ChangeDetectionStrategy, Component, Inject, InjectionToken, Input, Optional, ViewEncapsulation } from '@angular/core';
 
 import { ESAvatarDefaultOptions, ESAvatarVariant } from './avatar.types';
+
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 
 export const ES_AVATAR_DEFAULT_OPTIONS = new InjectionToken<ESAvatarDefaultOptions>('ES_AVATAR_DEFAULT_OPTIONS');
 

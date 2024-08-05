@@ -1,10 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ESErrorPageModule, ESErrorPageComponent } from '.';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
+import { ESErrorPageComponent,ESErrorPageModule } from '.';
+
+import type { Meta, StoryObj } from '@storybook/angular';
+import { CoreModule } from '~storybook/core.module';
 
 const meta: Meta<ESErrorPageComponent> = {
   component: ESErrorPageComponent,

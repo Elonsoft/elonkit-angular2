@@ -1,9 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/angular';
-import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { ESSwiperModule, ESSwiperComponent } from '.';
 import { MatIconModule } from '@angular/material/icon';
+
+import { ESSwiperComponent,ESSwiperModule } from '.';
+
+import type { Meta, StoryObj } from '@storybook/angular';
+import { CoreModule } from '~storybook/core.module';
 const meta: Meta<ESSwiperComponent> = {
   component: ESSwiperComponent,
   title: 'ui/Swiper',

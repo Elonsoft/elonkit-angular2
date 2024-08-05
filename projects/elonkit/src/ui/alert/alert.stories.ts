@@ -1,8 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/angular';
+import { ESAlertComponent,ESAlertModule } from '.';
 
 import { action } from '@storybook/addon-actions';
-
-import { ESAlertModule, ESAlertComponent } from '.';
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const meta: Meta<ESAlertModule> = {
   component: ESAlertComponent,

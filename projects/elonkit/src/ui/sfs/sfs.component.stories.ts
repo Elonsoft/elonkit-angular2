@@ -1,7 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ESSFSComponent } from './sfs.component';
+
 import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
+import { ESSFSComponent } from './sfs.component';
+
+import type { Meta, StoryObj } from '@storybook/angular';
 
 const options = [
   {

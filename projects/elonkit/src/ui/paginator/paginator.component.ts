@@ -1,29 +1,30 @@
+import { CommonModule } from '@angular/common';
 import {
-  Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation,
-  Input,
-  Output,
+  Component,
   EventEmitter,
-  InjectionToken,
-  Optional,
-  Inject,
   HostListener,
+  Inject,
+  InjectionToken,
+  Input,
+  Optional,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 
-import { ESLocaleService, ESLocale } from '../locale';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+
+import { ESLocale,ESLocaleService } from '../locale';
 
 function range(start: number, end: number) {
   const length = end - start + 1;

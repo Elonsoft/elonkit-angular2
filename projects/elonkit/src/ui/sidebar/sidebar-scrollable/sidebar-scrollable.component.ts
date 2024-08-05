@@ -10,9 +10,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { debounceTime, merge } from 'rxjs';
+
 import { resizeHeightObserver } from 'projects/elonkit/src/utils/resize-height-observer';
 import { resizeObserver } from 'projects/elonkit/src/utils/resize-observer';
-import { debounceTime, merge } from 'rxjs';
 
 @Component({
   selector: 'es-sidebar-scrollable',

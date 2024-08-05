@@ -1,15 +1,19 @@
-import { RangeMeasureSelectComponent } from './range-measure-select.component';
-import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { OverlayModule } from '@angular/cdk/overlay';
-import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+
+import { OverlayModule } from '@angular/cdk/overlay';
+
+import { RangeMeasureSelectComponent } from './range-measure-select.component';
+
+import { argsToTemplate, Meta, moduleMetadata, StoryObj } from '@storybook/angular';
 import { CoreModule } from '~storybook/core.module';
-import { HttpClientModule } from '@angular/common/http';
 
 const meta: Meta<RangeMeasureSelectComponent> = {
   title: 'UI/Range measure select',

@@ -1,24 +1,26 @@
 import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-  ElementRef,
-  ViewEncapsulation,
-  OnInit,
-  ContentChildren,
-  QueryList,
   AfterContentInit,
-  Renderer2,
-  OnDestroy,
+  ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
+  ElementRef,
+  Input,
   OnChanges,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  Renderer2,
   SimpleChanges,
+  ViewEncapsulation,
 } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
+import { ESAvatarVariant } from './avatar.types';
+
+import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
 import { ESAvatarComponent } from './avatar.component';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { ESAvatarVariant } from './avatar.types';
-import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'es-avatar-group',

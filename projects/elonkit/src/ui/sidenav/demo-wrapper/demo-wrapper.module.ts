@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
-import { DemoWrapperComponent } from './demo-wrapper.component';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+
+import { DemoWrapperComponent } from './demo-wrapper.component';
+
 import { ESSidebarModule } from '../../sidebar';
 import { ESSidenavModule } from '..';
 

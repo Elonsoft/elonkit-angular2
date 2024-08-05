@@ -1,4 +1,3 @@
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -13,6 +12,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+
 import { ESSidebarCommonAttrService } from './sidebar-common-attr.service';
 
 @Component({

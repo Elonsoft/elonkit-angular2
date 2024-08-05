@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ESSidenavComponent } from './sidenav.component';
-import { ESSidenavItemComponent } from './sidenav-item/sidenav-item.component';
-import { MatIconModule } from '@angular/material/icon';
+import { NgModule } from '@angular/core';
+
 import { MatRippleModule } from '@angular/material/core';
-import { ESTooltipModule } from '../tooltip';
+import { MatIconModule } from '@angular/material/icon';
+
+import { ESSidenavItemComponent } from './sidenav-item/sidenav-item.component';
+import { ESSidenavComponent } from './sidenav.component';
 import { ESSidenavService } from './sidenav.service';
+
+import { ESTooltipModule } from '../tooltip';
 
 @NgModule({
   declarations: [ESSidenavComponent, ESSidenavItemComponent],
