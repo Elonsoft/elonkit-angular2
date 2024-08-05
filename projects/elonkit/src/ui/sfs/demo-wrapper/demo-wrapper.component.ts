@@ -21,7 +21,7 @@ import { Observable, map, shareReplay, startWith } from 'rxjs';
     <es-sfs
       [formGroup]="filters"
       [showFiltersButton]="showFiltersButton"
-      [showSearchInpuit]="showSearchInpuit"
+      [showSearchInput]="showSearchInput"
       [count]="mockValues ? count : (filtersCount$ | async)"
       [sortingOptions]="sortingOptions"
       [filterFieldsValues]="mockValues ? filterFieldsValues : (filterFieldsValues$ | async) || []"
@@ -29,8 +29,8 @@ import { Observable, map, shareReplay, startWith } from 'rxjs';
       (clear)="onFiltersClear()"
       (filterFieldValueRemoved)="filterFieldValueRemoved.emit($event)"
       (searchTerm)="searchTerm.emit($event)">
-      <h6 class="es-body-200">Фильтров пока нет</h6>
-      <div class="es-caption">Сюда должны прокидываться автокомплиты, но они в другой ветке</div>
+      <h6 class="es-body-200">Place for filters</h6>
+      <div class="es-caption">Put here autocomplete and other inputs</div>
 
       <!-- <mat-form-field appearance="outline">
       <mat-label>Автор</mat-label>
@@ -90,7 +90,7 @@ export class DemoWrapperComponent {
   public filterFieldsValues$: Observable<ISFSFieldValue[]>;
 
   @Input() showFiltersButton = true;
-  @Input() showSearchInpuit = true;
+  @Input() showSearchInput = true;
   @Input() count: number | null = 0;
   @Input() sortingOptions: ISortingOption[] = [];
   @Input() filterFieldsValues: ISFSFieldValue[] = [

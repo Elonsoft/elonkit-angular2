@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { ESEmptyStateCompactComponent } from './empty-state-compact.component';
 
 const meta: Meta<ESEmptyStateCompactComponent> = {
-  title: 'UI/EmptyStateCompact',
+  title: 'UI/Empty state compact',
   component: ESEmptyStateCompactComponent,
   excludeStories: /.*Data$/,
   tags: ['autodocs'],

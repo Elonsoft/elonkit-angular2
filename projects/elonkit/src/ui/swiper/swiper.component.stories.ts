@@ -6,6 +6,7 @@ import { ESSwiperModule, ESSwiperComponent } from '.';
 import { MatIconModule } from '@angular/material/icon';
 const meta: Meta<ESSwiperComponent> = {
   component: ESSwiperComponent,
+  title: 'ui/Swiper',
   tags: ['autodocs'],
   args: {
     direction: 'vertical',
@@ -46,7 +47,7 @@ const meta: Meta<ESSwiperComponent> = {
       description: 'Ability to move swiper items by dragging.',
     },
     loop: {
-      description: 'If true, after items ends swiper returns to satrt.',
+      description: 'If true, after items ends swiper returns to start.',
     },
     autoPlay: {
       description: "Interval in 'ms' for next swiper item. Don't use timeout less then 100ms.",
@@ -55,7 +56,7 @@ const meta: Meta<ESSwiperComponent> = {
       description: 'Count of items will be swiped after timeout.',
     },
     swiperPaginationSiblingCount: {
-      description: 'Coun of shown paginator bullets. 0 - all bullets shown.',
+      description: 'Count of shown paginator bullets. 0 - all bullets shown.',
     },
     swiperPaginationTransitionDuration: {
       description: 'Duration of bullets animation (grow, hide, etc...). 150ms as default/',

@@ -146,14 +146,14 @@ export class ESTooltipComponent implements OnDestroy {
   /**
    * @internal
    * @ignore
-   * Wheter the tooltip interactive.
+   * Makes the tooltip interactive.
    */
   public interactive: boolean;
 
   /**
    * @internal
    * @ignore
-   * The arrow positition.
+   * The arrow position.
    */
   public arrow: { position: string; offsetX?: number; offsetY?: number } | null = null;
 

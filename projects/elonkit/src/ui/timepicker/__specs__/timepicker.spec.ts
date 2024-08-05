@@ -59,7 +59,7 @@ describe('Timepicker', () => {
     expect(screen.queryByDisplayValue('10:00')).not.toBeNull();
   });
 
-  it('Should allow clearing unrequired input', async () => {
+  it('Should allow clearing not required input', async () => {
     await render(TimepickerWrapperComponent, {
       componentProperties: {
         required: false,

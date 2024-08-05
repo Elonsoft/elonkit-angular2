@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 const meta: Meta<MadeByComponent> = {
-  title: 'UI/MadeBy',
+  title: 'ui/Made by',
   component: MadeByComponent,
   excludeStories: /.*Data$/,
   tags: ['autodocs'],

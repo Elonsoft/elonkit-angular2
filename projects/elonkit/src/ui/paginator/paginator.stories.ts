@@ -8,6 +8,7 @@ import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/Paginator',
   tags: ['autodocs'],
   args: {
     pageInputBefore: false,

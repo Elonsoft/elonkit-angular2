@@ -39,7 +39,7 @@ export const en = {
     labelAvatar: 'Avatar',
     labelStatus: 'Status',
   },
-  autocompliteMultiple: {
+  autocompleteMultiple: {
     labelTabAll: 'All',
     labelTabSelected: 'Selected',
     labelTabNotSelected: 'Not selected',

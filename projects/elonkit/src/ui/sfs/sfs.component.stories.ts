@@ -40,10 +40,11 @@ const options = [
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/SFS',
   tags: ['autodocs'],
   args: {
     showFiltersButton: true,
-    showSearchInpuit: false,
+    showSearchInput: false,
     count: 0,
     sortingOptions: options,
     mockValues: false,
@@ -61,7 +62,7 @@ export const Primary: Story = {
     template: `
     <demo-wrapper
       [showFiltersButton]="showFiltersButton"
-      [showSearchInpuit]="showSearchInpuit"
+      [showSearchInput]="showSearchInput"
       [count]="count"
       [sortingOptions]="sortingOptions"
       [mockValues]="mockValues"

@@ -8,6 +8,7 @@ import { DemoWrapperModule, DemoWrapperComponent } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/Spinner',
   tags: ['autodocs'],
   args: {
     variant: 'ring',

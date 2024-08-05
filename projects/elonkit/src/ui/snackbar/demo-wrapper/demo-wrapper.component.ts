@@ -21,7 +21,7 @@ export class DemoWrapperComponent {
   @Input() text?: string;
   @Input() icon?: string;
   @Input() dismissAfter?: number;
-  @Input() horisontalPosition?: MatSnackBarHorizontalPosition;
+  @Input() horizontalPosition?: MatSnackBarHorizontalPosition;
   @Input() verticalPosition?: MatSnackBarVerticalPosition;
   @Input() size?: USnackbarSize;
   @Input() variant?: USnackbarVariant;
@@ -41,12 +41,12 @@ export class DemoWrapperComponent {
         matIcon: this.matIcon,
         callback: this.hasActionCallback
           ? () => {
-              console.log('Сallback executed!');
+              console.log('Callback executed!');
             }
           : null,
         actionText: this.actionText,
       },
-      horizontalPosition: this.horisontalPosition,
+      horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
     });
   }

@@ -12,7 +12,7 @@ import { CoreModule } from '~storybook/core.module';
 import { HttpClientModule } from '@angular/common/http';
 
 const meta: Meta<RangeMeasureSelectComponent> = {
-  title: 'UI/Range Measure Select',
+  title: 'UI/Range measure select',
   component: RangeMeasureSelectComponent,
   excludeStories: /.*Data$/,
   tags: ['autodocs'],

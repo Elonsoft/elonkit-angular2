@@ -79,10 +79,10 @@
       <div class="es-sidebar-item__tooltip__header__text es-body-100" *ngIf="!isExpandClickable">{{ text }}</div>
     </div>
 
-    <div class="es-sidebar-item__tooltip__children" [ngStyle]="{ dispalay: (hasChildren$ | async) ? 'block' : 'none' }">
+    <div class="es-sidebar-item__tooltip__children" [ngStyle]="{ display: (hasChildren$ | async) ? 'block' : 'none' }">
       <mat-divider *ngIf="hasChildren$ | async"></mat-divider>
       <div
-        #tootipChildrenContainer
+        #tooltipChildrenContainer
         class="es-sidebar-item__tooltip__children__container"
         [ngStyle]="{ padding: (hasChildren$ | async) ? '8px 0' : '0' }">
         <ng-container [ngTemplateOutlet]="templateRef"></ng-container>

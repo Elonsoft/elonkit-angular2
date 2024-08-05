@@ -100,7 +100,7 @@ export class ESSwitchComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * Produces event when user clicks switch in indeterminate state.
    */
-  @Output() indeterminateEvevnt = new EventEmitter<boolean>();
+  @Output() indeterminateEvent = new EventEmitter<boolean>();
 
   constructor(private cd: ChangeDetectorRef) {}
 
@@ -183,7 +183,7 @@ export class ESSwitchComponent implements ControlValueAccessor, AfterViewInit {
       this._toggle();
 
       if (this.indeterminate) {
-        this.indeterminateEvevnt.emit(true);
+        this.indeterminateEvent.emit(true);
       }
     }
   }
@@ -193,7 +193,7 @@ export class ESSwitchComponent implements ControlValueAccessor, AfterViewInit {
    */
   public _onClick(): void {
     if (this.indeterminate) {
-      this.indeterminateEvevnt.emit(true);
+      this.indeterminateEvent.emit(true);
     }
   }
 

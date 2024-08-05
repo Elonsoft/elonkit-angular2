@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 const meta: Meta<ESErrorPageComponent> = {
   component: ESErrorPageComponent,
+  title: 'ui/Error page',
   tags: ['autodocs'],
   args: {
     imageUrl: 'https://picsum.photos/1000/1200',

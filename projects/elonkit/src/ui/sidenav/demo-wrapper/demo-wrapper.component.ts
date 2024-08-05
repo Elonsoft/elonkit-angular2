@@ -19,7 +19,7 @@ import { BehaviorSubject } from 'rxjs';
               [selected]="getSelectedStatus('empty')"
               icon="es-24:at-line-w500"
               [color]="color"
-              text="Tootip text"></es-sidenav-item>
+              text="Tooltip text"></es-sidenav-item>
           </es-sidebar-menu>
           <es-sidebar-toggle (openEvent)="isOpen = $event" [isOpen]="isOpen"></es-sidebar-toggle>
           <es-sidebar-menu>

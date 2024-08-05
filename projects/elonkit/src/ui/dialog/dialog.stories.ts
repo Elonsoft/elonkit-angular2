@@ -178,7 +178,7 @@ type Story = StoryObj<DialogComponent>;
 
 export const Demo: Story = {};
 
-export const Aligment: Story = {
+export const Alignment: Story = {
   args: {
     align: 'start',
   },

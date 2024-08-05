@@ -25,7 +25,7 @@ const meta: Meta<DemoWrapperComponent> = {
     color: {
       control: { type: 'select' },
       options: ['default', 'primary', 'secondary'],
-      description: 'Color of sidebar contnent.',
+      description: 'Color of sidebar content.',
     },
     width: {
       description: 'Width the sidebar will have when opened.',
@@ -42,7 +42,7 @@ const meta: Meta<DemoWrapperComponent> = {
     behavior: {
       control: { type: 'radio' },
       options: ['click', 'hover'],
-      description: "Behavior of openning item's dropdowns.",
+      description: "Behavior of opening item's dropdowns.",
     },
     exclusive: {
       description:

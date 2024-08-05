@@ -29,7 +29,7 @@ export class ESEmptyStateComponent {
   private _icon: ESEmptyStateIcon;
 
   /**
-   * Icon to diaplsy.
+   * Icon to display.
    */
   @Input()
   public get icon(): ESEmptyStateIcon {
@@ -57,14 +57,14 @@ export class ESEmptyStateComponent {
   private _size: string;
 
   /**
-   * Size of epty-state.
+   * Size of empty-state.
    */
   @Input()
   public get size(): string {
     return this._size;
   }
   public set size(value: string | undefined) {
-    this._size = value || this.defaultOptions?.size || 'mediumn';
+    this._size = value || this.defaultOptions?.size || 'medium';
   }
 
   /**

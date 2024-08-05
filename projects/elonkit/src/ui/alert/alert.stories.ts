@@ -6,6 +6,7 @@ import { ESAlertModule, ESAlertComponent } from '.';
 
 const meta: Meta<ESAlertModule> = {
   component: ESAlertComponent,
+  title: 'ui/Alert',
   tags: ['autodocs'],
   args: {
     hasIcon: true,

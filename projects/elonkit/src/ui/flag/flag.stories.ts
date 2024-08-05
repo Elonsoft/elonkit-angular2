@@ -7,7 +7,7 @@ import { DemoWrapperModule, DemoWrapperComponent } from './demo-wrapper';
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
   tags: ['autodocs'],
-  title: 'UI/Flags',
+  title: 'ui/Flags',
 };
 
 export default meta;

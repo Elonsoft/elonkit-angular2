@@ -21,7 +21,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
           [type]="type"
           [defaultChecked]="defaultChecked"
           [autoFocus]="autoFocus"
-          (indeterminateEvevnt)="onIndeterminateClick()"></es-switch>
+          (indeterminateEvent)="onIndeterminateClick()"></es-switch>
       </form>
 
       <br />
@@ -58,6 +58,6 @@ export class DemoWrapperComponent implements OnInit {
   }
 
   public onIndeterminateClick(): void {
-    console.log('Indeterminate switch ckicked');
+    console.log('Indeterminate switch clicked');
   }
 }

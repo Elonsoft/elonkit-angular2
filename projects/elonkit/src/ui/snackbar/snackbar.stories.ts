@@ -2,20 +2,19 @@ import type { Meta, StoryObj } from '@storybook/angular';
 
 import { ESSnackbarComponent } from './';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoreModule } from '~storybook/core.module';
-import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DemoWrapperModule } from './demo-wrapper/demo-wrapper.module';
 import { DemoWrapperComponent } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/Snackbar',
   tags: ['autodocs'],
   args: {
     text: 'Snack!',
     icon: 'es-autocomplete-field:magnify',
     dismissAfter: 0,
-    horisontalPosition: undefined,
+    horizontalPosition: undefined,
     verticalPosition: undefined,
     size: 'm',
     variant: undefined,
@@ -32,7 +31,7 @@ const meta: Meta<DemoWrapperComponent> = {
     dismissAfter: {
       description: 'The length of time in milliseconds to wait before automatically dismissing the snack bar.',
     },
-    horisontalPosition: {
+    horizontalPosition: {
       control: { type: 'select' },
       options: ['center', 'end', 'left', 'right', 'start'],
       description: 'The horizontal position to place the snack bar.',
@@ -77,7 +76,7 @@ export const Primary: Story = {
       [text]="text"
       [icon]="icon"
       [dismissAfter]="dismissAfter"
-      [horisontalPosition]="horisontalPosition"
+      [horizontalPosition]="horizontalPosition"
       [verticalPosition]="verticalPosition"
       [size]="size"
       [variant]="variant"

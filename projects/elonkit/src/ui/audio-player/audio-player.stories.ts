@@ -7,6 +7,7 @@ import { DemoWrapperModule, DemoWrapperComponent } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/Audioplayer',
   tags: ['autodocs'],
   args: {
     volume: 50,

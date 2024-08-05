@@ -43,7 +43,7 @@ const TRANSITION = `${TRANSITION_DURATION}ms cubic-bezier(0.25, 0.8, 0.25, 1)`;
 })
 export class ESSFSComponent {
   @Input() public showFiltersButton = true;
-  @Input() public showSearchInpuit = true;
+  @Input() public showSearchInput = true;
   @Input() public count: number | null = 0;
   @Input() public sortingOptions: Array<ISortingOption> = [];
   @Input() public set filterFieldsValues(filterFieldsValues: ISFSFieldValue[]) {

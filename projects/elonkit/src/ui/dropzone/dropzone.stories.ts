@@ -8,6 +8,7 @@ import { DemoWrapperModule, DemoWrapperComponent } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/Dropzone',
   tags: ['autodocs'],
   args: {
     heading: 'DROP FILES HERE',
@@ -25,7 +26,7 @@ const meta: Meta<DemoWrapperComponent> = {
       description: 'Heading string',
     },
     subheading: {
-      description: 'Subeading string',
+      description: 'Subheading string',
     },
     accept: {
       control: { type: 'select' },

@@ -1,10 +1,10 @@
 <div class="filters es-body-100">
   <div class="filters__actions-wrapper">
-    <ng-container *ngIf="showSearchInpuit">
+    <ng-container *ngIf="showSearchInput">
       <div class="filters__search">
         <mat-icon class="filters__search-icon" matPrefix svgIcon="es-sfs:magnify-w400"></mat-icon>
 
-        <input #input class="filters__search-input" placeholder="Поиск по списку" [value]="text" (input)="onInput($event)" />
+        <input #input class="filters__search-input" placeholder="Поиск" [value]="text" (input)="onInput($event)" />
 
         <mat-icon *ngIf="text" class="filters__search-clear-icon" svgIcon="es-sfs:clear" (click)="onClearSearch()"></mat-icon>
       </div>

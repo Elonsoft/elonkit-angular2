@@ -8,6 +8,7 @@ import { DemoWrapperComponent, DemoWrapperModule } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperComponent,
+  title: 'ui/Breadcrumbs',
   tags: ['autodocs'],
   args: {
     breadcrumbs: [

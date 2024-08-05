@@ -46,7 +46,7 @@ export class ESAvatarGroupComponent implements AfterContentInit, OnDestroy, OnCh
   private _size: number;
 
   /**
-   * Defines space beetween avatars.
+   * Defines space between avatars.
    */
   @Input()
   public get spacing(): number {

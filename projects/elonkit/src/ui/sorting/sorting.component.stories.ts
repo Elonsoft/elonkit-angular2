@@ -40,6 +40,7 @@ const options = [
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'ui/Sorting',
   tags: ['autodocs'],
   args: {
     value: { sortBy: '', direction: '' },

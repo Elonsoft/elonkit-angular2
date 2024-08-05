@@ -151,7 +151,7 @@ export class ESPaginatorComponent {
   public _reverse = false;
 
   /**
-   * Reverse rize with pagination.
+   * Reverse pagination.
    */
   @Input()
   public get reverse() {

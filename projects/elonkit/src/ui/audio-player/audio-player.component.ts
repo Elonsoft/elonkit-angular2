@@ -74,7 +74,7 @@ export class ESAudioPlayerComponent implements AfterViewInit, OnDestroy {
   }
 
   /**
-   * Event emitted (true) when audio play and false ushe audio paused.
+   * Event emitted (true) when audio play and false when audio paused.
    */
   @Output() public audioPlay = new EventEmitter<boolean>();
 

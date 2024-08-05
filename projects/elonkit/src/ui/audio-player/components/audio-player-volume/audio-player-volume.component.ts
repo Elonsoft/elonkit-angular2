@@ -40,7 +40,7 @@ export class ESAudioPlayerVolumeComponent {
    * @internal
    * @ignore
    */
-  public previuseVolume = 0;
+  public previousVolume = 0;
 
   /**
    * @internal
@@ -77,7 +77,7 @@ export class ESAudioPlayerVolumeComponent {
     this.volume = value;
 
     if (!value) {
-      this.previuseVolume = 0;
+      this.previousVolume = 0;
     }
     this.volumeChanged.emit(value);
   }
@@ -102,10 +102,10 @@ export class ESAudioPlayerVolumeComponent {
     this.isMute = !this.isMute;
 
     if (this.isMute) {
-      this.previuseVolume = this.volume;
+      this.previousVolume = this.volume;
       this.volume = 0;
     } else {
-      this.volume = this.previuseVolume || 25;
+      this.volume = this.previousVolume || 25;
     }
 
     this.volumeChanged.emit(this.volume);

@@ -9,6 +9,7 @@ import { ESAvatarGroupComponent } from './avatar-group.component';
 
 const meta: Meta<ESAvatarComponent> = {
   component: ESAvatarComponent,
+  title: 'ui/Avatar',
   subcomponents: { ESAvatarGroupComponent },
   decorators: [
     moduleMetadata({

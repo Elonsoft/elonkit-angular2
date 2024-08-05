@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 const TEXT = 'Hello World';
 
-const TEXT_MMULTILINE = `Hello World
+const TEXT_MULTILINE = `Hello World
 Good Morning World`;
 
 @Component({
@@ -14,5 +14,5 @@ export class InlineFormFieldStoryTypographyComponent {
   @Input() public typography: any;
 
   public text = TEXT;
-  public textMultiline = TEXT_MMULTILINE;
+  public textMultiline = TEXT_MULTILINE;
 }

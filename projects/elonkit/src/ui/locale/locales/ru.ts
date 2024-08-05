@@ -39,7 +39,7 @@ export const ru = {
     labelAvatar: 'Аватар',
     labelStatus: 'Статус',
   },
-  autocompliteMultiple: {
+  autocompleteMultiple: {
     labelTabAll: 'Все',
     labelTabSelected: 'Выбранные',
     labelTabNotSelected: 'Не выбранные',

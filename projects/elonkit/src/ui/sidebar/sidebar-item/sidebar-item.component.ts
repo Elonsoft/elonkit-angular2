@@ -33,7 +33,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
 
   @ContentChild('items') templateRef!: TemplateRef<any>;
   @ViewChild('tooltipHeader') tooltipHeader: ElementRef<HTMLDivElement>;
-  @ViewChild('tootipChildrenContainer') tootipChildrenContainer: ElementRef<HTMLDivElement>;
+  @ViewChild('tooltipChildrenContainer') tooltipChildrenContainer: ElementRef<HTMLDivElement>;
   @ViewChild('itemButton') itemButton!: ElementRef<HTMLButtonElement>;
 
   @Input() icon = '';
@@ -149,12 +149,12 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
 
       const childrenArr = Array.from(templateElement.children) as HTMLElement[];
 
-      this.removeChildernMargin(childrenArr);
+      this.removeChildrenMargin(childrenArr);
       this.operateNestedChildrenFocus(childrenArr);
     }
   }
 
-  private removeChildernMargin(children: HTMLElement[]): void {
+  private removeChildrenMargin(children: HTMLElement[]): void {
     children.map((el) => ((el.firstChild as HTMLElement).style.margin = '0px'));
   }
 
@@ -175,9 +175,9 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
   public selectedTooltipItemIndex = 0;
 
   public _onItemKeyDown(event: KeyboardEvent): void {
-    if (!this.hasChildren || !this.tootipChildrenContainer) return;
+    if (!this.hasChildren || !this.tooltipChildrenContainer) return;
 
-    const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
+    const childrenArr = Array.from(this.tooltipChildrenContainer.nativeElement.children) as HTMLElement[];
     if (this.tooltipHeader.nativeElement.querySelector('button')) {
       childrenArr.unshift(this.tooltipHeader.nativeElement);
     }
@@ -191,7 +191,7 @@ export class ESSidebarItemComponent implements AfterViewInit, OnChanges {
   public _onTooltipKeydown(event: KeyboardEvent): void {
     if (!this.hasChildren) return;
 
-    const childrenArr = Array.from(this.tootipChildrenContainer.nativeElement.children) as HTMLElement[];
+    const childrenArr = Array.from(this.tooltipChildrenContainer.nativeElement.children) as HTMLElement[];
 
     if (this.tooltipHeader.nativeElement.querySelector('button')) {
       childrenArr.unshift(this.tooltipHeader.nativeElement);

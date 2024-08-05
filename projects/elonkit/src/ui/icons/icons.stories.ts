@@ -7,6 +7,7 @@ import { DemoWrapperModule, DemoWrapperComponent } from './demo-wrapper';
 
 const meta: Meta<DemoWrapperComponent> = {
   component: DemoWrapperModule,
+  title: 'guides/Icons',
   tags: ['autodocs'],
   args: {
     color: '#000',
